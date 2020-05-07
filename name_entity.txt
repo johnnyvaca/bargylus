@@ -1,0 +1,8 @@
+tables
+
+
+Utilisateurs
+Vins
+Cepage : type de raisin utilisé dans un vin(plusieurs raisins) = recettes : faire du vin
+historique des achats
+stocks
