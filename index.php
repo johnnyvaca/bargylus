@@ -18,6 +18,18 @@ if (isset($_GET['action'])) {
 
 switch ($action) {
 
+    case'wines';
+        winesDisplay();
+
+        break;
+    case'about';
+        aboutPage();
+
+        break;
+    case'contact';
+        contactPage();
+
+        break;
 
     default;
         home();

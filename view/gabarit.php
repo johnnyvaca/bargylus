@@ -1,7 +1,7 @@
 <?php
 /**
  *Created by Bargylus.
- *FILE_NAME:Gabarit.php
+ *FILE_NAME:gabarit.php
  *USER:marwan
  *DATE:14.05.2020
  */
@@ -59,7 +59,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 text-center">
-                    <a href="index.html" class="site-logo">
+                    <a href="index.php?action=home" class="site-logo">
                         <img src="../images/logo.png" alt="Image" class="img-fluid">
                     </a>
                 </div>
@@ -79,11 +79,11 @@
                     <div class="mx-auto">
                         <nav class="site-navigation position-relative text-left" role="navigation">
                             <ul class="site-menu main-menu js-clone-nav mx-auto d-none pl-0 d-lg-block border-none">
-                                <li class="active"><a href="#" class="nav-link text-left">Home</a></li>
-                                <li><a href="#" class="nav-link text-left">About</a></li>
-                                <li><a href="#" class="nav-link text-left">Wines</a></li>
+                                <li class="active"><a href="index.php?action=home" class="nav-link text-left">Home</a></li>
+                                <li><a href="index.php?action=wines" class="nav-link text-left">Wines</a></li>
+                                <li><a href="index.php?action=about" class="nav-link text-left">About</a></li>
                                 <li><a href="#" class="nav-link text-left">Shop</a></li>
-                                <li><a href="#" class="nav-link text-left">Contact</a></li>
+                                <li><a href="index.php?action=contact" class="nav-link text-left">Contact</a></li>
                             </ul>
                         </nav>
 
