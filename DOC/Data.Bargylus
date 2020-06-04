@@ -36,3 +36,8 @@ INSERT INTO `users_buy_wines` (`date`,`price`,`quantity`) VALUES ("Jul 9, 2020",
 INSERT INTO `users_buy_wines` (`date`,`price`,`quantity`) VALUES ("Feb 6, 2020","100","44"),("Mar 30, 2020","80","36"),("Feb 7, 2020","80","18"),("Dec 17, 2020","80","14"),("Apr 2, 2021","80","44"),("Aug 6, 2020","70","26"),("Sep 2, 2019","80","48"),("Jun 17, 2019","80","2"),("Nov 22, 2019","90","36"),("Sep 7, 2020","90","36");
 INSERT INTO `users_buy_wines` (`date`,`price`,`quantity`) VALUES ("Dec 15, 2020","90","2"),("Mar 24, 2021","90","32"),("Oct 2, 2020","80","18"),("Feb 25, 2020","70","28"),("Jan 16, 2020","90","30"),("Jan 13, 2020","80","50"),("Jun 6, 2019","90","26"),("Jun 16, 2020","80","8"),("Dec 12, 2020","80","28"),("Feb 17, 2021","70","24");
 INSERT INTO `users_buy_wines` (`date`,`price`,`quantity`) VALUES ("Jul 19, 2020","80","42"),("Feb 24, 2021","80","34"),("Mar 5, 2021","90","26"),("Dec 10, 2019","90","34"),("Aug 12, 2019","90","14"),("Oct 6, 2020","70","20"),("Nov 29, 2020","90","6"),("Jul 7, 2020","90","32"),("Mar 10, 2020","90","4"),("Apr 8, 2021","70","8");
+
+modes_payments
+
+INSERT INTO `modes_payments` (`name`) VALUES ("postefinane"),("visacard"),("PayPal"),("mastercard");
+
