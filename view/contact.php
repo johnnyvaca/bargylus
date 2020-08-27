@@ -28,7 +28,7 @@ $title = "Bargylus- contact";
 
             <div class="col-lg-12">
                 <div class="section-title mb-5">
-                    <h2>Contact Us</h2>
+                    <h2 class="d-flex justify-content-center">Contact Us</h2>
                 </div>
                 <form method="post">
 

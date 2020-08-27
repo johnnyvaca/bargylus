@@ -9,37 +9,37 @@
 ob_start();
 $title = "Bargylus- Home";
 ?>
-<div class="owl-carousel hero-slide owl-style">
-        <div class="intro-section container" style="background-image: url('../images/hero_1.jpg');">
+<div class="owl-carousel hero-slide owl-style " >
+        <div class="intro-section container" style="background-image: url('images/hero_1.jpg');">
             <div class="row justify-content-center text-center align-items-center">
-                <div class="col-md-8">
-                    <span class="sub-title">Royal Wine</span>
-                    <h1>Grape Wine</h1>
+                <div class="col-s-8">
+                    <span class="sub-title">Vin Royal</span>
+                    <h1>Vin de raisin BIO %100</h1>
                 </div>
             </div>
         </div>
 
-        <div class="intro-section container" style="background-image: url('../images/hero_2.jpg');">
+        <div class="intro-section container" style="background-image: url('images/hero_2.jpg');" id="img2">
             <div class="row justify-content-center text-center align-items-center">
                 <div class="col-md-8">
-                    <span class="sub-title">Welcome</span>
-                    <h1>Wines For Everyone</h1>
+                    <span class="sub-title">Bienvenue</span>
+                    <h1>Le vin pour tout le monde </h1>
                 </div>
             </div>
         </div>
-    <div class="intro-section container" style="background-image: url('../images/img_3.jpg');">
+    <div class="intro-section container" style="background-image: url('images/img_3.jpg');" id="img3">
         <div class="row justify-content-center text-center align-items-center">
             <div class="col-md-8">
                 <span class="sub-title">Welcome</span>
-                <h1>Wines For Everyone</h1>
+                <h1>Le vin est le lait des vieillards. Vinum lac senutn</h1>
             </div>
         </div>
     </div>
-    <div class="intro-section container" style="background-image: url('../images/img_1.jpg');">
+    <div class="intro-section container" style="background-image: url('images/img_1.jpg');" id="img4">
         <div class="row justify-content-center text-center align-items-center">
             <div class="col-md-8">
-                <span class="sub-title">Welcome</span>
-                <h1>Wines For Everyone</h1>
+                <span class="sub-title">Bienvenu</span>
+                <h1>VIN DU Bargylus, C'EsT OR </h1>
             </div>
         </div>
     </div>
