@@ -30,6 +30,9 @@ switch ($action) {
         contactPage();
 
         break;
+    case'login';
+        loginPage();
+    break;
 
     default;
         home();
