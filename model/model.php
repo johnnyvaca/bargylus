@@ -8,7 +8,7 @@
 
 function getAllItems()
 {
-    require ".constant.php";
+    require "model/.constant.php";
     try {
         $dbh = new PDO('mysql:host=' . $dbhost . ';dbname=' . $dbname, $user, $pass);
         $query = 'SELECT * FROM users';
@@ -23,3 +23,4 @@ function getAllItems()
         print "Error!: " . $e->getMessage() . "<br/>";
         return null;
     }
+}
