@@ -7,6 +7,7 @@
  */
 ?>
 <!DOCTYPE html>
+<?php require_once 'helpers.php'?>
 <html lang="en">
 
 <head>
@@ -54,6 +55,8 @@
                         <img src="/images/logo.png" alt="Image" class="img-fluid " id="logo">
                     </a>
                 </div>
+                <!-- J'ajoute un flashmessage pour la connexion) -->
+                <?= getFlashMessage() ?>
             </div>
         </div>
 

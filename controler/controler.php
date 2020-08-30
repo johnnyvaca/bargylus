@@ -39,6 +39,18 @@ function LoginPage()
 function tryLogin($emailPost, $passwordPost)
 {
     $user = getUserByEmail($emailPost);
+
+    if($passwordPost == $user['firstname'])
+    {
+        unset($user['firstname']);
+        $_SESSION['user'] = $user;
+        $_SESSION['flashmessage'] = 'Bienvennue '.$user['lastname'];
+        require_once 'view/wines.php';
+    } else {
+        unset($_SESSION['user']);
+        $_SESSION['flashmessage'] = 'email ou password erroné';
+        require_once 'view/login.php';
+    }
 }
 
 ?>
