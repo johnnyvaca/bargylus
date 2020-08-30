@@ -18,21 +18,27 @@ if (isset($_GET['action'])) {
 
 switch ($action) {
 
-    case'wines';
+    case'wines':
         winesDisplay();
 
         break;
-    case'about';
+    case'about':
         aboutPage();
 
         break;
-    case'contact';
+    case'contact':
         contactPage();
 
         break;
-    case'login';
+    case'login':
         loginPage();
     break;
+    case 'tryLogin':
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        trylogin($email, $password);
+
+        break;
 
     default;
         home();

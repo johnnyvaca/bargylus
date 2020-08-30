@@ -6,18 +6,18 @@
  *DATE:14.05.2020
  */
 
-function getAllItems()
+function getUserByEmail($email)
 {
     require "model/.constant.php";
     try {
         $dbh = new PDO('mysql:host=' . $dbhost . ';dbname=' . $dbname, $user, $pass);
-        $query = 'SELECT * FROM users';
+        $query = 'SELECT * FROM users WHERE email=:email';
         $statment = $dbh->prepare($query);//prepare query, il doit faire des vérifications et il va pas exécuter tant
         //qu'il y a des choses incorrects
-        $statment->execute();//execute query
-        $queryResult = $statment->fetchAll();//prepare result for client cherche tous les résultats
-        var_dump($queryResult);
+        $statment->execute(['email' => $email]);//execute query
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client cherche tous les résultats
         $dbh = null; //refermer une connection quand on a fini
+        if($debug) var_dump($queryResult);
         return $queryResult;
     } catch (PDOException $e) {
         print "Error!: " . $e->getMessage() . "<br/>";

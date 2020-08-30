@@ -29,17 +29,17 @@ $title = "Bargylus- Login";
                 <div class="section-title mb-5 text-center">
                     <h2>Login</h2>
                 </div>
-                <form method="post">
+                <form method="post" action="index.php?action=tryLogin">
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <label for="eaddress">Email Address</label>
-                            <input type="text" id="eaddress" class="form-control form-control-lg" placeholder="Email Address">
+                            <input type="text" id="eaddress" name="email" class="form-control form-control-lg" placeholder="Email Address">
                         </div>
                     </div>
                     <div class="row" >
                         <div class="col-md-12 form-group">
                             <label for="fname">Password</label>
-                            <input type="password" id="fname" class="form-control form-control-lg" placeholder="Password">
+                            <input type="password" id="fname" name="password" class="form-control form-control-lg" placeholder="Password">
                         </div>
                     </div>
                     <div class="row">

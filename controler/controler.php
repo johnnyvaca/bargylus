@@ -31,4 +31,14 @@ function contactPage()
     require_once 'view/contact.php';
 }
 
+function LoginPage()
+{
+    require_once 'view/login.php';
+}
+
+function tryLogin($emailPost, $passwordPost)
+{
+    $user = getUserByEmail($emailPost);
+}
+
 ?>
