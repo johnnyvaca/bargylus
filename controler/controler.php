@@ -40,11 +40,13 @@ function tryLogin($emailPost, $passwordPost)
 {
     $user = getUserByEmail($emailPost);
 
-    if($passwordPost == $user['firstname'])
+
+echo $user['password'];
+    if(password_verify($passwordPost,$user['password']))
     {
-        unset($user['firstname']);
+
         $_SESSION['user'] = $user;
-        $_SESSION['flashmessage'] = 'Bienvennue '.$user['lastname'];
+        $_SESSION['flashmessage'] = 'Bienvenue '.$user['firstname'].$user['lastname'];
         require_once 'view/wines.php';
     } else {
         unset($_SESSION['user']);
