@@ -33,15 +33,29 @@ switch ($action) {
         break;
     case'login':
         loginPage();
-    break;
+        break;
     case 'tryLogin':
         $email = $_POST['email'];
         $password = $_POST['password'];
         trylogin($email, $password);
 
         break;
-    case 'signUp':
-        signUpPage();
+    case 'signupPage':
+        signupPage();
+        break;
+    case 'signup':
+        $email = $_POST['email'];
+        $lastname = $_POST['lastname'];
+        $firstname = $_POST['firstname'];
+        $phone_number = $_POST['firstname'];
+        $registration_date = $_POST['firstname'];
+        $birth_date = $_POST['firstname'];
+        $street_home = $_POST['firstname'];
+        $firstname = $_POST['zip'];
+        $firstname = $_POST['city'];
+        $firstname = $_POST['city'];
+        $firstname = $_POST['city'];
+        signup();
         break;
 
 
