@@ -1,0 +1,1 @@
+INSERT INTO users (email,lastname,firstname,phone_number,registration_date,birth_date,street_home,zip,city,canton,password) VALUES ('jonny.vaca-jaramillo','Vaca','Johnny',763317057,2020-09-01,'Chemin de Renens 13',1004,'Lausanne','14c4b06b824ec593239362517f538b29');
