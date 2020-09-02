@@ -45,8 +45,6 @@
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
 <div class="site-wrap">
-
-
     <div class="">
         <div class="container">
             <div class="">
@@ -55,14 +53,11 @@
                         <img src="/images/logo.png" alt="Image" class="img-fluid " id="logo">
                     </a>
                 </div>
-                <!-- J'ajoute un flashmessage pour la connexion) -->
-                <?= getFlashMessage() ?>
             </div>
         </div>
 
-
-
-
+        <!-- J'ajoute un flashmessage pour la connexion) -->
+        <?= getFlashMessage() ?>
         <div class="site-navbar py-2 js-sticky-header site-navbar-target d-none pl-0 d-lg-block" role="banner">
 
             <div class="container">

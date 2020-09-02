@@ -302,7 +302,9 @@ CREATE TABLE `wines` (
   `alcohol` float NOT NULL,
   `basic_price` float NOT NULL,
   `name` varchar(45) NOT NULL,
-  `size` int(11) NOT NULL
+  `size` int(11) NOT NULL,
+  `bigimage` int(11) NOT NULL,
+  `smallimge` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
