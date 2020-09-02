@@ -7,6 +7,7 @@
  */
 
 require "controler/controler.php";
+require "controler/controlerJVA.php";
 
 session_start();
 // to go home by default
@@ -39,6 +40,10 @@ switch ($action) {
         trylogin($email, $password);
 
         break;
+    case 'signUp':
+        signUpPage();
+        break;
+
 
     default;
         home();
