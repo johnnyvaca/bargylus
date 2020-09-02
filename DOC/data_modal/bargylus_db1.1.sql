@@ -1,33 +1,4 @@
--- phpMyAdmin SQL Dump
--- version 4.9.4
--- https://www.phpmyadmin.net/
---
--- Hôte : localhost
--- Généré le : mar. 01 sep. 2020 à 21:33
--- Version du serveur :  5.7.29-32-log
--- Version de PHP : 7.4.9
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Base de données : `bargylus_db`
---
-
--- --------------------------------------------------------
-
---
--- Structure de la table `grapes_varieties`
---
-
+bargylus_dbmodes_paymentsusers
 CREATE TABLE `grapes_varieties` (
   `id` int(11) NOT NULL,
   `name` varchar(45) NOT NULL,
