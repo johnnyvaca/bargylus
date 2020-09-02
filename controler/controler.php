@@ -39,12 +39,11 @@ function LoginPage()
 function tryLogin($emailPost, $passwordPost)
 {
     $user = getUserByEmail($emailPost);
+    require_once 'view/wines.php';
 
-
-echo $user['password'];
     if(password_verify($passwordPost,$user['password']))
     {
-
+        unset($user['password']);
         $_SESSION['user'] = $user;
         $_SESSION['flashmessage'] = 'Bienvenue '.$user['firstname'].$user['lastname'];
         require_once 'view/wines.php';
