@@ -21,24 +21,17 @@ function getUsers()
 
 
 $users = getUsers();
-var_dump($users);
 
 foreach ($users as $oneUser) {
     require ".constant.php";
     $hash = password_hash($oneUser['firstname'], PASSWORD_DEFAULT);
-    try {
-        $dbh = new PDO('mysql:host=' . $dbhost . ';dbname=' . $dbname, $user, $pass);
-        $query = 'UPDATE users SET password=:password WHERE id=:id';
-        $statment = $dbh->prepare($query);//prepare query, il doit faire des vérifications et il va pas exécuter tant
-        //qu'il y a des choses incorrects
-        $statment->execute(['id' => $oneUser['id'], 'password' => $hash]);//execute query
-        $dbh = null; //refermer une connection quand on a fini
-        if ($debug) var_dump($queryResult);
-
-    } catch (PDOException $e) {
-        print "Error!: " . $e->getMessage() . "<br/>";
-        return null;
-    }
+    echo $oneUser['firstname'] . " => $hash\n";
+    $dbh = new PDO('mysql:host=' . $dbhost . ';dbname=' . $dbname, $user, $pass);
+    $query = 'UPDATE users SET password=:password WHERE id=:id';
+    $statment = $dbh->prepare($query);//prepare query, il doit faire des vérifications et il va pas exécuter tant
+    //qu'il y a des choses incorrects
+    $statment->execute(['id' => $oneUser['id'], 'password' => $hash]);//execute query
+    $dbh = null; //refermer une connection quand on a fini
 }
 
 
