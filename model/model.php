@@ -18,7 +18,6 @@ function getPDO (){
 
 function getUserByEmail($email)
 {
-    require "model/.constant.php";
     try {
         $dbh = getPDO();
         $query = 'SELECT * FROM users WHERE email=:email';
