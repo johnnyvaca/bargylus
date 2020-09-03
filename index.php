@@ -47,7 +47,7 @@ switch ($action) {
         $email = $_POST['email'];
         $lastname = $_POST['lastname'];
         $firstname = $_POST['firstname'];
-        $phoneNumber = $_POST['firstname'];
+        $phoneNumber = $_POST['phone_number'];
         $birthDate = $_POST['birth_date'];
         $streetHome = $_POST['street_home'];
         $zip = $_POST['zip'];

@@ -52,12 +52,15 @@ function createUser($user)
     try {
         $dbh = new PDO('mysql:host=' . $dbhost . ';dbname=' . $dbname, $user, $pass);
         $query = "INSERT INTO users( email,  lastname,  firstname,  phone_number,  registration_date,  birth_date,  street_home,  zip,  city,  canton,  password) 
-                  VALUES  ('altin.zili@cpnv.ch','altin','zili',763317057,'2020-09-01','Chemin de Renens 13',1004,'Lausanne','14c4b06b824ec593239362517f538b29')";
+                  VALUES  (:email,  :lastname,  :firstname,  :phone_number,  :registration_date,  :birth_date,  :street_home,  :zip,  :city,  :canton,  :password)";
         $stmt = $dbh->prepare($query);
-        $stmt->execute();
-      //  $queryResult = $stmt->fetch(PDO::FETCH_ASSOC);
-        $user['id'] = $dbh->lastInsertId();
+        $stmt->execute($user);
+
+      $queryResult = $stmt->fetch(PDO::FETCH_ASSOC);
+            if($debug) var_dump($queryResult);
+        $dbh->lastInsertId();
         $dbh = null;
+        return $user;
     } catch (PDOException $e) {
         print "Error!:" . $e->getMessage() . "<br/>";
         die();

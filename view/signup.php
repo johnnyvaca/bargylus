@@ -32,15 +32,15 @@ $title = "Bargylus- sign up";
                 <form method="post" action="index.php?action=signup">
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <label for="eaddress">Email Address</label>
-                            <input type="text" id="eaddress" name="email" class="form-control form-control-lg" placeholder="Email Address">
+                            <label for="email">Email Address</label>
+                            <input type="text" id="email" name="email" class="form-control form-control-lg" placeholder="Email Address">
                         </div>
                     </div>
 
                     <div class="row" >
                         <div class="col-md-12 form-group">
-                            <label for="fname">Password</label>
-                            <input type="password" id="fname" name="password" class="form-control form-control-lg" placeholder="Password">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" class="form-control form-control-lg" placeholder="Password">
                         </div>
                     </div>
                     <div class="row">
@@ -52,7 +52,7 @@ $title = "Bargylus- sign up";
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <label for="firstname">firstname</label>
-                            <input type="text" id="firstname" name="email" class="form-control form-control-lg" placeholder="Email Address">
+                            <input type="text" id="firstname" name="firstname" class="form-control form-control-lg" placeholder="Email Address">
                         </div>
                     </div>
                     <div class="row">

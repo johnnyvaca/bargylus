@@ -1,5 +1,5 @@
 <?php
-require_once 'model/model.php';
+
 
 
 function signupPage(){
@@ -7,7 +7,7 @@ require_once 'view/signup.php';
 }
 function signup($email,$lastname,$firstname,$phoneNumber,$birthDate,$streetHome,$zip,$city,$canton,$password){
  //   email, lastname, firstname, phone_number, registration_date, birth_date, street_home, zip, city, canton, password
-    $user = array(
+    $user = [
         'email' => $email,
         'lastname' => $lastname,
         'firstname' => $firstname,
@@ -19,9 +19,10 @@ function signup($email,$lastname,$firstname,$phoneNumber,$birthDate,$streetHome,
         'city' => $city,
         'canton' => $canton,
        'password' => $password
-    );
-createUser($user);
+    ];
 
+$newUser = createUser($user);
 
+print_r($newUser);
     require 'view/wines.php';
 }
