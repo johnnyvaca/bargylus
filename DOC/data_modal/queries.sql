@@ -1,0 +1,2 @@
+INSERT INTO users(email, lastname, firstname, phone_number, registration_date, birth_date, street_home, zip, city, canton, password) 
+VALUES    ('johnny.vaca-jaramillo@cpnv.ch', 'Vaca', 'Johnny', '076 331 70 57', '2020-09-01','1999-10-16','Chemin de Renens 13', 1004,'Lausanne','Vaud','$2y$10$euiFprGtt3Iv0B4gCUzExudcsbmte0TphtN9ufN6tv7');

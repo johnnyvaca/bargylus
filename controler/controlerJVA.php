@@ -2,6 +2,10 @@
 require_once 'model/model.php';
 
 
-function signUpPage(){
+function signupPage(){
+require_once 'view/signup.php';
+}
+function signup(){
+
 
 }
