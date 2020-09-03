@@ -5,9 +5,9 @@ require_once 'model/model.php';
 function signupPage(){
 require_once 'view/signup.php';
 }
-function signup($email,$password,$lastname,$firstname,$phoneNumber,$birthDate,$streetHome,$zip,$city,$canton){
+function signup($email,$lastname,$firstname,$phoneNumber,$birthDate,$streetHome,$zip,$city,$canton,$password){
  //   email, lastname, firstname, phone_number, registration_date, birth_date, street_home, zip, city, canton, password
-    $user =  [
+    $user = array(
         'email' => $email,
         'lastname' => $lastname,
         'firstname' => $firstname,
@@ -19,7 +19,7 @@ function signup($email,$password,$lastname,$firstname,$phoneNumber,$birthDate,$s
         'city' => $city,
         'canton' => $canton,
        'password' => $password
-    ];
+    );
 createUser($user);
 
 

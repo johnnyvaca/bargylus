@@ -47,15 +47,14 @@ switch ($action) {
         $email = $_POST['email'];
         $lastname = $_POST['lastname'];
         $firstname = $_POST['firstname'];
-        $phone_number = $_POST['firstname'];
-        $registration_date = $_POST['firstname'];
-        $birth_date = $_POST['firstname'];
-        $street_home = $_POST['firstname'];
-        $firstname = $_POST['zip'];
-        $firstname = $_POST['city'];
-        $firstname = $_POST['city'];
-        $firstname = $_POST['city'];
-        signup();
+        $phoneNumber = $_POST['firstname'];
+        $birthDate = $_POST['birth_date'];
+        $streetHome = $_POST['street_home'];
+        $zip = $_POST['zip'];
+        $city = $_POST['city'];
+        $canton = $_POST['canton'];
+        $password = $_POST['password'];
+        signup($email,$lastname,$firstname,$phoneNumber,$birthDate,$streetHome,$zip,$city,$canton,$password);
         break;
 
 
