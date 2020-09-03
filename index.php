@@ -20,7 +20,7 @@ if (isset($_GET['action'])) {
 switch ($action) {
 
     case'wines':
-        winesDisplay();
+        getWinesDisplay();
 
         break;
     case'about':
