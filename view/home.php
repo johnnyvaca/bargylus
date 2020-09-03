@@ -10,7 +10,7 @@ ob_start();
 $title = "Bargylus- Home";
 ?>
 <div class="owl-carousel hero-slide owl-style " >
-        <div class="intro-section container" style="background-image: url('images/hero_1.jpg');">
+        <div class="intro-section container" style="background-image: url('images/hero_1.png');">
             <div class="row justify-content-center text-center align-items-center">
                 <div class="col-s-8">
                     <span class="sub-title">Vin Royal</span>
@@ -19,7 +19,7 @@ $title = "Bargylus- Home";
             </div>
         </div>
 
-        <div class="intro-section container" style="background-image: url('images/hero_2.jpg');" id="img2">
+        <div class="intro-section container" style="background-image: url('images/hero_2.png');" id="img2">
             <div class="row justify-content-center text-center align-items-center">
                 <div class="col-md-8">
                     <span class="sub-title">Bienvenue</span>
@@ -27,7 +27,7 @@ $title = "Bargylus- Home";
                 </div>
             </div>
         </div>
-    <div class="intro-section container" style="background-image: url('images/img_3.jpg');" id="img3">
+    <div class="intro-section container" style="background-image: url('images/img_3.png');" id="img3">
         <div class="row justify-content-center text-center align-items-center">
             <div class="col-md-8">
                 <span class="sub-title">Welcome</span>

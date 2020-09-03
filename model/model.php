@@ -26,3 +26,22 @@ function getUserByEmail($email)
         return null;
     }
 }
+function createUser($user)
+{
+    try {
+        $pdo = getPDO();
+        $query = "INSERT INTO users(email, lastname, firstname, phone_number, registration_date, birth_date, street_home, zip, city, canton, password) 
+                  VALUES (:email, :lastname, :firstname, :phone_number, :registration_date, :birth_date, :street_home, :zip, :city, :canton, :password)";
+        $stmt = $pdo->prepare("$query");
+        $stmt->execute($user);
+        $queryResult = $stmt->fetch(PDO::FETCH_ASSOC);
+        $user['id'] = $pdo->lastInsertId();
+
+        $pdo = null;
+        return $user['id'];
+    } catch (PDOException $e) {
+        print "Error!:" . $e->getMessage() . "<br/>";
+        die();
+    }
+
+}
