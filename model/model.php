@@ -61,11 +61,12 @@ author : Marwan
 
 function getWines(){
 
-    require ".const.php";
+    require "model/.constant.php";
+
 
     try {
         $dbh = getPDO();
-        $query = 'SELECT * FROM  ';
+        $query = 'SELECT * FROM bargylus_db.wines';
         $statment = $dbh->prepare($query);
         $statment->execute();//prepare query
         $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
