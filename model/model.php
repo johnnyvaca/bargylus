@@ -11,7 +11,7 @@
  * connexion à la base de donneés
  */
 function getPDO (){
-    require ".const.php";
+    require ".constant.php";
     $dbh = new PDO('mysql:host=' . $dbhost . ';dbname=' . $dbname, $user, $pass);
     return $dbh;
 }
@@ -20,7 +20,7 @@ function getUserByEmail($email)
 {
     require "model/.constant.php";
     try {
-        $dbh = new PDO('mysql:host=' . $dbhost . ';dbname=' . $dbname, $user, $pass);
+        $dbh = getPDO();
         $query = 'SELECT * FROM users WHERE email=:email';
         $statment = $dbh->prepare($query);//prepare query, il doit faire des vérifications et il va pas exécuter tant
         //qu'il y a des choses incorrects
