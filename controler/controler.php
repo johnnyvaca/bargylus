@@ -13,9 +13,10 @@ function home()
 
     require_once 'view/home.php';
 }
-
-function winesDisplay()
+/* author : MOA */
+function getWinesDisplay()
 {
+    $wines= getWines();
 
     require_once 'view/wines.php';
 }

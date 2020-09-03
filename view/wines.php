@@ -23,14 +23,14 @@ $title = "Bargylus- wines";
         <div class="row">
 
             <div class="col-lg-4 mb-5 col-md-6">
-
-                <div class="wine_v_1 text-center pb-4">
+                <?php  /*foreach () {*/ ?>
+                <div class="wine_v_1 text-center pb-4"l>
                     <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_2.png" alt="Image" class="img-fluid"></a>
                     <div>
                         <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
                         <span class="price">$629.00</span>
                     </div>
-
+                    <?php } ?>
 
                     <div class="wine-actions">
 
