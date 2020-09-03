@@ -45,3 +45,15 @@ function createUser($user)
     }
 
 }
+
+/*
+author : Marwan
+
+*/
+
+function getWines(){
+
+
+
+
+}
