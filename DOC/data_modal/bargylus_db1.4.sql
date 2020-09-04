@@ -303,8 +303,7 @@ CREATE TABLE `wines` (
   `basic_price` float NOT NULL,
   `name` varchar(45) NOT NULL,
   `size` int(11) NOT NULL,
-  `bigimage` int(11) NOT NULL,
-  `smallimge` int(11) NOT NULL
+  `photo` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -312,16 +311,16 @@ CREATE TABLE `wines` (
 --
 
 INSERT INTO `wines` (`id`, `year`, `alcohol`, `basic_price`, `name`, `size`) VALUES
-(1, 2015, 17, 32, 'Amigne/b', 2),
-(2, 2013, 18, 30, 'Païen/b', 1),
-(3, 2019, 16, 24, 'Amigne/b', 2),
-(4, 2015, 20, 30, 'Altesse/b', 1),
-(5, 2018, 18, 30, 'Altesse/b', 2),
-(6, 2012, 17, 28, 'Altesse/b', 2),
-(7, 2016, 20, 24, 'Aligoté/b', 2),
-(8, 2010, 17, 32, '', 1),
-(9, 2014, 16, 38, 'Païen/b', 1),
-(10, 2014, 20, 32, 'Amigne/b', 1);
+(1, 2015, 17, 32, 'Amigne/b', 2 , 'wine_1.png'),
+(2, 2013, 18, 30, 'Païen/b', 1, 'wine_2.png'),
+(3, 2019, 16, 24, 'Amigne/b', 2, 'wine_3.png'),
+(4, 2015, 20, 30, 'Altesse/b', 1, 'wine_4.png'),
+(5, 2018, 18, 30, 'Altesse/b', 2, 'wine_3.png'),
+(6, 2012, 17, 28, 'Arvien/b', 2, 'wine_4.png'),
+(7, 2016, 20, 24, 'Aligoté/b', 2, 'wine_2.png'),
+(8, 2010, 17, 32, 'Amigne/b', 1, 'wine_1.png'),
+(9, 2014, 16, 38, 'Païen/b', 1, 'wine_3.png'),
+(10, 2014, 20, 32, 'Amigne/b', 1, 'wine_1.png');
 
 -- --------------------------------------------------------
 
@@ -507,3 +506,4 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+users

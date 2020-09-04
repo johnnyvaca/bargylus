@@ -74,7 +74,7 @@
                                 <li class="active "><a href="index.php?action=contact" class="nav-link text-left">Contact</a></li>
 
                                 <li class="btn btn-primary"><a href="index.php?action=login" class="nav-link text-center white">Login</a></li>
-                                <li class="btn btn-primary"><a href="index.php?action=signUp" class="nav-link text-center white">s'inscrire</a></li>
+                                <li class="btn btn-primary"><a href="index.php?action=signupPage" class="nav-link text-center white">s'inscrire</a></li>
                             </ul>
                         </nav>
 
