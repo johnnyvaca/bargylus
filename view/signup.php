@@ -76,7 +76,7 @@ $title = "Bargylus- sign up";
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <label for="zip">zip</label>
-                            <input type="text" id="zip" name="zip" class="form-control form-control-lg" placeholder="zip">
+                            <input type="number" id="zip" name="zip" class="form-control form-control-lg" placeholder="zip">
                         </div>
                     </div>
                     <div class="row">

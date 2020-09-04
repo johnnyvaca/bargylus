@@ -21,6 +21,7 @@ function signup($email,$lastname,$firstname,$phoneNumber,$birthDate,$streetHome,
        'password' => $password
     ];
 
+    var_dump($user);
 $newUser = createUser($user);
 
 print_r($newUser);

@@ -54,10 +54,10 @@ function createUser($user)
         $query = "INSERT INTO users( email,  lastname,  firstname,  phone_number,  registration_date,  birth_date,  street_home,  zip,  city,  canton,  password) 
                   VALUES  (:email,  :lastname,  :firstname,  :phone_number,  :registration_date,  :birth_date,  :street_home,  :zip,  :city,  :canton,  :password)";
         $stmt = $dbh->prepare($query);
-        $stmt->execute($user);
+        $stmt->execute(array_values($user));
 
-      $queryResult = $stmt->fetch(PDO::FETCH_ASSOC);
-            if($debug) var_dump($queryResult);
+     //$stmt->fetch(PDO::FETCH_ASSOC);
+        //    if($debug) var_dump($queryResult);
         $dbh->lastInsertId();
         $dbh = null;
         return $user;

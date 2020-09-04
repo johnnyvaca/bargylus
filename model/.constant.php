@@ -8,7 +8,7 @@ $pass = 'BargylusPa$$w0rd';*/
 $dbhost = 'localhost:3306';
 $dbname = 'bargylus_db';
 $user = 'root';
-$pass = 'Pa$$w0rd';
+$pass = 'root';
 $debug = false;
 
 ?>
