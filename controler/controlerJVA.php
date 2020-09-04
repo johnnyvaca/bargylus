@@ -1,4 +1,4 @@
-<?php
+,<?php
 
 
 
@@ -21,8 +21,7 @@ function signup($email,$lastname,$firstname,$phoneNumber,$birthDate,$streetHome,
        'password' => $password
     ];
 
-$newUser = createUser($user);
+ createUser($user);
 
-print_r($newUser);
     require 'view/wines.php';
 }
