@@ -3,6 +3,7 @@ $dbhost = 'web21.swisscenter.com';
 $dbname = 'bargylus_db';
 $user = 'bargylus_admin';
 $pass = 'BargylusPa$$w0rd';
+$debug = false;
 /*
  * $dbhost = 'localhost:3306';
 $dbname = 'bargylus_db';

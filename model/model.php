@@ -6,6 +6,18 @@
  *DATE:14.05.2020
  */
 
+
+///Connexion à la base de donnée
+///créer par marwan
+///
+function getPDO()
+{
+    require "model/.const.php";
+    $dbh = new PDO('mysql:host=' . $dbhost . ';dbname=' . $dbname, $user, $pass);
+    return $dbh;
+}
+
+
 function getUsers()
 {
     require "model/.constant.php";
@@ -17,7 +29,7 @@ function getUsers()
         $statment->execute();//execute query
         $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client cherche tous les résultats
         $dbh = null; //refermer une connection quand on a fini
-        if($debug) var_dump($queryResult);
+        if ($debug) var_dump($queryResult);
         return $queryResult;
     } catch (PDOException $e) {
         print "Error!: " . $e->getMessage() . "<br/>";
@@ -36,16 +48,16 @@ function getUserByEmail($email)
         $statment->execute(['email' => $email]);//execute query
         $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client cherche tous les résultats
         $dbh = null; //refermer une connection quand on a fini
-        if($debug) var_dump($queryResult);
+        if ($debug) var_dump($queryResult);
         return $queryResult;
     } catch (PDOException $e) {
         print "Error!: " . $e->getMessage() . "<br/>";
         return null;
     }
 }
+
 function createUser($oneUser)
 {
-
 
 
     require "model/.constant.php";
@@ -68,3 +80,24 @@ function createUser($oneUser)
 
 }
 
+
+function getWines()
+{
+    require "model/.constant.php";
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT * FROM bargylus_db.wines';
+        $statment = $dbh->prepare($query);
+        $statment->execute();//prepare query
+        $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        return $queryResult;
+        if ($debug) var_dump($queryResult);
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+
+
+}
