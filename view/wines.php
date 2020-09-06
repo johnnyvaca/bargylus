@@ -50,7 +50,7 @@ $title = "Bargylus- wines";
                 </div>
 
             </div>
-            <?php var_dump($wines); } ?>
+            <?php  } ?>
 
 
         </div>

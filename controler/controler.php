@@ -17,7 +17,7 @@ function home()
 function getWinesDisplay()
 {
     $wines= getWines();
-    var_dump($wines);
+
 
     require_once 'view/wines.php';
 }

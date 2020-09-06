@@ -12,7 +12,7 @@
 ///
 function getPDO()
 {
-    require "model/.const.php";
+    require "model/.constant.php";
     $dbh = new PDO('mysql:host=' . $dbhost . ';dbname=' . $dbname, $user, $pass);
     return $dbh;
 }
