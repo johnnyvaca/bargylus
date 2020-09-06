@@ -1,9 +1,10 @@
 <?php
-$dbhost = 'localhost:3306';
+$dbhost = 'localhost';
 $dbname = 'bargylus_db';
 $user = 'root';
-$pass = 'root';
+$pass = 'Pa$$w0rd';
 $debug = false;
+
 /*
  * $dbhost = 'localhost:3306';
 $dbname = 'bargylus_db';
