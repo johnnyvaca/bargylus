@@ -4,7 +4,7 @@
  *FILE_NAME:index.php
  *USER:marwan
  *DATE:14.05.2020
- */
+
 
 require "controler/controlerJVA.php";
 
@@ -15,7 +15,8 @@ if (isset($_GET['action'])) {
 } else {
     $action = 'home';
 }
-
+*/
+$action = '';
 switch ($action) {
 
 

@@ -29,7 +29,7 @@ $title = "Bargylus- sign up";
                 <div class="section-title mb-5 text-center">
                     <h2>Sign up</h2>
                 </div>
-                <form method="post" action="indexJVA.php?action=signup">
+                <form method="post" action="index.php?action=signup">
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <label for="email">Email Address</label>
