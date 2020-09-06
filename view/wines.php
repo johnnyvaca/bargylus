@@ -21,10 +21,11 @@ $title = "Bargylus- wines";
         </div>
 
         <div class="row">
-
+            <?php  foreach ($wines as $wine) { ?>
             <div class="col-lg-4 mb-5 col-md-6">
-                <?php  foreach ($wines as $wine) { ?>
+
                 <div class="wine_v_1 text-center pb-4">
+
                     <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/<?=$wine['photo'] ?>" alt="Image" class="img-fluid"></a>
                     <div>
                         <h3 class="heading mb-1"><a href="#"><?= $wine['name'] ?></a></h3>
@@ -47,10 +48,12 @@ $title = "Bargylus- wines";
 
                         <a href="cart.html" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
                     </div>
+
                 </div>
 
             </div>
             <?php  } ?>
+
 
 
         </div>
