@@ -93,7 +93,7 @@ $title = "Bargylus- sign up";
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <input type="submit" value="signUp" class="btn btn-primary py-3 px-5">
+                            <input type="submit" value="signUp" id="cmdSignUp" class="btn btn-primary py-3 px-5">
                         </div>
                     </div>
 
