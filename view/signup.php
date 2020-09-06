@@ -52,7 +52,7 @@ $title = "Bargylus- sign up";
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <label for="firstname">firstname</label>
-                            <input type="text" id="firstname" name="firstname" class="form-control form-control-lg" placeholder="Email Address">
+                            <input type="text" id="firstname" name="firstname" class="form-control form-control-lg" placeholder="firstname">
                         </div>
                     </div>
                     <div class="row">
@@ -93,7 +93,7 @@ $title = "Bargylus- sign up";
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <input type="submit" value="signUp" id="cmdSignUp" class="btn btn-primary py-3 px-5">
+                            <input type="submit" value="signUp" class="btn btn-primary py-3 px-5">
                         </div>
                     </div>
 

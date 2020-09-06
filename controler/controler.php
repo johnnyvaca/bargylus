@@ -6,7 +6,7 @@
  *DATE:14.05.2020
  */
 
-require_once 'model/model.php';
+require 'model/model.php';
 
 function home()
 {
