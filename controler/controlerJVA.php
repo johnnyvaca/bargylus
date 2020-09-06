@@ -6,7 +6,8 @@ function signupPage(){
 require_once 'view/signup.php';
 }
 function signup($email,$lastname,$firstname,$phoneNumber,$birthDate,$streetHome,$zip,$city,$canton,$password){
- //   email, lastname, firstname, phone_number, registration_date, birth_date, street_home, zip, city, canton, password
+
+    //   email, lastname, firstname, phone_number, registration_date, birth_date, street_home, zip, city, canton, password
     $user = [
         'email' => $email,
         'lastname' => $lastname,
@@ -21,9 +22,7 @@ function signup($email,$lastname,$firstname,$phoneNumber,$birthDate,$streetHome,
        'password' => $password
     ];
 
-    var_dump($user);
-$newUser = createUser($user);
+createUser($user);
 
-print_r($newUser);
-    require 'view/wines.php';
+    require 'view/signup.php';
 }
