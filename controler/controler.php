@@ -78,7 +78,7 @@ function signup($email,$lastname,$firstname,$phoneNumber,$birthDate,$streetHome,
 
     createUser($oneUser);
 
-    require 'view/signup.php';
+    require 'view/wines.php';
 }
 
 ?>
