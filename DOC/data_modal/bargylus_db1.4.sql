@@ -310,7 +310,7 @@ CREATE TABLE `wines` (
 -- Déchargement des données de la table `wines`
 --
 
-INSERT INTO `wines` (`id`, `year`, `alcohol`, `basic_price`, `name`, `size`) VALUES
+INSERT INTO `wines` (`id`, `year`, `alcohol`, `basic_price`, `name`, `size`,`photo`) VALUES
 (1, 2015, 17, 32, 'Amigne/b', 2 , 'wine_1.png'),
 (2, 2013, 18, 30, 'Païen/b', 1, 'wine_2.png'),
 (3, 2019, 16, 24, 'Amigne/b', 2, 'wine_3.png'),
