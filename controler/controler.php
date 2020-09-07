@@ -51,7 +51,6 @@ function LoginPage()
 function tryLogin($emailPost, $passwordPost)
 {
     $user = getUserByEmail($emailPost);
-    require_once 'view/wines.php';
 
     if(password_verify($passwordPost,$user['password']))
     {

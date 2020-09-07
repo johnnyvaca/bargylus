@@ -74,9 +74,9 @@
                                 <li class="active"><a href="index.php?action=about" class="nav-link text-left">À propos</a>
                                 </li>
                                 <li class="active"><a href="#" class="nav-link text-left">Shop</a></li>
-                                <li class="active "><a href="index.php?action=contact" class="nav-link text-left">Contacte</a>
+                                <li class="active "><a href="index.php?action=contact" class="nav-link text-left">Contact</a>
                                 </li>
-                                <?php  if(isset($_SESSION["user"])== true){ ?>
+                                <?php  if(isset($_SESSION["user"])){ ?>
                                     <li class="btn btn-primary"><?= '<a href="index.php?action=logout"
                                                                class="nav-link text-center white">logout</a>'?></li>
 
