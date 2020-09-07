@@ -77,11 +77,13 @@
                                 <li class="active "><a href="index.php?action=contact" class="nav-link text-left">Contacte</a>
                                 </li>
                                 <?php  if(isset($_SESSION["user"])== false){ ?>
-                                <li class="btn btn-primary"><?= '<a href="index.php?action=login"
-                                                               class="nav-link text-center white">Login</a>'?></li>
-                                <?php }else { ?>
-                                <li class="btn btn-primary"><?= '<a href="index.php?action=logout"
+                                    <li class="btn btn-primary"><?= '<a href="index.php?action=logout"
                                                                class="nav-link text-center white">logout</a>'?></li>
+
+                                <?php }else { ?>
+                                        
+                                    <li class="btn btn-primary"><?= '<a href="index.php?action=login"
+                                                               class="nav-link text-center white">Login</a>'?></li>
                                 <?php }?>
 
                                 <li class="btn btn-primary"><a href="index.php?action=signupPage"
