@@ -16,13 +16,22 @@ if (isset($_GET['action'])) {
     $action = 'home';
 }
 
+// les variables globale
+
+
+
+
+
 switch ($action) {
 
-    case'wines':
-        getWinesDisplay();
+    case'displaywines':
+        $idwine = $_GET['id'];
+
+       getWinesDisplay($idwine);
 
         break;
     case'cartdetail':
+
         getItemDetail();
 
         break;
@@ -41,6 +50,11 @@ switch ($action) {
         $email = $_POST['email'];
         $password = $_POST['password'];
         trylogin($email, $password);
+
+        break;
+    case 'logout';
+
+        logout();
 
         break;
     case 'signupPage':
