@@ -76,12 +76,12 @@
                                 <li class="active"><a href="#" class="nav-link text-left">Shop</a></li>
                                 <li class="active "><a href="index.php?action=contact" class="nav-link text-left">Contacte</a>
                                 </li>
-                                <?php  if(isset($_SESSION["user"])== false){ ?>
+                                <?php  if(isset($_SESSION["user"])== true){ ?>
                                     <li class="btn btn-primary"><?= '<a href="index.php?action=logout"
                                                                class="nav-link text-center white">logout</a>'?></li>
 
                                 <?php }else { ?>
-                                        
+
                                     <li class="btn btn-primary"><?= '<a href="index.php?action=login"
                                                                class="nav-link text-center white">Login</a>'?></li>
                                 <?php }?>
