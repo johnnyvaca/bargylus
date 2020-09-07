@@ -56,7 +56,7 @@ function tryLogin($emailPost, $passwordPost)
     {
         unset($user['password']);
         $_SESSION['user'] = $user;
-        $_SESSION['flashmessage'] = 'Bienvenue '.$user['firstname'].$user['lastname'];
+        $_SESSION['flashmessage'] = 'Bienvenue '.$user['firstname']." ".$user['lastname'];
         require_once 'view/wines.php';
     } else {
         unset($_SESSION['user']);
@@ -67,7 +67,7 @@ function tryLogin($emailPost, $passwordPost)
 
 function logout(){
 
-    unset($_SESSION['username']);
+    unset($_SESSION['user']);
     require_once 'view/home.php';
 
 }
