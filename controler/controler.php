@@ -14,9 +14,9 @@ function home()
     require_once 'view/home.php';
 }
 /* author : MOA */
-function getWinesDisplay()
+function getWinesDisplay($idwine)
 {
-    $wines= getWines();
+    $wines= getWines($idwine);
 
 
     require_once 'view/wines.php';
@@ -24,7 +24,7 @@ function getWinesDisplay()
 /* author : MOA */
 function getItemDetail()
 {
-    $wines= getWinesDetail();
+    /*$wines= getWinesDetail();*/
 
 
     require_once 'view/cartdetail.php';
@@ -56,7 +56,7 @@ function tryLogin($emailPost, $passwordPost)
     {
         unset($user['password']);
         $_SESSION['user'] = $user;
-        $_SESSION['flashmessage'] = 'Bienvenue '.$user['firstname'].$user['lastname'];
+        $_SESSION['flashmessage'] = 'Bienvenue '.$user['firstname']." ".$user['lastname'];
         require_once 'view/wines.php';
     } else {
         unset($_SESSION['user']);
@@ -64,6 +64,16 @@ function tryLogin($emailPost, $passwordPost)
         require_once 'view/login.php';
     }
 }
+
+function logout(){
+
+    unset($_SESSION['user']);
+    require_once 'view/home.php';
+
+}
+
+
+
 function signupPage(){
     require_once 'view/signup.php';
 }
