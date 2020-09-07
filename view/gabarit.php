@@ -67,18 +67,23 @@
                         <nav class="site-navigation position-relative text-left" role="navigation">
                             <ul class="site-menu main-menu js-clone-nav mx-auto d-none pl-0 d-lg-block border-none">
 
-                                <li class="active"><a href="index.php?action=home" class="nav-link text-left">Home</a>
+                                <li class="active"><a href="index.php?action=home" class="nav-link text-left">Page d'accueil</a>
                                 </li>
-                                <li class="active"><a href="index.php?action=wines" class="nav-link text-left">Wines</a>
+                                <li class="active"><a href="index.php?action=displaywines" class="nav-link text-left">Vins</a>
                                 </li>
-                                <li class="active"><a href="index.php?action=about" class="nav-link text-left">About</a>
+                                <li class="active"><a href="index.php?action=about" class="nav-link text-left">À propos</a>
                                 </li>
                                 <li class="active"><a href="#" class="nav-link text-left">Shop</a></li>
-                                <li class="active "><a href="index.php?action=contact" class="nav-link text-left">Contact</a>
+                                <li class="active "><a href="index.php?action=contact" class="nav-link text-left">Contacte</a>
                                 </li>
+                                <?php  if(isset($_SESSION["user"])== false){ ?>
+                                <li class="btn btn-primary"><?= '<a href="index.php?action=login"
+                                                               class="nav-link text-center white">Login</a>'?></li>
+                                <?php }else { ?>
+                                <li class="btn btn-primary"><?= '<a href="index.php?action=logout"
+                                                               class="nav-link text-center white">logout</a>'?></li>
+                                <?php }?>
 
-                                <li class="btn btn-primary"><a href="index.php?action=login"
-                                                               class="nav-link text-center white">Login</a></li>
                                 <li class="btn btn-primary"><a href="index.php?action=signupPage"
                                                                class="nav-link text-center white">s'inscrire</a></li>
                             </ul>
