@@ -81,7 +81,7 @@ function createUser($oneUser)
 
 }
 
-
+// montrer les articles de vin
 function getWines()
 {
     require "model/.constant.php";
