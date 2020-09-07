@@ -27,17 +27,17 @@ $title = "Bargylus- wines";
 
                         <div class="wine_v_1 text-center pb-4">
 
-                            <a href="view/cartdetail.php" class="thumbnail d-block mb-4"><img
+                            <a href="index.php?action=cartdetail" class="thumbnail d-block mb-4"><img
                                         src="images/<?= $wine['photo'] ?>" alt="Image" class="img-fluid"></a>
                             <div>
-                                <h3 class="heading mb-1"><a href="#"><?= $wine['name'] ?></a></h3>
+                                <h3 class="heading mb-1"><a href="#"><?= $wine['name']," ",$wine['type'] ?></a></h3>
                                 <span class="price"><?= $wine['basic_price'] ?> CHF</span>
                             </div>
 
 
                             <div class="wine-actions">
 
-                                <h3 class="heading-2"><a href="#"><?= $wine['name'], " ", $wine['year'] ?></a></h3>
+                                <h3 class="heading-2"><a href="#"><?= $wine['name']," ", $wine['type'], " ", $wine['year'] ?></a></h3>
                                 <span class="price d-block"><?= $wine['basic_price'] ?> CHF</span>
 
                                 <div class="rating">

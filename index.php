@@ -22,6 +22,10 @@ switch ($action) {
         getWinesDisplay();
 
         break;
+    case'cartdetail':
+        getItemDetail();
+
+        break;
     case'about':
         aboutPage();
 

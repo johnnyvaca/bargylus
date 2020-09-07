@@ -102,3 +102,15 @@ function getWines()
 
 
 }
+
+
+function getWinesDetail(){
+
+
+
+
+
+
+
+
+}

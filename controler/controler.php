@@ -21,6 +21,16 @@ function getWinesDisplay()
 
     require_once 'view/wines.php';
 }
+/* author : MOA */
+function getItemDetail()
+{
+    $wines= getWinesDetail();
+
+
+    require_once 'view/cartdetail.php';
+}
+
+
 function aboutPage()
 {
 
