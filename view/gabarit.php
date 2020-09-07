@@ -7,7 +7,7 @@
  */
 ?>
 <!DOCTYPE html>
-<?php require_once 'helpers.php'?>
+<?php require_once 'helpers.php' ?>
 <html lang="en">
 
 <head>
@@ -16,7 +16,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-    <link href="https://fonts.googleapis.com/css?family=Cinzel:400,700|Montserrat:400,700|Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel:400,700|Montserrat:400,700|Roboto&display=swap"
+          rel="stylesheet">
 
     <link rel="stylesheet" href="/fonts/icomoon/style.css">
 
@@ -39,21 +40,20 @@
     <link rel="stylesheet" href="/css/main.css">
 
 
-
 </head>
 
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="200">
 
 <div class="site-wrap">
     <div class="">
         <div class="container">
-            <div class="">
-                <div class="col-12 text-center">
-                    <a href="index.php?action=home" class="site-logo">
-                        <img src="/images/logo.png" alt="Image" class="img-fluid " id="logo">
-                    </a>
-                </div>
+
+            <div class="col-12 text-center">
+                <a href="index.php?action=home" class="site-logo">
+                    <img src="/images/logo.png" alt="Image" class="img-fluid " id="logo">
+                </a>
             </div>
+
         </div>
 
         <!-- J'ajoute un flashmessage pour la connexion) -->
@@ -67,14 +67,20 @@
                         <nav class="site-navigation position-relative text-left" role="navigation">
                             <ul class="site-menu main-menu js-clone-nav mx-auto d-none pl-0 d-lg-block border-none">
 
-                                <li class="active"><a href="index.php?action=home" class="nav-link text-left">Home</a></li>
-                                <li class="active"><a href="index.php?action=wines" class="nav-link text-left">Wines</a></li>
-                                <li class="active"><a href="index.php?action=about" class="nav-link text-left">About</a></li>
+                                <li class="active"><a href="index.php?action=home" class="nav-link text-left">Home</a>
+                                </li>
+                                <li class="active"><a href="index.php?action=wines" class="nav-link text-left">Wines</a>
+                                </li>
+                                <li class="active"><a href="index.php?action=about" class="nav-link text-left">About</a>
+                                </li>
                                 <li class="active"><a href="#" class="nav-link text-left">Shop</a></li>
-                                <li class="active "><a href="index.php?action=contact" class="nav-link text-left">Contact</a></li>
+                                <li class="active "><a href="index.php?action=contact" class="nav-link text-left">Contact</a>
+                                </li>
 
-                                <li class="btn btn-primary"><a href="index.php?action=login" class="nav-link text-center white">Login</a></li>
-                                <li class="btn btn-primary"><a href="index.php?action=signupPage" class="nav-link text-center white">s'inscrire</a></li>
+                                <li class="btn btn-primary"><a href="index.php?action=login"
+                                                               class="nav-link text-center white">Login</a></li>
+                                <li class="btn btn-primary"><a href="index.php?action=signupPage"
+                                                               class="nav-link text-center white">s'inscrire</a></li>
                             </ul>
                         </nav>
 
@@ -86,42 +92,42 @@
         </div>
 
     </div>
+</div>
+
+<?= $content; ?>
 
 
+<div class="footer">
+    <div class="container">
 
-    <?= $content; ?>
-
-
-
-
-
-    <div class="footer">
-        <div class="container">
-
-            <div class="row">
-                <div class="col-12 text-center">
-                    <div class="social-icons">
-                        <a href="#"><span class="icon-facebook"></span></a>
-                        <a href="#"><span class="icon-twitter"></span></a>
-                        <a href="#"><span class="icon-youtube"></span></a>
-                        <a href="#"><span class="icon-instagram"></span></a>
-                    </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="social-icons">
+                    <a href="#"><span class="icon-facebook"></span></a>
+                    <a href="#"><span class="icon-twitter"></span></a>
+                    <a href="#"><span class="icon-youtube"></span></a>
+                    <a href="#"><span class="icon-instagram"></span></a>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="copyright">
-                        <p>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright ©<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="#" target="_blank" >Marwanophe</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </p>
-                        
-                    </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="copyright">
+                    <p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright ©
+                        <script>document.write(new Date().getFullYear());</script>
+                        All rights reserved | This template is made with <i class="icon-heart text-danger"
+                                                                            aria-hidden="true"></i> by <a href="#"
+                                                                                                          target="_blank">Marwanophe</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
 </div>
@@ -129,7 +135,13 @@
 
 
 <!-- loader -->
-<div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#ff5e15"/></svg></div>
+<div id="loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#ff5e15"/>
+    </svg>
+</div>
 
 <script src="/js/jquery-3.3.1.min.js"></script>
 <script src="/js/jquery-migrate-3.0.1.min.js"></script>

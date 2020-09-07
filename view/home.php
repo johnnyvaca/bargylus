@@ -35,7 +35,7 @@ $title = "Bargylus- Home";
             </div>
         </div>
     </div>
-    <div class="intro-section container" style="background-image: url('images/img_1.jpg');" id="img4">
+    <div class="intro-section container" style="background-image: url('images/img_1.png');" id="img4">
         <div class="row justify-content-center text-center align-items-center">
             <div class="col-md-8">
                 <span class="sub-title">Bienvenu</span>

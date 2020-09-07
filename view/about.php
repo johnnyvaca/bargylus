@@ -8,7 +8,7 @@
 ob_start();
 $title = "Bargylus- About";
 ?>
-<div class="hero-2" style="background-image: url('/images/hero_2.jpg');">
+<div class="hero-2" style="background-image: url('/images/hero_2.png');">
     <div class="container">
         <div class="row justify-content-center text-center align-items-center">
             <div class="col-md-8">
