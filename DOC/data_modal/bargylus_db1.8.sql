@@ -252,18 +252,9 @@ CREATE TABLE IF NOT EXISTS `wines` (
   `basic_price` float NOT NULL,
   `name` varchar(45) NOT NULL,
   `size` int NOT NULL,
-<<<<<<< Updated upstream
-  `type` varchar(45) NOT NULL,
-  `photo` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-=======
-<<<<<<< HEAD
   `stock` int NOT NULL,
   `photo` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-=======
-  `type` varchar(45) NOT NULL,
-  `photo` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
->>>>>>> d99ce4fb951c706ea1f9cc674a78ee99c9e484c9
->>>>>>> Stashed changes
+
   PRIMARY KEY (`id`),
   UNIQUE KEY `year` (`year`,`name`,`size`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
