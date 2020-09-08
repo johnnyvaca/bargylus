@@ -108,17 +108,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `lastname` varchar(45) NOT NULL,
   `firstname` varchar(45) NOT NULL,
   `phone_number` varchar(45) NOT NULL,
-  `registration_date` date DEFAULT NULL,
+  `registration_date` date NOT NULL,
   `birth_date` date NOT NULL,
   `street_home` varchar(45) NOT NULL,
   `zip` int NOT NULL,
   `city` varchar(45) NOT NULL,
   `canton` varchar(45) NOT NULL,
   `password` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `droits` int unsigned NOT NULL,
+  `droits` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 -- Listage des données de la table bargylus_db.users : ~10 rows (environ)
 DELETE FROM `users`;
@@ -134,7 +134,10 @@ INSERT INTO `users` (`id`, `email`, `lastname`, `firstname`, `phone_number`, `re
 	(8, 'diam.lorem.auctor@atvelitPellentesque.edu', 'Talon', 'Eugenia', '0041 73 82 31 70', '0000-00-00', '0000-00-00', 'Ap #223-191 Lorem, St.', 4871, 'Neuchâtel', 'VD', '', 0),
 	(9, 'nulla.Cras.eu@nuncinterdumfeugiat.org', 'Christen', 'Madison', '0041 79 98 33 12', '0000-00-00', '0000-00-00', '981-2253 Sem Avenue', 250381, 'Winterthour', 'VD', '', 0),
 	(10, 'ac.nulla.In@nec.org', 'Wallace', 'Alice', '0041 42 29 09 67', '0000-00-00', '0000-00-00', 'P.O. Box 377, 6484 Morbi St.', 22597, 'Küsnacht', 'JU', '', 0),
-	(11, 'yogao-jv@hotmail.com', 'Vaca', 'Johnny', '0763317057', '2020-09-07', '2020-12-12', 'Chemin de renens', 1004, 'Lausanne', 'Vaud', '$2y$10$tICXcp3EJOENwL5s14TEyOIY34QXvsDRqz1RG66DTPiU0ed6sAYhy', 0);
+	(11, 'yogao-jv@hotmail.com', 'Vaca', 'Johnny', '0763317057', '2020-09-07', '2020-12-12', 'Chemin de renens', 1004, 'Lausanne', 'Vaud', '$2y$10$tICXcp3EJOENwL5s14TEyOIY34QXvsDRqz1RG66DTPiU0ed6sAYhy', 0),
+	(12, 'root', 'root', 'root', 'root', '2020-09-07', '1999-12-12', 'root', 1002, 'root', 'root', '$2y$10$kIsa6cW4xx1Zxy2/sH5Ev.tYk7GR9.LS/22MQceDck359wsASm2Yu', 0),
+	(13, 'johnny.vaca-jaramillo@cpnv.ch', 'Vaca', 'Johnny', '0763317057', '2020-09-08', '1999-10-16', 'Chemin de renens 13', 1004, 'Lausanne', 'Vaud', '$2y$10$uLuh6JQGpj68wqvLtnmRDeQCjsay4miG9dvD5MaNWi3LWhw3I/gMy', 0),
+	(15, 'yogo-jv@hotmail.com', 'Jaramillo', 'Ismael', '076 343 71 20', '2020-09-08', '1999-10-16', 'chemin de renens 13', 1004, 'Lausanne', 'Vaud', '$2y$10$B0Glu8a4OKp/oAvfI4NA3eRbKkUwKUPm2aawpazzaBI5QlizRw6sC', 0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 -- Listage de la structure de la table bargylus_db. users_buy_wines
@@ -289,7 +292,7 @@ CREATE TABLE IF NOT EXISTS `wines` (
   `name` varchar(45) NOT NULL,
   `size` int NOT NULL,
   `type` varchar(45) NOT NULL,
-  `photo` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `photo` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `year` (`year`,`name`,`size`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
@@ -383,3 +386,4 @@ INSERT INTO `wines_compose_grapes_varieties` (`id`, `wine_id`, `grape_varietie_i
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+bargylus_db
