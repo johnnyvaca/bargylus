@@ -17,7 +17,7 @@ CREATE DATABASE IF NOT EXISTS `bargylus_db` /*!40100 DEFAULT CHARACTER SET utf8m
 USE `bargylus_db`;
 
 -- Listage de la structure de la table bargylus_db. grapes_varieties
-CREATE TABLE IF NOT EXISTS `grapes_varieties` (
+CREATE TABLE IF NOT EXISTS `grapes` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `color` varchar(45) NOT NULL,
@@ -27,61 +27,22 @@ CREATE TABLE IF NOT EXISTS `grapes_varieties` (
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 
 -- Listage des données de la table bargylus_db.grapes_varieties : ~51 rows (environ)
-DELETE FROM `grapes_varieties`;
-/*!40000 ALTER TABLE `grapes_varieties` DISABLE KEYS */;
-INSERT INTO `grapes_varieties` (`id`, `name`, `color`) VALUES
-	(0, 'Persan noir', 'noir'),
-	(1, 'Couderc noir', 'noir'),
-	(2, 'Landal noir', 'noir'),
-	(3, 'Plant de Brunel noir', 'noir'),
-	(4, 'Prunelard noir', 'noir'),
-	(5, 'Alphonse Lavallée noir', 'noir'),
-	(6, 'Aubun noir', 'noir'),
-	(7, 'Béclan noir', 'noir'),
-	(8, 'Aramon noir', 'noir'),
-	(9, 'Couston noir', 'noir'),
-	(10, 'Poulsard noir', 'noir'),
-	(11, 'Joubertin noir', 'noir'),
-	(12, 'Muscat à petits grains rouges', 'noir'),
-	(13, 'Gamay de Bouze noir', 'noir'),
-	(14, 'Béquignol noir', 'noir'),
-	(15, 'Fleurien noir', 'noir'),
-	(16, 'Aléatico noir', 'noir'),
-	(17, 'Ganson noir', 'noir'),
-	(18, 'Chatus noir', 'noir'),
-	(19, 'Brun Fourca noir', 'noir'),
-	(20, 'Calitor noir', 'noir'),
-	(21, 'Sauvignon gris', 'gris'),
-	(22, 'Pinot Gris', 'gris'),
-	(23, 'Grenache gris', 'gris'),
-	(24, 'Piquepoul gris', 'gris'),
-	(25, 'Terret gris', 'gris'),
-	(26, 'Aramon gris', 'gris'),
-	(27, 'Grolleau gris', 'gris'),
-	(28, 'Rivairenc', 'gris'),
-	(29, 'Trousseau gris', 'gris'),
-	(30, 'Cardinal rouge', 'rouge'),
-	(31, 'Barbaroux rosé', 'rosé'),
-	(32, 'Chasselas rosé', 'rosé'),
-	(33, 'Clairette rosé', 'rosé'),
-	(34, 'Gewurztraminer rosé', 'rosé'),
-	(35, 'Mauzac rosé', 'rosé'),
-	(36, 'Mustac à petits grains rosé', 'rosé'),
-	(37, 'Rosé du Var rosé', 'rosé'),
-	(38, 'Rubilande rosé', 'rosé'),
-	(39, 'Savagnin rosé', 'rosé'),
-	(40, 'Velteliner rouge précoce rosé', 'rosé'),
-	(41, 'Cinsault rosé', 'rosé'),
-	(42, 'Codivarta blanc', 'blanc'),
-	(43, 'Len de l’El blanc', 'blanc'),
-	(44, 'Claverie blanc', 'blanc'),
-	(45, 'Perdea blanc', 'blanc'),
-	(46, 'Pinot blanc', 'blanc'),
-	(47, 'Folignan blanc', 'blanc'),
-	(48, 'Muscat d’Alexandrie blanc', 'blanc'),
-	(49, 'Baco blanc', 'blanc'),
-	(50, 'Macabeu blanc', 'blanc');
-/*!40000 ALTER TABLE `grapes_varieties` ENABLE KEYS */;
+DELETE FROM `grapes`;
+/*!40000 ALTER TABLE `grapes` DISABLE KEYS */;
+INSERT INTO `grapes` (`id`, `name`, `color`) VALUES
+	(1, 'Couderc noir', 'Rouge'),
+	(2, 'Landal noir', 'blanc'),
+	(3, 'Plant de Brunel noir', 'Rouge'),
+	(4, 'Prunelard noir', 'blanc'),
+	(5, 'Alphonse Lavallée noir', 'Rouge'),
+	(6, 'Aubun noir', 'blanc'),
+	(7, 'Béclan noir', 'Rouge'),
+	(8, 'Aramon noir', 'blanc'),
+	(9, 'Couston noir', 'Rouge'),
+	(10, 'Poulsard noir', 'blanc'),
+	(11, 'Joubertin noir', 'Rouge'),	
+	(12, 'Macabeu blanc', 'blanc');
+/*!40000 ALTER TABLE `grapes` ENABLE KEYS */;
 
 -- Listage de la structure de la table bargylus_db. modes_payments
 CREATE TABLE IF NOT EXISTS `modes_payments` (
@@ -291,8 +252,18 @@ CREATE TABLE IF NOT EXISTS `wines` (
   `basic_price` float NOT NULL,
   `name` varchar(45) NOT NULL,
   `size` int NOT NULL,
+<<<<<<< Updated upstream
   `type` varchar(45) NOT NULL,
   `photo` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+=======
+<<<<<<< HEAD
+  `stock` int NOT NULL,
+  `photo` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+=======
+  `type` varchar(45) NOT NULL,
+  `photo` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+>>>>>>> d99ce4fb951c706ea1f9cc674a78ee99c9e484c9
+>>>>>>> Stashed changes
   PRIMARY KEY (`id`),
   UNIQUE KEY `year` (`year`,`name`,`size`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
@@ -300,37 +271,37 @@ CREATE TABLE IF NOT EXISTS `wines` (
 -- Listage des données de la table bargylus_db.wines : ~12 rows (environ)
 DELETE FROM `wines`;
 /*!40000 ALTER TABLE `wines` DISABLE KEYS */;
-INSERT INTO `wines` (`id`, `year`, `alcohol`, `basic_price`, `name`, `size`, `type`, `photo`) VALUES
-	(1, 2015, 17, 32, 'Amigne', 2, 'blanc', 'wine_1.png'),
-	(2, 2013, 18, 30, 'Païen', 1, 'blanc', 'wine_2.png'),
-	(3, 2019, 16, 24, 'Emitage', 2, 'blanc', 'wine_3.png'),
-	(4, 2015, 20, 30, 'Altesse', 1, 'blanc', 'wine_4.png'),
-	(5, 2018, 18, 30, 'petite-Arvine', 2, 'blanc', 'wine_5.png'),
-	(6, 2012, 17, 28, 'Arvine', 2, 'blanc', 'wine_6.png'),
-	(7, 2016, 20, 24, 'Aligoté', 2, 'blanc', 'wine_7.png'),
-	(8, 2010, 17, 32, 'Muscat', 1, 'blanc', 'wine_1.png'),
-	(9, 2012, 16, 38, 'Réze', 1, 'blanc', 'wine_2.png'),
-	(10, 2016, 16, 38, 'Lafnetscha', 1, 'blanc', 'wine_3.png'),
-	(11, 2017, 16, 38, 'Malvoisie', 1, 'blanc', 'wine_4.png'),
-	(12, 2014, 20, 32, 'Johannisberg', 1, 'blanc', 'wine_1.png');
+INSERT INTO `wines` (`id`, `year`, `alcohol`, `basic_price`, `name`, `size`,`stock`,`photo`) VALUES
+	(1, 2015, 17, 32, 'Amigne', 2, 30, 'wine_1.png'),
+	(2, 2013, 18, 30, 'Païen', 1, 30, 'wine_2.png'),
+	(3, 2019, 16, 24, 'Emitage', 2, 30, 'wine_3.png'),
+	(4, 2015, 20, 30, 'Altesse', 1, 30, 'wine_4.png'),
+	(5, 2018, 18, 30, 'petite-Arvine', 2, 30, 'wine_5.png'),
+	(6, 2012, 17, 28, 'Arvine', 2, 30, 'wine_6.png'),
+	(7, 2016, 20, 24, 'Aligoté', 2, 30, 'wine_7.png'),
+	(8, 2010, 17, 32, 'Muscat', 1, 30, 'wine_1.png'),
+	(9, 2012, 16, 38, 'Réze', 1, 30, 'wine_2.png'),
+	(10, 2016, 16, 38, 'Lafnetscha', 1, 30, 'wine_3.png'),
+	(11, 2017, 16, 38, 'Malvoisie', 1, 30, 'wine_4.png'),
+	(12, 2014, 20, 32, 'Johannisberg', 1, 30, 'wine_1.png');
 /*!40000 ALTER TABLE `wines` ENABLE KEYS */;
 
--- Listage de la structure de la table bargylus_db. wines_compose_grapes_varieties
-CREATE TABLE IF NOT EXISTS `wines_compose_grapes_varieties` (
+-- Listage de la structure de la table bargylus_db. wines_compose_grapes
+CREATE TABLE IF NOT EXISTS `wines_compose_grapes` (
   `id` int NOT NULL,
   `wine_id` int NOT NULL,
-  `grape_varietie_id` int DEFAULT NULL,
+  `grape_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_Wines_has_Grapes_Varieties_Grapes_Varieties1_idx` (`grape_varietie_id`),
-  KEY `fk_Wines_has_Grapes_Varieties_Wines1_idx` (`wine_id`),
-  CONSTRAINT `fk_Wines_has_Grapes_Varieties_Grapes_Varieties1` FOREIGN KEY (`grape_varietie_id`) REFERENCES `grapes_varieties` (`id`),
-  CONSTRAINT `fk_Wines_has_Grapes_Varieties_Wines1` FOREIGN KEY (`wine_id`) REFERENCES `wines` (`id`)
+  KEY `fk_Wines_has_Grapes_Grapes1_idx` (`grape_id`),
+  KEY `fk_Wines_has_Grapes_Wines1_idx` (`wine_id`),
+  CONSTRAINT `fk_Wines_has_Grapes_Grapes1` FOREIGN KEY (`grape_id`) REFERENCES `grapes` (`id`),
+  CONSTRAINT `fk_Wines_has_Grapes_Wines1` FOREIGN KEY (`wine_id`) REFERENCES `wines` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Listage des données de la table bargylus_db.wines_compose_grapes_varieties : ~50 rows (environ)
-DELETE FROM `wines_compose_grapes_varieties`;
-/*!40000 ALTER TABLE `wines_compose_grapes_varieties` DISABLE KEYS */;
-INSERT INTO `wines_compose_grapes_varieties` (`id`, `wine_id`, `grape_varietie_id`) VALUES
+DELETE FROM `wines_compose_grapes`;
+/*!40000 ALTER TABLE `wines_compose_grapes` DISABLE KEYS */;
+INSERT INTO `wines_compose_grapes` (`id`, `wine_id`, `grape_id`) VALUES
 	(1, 8, 35),
 	(2, 1, 22),
 	(3, 6, 43),
@@ -381,7 +352,7 @@ INSERT INTO `wines_compose_grapes_varieties` (`id`, `wine_id`, `grape_varietie_i
 	(48, 4, 5),
 	(49, 2, 36),
 	(50, 9, 16);
-/*!40000 ALTER TABLE `wines_compose_grapes_varieties` ENABLE KEYS */;
+/*!40000 ALTER TABLE `wines_compose_grapes` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
