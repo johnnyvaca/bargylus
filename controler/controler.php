@@ -57,7 +57,7 @@ function tryLogin($emailPost, $passwordPost)
         unset($user['password']);
         $_SESSION['user'] = $user;
         $_SESSION['flashmessage'] = 'Bienvenue '.$user['firstname'].$user['lastname'];
-        require_once 'view/wines.php';
+        getWinesDisplay();
     } else {
         unset($_SESSION['user']);
         $_SESSION['flashmessage'] = 'email ou password erroné';
@@ -97,7 +97,7 @@ function signup($email,$lastname,$firstname,$phoneNumber,$birthDate,$streetHome,
 
     createUser($oneUser);
 
-    require 'view/wines.php';
+    getWinesDisplay();
 }
 
 ?>
