@@ -76,7 +76,7 @@ function logout(){
 function signupPage(){
     require_once 'view/signup.php';
 }
-function signup($email,$lastname,$firstname,$phoneNumber,$birthDate,$streetHome,$zip,$city,$canton,$password){
+function signup($email,$lastname,$firstname,$phoneNumber,$day,$month,$year,$streetHome,$zip,$city,$canton,$password){
 
     $hash   = password_hash($password, PASSWORD_DEFAULT);
 
@@ -86,7 +86,7 @@ function signup($email,$lastname,$firstname,$phoneNumber,$birthDate,$streetHome,
         'firstname' => $firstname,
         'phone_number' => $phoneNumber,
         'registration_date' => date('Y-m-d'),
-        'birth_date' => $birthDate,
+        'birth_date' => $year.'-'.$month.'-'.$day,
         'street_home' => $streetHome,
         'zip' => $zip,
         'city' => $city,
@@ -94,7 +94,7 @@ function signup($email,$lastname,$firstname,$phoneNumber,$birthDate,$streetHome,
         'password' => $hash,
         'droits' => 0
     ];
-
+var_dump($oneUser);
     createUser($oneUser);
 
     getWinesDisplay();

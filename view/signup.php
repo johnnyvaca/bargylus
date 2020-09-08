@@ -31,62 +31,64 @@ $title = "Bargylus- sign up";
                 </div>
                 <form method="post" action="index.php?action=signup">
                     <div class="row">
-                        <div class="col-md-12 form-group">
+                        <div class="col-md-6 form-group">
                             <label for="email">Email Address</label>
                             <input type="text" id="email" name="email" class="form-control form-control-lg" placeholder="Email Address">
                         </div>
-                    </div>
 
-                    <div class="row" >
-                        <div class="col-md-12 form-group">
+                        <div class="col-md-6 form-group">
                             <label for="password">Password</label>
                             <input type="password" id="password" name="password" class="form-control form-control-lg" placeholder="Password">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12 form-group">
+                        <div class="col-md-6 form-group">
                             <label for="lastname">Lastname</label>
                             <input type="text" id="lastname" name="lastname" class="form-control form-control-lg" placeholder="lastname">
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 form-group">
+
+                        <div class="col-md-6 form-group">
                             <label for="firstname">firstname</label>
                             <input type="text" id="firstname" name="firstname" class="form-control form-control-lg" placeholder="firstname">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12 form-group">
+                        <div class="col-md-4 form-group">
+                            <label for="birth_date">day</label>
+                            <input type="text" id="birth_date" name="day" class="form-control form-control-lg" placeholder="birth date">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="birth_date">month</label>
+                            <input type="text" id="birth_date" name="month" class="form-control form-control-lg" placeholder="birth date">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="birth_date">year</label>
+                            <input type="text" id="birth_date" name="year" class="form-control form-control-lg" placeholder="birth date">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 form-group">
                             <label for="phone_number">phone number</label>
                             <input type="text" id="phone_number" name="phone_number" class="form-control form-control-lg" placeholder="phone number">
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 form-group">
-                            <label for="birth_date">birth date</label>
-                            <input type="text" id="birth_date" name="birth_date" class="form-control form-control-lg" placeholder="birth date">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 form-group">
+
+                        <div class="col-md-4 form-group">
                             <label for="street_home">street home</label>
                             <input type="text" id="street_home" name="street_home" class="form-control form-control-lg" placeholder="street home">
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 form-group">
+
+                        <div class="col-md-4 form-group">
                             <label for="zip">zip</label>
-                            <input type="number" id="zip" name="zip" class="form-control form-control-lg" placeholder="zip">
+                            <input type="text" id="zip" name="zip" class="form-control form-control-lg" placeholder="zip">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12 form-group">
+                        <div class="col-md-6 form-group">
                             <label for="city">city</label>
                             <input type="text" id="city" name="city" class="form-control form-control-lg" placeholder="city">
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 form-group">
+
+                        <div class="col-md-6 form-group">
                             <label for="canton">canton</label>
                             <input type="text" id="canton" name="canton" class="form-control form-control-lg" placeholder="canton">
                         </div>

@@ -66,13 +66,13 @@ switch ($action) {
         $lastname = $_POST['lastname'];
         $firstname = $_POST['firstname'];
         $phoneNumber = $_POST['phone_number'];
-        $birthDate = $_POST['birth_date'];
+        $day = $_POST['day'];$month = $_POST['month'];$year = $_POST['year'];
         $streetHome = $_POST['street_home'];
         $zip = $_POST['zip'];
         $city = $_POST['city'];
         $canton = $_POST['canton'];
         $password = $_POST['password'];
-        signup($email,$lastname,$firstname,$phoneNumber,$birthDate,$streetHome,$zip,$city,$canton,$password);
+        signup($email,$lastname,$firstname,$phoneNumber,$day,$month,$year,$streetHome,$zip,$city,$canton,$password);
         break;
 
     default;
