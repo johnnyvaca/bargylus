@@ -7,7 +7,7 @@
  */
 
 ob_start();
-$title = "Bargylus- wines";
+$title = "Wine_Details";
 
 
 ?>
@@ -15,7 +15,7 @@ $title = "Bargylus- wines";
 
 <div class="site-section bg-primary py-5 page-title-wrap mt-5">
     <div class="container">
-        <h1>Trius Cabernet France 2011</h1>
+        <h1><?= $wine ['name'] ," ", $wine['year'] ," ", $wine['type'] ?> </h1>
     </div>
 </div>
 
@@ -25,9 +25,8 @@ $title = "Bargylus- wines";
         <div class="row">
             <div class="col-lg-6">
                 <div class="owl-carousel hero-slide owl-style">
-                    <img src="images/wine_1.png" alt="Image" class="img-fluid">
-                    <img src="images/wine_2.png" alt="Image" class="img-fluid">
-                    <img src="images/wine_3.png" alt="Image" class="img-fluid">
+                    <img src="images/<?= $wine['photo'] ?>" alt="<?= $wine['name']," ", $wine['year'] ?>" class="img-fluid">
+
                 </div>
             </div>
             <div class="col-lg-5 ml-auto">

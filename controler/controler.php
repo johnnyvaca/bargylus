@@ -14,17 +14,17 @@ function home()
     require_once 'view/home.php';
 }
 /* author : MOA */
-function getWinesDisplay($idwine)
+function getWinesDisplay()
 {
-    $wines= getWines($idwine);
+    $wines= getWines();
 
 
     require_once 'view/wines.php';
 }
 /* author : MOA */
-function getItemDetail()
+function WineDetail($id)
 {
-    /*$wines= getWinesDetail();*/
+    $wine= getWine($id);
 
 
     require_once 'view/cartdetail.php';

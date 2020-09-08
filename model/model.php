@@ -79,7 +79,8 @@ function createUser($oneUser)
 // montrer les articles de vin
 function getWines()
 {
-    require "model/.constant.php";
+
+
     try {
         $dbh = getPDO();
         $query = 'SELECT * FROM bargylus_db.wines';
@@ -99,13 +100,23 @@ function getWines()
 }
 
 
-function getWinesDetail(){
+// show one wine or item
+
+  function getWine($id){
 
 
-
-
-
-
-
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT * FROM bargylus_db.wines where id=:id';
+        $statment = $dbh->prepare($query);
+        $statment->execute(['id'=> $id]);//prepare query
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        return $queryResult;
+        if ($debug) var_dump($queryResult);
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
 
 }

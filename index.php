@@ -25,14 +25,15 @@ if (isset($_GET['action'])) {
 switch ($action) {
 
     case'displaywines':
-        $idwine = $_GET['id'];
 
-       getWinesDisplay($idwine);
+
+       getWinesDisplay();
 
         break;
-    case'cartdetail':
+    case'winedetail':
+        $idwine = $_GET['id'];
 
-        getItemDetail();
+        WineDetail($idwine);
 
         break;
     case'about':
