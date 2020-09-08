@@ -92,7 +92,8 @@ function signup($email,$lastname,$firstname,$phoneNumber,$birthDate,$streetHome,
         'zip' => $zip,
         'city' => $city,
         'canton' => $canton,
-        'password' => $hash
+        'password' => $hash,
+        'droits' => 0
     ];
 
     createUser($oneUser);

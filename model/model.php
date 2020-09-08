@@ -58,15 +58,14 @@ function getUserByEmail($email)
 
 function createUser($oneUser)
 {
-    require "model/.constant.php";
+
     try {
         $dbh = getPDO();
-        $query = "INSERT INTO users( email,  lastname,  firstname,  phone_number,  registration_date,  birth_date,  street_home,  zip,  city,  canton,  password) 
-                  VALUES  (:email,  :lastname,  :firstname,  :phone_number,  :registration_date,  :birth_date,  :street_home,  :zip,  :city,  :canton,  :password)";
+        $query = "INSERT INTO users( email,  lastname,  firstname,  phone_number,  registration_date,  birth_date,  street_home,  zip,  city,  canton,  password,droits) 
+                  VALUES  (:email,  :lastname,  :firstname,  :phone_number,  :registration_date,  :birth_date,  :street_home,  :zip,  :city,  :canton,  :password,:droits)";
         $stmt = $dbh->prepare($query);
         $stmt->execute($oneUser);
 
-        //$stmt->fetch(PDO::FETCH_ASSOC);
         $dbh->lastInsertId();
         $dbh = null;
     } catch (PDOException $e) {
