@@ -254,7 +254,6 @@ CREATE TABLE IF NOT EXISTS `wines` (
   `size` int NOT NULL,
   `stock` int NOT NULL,
   `photo` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-
   PRIMARY KEY (`id`),
   UNIQUE KEY `year` (`year`,`name`,`size`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
@@ -304,48 +303,10 @@ INSERT INTO `wines_compose_grapes` (`id`, `wine_id`, `grape_id`) VALUES
 	(9, 2, 1),
 	(10, 2, 41),
 	(11, 10, 25),
-	(12, 6, 25),
-	(13, 6, 5),
-	(14, 5, 2),
-	(15, 7, 42),
-	(16, 3, 23),
-	(17, 3, 39),
-	(18, 8, 2),
-	(19, 8, 25),
-	(20, 4, 29),
-	(21, 6, 42),
-	(22, 5, 13),
-	(23, 5, 38),
-	(24, 5, 8),
-	(25, 10, 22),
-	(26, 4, 45),
-	(27, 6, 45),
-	(28, 4, 45),
-	(29, 8, 37),
-	(30, 5, 46),
-	(31, 10, 42),
-	(32, 1, 39),
-	(33, 8, 9),
-	(34, 8, 39),
-	(35, 6, 26),
-	(36, 8, 39),
-	(37, 5, 49),
-	(38, 10, 40),
-	(39, 8, 46),
-	(40, 6, 42),
-	(41, 4, 49),
-	(42, 6, 41),
-	(43, 2, 36),
-	(44, 3, 24),
-	(45, 7, 34),
-	(46, 8, 16),
-	(47, 5, 15),
-	(48, 4, 5),
-	(49, 2, 36),
-	(50, 9, 16);
+	(12, 6, 25);
+
 /*!40000 ALTER TABLE `wines_compose_grapes` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-bargylus_db
