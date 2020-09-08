@@ -67,9 +67,8 @@ function tryLogin($emailPost, $passwordPost)
 
 function logout(){
 
-    unset($_SESSION['username']);
+    unset($_SESSION['user']);
     require_once 'view/home.php';
-
 }
 
 
