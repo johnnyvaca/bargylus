@@ -14,7 +14,7 @@ $user = 'root';
 $pass = 'Pa$$w0rd';
 $debug = false;
  */
-
+fdgdfg
 
 $dbhost = 'localhost';
 $dbname = 'bargylus_db';
