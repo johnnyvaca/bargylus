@@ -53,6 +53,9 @@ switch ($action) {
         trylogin($email, $password);
 
         break;
+    case 'adminPage':
+        pageAdmin();
+        break;
     case 'logout';
 
         logout();

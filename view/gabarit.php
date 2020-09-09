@@ -80,6 +80,11 @@
                                     <li class="btn btn-primary"><?= '<a href="index.php?action=logout"
                                                                class="nav-link text-center white">logout</a>'?></li>
 
+                                    <?php  if($_SESSION["user"]["droits"] == 1){ ?>
+                                        <li class="btn btn-primary"><?= '<a href="index.php?action=adminPage"
+                                                               class="nav-link text-center white">Administration</a>'?></li>
+
+                                    <?php } ?>
                                 <?php }else { ?>
 
                                     <li class="btn btn-primary"><?= '<a href="index.php?action=login"
