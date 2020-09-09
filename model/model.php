@@ -80,10 +80,10 @@ function getWines()
     require "model/.constant.php";
     $dbh = getPDO();
     try {
-        $query = 'SELECT * FROM  wines_compose_grapes 
-                        INNER JOIN wines on  wines_compose_grapes.wine_id =wines.id 
-                        INNER JOIN grapes on wines_compose_grapes.grape_id=grapes.id
-                        ORDER By wines.id ASC';
+        $query = 'SELECT * FROM wines            
+                        INNER JOIN wines_compose_bottles on  wines.id = wines_compose_bottles.wine_id  
+                        INNER JOIN bottles on  wines_compose_bottles.bottle_id =bottles.id 
+                         ';
         $statment = $dbh->prepare($query);
         $statment->execute();//prepare query
         $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
@@ -108,7 +108,7 @@ function getWine($id)
 
     try {
         $dbh = getPDO();
-        $query = 'SELECT * FROM bargylus_db.wines where wines.id=:id';
+        $query = 'SELECT * FROM bargylus_db.wines,bottles where wines.id=:id and bottles.id=:id';
         $statment = $dbh->prepare($query);
         $statment->execute(['id' => $id]);//prepare query
         $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
