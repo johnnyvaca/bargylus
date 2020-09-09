@@ -48,6 +48,14 @@ function LoginPage()
     require_once 'view/login.php';
 }
 
+function pageAdmin()
+{
+    $wines = getWines();
+    $users = getUsers();
+
+    require_once 'view/admin.php';
+}
+
 function tryLogin($emailPost, $passwordPost)
 {
     $user = getUserByEmail($emailPost);
@@ -57,7 +65,12 @@ function tryLogin($emailPost, $passwordPost)
         unset($user['password']);
         $_SESSION['user'] = $user;
         $_SESSION['flashmessage'] = 'Bienvenue '.$user['firstname'].$user['lastname'];
-        getWinesDisplay();
+
+        if($user['droits'] == 1){
+            pageAdmin();
+        }else{
+            getWinesDisplay();
+        }
     } else {
         unset($_SESSION['user']);
         $_SESSION['flashmessage'] = 'email ou password erroné';

@@ -14,12 +14,11 @@ $user = 'root';
 $pass = 'Pa$$w0rd';
 $debug = false;
  */
-fdgdfg
 
-$dbhost = 'localhost';
+$dbhost = 'localhost:3300';
 $dbname = 'bargylus_db';
 $user = 'root';
-$pass = 'Pa$$w0rd';
+$pass = 'root';
 $debug = false;
 
 ?>
