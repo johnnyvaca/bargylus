@@ -83,7 +83,7 @@ function getWines()
         $query = 'SELECT * FROM wines            
                         INNER JOIN wines_compose_bottles on  wines.id = wines_compose_bottles.wine_id  
                         INNER JOIN bottles on  wines_compose_bottles.bottle_id =bottles.id 
-                         ';
+                          order by wines.id asc';
         $statment = $dbh->prepare($query);
         $statment->execute();//prepare query
         $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
