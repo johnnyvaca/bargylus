@@ -260,7 +260,7 @@ CREATE TABLE IF NOT EXISTS `bottles` (
 
 -- Listage des données de la table bargylus_db.bottle : ~12 rows (environ)
 DELETE FROM `bottles`;
-/*!40000 ALTER TABLE `bottle` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bottles` DISABLE KEYS */;
 INSERT INTO `bottles` (`id`, `color`, `alcohol`, `basic_price`, `grape`, `size`,`stock`,`photo`) VALUES
 	(1,'blanc', 17, 32,'Couderc', 2, 30, 'wine_1.png'),
 	(2, 'blanc', 18, 30,'Landal' , 1, 30, 'wine_2.png'),
@@ -295,15 +295,15 @@ INSERT INTO `wines_compose_bottles` (`id`, `wine_id`, `bottle_id`) VALUES
 	(1, 1, 1),
 	(2, 2, 2),
 	(3, 3, 3),
-	(4, 4, 5),
-	(5, 5, 4),
+	(4, 4, 4),
+	(5, 5, 5),
 	(6, 6, 6),
-	(7, 7, 8),
-	(8, 12, 7),
-	(9, 11, 10),
-	(10, 10, 9),
-	(11, 9, 12),
-	(12, 8, 1);
+	(7, 7, 7),
+	(8, 8, 8),
+	(9, 9, 9),
+	(10, 10, 10),
+	(11, 11, 11),
+	(12, 12, 12);
 
 /*!40000 ALTER TABLE `wines_compose_bottles` ENABLE KEYS */;
 
