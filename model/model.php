@@ -58,9 +58,8 @@ function getUserByEmail($email)
 
 function createUser($oneUser)
 {
-
+    $dbh = getPDO();
     try {
-        $dbh = getPDO();
         $query = "INSERT INTO users( email,  lastname,  firstname,  phone_number,  registration_date,  birth_date,  street_home,  zip,  city,  canton,  password,droits) 
                   VALUES  (:email,  :lastname,  :firstname,  :phone_number,  :registration_date,  :birth_date,  :street_home,  :zip,  :city,  :canton,  :password,:droits)";
         $stmt = $dbh->prepare($query);
@@ -78,11 +77,13 @@ function createUser($oneUser)
 // montrer les articles de vin
 function getWines()
 {
-
-
+    require "model/.constant.php";
+    $dbh = getPDO();
     try {
-        $dbh = getPDO();
-        $query = 'SELECT * FROM bargylus_db.wines';
+        $query = 'SELECT * FROM  wines_compose_grapes 
+                        INNER JOIN wines on  wines_compose_grapes.wine_id =wines.id 
+                        INNER JOIN grapes on wines_compose_grapes.grape_id=grapes.id
+                        ORDER By wines.id ASC';
         $statment = $dbh->prepare($query);
         $statment->execute();//prepare query
         $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
@@ -101,14 +102,15 @@ function getWines()
 
 // show one wine or item
 
-  function getWine($id){
+function getWine($id)
+{
 
 
     try {
         $dbh = getPDO();
-        $query = 'SELECT * FROM bargylus_db.wines where id=:id';
+        $query = 'SELECT * FROM bargylus_db.wines where wines.id=:id';
         $statment = $dbh->prepare($query);
-        $statment->execute(['id'=> $id]);//prepare query
+        $statment->execute(['id' => $id]);//prepare query
         $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
         $dbh = null;
         return $queryResult;
