@@ -245,7 +245,7 @@ INSERT INTO `users_choose_mode` (`id`, `user_id`, `mode_id`, `date`) VALUES
 	(50, 2, 2, '2019-03-07');
 /*!40000 ALTER TABLE `users_choose_mode` ENABLE KEYS */;
 
-CREATE TABLE IF NOT EXISTS `bottle` (
+CREATE TABLE IF NOT EXISTS `bottles` (
   `id` int NOT NULL AUTO_INCREMENT,
   `grape` varchar(45) NOT NULL,
   `alcohol` float NOT NULL,
@@ -259,9 +259,9 @@ CREATE TABLE IF NOT EXISTS `bottle` (
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- Listage des données de la table bargylus_db.bottle : ~12 rows (environ)
-DELETE FROM `bottle`;
+DELETE FROM `bottles`;
 /*!40000 ALTER TABLE `bottle` DISABLE KEYS */;
-INSERT INTO `bottle` (`id`, `color`, `alcohol`, `basic_price`, `grape`, `size`,`stock`,`photo`) VALUES
+INSERT INTO `bottles` (`id`, `color`, `alcohol`, `basic_price`, `grape`, `size`,`stock`,`photo`) VALUES
 	(1,'blanc', 17, 32,'Couderc', 2, 30, 'wine_1.png'),
 	(2, 'blanc', 18, 30,'Landal' , 1, 30, 'wine_2.png'),
 	(3,'blanc' ,16, 24, 'Plant de Brunel', 2, 30, 'wine_3.png'),
@@ -274,24 +274,24 @@ INSERT INTO `bottle` (`id`, `color`, `alcohol`, `basic_price`, `grape`, `size`,`
 	(10,'Rouge', 16, 38,'Poulsard' , 1, 30, 'wine_3.png'),
 	(11,'blanc', 16, 38,'Malvoisie', 1, 30, 'wine_4.png'),
 	(12,'Rouge', 20, 32,'Macabeu' , 1, 30, 'wine_1.png');
-/*!40000 ALTER TABLE `bottle` ENABLE KEYS */;
+/*!40000 ALTER TABLE `bottles` ENABLE KEYS */;
 
 -- Listage de la structure de la table bargylus_db. wines_compose_grapes
-CREATE TABLE IF NOT EXISTS `wines_compose_grapes` (
+CREATE TABLE IF NOT EXISTS `wines_compose_bottles` (
   `id` int NOT NULL,
   `wine_id` int NOT NULL,
-  `grape_id` int DEFAULT NULL,
+  `bottle_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_Wines_has_Grapes_Grapes1_idx` (`grape_id`),
+  KEY `fk_Wines_has_Grapes_Bottle1_idx` (`bottle_id`),
   KEY `fk_Wines_has_Grapes_Wines1_idx` (`wine_id`),
-  CONSTRAINT `fk_Wines_has_Grapes_Grapes1` FOREIGN KEY (`grape_id`) REFERENCES `grapes` (`id`),
-  CONSTRAINT `fk_Wines_has_Grapes_Wines1` FOREIGN KEY (`wine_id`) REFERENCES `wines` (`id`)
+  CONSTRAINT `fk_Wines_has_Bottles_Bottles1` FOREIGN KEY (`bottle_id`) REFERENCES `bottles` (`id`),
+  CONSTRAINT `fk_Wines_has_Bottles_Wines1` FOREIGN KEY (`wine_id`) REFERENCES `wines` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Listage des données de la table bargylus_db.wines_compose_grapes_varieties : ~50 rows (environ)
-DELETE FROM `wines_compose_grapes`;
-/*!40000 ALTER TABLE `wines_compose_grapes` DISABLE KEYS */;
-INSERT INTO `wines_compose_grapes` (`id`, `wine_id`, `grape_id`) VALUES
+DELETE FROM `wines_compose_bottles`;
+/*!40000 ALTER TABLE `wines_compose_bottles` DISABLE KEYS */;
+INSERT INTO `wines_compose_bottles` (`id`, `wine_id`, `bottle_id`) VALUES
 	(1, 1, 1),
 	(2, 2, 2),
 	(3, 3, 3),
@@ -305,7 +305,7 @@ INSERT INTO `wines_compose_grapes` (`id`, `wine_id`, `grape_id`) VALUES
 	(11, 9, 12),
 	(12, 8, 1);
 
-/*!40000 ALTER TABLE `wines_compose_grapes` ENABLE KEYS */;
+/*!40000 ALTER TABLE `wines_compose_bottles` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
