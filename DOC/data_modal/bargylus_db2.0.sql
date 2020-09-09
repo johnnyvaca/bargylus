@@ -22,26 +22,26 @@ CREATE TABLE IF NOT EXISTS `grapes` (
   `grape` varchar(45) NOT NULL,
   `color` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`),
-  UNIQUE KEY `name_2` (`name`)
+  UNIQUE KEY `grape` (`grape`),
+  UNIQUE KEY `grape_2` (`grape`)
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 
 -- Listage des données de la table bargylus_db.grapes_varieties : ~51 rows (environ)
 DELETE FROM `grapes`;
 /*!40000 ALTER TABLE `grapes` DISABLE KEYS */;
 INSERT INTO `grapes` (`id`, `grape`, `color`) VALUES
-	(1, 'Couderc noir', 'Rouge'),
-	(2, 'Landal noir', 'blanc'),
-	(3, 'Plant de Brunel noir', 'Rouge'),
-	(4, 'Prunelard noir', 'blanc'),
-	(5, 'Alphonse Lavallée noir', 'Rouge'),
-	(6, 'Aubun noir', 'blanc'),
-	(7, 'Béclan noir', 'Rouge'),
-	(8, 'Aramon noir', 'blanc'),
-	(9, 'Couston noir', 'Rouge'),
-	(10, 'Poulsard noir', 'blanc'),
-	(11, 'Joubertin noir', 'Rouge'),	
-	(12, 'Macabeu blanc', 'blanc');
+	(1, 'Couderc', 'Rouge'),
+	(2, 'Landal ', 'blanc'),
+	(3, 'Plant de Brunel ', 'Rouge'),
+	(4, 'Prunelard', 'blanc'),
+	(5, 'Alphonse Lavallée', 'Rouge'),
+	(6, 'Aubun', 'blanc'),
+	(7, 'Béclan', 'Rouge'),
+	(8, 'Aramon', 'blanc'),
+	(9, 'Couston', 'Rouge'),
+	(10, 'Poulsard', 'blanc'),
+	(11, 'Joubertin', 'Rouge'),	
+	(12, 'Macabeu', 'blanc');
 /*!40000 ALTER TABLE `grapes` ENABLE KEYS */;
 
 -- Listage de la structure de la table bargylus_db. modes_payments
@@ -292,18 +292,18 @@ CREATE TABLE IF NOT EXISTS `wines_compose_grapes` (
 DELETE FROM `wines_compose_grapes`;
 /*!40000 ALTER TABLE `wines_compose_grapes` DISABLE KEYS */;
 INSERT INTO `wines_compose_grapes` (`id`, `wine_id`, `grape_id`) VALUES
-	(1, 8, 1),
-	(2, 1, 2),
-	(3, 6, 3),
-	(4, 1, 3),
-	(5, 7, 4),
-	(6, 6, 5),
-	(7, 10, 5),
-	(8, 10, 6),
-	(9, 2, 8),
-	(10, 2, 10),
-	(11, 10, 12),
-	(12, 6, 12);
+	(1, 1, 1),
+	(2, 2, 2),
+	(3, 3, 3),
+	(4, 4, 5),
+	(5, 5, 4),
+	(6, 6, 6),
+	(7, 7, 8),
+	(8, 12, 7),
+	(9, 11, 10),
+	(10, 10, 9),
+	(11, 9, 12),
+	(12, 8, 11);
 
 /*!40000 ALTER TABLE `wines_compose_grapes` ENABLE KEYS */;
 
