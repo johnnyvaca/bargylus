@@ -33,64 +33,91 @@ $title = "Bargylus- sign up";
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label for="email">Email Address</label>
-                            <input type="text" id="email" name="email" class="form-control form-control-lg" placeholder="Email Address">
+                            <input type="text" id="email" name="email" class="form-control form-control-lg"
+                                   placeholder="Email Address">
                         </div>
 
                         <div class="col-md-6 form-group">
                             <label for="password">Password</label>
-                            <input type="password" id="password" name="password" class="form-control form-control-lg" placeholder="Password">
+                            <input type="password" id="password" name="password" class="form-control form-control-lg"
+                                   placeholder="Password">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label for="lastname">Lastname</label>
-                            <input type="text" id="lastname" name="lastname" class="form-control form-control-lg" placeholder="lastname">
+                            <input type="text" id="lastname" name="lastname" class="form-control form-control-lg"
+                                   placeholder="lastname">
                         </div>
 
                         <div class="col-md-6 form-group">
                             <label for="firstname">firstname</label>
-                            <input type="text" id="firstname" name="firstname" class="form-control form-control-lg" placeholder="firstname">
+                            <input type="text" id="firstname" name="firstname" class="form-control form-control-lg"
+                                   placeholder="firstname">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4 form-group">
                             <label for="birth_date">day</label>
-                            <input type="text" id="birth_date" name="day" class="form-control form-control-lg" placeholder="birth date">
+                            <select type="text" id="birth_date" name="day" class="form-control form-control-lg"
+                                    placeholder="birth date">
+                                <?php
+                                for ($i = 1; $i <= 31; $i++) { ?>
+                                    <option><?= $i ?></option>
+                                <?php } ?>
+                            </select>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="birth_date">month</label>
-                            <input type="text" id="birth_date" name="month" class="form-control form-control-lg" placeholder="birth date">
+                            <select type="text" id="birth_date" name="month" class="form-control form-control-lg"
+                                   placeholder="birth date">
+                            <?php
+                            for ($i = 1; $i <= 12; $i++) { ?>
+                                <option><?= $i ?></option>
+                            <?php } ?>
+                            </select>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="birth_date">year</label>
-                            <input type="text" id="birth_date" name="year" class="form-control form-control-lg" placeholder="birth date">
+                            <select type="text" id="birth_date" name="year" class="form-control form-control-lg"
+                                   placeholder="birth date">
+                            <?php
+                            for ($i = 2020; $i >= 1940; $i--) { ?>
+                                <option><?= $i ?></option>
+                            <?php } ?>
+                            </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4 form-group">
-                            <label for="phone_number">phone number</label>
-                            <input type="text" id="phone_number" name="phone_number" class="form-control form-control-lg" placeholder="phone number">
+                            <label for="phone_number">phone</label>
+                            <input type="text" id="phone_number" name="phone_number"
+                                   class="form-control form-control-lg" placeholder="phone number">
                         </div>
 
                         <div class="col-md-4 form-group">
-                            <label for="street_home">street home</label>
-                            <input type="text" id="street_home" name="street_home" class="form-control form-control-lg" placeholder="street home">
+                            <label for="street_home">street</label>
+                            <input type="text" id="street_home" name="street_home" class="form-control form-control-lg"
+                                   placeholder="street home">
                         </div>
 
                         <div class="col-md-4 form-group">
                             <label for="zip">zip</label>
-                            <input type="text" id="zip" name="zip" class="form-control form-control-lg" placeholder="zip">
+                            <input type="text" id="zip" name="zip" class="form-control form-control-lg"
+                                   placeholder="zip">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label for="city">city</label>
-                            <input type="text" id="city" name="city" class="form-control form-control-lg" placeholder="city">
+                            <input type="text" id="city" name="city" class="form-control form-control-lg"
+                                   placeholder="city">
                         </div>
 
                         <div class="col-md-6 form-group">
                             <label for="canton">canton</label>
-                            <input type="text" id="canton" name="canton" class="form-control form-control-lg" placeholder="canton">
+                            <input type="text" id="canton" name="canton" class="form-control form-control-lg"
+                                   placeholder="canton">
                         </div>
                     </div>
                     <div class="row">

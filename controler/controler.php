@@ -74,7 +74,7 @@ function tryLogin($emailPost, $passwordPost)
     } else {
         unset($_SESSION['user']);
         $_SESSION['flashmessage'] = 'email ou password erroné';
-        require_once 'view/login.php';
+        LoginPage();
     }
 }
 
@@ -91,6 +91,18 @@ function signupPage(){
 }
 function signup($email,$lastname,$firstname,$phoneNumber,$day,$month,$year,$streetHome,$zip,$city,$canton,$password){
 
+
+
+    $user = getUserByEmail($email);
+    if($email == $user['email']){
+        unset($_SESSION['user']);
+        $_SESSION['flashmessage'] = 'l\'email est déjà utilisé';
+        signupPage();
+        return;
+    }
+else{
+    $_SESSION['flashmessage'] = 'Bienvenu!!! vous êtes connectés';
+}
     $hash   = password_hash($password, PASSWORD_DEFAULT);
 
     $oneUser = [
@@ -107,10 +119,12 @@ function signup($email,$lastname,$firstname,$phoneNumber,$day,$month,$year,$stre
         'password' => $hash,
         'droits' => 0
     ];
-var_dump($oneUser);
     createUser($oneUser);
+    tryLogin($email, $password);
 
-    getWinesDisplay();
 }
+
+
+
 
 ?>
