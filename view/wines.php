@@ -49,7 +49,7 @@ $title = "Bargylus- wines";
                                     <span class="icon-star-o"></span>
                                 </div>
 
-                                <a href="index.php?action= " class="btn add"><span class="icon-shopping-bag mr-3"></span> ajouter au pannier </a>
+                                <a href="index.php?action= " class="btn add"><span class="icon-shopping-bag mr-3"></span> ajouter au panier </a>
                             </div>
 
                         </div>
