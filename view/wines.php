@@ -28,7 +28,7 @@ $title = "Bargylus- wines";
                         <div class="wine_v_1 text-center pb-4">
 
                             <a href="index.php?action=winedetail&id=<?=$wine['id']?>" class="thumbnail d-block mb-4"><img
-                                        src="images/<?= $wine['photo'] ?>" alt="Image" class="img-fluid"></a>
+                                        src="images/<?= $wine['photo'] ?>" alt="cliquer ici" class="img-fluid"></a>
                             <div>
                                 <h3 class="heading mb-1"><a href="#"><?= $wine['name']," ",$wine['color'], " ", $wine['year'] ?></a></h3>
 
@@ -49,8 +49,7 @@ $title = "Bargylus- wines";
                                     <span class="icon-star-o"></span>
                                 </div>
 
-                                <a href="cart.php" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to
-                                    Cart</a>
+                                <a href="cart.php" class="btn add"><span class="icon-shopping-bag mr-3"></span> ajouter au pannier </a>
                             </div>
 
                         </div>
