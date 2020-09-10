@@ -40,6 +40,9 @@ switch ($action) {
         aboutPage();
 
         break;
+    case'basket':
+        basketPage();
+        break;
     case'contact':
         contactPage();
 

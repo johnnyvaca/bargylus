@@ -97,7 +97,7 @@
                                                                class="nav-link text-center white">s'inscrire</a></li>
 
 
-                                <li class="btn btn-primary"><a href="index.php?action="
+                                <li class="btn btn-primary"><a href="index.php?action=basket"
                                                                class="nav-link text-center white"><span
                                                 class="icon-shopping-bag mr-3"></span>panier</a></li>
 

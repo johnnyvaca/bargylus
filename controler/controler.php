@@ -29,7 +29,12 @@ function WineDetail($id)
 
     require_once 'view/cartdetail.php';
 }
+function basketPage(){
 
+
+
+    require_once 'view/basket.php';
+}
 
 function aboutPage()
 {
