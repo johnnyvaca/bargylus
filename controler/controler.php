@@ -13,24 +13,27 @@ function home()
 
     require_once 'view/home.php';
 }
+
 /* author : MOA */
 function getWinesDisplay()
 {
-    $wines= getWines();
+    $wines = getWines();
 
 
     require_once 'view/wines.php';
 }
+
 /* author : MOA */
 function WineDetail($id)
 {
-    $wine= getWine($id);
+    $wine = getWine($id);
 
 
     require_once 'view/cartdetail.php';
 }
-function basketPage(){
 
+function basketPage()
+{
 
 
     require_once 'view/basket.php';
@@ -64,51 +67,54 @@ function pageAdmin()
 function tryLogin($emailPost, $passwordPost)
 {
     $user = getUserByEmail($emailPost);
+    if ($emailPost == $user['email']) {
 
-    if(password_verify($passwordPost,$user['password']))
-    {
-        unset($user['password']);
-        $_SESSION['user'] = $user;
-        $_SESSION['flashmessage'] = 'Bienvenue '.$user['firstname'].$user['lastname'];
 
-        if($user['droits'] == 1){
-            pageAdmin();
-        }else{
-            getWinesDisplay();
+        if (password_verify($passwordPost, $user['password'])) {
+            unset($user['password']);
+            $_SESSION['user'] = $user;
+            $_SESSION['flashmessage'] = 'Bienvenue ' . $user['firstname'] . $user['lastname'];
+
+            if ($user['droits'] == 1) {
+                pageAdmin();
+            } else {
+                getWinesDisplay();
+            }
+        } else {
+            unset($_SESSION['user']);
+            $_SESSION['flashmessage'] = 'email ou password erroné';
+            LoginPage();
         }
-    } else {
-        unset($_SESSION['user']);
-        $_SESSION['flashmessage'] = 'email ou password erroné';
-        LoginPage();
     }
 }
 
-function logout(){
+function logout()
+{
 
     unset($_SESSION['user']);
     require_once 'view/home.php';
 }
 
 
-
-function signupPage(){
+function signupPage()
+{
     require_once 'view/signup.php';
 }
-function signup($email,$lastname,$firstname,$phoneNumber,$day,$month,$year,$streetHome,$zip,$city,$canton,$password){
 
+function signup($email, $lastname, $firstname, $phoneNumber, $day, $month, $year, $streetHome, $zip, $city, $canton, $password)
+{
 
 
     $user = getUserByEmail($email);
-    if($email == $user['email']){
+    if ($email == $user['email']) {
         unset($_SESSION['user']);
         $_SESSION['flashmessage'] = 'l\'email est déjà utilisé';
         signupPage();
         return;
+    } else {
+        $_SESSION['flashmessage'] = 'Bienvenu!!! vous êtes connectés';
     }
-else{
-    $_SESSION['flashmessage'] = 'Bienvenu!!! vous êtes connectés';
-}
-    $hash   = password_hash($password, PASSWORD_DEFAULT);
+    $hash = password_hash($password, PASSWORD_DEFAULT);
 
     $oneUser = [
         'email' => $email,
@@ -116,7 +122,7 @@ else{
         'firstname' => $firstname,
         'phone_number' => $phoneNumber,
         'registration_date' => date('Y-m-d'),
-        'birth_date' => $year.'-'.$month.'-'.$day,
+        'birth_date' => $year . '-' . $month . '-' . $day,
         'street_home' => $streetHome,
         'zip' => $zip,
         'city' => $city,
@@ -128,8 +134,6 @@ else{
     tryLogin($email, $password);
 
 }
-
-
 
 
 ?>
