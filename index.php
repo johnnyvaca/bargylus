@@ -40,6 +40,9 @@ switch ($action) {
         aboutPage();
 
         break;
+    case'basket':
+        basketPage();
+        break;
     case'contact':
         contactPage();
 
@@ -52,6 +55,9 @@ switch ($action) {
         $password = $_POST['password'];
         trylogin($email, $password);
 
+        break;
+    case 'adminPage':
+        pageAdmin();
         break;
     case 'logout';
 

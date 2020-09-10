@@ -8,7 +8,7 @@
 ?>
 <!DOCTYPE html>
 <?php require_once 'helpers.php' ?>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <title><?= $title; ?> </title>
@@ -67,30 +67,42 @@
                         <nav class="site-navigation position-relative text-left" role="navigation">
                             <ul class="site-menu main-menu js-clone-nav mx-auto d-none pl-0 d-lg-block border-none">
 
-                                <li class="active"><a href="index.php?action=home" class="nav-link text-left">Page d'accueil</a>
+                                <li class="active"><a href="index.php?action=home" class="nav-link text-left">Page
+                                        d'accueil</a>
                                 </li>
                                 <li class="active"><a href="index.php?action=displaywines" class="nav-link text-left">Vins</a>
                                 </li>
-                                <li class="active"><a href="index.php?action=about" class="nav-link text-left">À propos</a>
+                                <li class="active"><a href="index.php?action=about" class="nav-link text-left">À
+                                        propos</a>
                                 </li>
                                 <li class="active"><a href="#" class="nav-link text-left">Shop</a></li>
                                 <li class="active "><a href="index.php?action=contact" class="nav-link text-left">Contact</a>
                                 </li>
-                                <?php  if(isset($_SESSION["user"])){ ?>
+                                <?php if (isset($_SESSION["user"])) { ?>
                                     <li class="btn btn-primary"><?= '<a href="index.php?action=logout"
-                                                               class="nav-link text-center white">logout</a>'?></li>
+                                                               class="nav-link text-center white">logout</a>' ?></li>
 
-                                <?php }else { ?>
+                                    <?php if ($_SESSION["user"]["droits"] == 1) { ?>
+                                        <li class="btn btn-primary"><?= '<a href="index.php?action=adminPage"
+                                                               class="nav-link text-center white">Administration</a>' ?></li>
+
+                                    <?php } ?>
+                                <?php } else { ?>
 
                                     <li class="btn btn-primary"><?= '<a href="index.php?action=login"
-                                                               class="nav-link text-center white">Login</a>'?></li>
-                                <?php }?>
+                                                               class="nav-link text-center white">Login</a>' ?></li>
+                                <?php } ?>
 
                                 <li class="btn btn-primary"><a href="index.php?action=signupPage"
                                                                class="nav-link text-center white">s'inscrire</a></li>
+
+
+                                <li class="btn btn-primary"><a href="index.php?action=basket"
+                                                               class="nav-link text-center white"><span
+                                                class="icon-shopping-bag mr-3"></span>panier</a></li>
+
                             </ul>
                         </nav>
-
                     </div>
 
                 </div>
