@@ -45,6 +45,9 @@ $title = "Bargylus- Home";
     </div>
 
     </div>
+
+<!-- here we have to apply the sold -->
+
     <div class="site-section mt-5">
         <div class="container">
 
@@ -140,14 +143,9 @@ $title = "Bargylus- Home";
                     </div>
                 </div>
 
-
-
             </div>
         </div>
     </div>
-
-
-
 
 <?php
 $content = ob_get_clean();
