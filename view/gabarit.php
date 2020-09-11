@@ -45,15 +45,27 @@
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="200">
 
 <div class="site-wrap">
-    <div class="">
-        <div class="container">
 
-            <div class="col-12 text-center">
-                <a href="index.php?action=home" class="site-logo">
-                    <img src="/images/logo.png" alt="Image" class="img-fluid " id="logo">
-                </a>
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
             </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
 
+    <div class="header-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
+                    <a href="index.php?action=home" class="site-logo">
+                        <img src="/images/logo.png" alt="Image" class="img-fluid " id="logo">
+                    </a>
+                </div>
+                <a href="#" class="mx-auto d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
+                            class="icon-menu h3"></span></a>
+            </div>
         </div>
 
         <!-- J'ajoute un flashmessage pour la connexion) -->
