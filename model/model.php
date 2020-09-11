@@ -121,3 +121,44 @@ function getWine($id)
     }
 
 }
+
+//(ALTIN)fonction qui cherche une bouteille avec toutes ses informations
+function getWineBottle($id)
+{
+
+
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT * FROM wines INNER JOIN wines_compose_bottles on  wines.id = wines_compose_bottles.wine_id  
+                        INNER JOIN bottles on  wines_compose_bottles.bottle_id =bottles.id WHERE wines.id =:id';
+        $statment = $dbh->prepare($query);
+        $statment->execute(['id' => $id]);//prepare query
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        return $queryResult;
+        if ($debug) var_dump($queryResult);
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+
+}
+
+//(ALTIN)fonction qui Update le stock d'une bouteille
+function withdrawWineBottle($id)
+{
+    try {
+        $dbh = getPDO();
+        $query = 'UPDATE bottles INNER JOIN wines_compose_bottles on  bottles.id = wines_compose_bottles.bottle_id  
+                        INNER JOIN wines on  wines_compose_bottles.wine_id = wines.id set stock = stock - 1 WHERE wines.id =:id';
+        $statment = $dbh->prepare($query);
+        $statment->execute(['id' => $id]);//prepare query
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        return $queryResult;
+        if ($debug) var_dump($queryResult);
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}

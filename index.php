@@ -80,7 +80,11 @@ switch ($action) {
         $password = $_POST['password'];
         signup($email,$lastname,$firstname,$phoneNumber,$day,$month,$year,$streetHome,$zip,$city,$canton,$password);
         break;
-
+    //(Altin) Appelle la fonction addWinesBasket
+    case 'winesBasket':
+        $idWine = $_GET['id'];
+        addWinesBasket($idWine);
+        break;
     default;
         home();
 

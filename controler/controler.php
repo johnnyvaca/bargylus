@@ -135,5 +135,18 @@ function signup($email, $lastname, $firstname, $phoneNumber, $day, $month, $year
 
 }
 
+//(Altin) Fonction qui ajoute un vin dans la session
+// et supprime une bouteille dans la base de données
+function addWinesBasket($idWinePost)
+{
+    $wine = getWineBottle($idWinePost);
+    $_SESSION[cart][] = $wine;
+    $_SESSION['flashmessage'] = 'Vin ajouté dans le panier';
+    var_dump($wine); die();
+    withdrawWineBottle($idWinePost);
+
+}
+
+
 
 ?>
