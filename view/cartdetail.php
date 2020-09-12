@@ -15,7 +15,7 @@ $title = "Wine_Details";
 
 <div class="site-section bg-primary py-5 page-title-wrap mt-5">
     <div class="container">
-        <h1><?= $wine ['name'], " ", $wine['year'], " ", $wine['color']; ?> </h1>
+        <h1><?= $wine ['winename'], " ", $wine['year'], " ", $wine['color']; ?> </h1>
     </div>
 </div>
 
@@ -25,14 +25,14 @@ $title = "Wine_Details";
         <div class="row">
             <div class="col-lg-6">
                 <div class="owl-carousel hero-slide owl-style">
-                    <img src="images/<?= $wine['photo'] ?>" alt="<?= $wine['name'], " ", $wine['year'] ?>"
+                    <img src="images/<?= $wine['photo'] ?>" alt="<?= $wine['winename'], " ", $wine['year'] ?>"
                          class="img-fluid">
 
                 </div>
             </div>
             <div class="col-lg-5 ml-auto">
 
-                    <h2 class="text-primary mb-4"><?= $wine['name'], " ", $wine['year'], " ", $wine['color'] ?> </h2>
+                    <h2 class="text-primary mb-4"><?= $wine['winename'], " ", $wine['year'], " ", $wine['color'] ?> </h2>
 
                 <table class="table table-bordered">
                     <thead>
@@ -52,7 +52,7 @@ $title = "Wine_Details";
                             <?= $wine['year'] ?>
                         </td>
                         <td class="product-name">
-                            <?= $wine['grape']?>
+                            <?= $wine['name']?>
                         </td>
                         <td class="">
                             <?= $wine['alcohol'], "%" ?>
