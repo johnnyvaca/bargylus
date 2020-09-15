@@ -43,7 +43,6 @@ $title = "Bargylus- Home";
             </div>
         </div>
     </div>
-
     </div>
 
 <!-- here we have to apply the sold -->
@@ -55,7 +54,7 @@ $title = "Bargylus- Home";
                 <div class="col-12 section-title text-center mb-5">
                     <h2 class="d-block">Notre promotion </h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, perspiciatis!</p>
-                    <p><a href="#">voir les vins <span class="icon-long-arrow-right"></span></a></p>
+                    <p><a href="index.php?action=displaywines">voir les vins <span class="icon-long-arrow-right"></span></a></p>
                 </div>
             </div>
             <div class="row">
@@ -73,7 +72,7 @@ $title = "Bargylus- Home";
                         <div class="wine-actions">
 
                             <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price d-block">$629.00</span>
+                            <span class="price d-block"><del>$900.00</del>$629.00</span>
 
                             <div class="rating">
                                 <span class="icon-star"></span>
@@ -101,7 +100,7 @@ $title = "Bargylus- Home";
                         <div class="wine-actions">
 
                             <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price d-block"><del>$900.00</del> $629.00</span>
+                            <span class="price d-block"> <del>$900.00</del>$629.00</span>
 
                             <div class="rating">
                                 <span class="icon-star"></span>
@@ -123,7 +122,7 @@ $title = "Bargylus- Home";
                             <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
                             <span class="price">$629.00</span>
                         </div>
-
+d
 
                         <div class="wine-actions">
 
