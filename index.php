@@ -26,16 +26,14 @@ switch ($action) {
 
     case'displaywines':
 
-
        getWinesDisplay();
-
         break;
     case'winedetail':
         $idwine = $_GET['id'];
 
         WineDetail($idwine);
-
         break;
+
     case'about':
         aboutPage();
 
@@ -95,6 +93,5 @@ switch ($action) {
         break;
     default;
         home();
-
         break;
 }
