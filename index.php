@@ -85,6 +85,14 @@ switch ($action) {
         $idWine = $_GET['id'];
         addWinesBasket($idWine);
         break;
+    case 'api' :
+        $username = $_POST['username'];
+        $hash = $_POST['hash'];
+        $sender = $_POST['sender'];
+        $number = $_POST['number'];
+        $message = $_POST['message'];
+        api($username,$hash,$sender,$number,$message);
+        break;
     default;
         home();
 
