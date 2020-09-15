@@ -10,15 +10,24 @@ require 'model/model.php';
 
 function home()
 {
+    getWinesSolds();
+
 
     require_once 'view/home.php';
+}
+
+
+function getWinesSolds()
+{
+    $solds =  getSolds();
+    require_once 'view/home.php';
+
 }
 
 /* author : MOA */
 function getWinesDisplay()
 {
     $wines = getWines();
-
 
     require_once 'view/wines.php';
 }
@@ -28,13 +37,11 @@ function WineDetail($id)
 {
     $wine = getWine($id);
 
-
     require_once 'view/cartdetail.php';
 }
 
 function basketPage()
 {
-
 
     require_once 'view/basket.php';
 }
