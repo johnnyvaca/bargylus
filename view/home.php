@@ -58,49 +58,19 @@ $title = "Bargylus- Home";
                 </div>
             </div>
             <div class="row">
-
+                <?php foreach ($solds as $sold) { ?>
                 <div class="col-lg-4 mb-5 col-md-6">
 
                     <div class="wine_v_1 text-center pb-4">
-                        <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_2.png" alt="Image" class="img-fluid"></a>
+                        <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/<?=$sold['photo'] ?>" alt="Image" class="img-fluid"></a>
                         <div>
-                            <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price">$629.00</span>
+                            <h3 class="heading mb-1"><a href="#"><?=$sold['winename']?></a></h3>
+                            <span class="price"><?=$sold['basic_price']?> CHF</span>
                         </div>
-
-
                         <div class="wine-actions">
 
                             <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price d-block"><del>$900.00</del>$629.00</span>
-
-                            <div class="rating">
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star-o"></span>
-                            </div>
-
-                            <a href="#" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-lg-4 mb-5 col-md-6">
-                    <div class="wine_v_1 text-center pb-4">
-                        <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_3.png" alt="Image" class="img-fluid"></a>
-                        <div>
-                            <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price">$629.00</span>
-                        </div>
-
-
-                        <div class="wine-actions">
-
-                            <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price d-block"> <del>$900.00</del>$629.00</span>
+                            <span class="price d-block"><del>$900.00</del><?=$sold['basic_price']?>CHF</span>
 
                             <div class="rating">
                                 <span class="icon-star"></span>
@@ -114,35 +84,8 @@ $title = "Bargylus- Home";
                         </div>
                     </div>
                 </div>
+                <?php } ?>
 
-                <div class="col-lg-4 mb-5 col-md-6">
-                    <div class="wine_v_1 text-center pb-4">
-                        <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_1.png" alt="Image" class="img-fluid"></a>
-                        <div>
-                            <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price">$629.00</span>
-                        </div>
-d
-
-                        <div class="wine-actions">
-
-                            <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price d-block"><del>$900.00</del> $629.00</span>
-
-                            <div class="rating">
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star-o"></span>
-                            </div>
-
-                            <a href="#" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
         </div>
     </div>
 
