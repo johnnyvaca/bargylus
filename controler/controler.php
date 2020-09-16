@@ -16,10 +16,18 @@ function home()
     require_once 'view/home.php';
 }
 
-
+//
 function getWinesSolds()
 {
     $solds =  getSolds();
+    $today = date("F j, Y, g:i a");
+
+    foreach ($solds as $i => $sold){
+
+       $soldprice[$i] = $sold['basic_price'] - ($sold['basic_price'] * $sold['percentage']/100);
+    }
+
+
     require_once 'view/home.php';
 
 }

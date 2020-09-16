@@ -54,11 +54,12 @@ $title = "Bargylus- Home";
                 <div class="col-12 section-title text-center mb-5">
                     <h2 class="d-block">Notre promotion </h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, perspiciatis!</p>
+                    <span><?= $today ?> </span>
                     <p><a href="index.php?action=displaywines">voir les vins <span class="icon-long-arrow-right"></span></a></p>
                 </div>
             </div>
             <div class="row">
-                <?php foreach ($solds as $sold) { ?>
+                <?php foreach ($solds as $i => $sold) { ?>
                 <div class="col-lg-4 mb-5 col-md-6">
 
                     <div class="wine_v_1 text-center pb-4">
@@ -69,8 +70,8 @@ $title = "Bargylus- Home";
                         </div>
                         <div class="wine-actions">
 
-                            <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price d-block"><del>$900.00</del><?=$sold['basic_price']?>CHF</span>
+                            <h3 class="heading-2"><a href="#"><?=$sold['winename']?></a></h3>
+                            <span class="price d-block"><del><?=$sold['basic_price']?> CHF</del><?=$soldprice[$i]?>CHF</span>
 
                             <div class="rating">
                                 <span class="icon-star"></span>
@@ -85,7 +86,6 @@ $title = "Bargylus- Home";
                     </div>
                 </div>
                 <?php } ?>
-
         </div>
     </div>
 
