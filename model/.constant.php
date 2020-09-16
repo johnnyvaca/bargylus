@@ -1,5 +1,5 @@
 <?php
-$dbhost = 'localhost';
+$dbhost = 'localhost:3300';
 $dbname = 'bargylus_db';
 $user = 'root';
 $pass = 'root';
