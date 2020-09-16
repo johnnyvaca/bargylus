@@ -84,7 +84,8 @@ $title = "Wine_Details";
                 </div>
                 <!-- si le vin est épuisé -->
                 <?php if($wine['stock'] > 0){ ?>
-                    <p><a href="cart.html" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</a></p>
+
+                    <p><a href="index.php?action=winesBasket&id=<?=$wine['id']?>" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Aujouter au panier</a></p>
                 <?php } else { ?>
                     <span>vin épuisé</span>
                 <?php } ?>

@@ -39,7 +39,8 @@ switch ($action) {
 
         break;
     case'basket':
-        basketPage();
+        $basketContent = $_SESSION['basket'];
+        basketPage($basketContent);
         break;
     case'contact':
         contactPage();
