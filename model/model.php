@@ -132,8 +132,8 @@ function getWineBottle($id)
 
     try {
         $dbh = getPDO();
-        $query = 'SELECT * FROM wines INNER JOIN wines_compose_bottles on  wines.id = wines_compose_bottles.wine_id  
-                        INNER JOIN bottles on  wines_compose_bottles.bottle_id =bottles.id WHERE wines.id =:id';
+        $query = 'SELECT * FROM wines INNER JOIN wines_compose_grapes on  wines.id = wines_compose_grapes.wine_id  
+                        INNER JOIN grapes on  wines_compose_grapes.grape_id = grapes.id WHERE wines.id =:id';
         $statment = $dbh->prepare($query);
         $statment->execute(['id' => $id]);//prepare query
         $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
@@ -152,8 +152,7 @@ function withdrawWineBottle($id)
 {
     try {
         $dbh = getPDO();
-        $query = 'UPDATE bottles INNER JOIN wines_compose_bottles on  bottles.id = wines_compose_bottles.bottle_id  
-                        INNER JOIN wines on  wines_compose_bottles.wine_id = wines.id set stock = stock - 1 WHERE wines.id =:id';
+        $query = 'UPDATE wines set stock = stock - 1 WHERE wines.id =:id';
         $statment = $dbh->prepare($query);
         $statment->execute(['id' => $id]);//prepare query
         $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
