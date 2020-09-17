@@ -11,8 +11,7 @@ require 'model/model.php';
 function home()
 {
     getWinesSolds();
-
-
+    
     require_once 'view/home.php';
 }
 

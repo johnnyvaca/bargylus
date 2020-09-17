@@ -54,7 +54,7 @@ $title = "Bargylus- Home";
                 <div class="col-12 section-title text-center mb-5">
                     <h2 class="d-block">Notre promotion </h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, perspiciatis!</p>
-                    <span><?= $today ?> </span>
+                    <span><?= $currantday ?> </span>
                     <p><a href="index.php?action=displaywines">voir les vins <span class="icon-long-arrow-right"></span></a></p>
                 </div>
             </div>
@@ -63,7 +63,7 @@ $title = "Bargylus- Home";
                 <div class="col-lg-4 mb-5 col-md-6">
 
                     <div class="wine_v_1 text-center pb-4">
-                        <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/<?=$sold['photo'] ?>" alt="Image" class="img-fluid"></a>
+                        <a href="index.php?action=winedetail&id=<?=$sold['id']?>" class="thumbnail d-block mb-4"><img src="images/<?=$sold['photo'] ?>" alt="Image" class="img-fluid"></a>
                         <div>
                             <h3 class="heading mb-1"><a href="#"><?=$sold['winename']?></a></h3>
                             <span class="price"><?=$sold['basic_price']?> CHF</span>
@@ -71,7 +71,11 @@ $title = "Bargylus- Home";
                         <div class="wine-actions">
 
                             <h3 class="heading-2"><a href="#"><?=$sold['winename']?></a></h3>
-                            <span class="price d-block"><del><?=$sold['basic_price']?> CHF</del><?=$soldprice[$i]?>CHF</span>
+                            <span class="price d-block">
+
+                                    <del> <?=$sold['basic_price']?> CHF </del><br>
+                                    <?= $soldprice[$i] ?>CHF</span>
+
 
                             <div class="rating">
                                 <span class="icon-star"></span>
