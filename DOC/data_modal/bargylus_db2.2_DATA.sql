@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Hôte :                        127.0.0.1
--- Version du serveur:           8.0.19 - MySQL Community Server - GPL
+-- Version du serveur:           8.0.20 - MySQL Community Server - GPL
 -- SE du serveur:                Win64
--- HeidiSQL Version:             10.2.0.5599
+-- HeidiSQL Version:             11.0.0.5919
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -13,23 +13,70 @@
 
 
 -- Listage de la structure de la base pour bargylus_db
-CREATE DATABASE IF NOT EXISTS `bargylus_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE IF NOT EXISTS `bargylus_db` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_bin */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `bargylus_db`;
+
+-- Listage de la structure de la table bargylus_db. discounts
+CREATE TABLE IF NOT EXISTS `discounts` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `percentage` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique` (`start_date`,`end_date`,`percentage`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- Listage des données de la table bargylus_db.discounts : ~3 rows (environ)
+DELETE FROM `discounts`;
+/*!40000 ALTER TABLE `discounts` DISABLE KEYS */;
+INSERT INTO `discounts` (`id`, `start_date`, `end_date`, `percentage`) VALUES
+	(3, '2001-01-01', '2002-02-02', 13),
+	(1, '2010-10-10', '2011-11-11', 10),
+	(2, '2012-12-12', '2013-12-12', 12);
+/*!40000 ALTER TABLE `discounts` ENABLE KEYS */;
+
+-- Listage de la structure de la table bargylus_db. grapes
+CREATE TABLE IF NOT EXISTS `grapes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `color` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`),
+  UNIQUE KEY `name_2` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- Listage des données de la table bargylus_db.grapes : ~12 rows (environ)
+DELETE FROM `grapes`;
+/*!40000 ALTER TABLE `grapes` DISABLE KEYS */;
+INSERT INTO `grapes` (`id`, `name`, `color`) VALUES
+	(1, 'Couderc', 'blanc'),
+	(2, 'Landal', 'blanc'),
+	(3, 'Plant de Brunel', 'blanc'),
+	(4, 'Prunelard', 'blanc'),
+	(5, 'Alphonse Lavallée', 'blanc'),
+	(6, 'Aubun', 'blanc'),
+	(7, 'Béclan', 'blanc'),
+	(8, 'Aramon', 'blanc'),
+	(9, 'Couston', 'Rouge'),
+	(10, 'Poulsar', 'Rouge'),
+	(11, 'Malvoisie', 'blanc'),
+	(12, 'Macabeuie', 'Rouge');
+/*!40000 ALTER TABLE `grapes` ENABLE KEYS */;
 
 -- Listage de la structure de la table bargylus_db. modes_payments
 CREATE TABLE IF NOT EXISTS `modes_payments` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL,
+  `name` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- Listage des données de la table bargylus_db.modes_payments : ~4 rows (environ)
 DELETE FROM `modes_payments`;
 /*!40000 ALTER TABLE `modes_payments` DISABLE KEYS */;
 INSERT INTO `modes_payments` (`id`, `name`) VALUES
-	(4, 'mastercard'),
 	(3, 'PayPal'),
+	(4, 'mastercard'),
 	(1, 'postefinane'),
 	(2, 'visacard');
 /*!40000 ALTER TABLE `modes_payments` ENABLE KEYS */;
@@ -37,21 +84,21 @@ INSERT INTO `modes_payments` (`id`, `name`) VALUES
 -- Listage de la structure de la table bargylus_db. users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `email` varchar(45) NOT NULL,
-  `lastname` varchar(45) NOT NULL,
-  `firstname` varchar(45) NOT NULL,
-  `phone_number` varchar(45) NOT NULL,
+  `email` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `lastname` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `firstname` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `phone_number` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `registration_date` date NOT NULL,
   `birth_date` date NOT NULL,
-  `street_home` varchar(45) NOT NULL,
+  `street_home` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `zip` int NOT NULL,
-  `city` varchar(45) NOT NULL,
-  `canton` varchar(45) NOT NULL,
-  `password` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `city` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `canton` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `password` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `droits` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- Listage des données de la table bargylus_db.users : ~14 rows (environ)
 DELETE FROM `users`;
@@ -89,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `users_buy_wines` (
   CONSTRAINT `fk_Users_buy_Wines_ModesOfPayments1` FOREIGN KEY (`mode_id`) REFERENCES `modes_payments` (`id`),
   CONSTRAINT `fk_Users_has_Wines_Users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `fk_Users_has_Wines_Wines1` FOREIGN KEY (`wine_id`) REFERENCES `wines` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- Listage des données de la table bargylus_db.users_buy_wines : ~50 rows (environ)
 DELETE FROM `users_buy_wines`;
@@ -158,7 +205,7 @@ CREATE TABLE IF NOT EXISTS `users_choose_mode` (
   KEY `fk_Users_has_ModesOfPayments_Users_idx` (`user_id`),
   CONSTRAINT `fk_Users_has_ModesOfPayments_ModesOfPayments1` FOREIGN KEY (`mode_id`) REFERENCES `modes_payments` (`id`),
   CONSTRAINT `fk_Users_has_ModesOfPayments_Users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- Listage des données de la table bargylus_db.users_choose_mode : ~50 rows (environ)
 DELETE FROM `users_choose_mode`;
@@ -216,67 +263,42 @@ INSERT INTO `users_choose_mode` (`id`, `user_id`, `mode_id`, `date`) VALUES
 	(50, 2, 2, '2019-03-07');
 /*!40000 ALTER TABLE `users_choose_mode` ENABLE KEYS */;
 
--- Listage de la structure de la table bargylus_db. grapes
-CREATE TABLE IF NOT EXISTS `grapes` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL,
-  `color` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`),
-  UNIQUE KEY `name_2` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
-
--- Listage des données de la table bargylus_db.grapes : ~12 rows (environ)
-DELETE FROM `grapes`;
-/*!40000 ALTER TABLE `grapes` DISABLE KEYS */;
-INSERT INTO `grapes` (`id`, `name`, `color`) VALUES
-	(1,'Couderc','blanc'),
-	(2,'Landal','blanc'),
-	(3,'Plant de Brunel','blanc'),
-	(4,'Prunelard','blanc'),
-	(5,'Alphonse Lavallée','blanc' ),
-	(6,'Aubun', 'blanc'), 
-	(7,'Béclan','blanc'),
-	(8,'Aramon', 'blanc'),
-	(9,'Couston','Rouge'),
-	(10,'Poulsar','Rouge'),
-	(11,'Malvoisie','blanc'),
-	(12,'Macabeuie', 'Rouge');
-/*!40000 ALTER TABLE `grapes` ENABLE KEYS */;
-
--- Listage des données de la table bargylus_db.wines : ~12 rows (environ)
+-- Listage de la structure de la table bargylus_db. wines
 CREATE TABLE IF NOT EXISTS `wines` (
   `id` int NOT NULL AUTO_INCREMENT,
   `year` int NOT NULL,
-  `winename` varchar(45) NOT NULL,
+  `winename` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `alcohol` float NOT NULL,
   `basic_price` float NOT NULL,
   `size` int NOT NULL,
   `stock` int NOT NULL,
-  `photo` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `photo` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `discounts_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `year` (`year`,`winename`,`size`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+  UNIQUE KEY `uniques` (`size`,`winename`,`year`),
+  KEY `fk_DiscoutsOfWines_idx` (`discounts_id`),
+  CONSTRAINT `fk_DiscoutsOfWines_idx` FOREIGN KEY (`discounts_id`) REFERENCES `discounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- Listage des données de la table bargylus_db.wines : ~12 rows (environ)
 DELETE FROM `wines`;
 /*!40000 ALTER TABLE `wines` DISABLE KEYS */;
-INSERT INTO `wines` (`id`,`year`,`winename`, `alcohol`, `basic_price`,`size`, `stock`, `photo`) VALUES
-	(1, 2011 ,'Amigne' , 17, 32,2, 30, 'wine_1.png'),
-	(2,2012 ,'Païen'  ,18, 30,1, 30, 'wine_2.png'),
-	(3,2013 ,'Emitage'  , 16, 24,2, 30, 'wine_3.png'),
-	(4, 2014,'Altesse' , 20, 30,1, 30, 'wine_4.png'),
-	(5, 2015,'petite-Arvine', 18, 30,2, 30, 'wine_5.png'),
-	(6,2016 ,'Arvine' ,17, 28,2, 30, 'wine_6.png'),
-	(7,2017 ,'Aligoté'  ,20, 24,2, 30, 'wine_7.png'),
-	(8,2018 ,'Muscat'  ,17, 32,1, 30, 'wine_1.png'),
-	(9,2019 ,'Réze' , 16, 38,1, 30, 'wine_2.png'),
-	(10,2010 ,'Lafnetscha', 16, 38,1, 30, 'wine_3.png'),
-	(11, 2009,'Joubertin', 16, 38,1, 30, 'wine_4.png'),
-	(12, 2008,'Johannisberg', 20, 32,1, 30, 'wine_1.png');
+INSERT INTO `wines` (`id`, `year`, `winename`, `alcohol`, `basic_price`, `size`, `stock`, `photo`, `discounts_id`) VALUES
+	(1, 2011, 'Amigne', 17, 32, 2, 30, 'wine_1.png', NULL),
+	(2, 2012, 'Païen', 18, 30, 1, 30, 'wine_2.png', NULL),
+	(3, 2013, 'Emitage', 16, 24, 2, 30, 'wine_3.png', NULL),
+	(4, 2014, 'Altesse', 20, 30, 1, 30, 'wine_4.png', NULL),
+	(5, 2015, 'petite-Arvine', 18, 30, 2, 30, 'wine_5.png', NULL),
+	(6, 2016, 'Arvine', 17, 28, 2, 30, 'wine_6.png', NULL),
+	(7, 2017, 'Aligoté', 20, 24, 2, 30, 'wine_7.png', NULL),
+	(8, 2018, 'Muscat', 17, 32, 1, 30, 'wine_1.png', NULL),
+	(9, 2019, 'Réze', 16, 38, 1, 30, 'wine_2.png', NULL),
+	(10, 2010, 'Lafnetscha', 16, 38, 1, 30, 'wine_3.png', NULL),
+	(11, 2009, 'Joubertin', 16, 38, 1, 30, 'wine_4.png', NULL),
+	(12, 2008, 'Johannisberg', 20, 32, 1, 30, 'wine_1.png', NULL);
 /*!40000 ALTER TABLE `wines` ENABLE KEYS */;
 
--- Listage de la structure de la table bargylus_db. wines_compose_bottles
+-- Listage de la structure de la table bargylus_db. wines_compose_grapes
 CREATE TABLE IF NOT EXISTS `wines_compose_grapes` (
   `id` int NOT NULL,
   `wine_id` int NOT NULL,
@@ -286,7 +308,7 @@ CREATE TABLE IF NOT EXISTS `wines_compose_grapes` (
   KEY `fk_Wines_has_Grapes_Wines1_idx` (`wine_id`),
   CONSTRAINT `fk_Wines_has_Bottles_Bottles1` FOREIGN KEY (`grape_id`) REFERENCES `grapes` (`id`),
   CONSTRAINT `fk_Wines_has_Bottles_Wines1` FOREIGN KEY (`wine_id`) REFERENCES `wines` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- Listage des données de la table bargylus_db.wines_compose_grapes : ~12 rows (environ)
 DELETE FROM `wines_compose_grapes`;
