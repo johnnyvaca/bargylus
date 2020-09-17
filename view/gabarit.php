@@ -7,7 +7,7 @@
  */
 ?>
 <!DOCTYPE html>
-<?php require_once 'helpers.php' ?>
+<?php require_once 'view/helpers.php' ?>
 <html lang="fr">
 
 <head>

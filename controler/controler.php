@@ -16,18 +16,10 @@ function home()
     require_once 'view/home.php';
 }
 
-//
+
 function getWinesSolds()
 {
     $solds =  getSolds();
-    $today = date("F j, Y, g:i a");
-
-    foreach ($solds as $i => $sold){
-
-       $soldprice[$i] = $sold['basic_price'] - ($sold['basic_price'] * $sold['percentage']/100);
-    }
-
-
     require_once 'view/home.php';
 
 }
@@ -45,12 +37,12 @@ function WineDetail($id)
 {
     $wine = getWine($id);
 
+
     require_once 'view/cartdetail.php';
 }
 
-function basketPage()
+function basketPage($basketContentPost)
 {
-
     require_once 'view/basket.php';
 }
 
@@ -154,13 +146,21 @@ function signup($email, $lastname, $firstname, $phoneNumber, $day, $month, $year
 // et supprime une bouteille dans la base de données
 function addWinesBasket($idWinePost)
 {
-    $wine = getWineBottle($idWinePost);
-    $_SESSION[cart][] = $wine;
+    $oneWine = getWineBottle($idWinePost);
+    $_SESSION['basket'][] = $oneWine;
     $_SESSION['flashmessage'] = 'Vin ajouté dans le panier';
-    var_dump($wine); die();
     withdrawWineBottle($idWinePost);
+    getWinesDisplay();
 
 }
+
+function removeWinesBasket($idWinePost)
+{
+    unset($_SESSION['basket']['id' == $idWinePost]);
+    addWineBottle($idWinePost);
+}
+
+
 
 
 function api($username,$hash,$sender,$number,$message){

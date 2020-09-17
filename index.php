@@ -39,7 +39,8 @@ switch ($action) {
 
         break;
     case'basket':
-        basketPage();
+        $basketContent = $_SESSION['basket'];
+        basketPage($basketContent);
         break;
     case'contact':
         contactPage();
@@ -82,6 +83,10 @@ switch ($action) {
     case 'winesBasket':
         $idWine = $_GET['id'];
         addWinesBasket($idWine);
+        break;
+    case 'removeWineBasket':
+        $idWine = $_GET['id'];
+        removeWinesBasket($idWine);
         break;
     case 'api' :
         $username = $_POST['username'];
