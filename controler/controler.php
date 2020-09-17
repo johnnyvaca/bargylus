@@ -20,6 +20,14 @@ function home()
 function getWinesSolds()
 {
     $solds =  getSolds();
+    var_dump($solds);
+
+    $today = date("Y, m, j,");
+
+    foreach ($solds as $i => $sold){
+
+        $soldprice[$i] = $sold['basic_price'] - ($sold['basic_price'] * $sold['percentage']/100);
+    }
     require_once 'view/home.php';
 
 }
