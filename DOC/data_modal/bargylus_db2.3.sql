@@ -1,0 +1,1 @@
+SELECT * FROM bargylus_db.wines;
