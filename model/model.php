@@ -183,13 +183,18 @@ function addWineBottle($id)
     }
 }
 
+/***
+ * @return array|null
+ *
+ */
+// MAO
 function getSolds()
 {
     // pour l'affichage debuge
     require "model/.constant.php";
     try {
         $dbh = getPDO();
-        $query = 'SELECT * FROM wines INNER JOIN discounts on  wines.discounts_id = discounts.id ';
+        $query = 'SELECT * FROM wines INNER JOIN discounts on  wines.discounts_id = discounts.id';
         $statment = $dbh->prepare($query);
         $statment->execute();//prepare query
         $queryResult = $statment->fetchall(PDO::FETCH_ASSOC);//prepare result for client
