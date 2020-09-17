@@ -158,7 +158,6 @@ function addWinesBasket($idWinePost)
     $_SESSION['flashmessage'] = 'Vin ajouté dans le panier';
     withdrawWineBottle($idWinePost);
     getWinesDisplay();
-
 }
 
 //Supprime un vin du Basket et update dans la base de donnée en ajoutant un vin dans le stock
@@ -172,7 +171,6 @@ function removeWinesBasket($idWinePost)
     }
     addWineBottle($idWinePost);
     basketPage($_SESSION['basket']);
-
 }
 
 
