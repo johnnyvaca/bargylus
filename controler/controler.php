@@ -20,7 +20,6 @@ function home()
 function getWinesSolds()
 {
     $solds =  getSolds();
-    var_dump($solds);
 
     $today = date("Y, m, j,");
 
@@ -159,13 +158,19 @@ function addWinesBasket($idWinePost)
     $_SESSION['flashmessage'] = 'Vin ajouté dans le panier';
     withdrawWineBottle($idWinePost);
     getWinesDisplay();
-
 }
 
+//Supprime un vin du Basket et update dans la base de donnée en ajoutant un vin dans le stock
 function removeWinesBasket($idWinePost)
 {
-    unset($_SESSION['basket']['id' == $idWinePost]);
+    foreach($_SESSION['basket'] as $i => $oneContent)
+    {
+        if($oneContent['id'] == $idWinePost){
+            unset($_SESSION['basket'][$i]);
+        }
+    }
     addWineBottle($idWinePost);
+    basketPage($_SESSION['basket']);
 }
 
 
