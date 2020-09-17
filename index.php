@@ -84,6 +84,10 @@ switch ($action) {
         $idWine = $_GET['id'];
         addWinesBasket($idWine);
         break;
+    case 'removeWineBasket':
+        $idWine = $_GET['id'];
+        removeWinesBasket($idWine);
+        break;
     case 'api' :
         $username = $_POST['username'];
         $hash = $_POST['hash'];

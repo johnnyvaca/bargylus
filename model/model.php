@@ -166,6 +166,22 @@ function withdrawWineBottle($id)
     }
 }
 
+function addWineBottle($id)
+{
+    try {
+        $dbh = getPDO();
+        $query = 'UPDATE wines set stock = stock + 1 WHERE wines.id =:id';
+        $statment = $dbh->prepare($query);
+        $statment->execute(['id' => $id]);//prepare query
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        if ($debug) var_dump($queryResult);
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
 
 function getSolds()
 {

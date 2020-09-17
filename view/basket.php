@@ -38,7 +38,7 @@ $title = "Wine_Basket";
                 <?php foreach($basketContentPost as $oneBasketContent){ ?>
                   <tr>
                     <td class="product-thumbnail">
-                      <img src="images/wine_1.png" alt="Image" class="img-fluid">
+                      <img src="<?= $oneBasketContent['photo'] ?>" alt="Image" class="img-fluid">
                     </td>
                     <td class="product-name">
                       <h2 class="h5 cart-product-title text-black"><?= $oneBasketContent['winename'] ?><br><?= $oneBasketContent['name'] ?><br><?= $oneBasketContent['color'] ?><br><?= $oneBasketContent['year']?></h2>
@@ -58,7 +58,7 @@ $title = "Wine_Basket";
 
                     </td>
                     <td>$49.00</td>
-                    <td><a href="#" class="btn btn-primary height-auto btn-sm">X</a></td>
+                    <td><a href="index.php?action=removeWineBasketwinesBasket&id=<?=$wine['id']?>" class="btn btn-primary height-auto btn-sm">X</a></td>
                       <?php } ?>
                   </tr>
 

@@ -154,6 +154,12 @@ function addWinesBasket($idWinePost)
 
 }
 
+function removeWinesBasket($idWinePost)
+{
+    unset($_SESSION['basket']['id' == $idWinePost]);
+    addWineBottle($idWinePost);
+}
+
 
 
 
