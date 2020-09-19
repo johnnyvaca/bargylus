@@ -53,7 +53,8 @@ $title = "Bargylus- Home";
             <div class="row mb-5">
                 <div class="col-12 section-title text-center mb-5">
                     <h2 class="d-block">Notre promotion </h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, perspiciatis!</p>
+                    <p>Bargylus élabore des vins de grande qualité, régulièrement distingués dans les
+                        principaux concours.!</p>
                     <span><?= $currantday ?> </span>
                     <p><a href="index.php?action=displaywines">voir les vins <span class="icon-long-arrow-right"></span></a></p>
                 </div>
