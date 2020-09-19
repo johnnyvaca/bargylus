@@ -15,7 +15,7 @@ $title = "Bargylus- wines";
 
             <div class="row mb-5">
                 <div class="col-12 section-title text-center mb-5">
-                    <h2 class="d-block"> Barhylus élabore des vins de grande qualité, régulièrement distingués dans les
+                    <h2 class="d-block"> Bargylus élabore des vins de grande qualité, régulièrement distingués dans les
                         principaux concours.</h2>
                     <h1> Notre vins </h1>
                 </div>
