@@ -24,8 +24,8 @@ $title = "Wine_Basket";
           <form class="col-md-12" method="post">
             <div class="site-blocks-table">
               <table class="table table-bordered">
-                <thead>
-                  <tr>
+                <thead> <?php //todo ?>
+                <tr>  <!--traduction en français   -->
                     <th class="product-thumbnail">Image</th>
                     <th class="product-name">Product</th>
                     <th class="product-price">Price</th>
@@ -45,6 +45,7 @@ $title = "Wine_Basket";
                     </td>
                     <td><?= $oneBasketContent['basic_price'] ?> CHF</td>
                     <td>
+                        <!-- applique le calcul ici Altin avec les boutons  -->
                       <div class="input-group mb-3" style="max-width: 120px;">
                         <div class="input-group-prepend">
                           <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
@@ -57,6 +58,7 @@ $title = "Wine_Basket";
                       </div>
 
                     </td>
+                      <!-- applique le calcul ici Altin -->
                     <td>$49.00</td>
                     <td><a href="index.php?action=removeWineBasket&id=<?=$oneBasketContent['id']?>" class="btn btn-primary height-auto btn-sm">X</a></td>
                       <?php } ?>
