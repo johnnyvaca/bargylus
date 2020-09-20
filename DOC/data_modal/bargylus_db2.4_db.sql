@@ -50,6 +50,19 @@ CREATE TABLE IF NOT EXISTS `modes_payments` (
 
 -- Les données exportées n'étaient pas sélectionnées.
 
+-- Listage de la structure de la table bargylus_db. orders
+CREATE TABLE IF NOT EXISTS `orders` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `number` int NOT NULL,
+  `states_id` int unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique` (`number`) USING BTREE /*!80000 INVISIBLE */,
+  KEY `fk_orders_states1_idx` (`states_id`),
+  CONSTRAINT `fk_orders_states1` FOREIGN KEY (`states_id`) REFERENCES `states` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- Les données exportées n'étaient pas sélectionnées.
+
 -- Listage de la structure de la table bargylus_db. states
 CREATE TABLE IF NOT EXISTS `states` (
   `id` int unsigned NOT NULL,
@@ -90,13 +103,14 @@ CREATE TABLE IF NOT EXISTS `users_buy_wines` (
   `date` date DEFAULT NULL,
   `price` float DEFAULT NULL,
   `quantity` int DEFAULT NULL,
-  `state_id` int DEFAULT NULL,
+  `orders_id` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_Users_has_Wines_Wines1_idx` (`wine_id`),
   KEY `fk_Users_has_Wines_Users1_idx` (`user_id`),
   KEY `fk_Users_buy_Wines_ModesOfPayments1_idx` (`mode_id`),
-  KEY `fk_States_has_Buys` (`state_id`),
+  KEY `fk_users_buy_wines_orders1_idx` (`orders_id`),
   CONSTRAINT `fk_Users_buy_Wines_ModesOfPayments1` FOREIGN KEY (`mode_id`) REFERENCES `modes_payments` (`id`),
+  CONSTRAINT `fk_users_buy_wines_orders1` FOREIGN KEY (`orders_id`) REFERENCES `orders` (`id`),
   CONSTRAINT `fk_Users_has_Wines_Users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `fk_Users_has_Wines_Wines1` FOREIGN KEY (`wine_id`) REFERENCES `wines` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -128,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `wines` (
   `size` int NOT NULL,
   `stock` int NOT NULL,
   `photo` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `discounts_id` int DEFAULT NULL,
+  `discounts_id` int DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uniques` (`size`,`winename`,`year`),
   KEY `fk_DiscoutsOfWines_idx` (`discounts_id`),

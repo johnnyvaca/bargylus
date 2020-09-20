@@ -1,7 +1,7 @@
 <?php
-$dbhost = 'localhost:3300';
+$dbhost = 'localhost';
 $dbname = 'bargylus_db';
 $user = 'root';
-$pass = 'root';
+$pass = 'Pa$$w0rd';
 $debug = false;
 ?>
