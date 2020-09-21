@@ -16,36 +16,6 @@ function home()
 }
 
 
-function getWinesSolds()
-{
-    $solds = getSolds();
-
-    $today = date("Y, m, j,");
-
-    foreach ($solds as $i => $sold) {
-
-        $soldprice[$i] = $sold['basic_price'] - ($sold['basic_price'] * $sold['percentage'] / 100);
-    }
-    require_once 'view/home.php';
-
-}
-
-/* author : MOA */
-function getWinesDisplay()
-{
-    $wines = getWines();
-
-    require_once 'view/wines.php';
-}
-
-/* author : MOA */
-function WineDetail($id)
-{
-    $wine = getWine($id);
-
-
-    require_once 'view/cartdetail.php';
-}
 
 function basketPage($basketContentPost)
 {
