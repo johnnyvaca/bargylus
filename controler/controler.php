@@ -12,7 +12,6 @@ function home()
 {
     getWinesSolds();
 
-    require_once 'view/home.php';
 }
 
 
