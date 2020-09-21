@@ -7,6 +7,8 @@
  */
 
 require "controler/controler.php";
+require "controler/DiscountControler.php";
+require "controler/DisplaywineControler.php";
 
 session_start();
 // to go home by default
@@ -15,10 +17,6 @@ if (isset($_GET['action'])) {
 } else {
     $action = 'home';
 }
-
-// les variables globale
-
-
 
 
 
