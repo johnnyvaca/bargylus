@@ -72,7 +72,7 @@ $title = "Bargylus- Home";
                         <a href="index.php?action=winedetail&id=<?=$sold['id']?>" class="thumbnail d-block mb-4"><img src="images/<?=$sold['photo'] ?>" alt="Image" class="img-fluid"></a>
                         <div>
                             <h3 class="heading mb-1"><a href="#"><?=$sold['winename']?></a></h3>
-                            <span class="price"><?=$sold['basic_price']?> CHF</span>
+                            <span class="price"><?= $soldprice[$i]?> CHF</span>
                         </div>
                         <div class="wine-actions">
 
