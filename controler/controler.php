@@ -12,6 +12,7 @@ function home()
 {
     getWinesSolds();
 
+
     require_once 'view/home.php';
 }
 
@@ -19,6 +20,8 @@ function home()
 
 function basketPage($basketContentPost)
 {
+
+
     require_once 'view/basket.php';
 }
 
@@ -120,6 +123,10 @@ function signup($email, $lastname, $firstname, $phoneNumber, $day, $month, $year
 function addWinesBasket($idWinePost)
 {
     $oneWine = getWineBottle($idWinePost);
+
+
+    $oneWine['priceWithSold'] = $oneWine['basic_price'] - ($oneWine['basic_price'] * $oneWine['percentage'] / 100);
+
     $_SESSION['basket'][] = $oneWine;
     $_SESSION['flashmessage'] = 'Vin ajouté dans le panier';
     withdrawWineBottle($idWinePost);

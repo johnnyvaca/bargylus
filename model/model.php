@@ -83,8 +83,17 @@ function getWineBottle($id)
 
     try {
         $dbh = getPDO();
+        /*
+         * JOHNNY: j'ai rajouté inner join discounts pour les prix a calculer dans le basket
+         *
         $query = 'SELECT * FROM wines INNER JOIN wines_compose_grapes on  wines.id = wines_compose_grapes.wine_id  
                         INNER JOIN grapes on  wines_compose_grapes.grape_id = grapes.id WHERE wines.id =:id';
+        */
+
+        $query = "SELECT * FROM wines            
+                        INNER JOIN wines_compose_grapes on  wines.id = wines_compose_grapes.wine_id  
+                        INNER JOIN grapes on  wines_compose_grapes.grape_id =grapes.id
+                        INNER JOIN discounts on  wines.discounts_id = discounts.id WHERE wines.id =:id";
         $statment = $dbh->prepare($query);
         $statment->execute(['id' => $id]);//prepare query
         $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client

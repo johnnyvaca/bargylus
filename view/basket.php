@@ -43,7 +43,7 @@ $title = "Wine_Basket";
                     <td class="product-name">
                       <h2 class="h5 cart-product-title text-black"><?= $oneBasketContent['winename'] ?><br><?= $oneBasketContent['name'] ?><br><?= $oneBasketContent['color'] ?><br><?= $oneBasketContent['year']?></h2>
                     </td>
-                    <td><?= $oneBasketContent['basic_price'] ?> CHF</td>
+                    <td><?=  $oneBasketContent['priceWithSold']?> CHF</td>
                     <td>
                         <!-- applique le calcul ici Altin avec les boutons  -->
                       <div class="input-group mb-3" style="max-width: 120px;">

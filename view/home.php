@@ -56,11 +56,16 @@ $title = "Bargylus- Home";
                     <p>Bargylus élabore des vins de grande qualité, régulièrement distingués dans les
                         principaux concours.!</p>
                     <span><?= $currantday ?> </span>
-                    <p><a href="index.php?action=displaywines">voir les vins <span class="icon-long-arrow-right"></span></a></p>
+                    <p><a href="index.php?action=soldWinDisplay"><b>voir les vins en PROMOTION!</b> <span class="icon-long-arrow-right"></span></a></p>
                 </div>
             </div>
             <div class="row">
-                <?php foreach ($solds as $i => $sold) { ?>
+
+                <?php
+
+                foreach ($solds as $i => $sold) {
+
+                    if($sold['discounts_id'] != 1){ ?>
                 <div class="col-lg-4 mb-5 col-md-6">
 
                     <div class="wine_v_1 text-center pb-4">
@@ -90,7 +95,7 @@ $title = "Bargylus- Home";
                         </div>
                     </div>
                 </div>
-                <?php } ?>
+                <?php }} ?>
         </div>
     </div>
 
