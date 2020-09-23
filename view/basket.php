@@ -58,7 +58,7 @@ $title = "Wine_Basket";
 
                     </td>
                       <!-- applique le calcul ici Altin -->
-                    <td>$49.00</td>
+                    <td><?= $oneBasketContent['plusMinus'] ?></td>
                     <td><a href="index.php?action=removeWineBasket&id=<?=$oneBasketContent['id']?>" class="btn btn-primary height-auto btn-sm">X</a></td>
                       <?php } ?>
                   </tr>
