@@ -12,7 +12,6 @@ $title = "Wine_Basket";
 ?>
 
 
-
 <div class="site-section  pb-0">
       <div class="container">
         <div class="row mb-5 justify-content-center">
@@ -110,7 +109,7 @@ $title = "Wine_Basket";
                     <span class="text-black">Total</span>
                   </div>
                   <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
+                    <strong class="text-black"><?= $_SESSION['total'] ?> CHF</strong>
                   </div>
                 </div>
 
