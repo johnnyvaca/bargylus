@@ -27,7 +27,6 @@ $quantity = 1;
                 <div class="owl-carousel hero-slide owl-style">
                     <img src="images/<?= $wine['photo'] ?>" alt="<?= $wine['winename'], " ", $wine['year'] ?>"
                          class="img-fluid">
-
                 </div>
             </div>
             <div class="col-lg-5 ml-auto">
@@ -65,15 +64,9 @@ $quantity = 1;
                         <td><?= $wine['size'] ,"L" ?></td>
 
                     </tr>
-
-
                     </tbody>
                 </table>
 
-
-
-
-                
                 <form action="index.php" method="get">
                     <input type="hidden" name="id" value="<?=$wine['id']?>">
                     <input type="hidden" name="action" value="winesBasket">
