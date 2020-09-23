@@ -74,26 +74,45 @@ function createUser($oneUser)
     //
 }
 
+// montrer les articles de vin
+function getWines()
+{
+    require "model/.constant.php";
+    $dbh = getPDO();
+    try {
+        /*
+        $query = 'SELECT * FROM wines            
+                        INNER JOIN wines_compose_bottles on  wines.id = wines_compose_bottles.wine_id  
+                        INNER JOIN bottles on  wines_compose_bottles.bottle_id =bottles.id ';*/
+        $query = 'SELECT * FROM wines            
+                        INNER JOIN wines_compose_grapes on  wines.id = wines_compose_grapes.wine_id  
+                        INNER JOIN grapes on  wines_compose_grapes.grape_id =grapes.id';
+        $statment = $dbh->prepare($query);
+        $statment->execute();//prepare query
+        $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        return $queryResult;
+        if ($debug) var_dump($queryResult);
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
 
 
-//(ALTIN)fonction qui cherche une bouteille avec toutes ses informations au panier
-function getWineBottle($id)
+}
+
+
+// show one wine or item
+
+function getWine($id)
 {
 
 
     try {
         $dbh = getPDO();
-        /*
-         * JOHNNY: j'ai rajouté inner join discounts pour les prix a calculer dans le basket
-         *
         $query = 'SELECT * FROM wines INNER JOIN wines_compose_grapes on  wines.id = wines_compose_grapes.wine_id  
                         INNER JOIN grapes on  wines_compose_grapes.grape_id = grapes.id WHERE wines.id =:id';
-        */
-
-        $query = "SELECT * FROM wines            
-                        INNER JOIN wines_compose_grapes on  wines.id = wines_compose_grapes.wine_id  
-                        INNER JOIN grapes on  wines_compose_grapes.grape_id =grapes.id
-                        INNER JOIN discounts on  wines.discounts_id = discounts.id WHERE wines.id =:id";
         $statment = $dbh->prepare($query);
         $statment->execute(['id' => $id]);//prepare query
         $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
@@ -106,6 +125,29 @@ function getWineBottle($id)
     }
 
 }
+
+//(ALTIN)fonction qui cherche une bouteille avec toutes ses informations
+function getWineBottle($id)
+{
+
+
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT * FROM wines INNER JOIN wines_compose_grapes on  wines.id = wines_compose_grapes.wine_id  
+                        INNER JOIN grapes on  wines_compose_grapes.grape_id = grapes.id WHERE wines.id =:id';
+        $statment = $dbh->prepare($query);
+        $statment->execute(['id' => $id]);//prepare query
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        return $queryResult;
+        if ($debug) var_dump($queryResult);
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+
+}
+
 //(ALTIN)fonction qui Update le stock d'une bouteille
 function withdrawWineBottle($id)
 {
@@ -123,6 +165,7 @@ function withdrawWineBottle($id)
         return null;
     }
 }
+
 function addWineBottle($id)
 {
     try {
@@ -140,26 +183,28 @@ function addWineBottle($id)
     }
 }
 
-function getOrdersByUser(){
+/***
+ * @return array|null
+ *
+ */
+// MAO
+function getSolds()
+{
+    // pour l'affichage debuge
     require "model/.constant.php";
-    $dbh = getPDO();
     try {
-
-        $query = 'SELECT users.id, users.firstname , users.lastname, wines.winename, users_buy_wines.date, users_buy_wines.quantity, orders.number FROM users_buy_wines
-INNER JOIN users ON users_buy_wines.user_id = users.id
-INNER JOIN orders ON users_buy_wines.orders_id = orders.id
-INNER JOIN wines ON users_buy_wines.wine_id = wines.id
-INNER JOIN states ON orders.states_id = states.id
-
-WHERE users.id =:id';
+        $dbh = getPDO();
+        $query = 'SELECT * FROM wines INNER JOIN discounts on  wines.discounts_id = discounts.id';
         $statment = $dbh->prepare($query);
         $statment->execute();//prepare query
-        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
+        $queryResult = $statment->fetchall(PDO::FETCH_ASSOC);//prepare result for client
         $dbh = null;
-        return $queryResult;
         if ($debug) var_dump($queryResult);
-    } catch (PDOException $e) {
+        return $queryResult;
+        } catch (PDOException $e) {
         print "Error!: " . $e->getMessage() . "<br/>";
         return null;
-    }
+        }
+
+
 }
