@@ -80,7 +80,9 @@ switch ($action) {
     //(Altin) Appelle la fonction addWinesBasket
     case 'winesBasket':
         $idWine = $_GET['id'];
-        addWinesBasket($idWine);
+       $quantity = $_GET['quantity'];
+
+        addWinesBasket($idWine,$quantity);
         break;
     case 'removeWineBasket':
         $idWine = $_GET['id'];

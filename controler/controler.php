@@ -24,7 +24,8 @@ function basketPage($basketContentPost)
     $_SESSION['total'] = 0;
     foreach($basketContentPost as $oneBasketContentPost)
     {
-        $_SESSION['total'] += $oneBasketContentPost['priceWithSold'];
+
+        $_SESSION['total'] +=$oneBasketContentPost['priceTotalOneWine'];
     }
 
     require_once 'view/basket.php';
@@ -125,11 +126,15 @@ function signup($email, $lastname, $firstname, $phoneNumber, $day, $month, $year
 
 //(Altin) Fonction qui ajoute un vin dans la session
 // et supprime une bouteille dans la base de données
-function addWinesBasket($idWinePost)
+function addWinesBasket($idWinePost, $quantity)
 {
+   if($quantity == null){
+       $quantity = 1;
+   }
     $oneWine = getWineBottle($idWinePost);
     $oneWine['priceWithSold'] = $oneWine['basic_price'] - ($oneWine['basic_price'] * $oneWine['percentage'] / 100);
-
+    $oneWine['priceTotalOneWine'] = $quantity*$oneWine['priceWithSold'];
+    $oneWine['quantity'] = $quantity;
     $_SESSION['basket'][] = $oneWine;
     $_SESSION['flashmessage'] = 'Vin ajouté dans le panier';
     withdrawWineBottle($idWinePost);

@@ -49,7 +49,7 @@ $title = "Wine_Basket";
                         <div class="input-group-prepend">
                           <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                         </div>
-                        <input type="text" class="form-control text-center border mr-0" value="1" placeholder=""
+                        <input type="text" class="form-control text-center border mr-0" value="<?= $oneBasketContent['quantity'] ?>" placeholder=""
                           aria-label="Example text with button addon" aria-describedby="button-addon1">
                         <div class="input-group-append">
                           <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
@@ -58,7 +58,7 @@ $title = "Wine_Basket";
 
                     </td>
                       <!-- applique le calcul ici Altin -->
-                    <td>$49.00</td>
+                    <td><?=$oneBasketContent['priceTotalOneWine']?>CHF</td>
                     <td><a href="index.php?action=removeWineBasket&id=<?=$oneBasketContent['id']?>" class="btn btn-primary height-auto btn-sm">X</a></td>
                       <?php } ?>
                   </tr>
@@ -94,14 +94,6 @@ $title = "Wine_Basket";
                 <div class="row">
                   <div class="col-md-12 text-right border-bottom mb-5">
                     <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <div class="col-md-6">
-                    <span class="text-black">Subtotal</span>
-                  </div>
-                  <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
                   </div>
                 </div>
                 <div class="row mb-5">

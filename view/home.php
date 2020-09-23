@@ -90,8 +90,12 @@ $title = "Bargylus- Home";
                                 <span class="icon-star"></span>
                                 <span class="icon-star-o"></span>
                             </div>
-
-                            <a href="#" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
+                            <!-- si le vin est épuisé -->
+                            <?php if($sold['stock'] > 0){ ?>
+                                <a href="index.php?action=winesBasket&id=<?=$sold['id']?>" class="btn add"><span class="icon-shopping-bag mr-3"></span> ajouter au panier </a>
+                            <?php } else { ?>
+                                <span>vin épuisé</span>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

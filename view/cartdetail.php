@@ -9,7 +9,7 @@
 ob_start();
 $title = "Wine_Details";
 
-
+$quantity = 1;
 ?>
 
 
@@ -70,12 +70,15 @@ $title = "Wine_Details";
                     </tbody>
                 </table>
 
+                <form action="index.php" method="get">
+                    <input type="hidden" name="id" value="<?=$wine['id']?>">
+                    <input type="hidden" name="action" value="winesBasket">
                 <div class="mb-5">
                     <div class="input-group mb-3" style="max-width: 200px;">
                         <div class="input-group-prepend">
                             <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                         </div>
-                        <input type="text" class="form-control text-center border mr-0" value="1" placeholder=""
+                        <input type="text" class="form-control text-center border mr-0" value="1" name="quantity" placeholder=""
                                aria-label="Example text with button addon" aria-describedby="button-addon1">
                         <div class="input-group-append">
                             <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
@@ -83,14 +86,15 @@ $title = "Wine_Details";
                     </div>
 
                 </div>
+
                 <!-- si le vin est épuisé -->
                 <?php if($wine['stock'] > 0){ ?>
 
-                    <p><a href="index.php?action=winesBasket&id=<?=$wine['id']?>" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Aujouter au panier</a></p>
+                    <p><button class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Ajouter au panier</button></p>
                 <?php } else { ?>
                     <span>vin épuisé</span>
                 <?php } ?>
-
+                </form>
             </div>
         </div>
     </div>
