@@ -56,7 +56,7 @@ $title = "Bargylus- Home";
                     <p>Bargylus élabore des vins de grande qualité, régulièrement distingués dans les
                         principaux concours.!</p>
                     <span><?= $currantday ?> </span>
-                    <p><a href="index.php?action=soldWinDisplay"><b>voir les vins en PROMOTION!</b> <span class="icon-long-arrow-right"></span></a></p>
+                    <p><a href="index.php?action=displaywines"><b>voir les vins </b> <span class="icon-long-arrow-right"></span></a></p>
                 </div>
             </div>
             <div class="row">
