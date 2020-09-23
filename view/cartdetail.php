@@ -57,7 +57,8 @@ $title = "Wine_Details";
                         <td class="">
                             <?= $wine['alcohol'], "%" ?>
                         </td>
-                        <td><?= $wine['basic_price'], "CHF" ?></td>
+                       
+                        <td><?= $wine['sold_price'] , "CHF"?></td>
                         <td>
                             <?= $wine['stock'] ?>
                         </td>

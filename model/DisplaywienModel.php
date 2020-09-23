@@ -44,7 +44,9 @@ function getWine($id)
     require "model/.constant.php";
     try {
         $dbh = getPDO();
-        $query = 'SELECT * FROM wines INNER JOIN wines_compose_grapes on  wines.id = wines_compose_grapes.wine_id  
+        $query = 'SELECT wines.id,wines.year,wines.winename,wines.alcohol,wines.basic_price,wines.size,
+                    wines.size,wines.stock,wines.discounts_id,grapes.name,grapes.color,
+                         wines.photo FROM wines INNER JOIN wines_compose_grapes on  wines.id = wines_compose_grapes.wine_id  
                         INNER JOIN grapes on  wines_compose_grapes.grape_id = grapes.id WHERE wines.id =:id';
         $statment = $dbh->prepare($query);
         $statment->execute(['id' => $id]);//prepare query

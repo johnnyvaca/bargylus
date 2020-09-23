@@ -12,9 +12,11 @@ require 'model/DisplaywienModel.php';
 function getWinesDisplay()
 {
     $wines = getWines();
-    foreach ($wines  as $i => $wine ) {
+    foreach ($wines  as $i =>  $wine ) {
 
-        $soldprice[$i] = $wine['basic_price'] - ($wine['basic_price'] * $wine['percentage'] / 100);
+        $wines[$i]['sold_price'] = $wine['basic_price'] - ($wine['basic_price'] * $wine['percentage'] / 100);
+
+
     }
     require_once 'view/wines.php';
 }
@@ -25,6 +27,8 @@ function WineDetail($id)
 {
     $wine = getWine($id);
 
+
+        $wine['sold_price'] = $wine['basic_price'] - ($wine['basic_price'] * $wine['percentage'] / 100);
 
     require_once 'view/cartdetail.php';
 }
