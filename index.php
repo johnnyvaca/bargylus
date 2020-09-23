@@ -7,6 +7,8 @@
  */
 
 require "controler/controler.php";
+require "controler/DiscountControler.php";
+require "controler/DisplaywineControler.php";
 
 session_start();
 // to go home by default
@@ -15,10 +17,6 @@ if (isset($_GET['action'])) {
 } else {
     $action = 'home';
 }
-
-// les variables globale
-
-
 
 
 
@@ -82,22 +80,13 @@ switch ($action) {
     //(Altin) Appelle la fonction addWinesBasket
     case 'winesBasket':
         $idWine = $_GET['id'];
-        $plusMinus = $_GET['plusMinus'];
-        var_dump($plusMinus);
-        addWinesBasket($idWine, $plusMinus);
+        addWinesBasket($idWine);
         break;
     case 'removeWineBasket':
         $idWine = $_GET['id'];
         removeWinesBasket($idWine);
         break;
-    case 'api' :
-        $username = $_POST['username'];
-        $hash = $_POST['hash'];
-        $sender = $_POST['sender'];
-        $number = $_POST['number'];
-        $message = $_POST['message'];
-        api($username,$hash,$sender,$number,$message);
-        break;
+
     default;
         home();
         break;

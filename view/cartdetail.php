@@ -74,10 +74,10 @@ $title = "Wine_Details";
                         <div class="input-group-prepend">
                             <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                         </div>
-                        <input type="text" name="minusPlus" id="minusPlus" class="form-control text-center border mr-0" value="1" placeholder=""
+                        <input type="text" class="form-control text-center border mr-0" value="1" placeholder=""
                                aria-label="Example text with button addon" aria-describedby="button-addon1">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-primary js-btn-plus"  type="button">&plus;</button>
+                            <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
                         </div>
                     </div>
 
@@ -85,7 +85,7 @@ $title = "Wine_Details";
                 <!-- si le vin est épuisé -->
                 <?php if($wine['stock'] > 0){ ?>
 
-                    <p><a href="index.php?action=winesBasket&id=<?=$wine['id']?>&email=".$_GET['minusPlus']." class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Aujouter au panier</a></p>
+                    <p><a href="index.php?action=winesBasket&id=<?=$wine['id']?>" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Aujouter au panier</a></p>
                 <?php } else { ?>
                     <span>vin épuisé</span>
                 <?php } ?>
