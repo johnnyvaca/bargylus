@@ -7,6 +7,7 @@
  */
 ob_start();
 $title = "Bargylus- wines";
+var_dump($wines);
 ?>
     <div class="site-section mt-5">
         <div class="container">
@@ -35,7 +36,7 @@ $title = "Bargylus- wines";
                                 <?php if ($wine['discounts_id'] != 1){ ?>
                                 <span class="price d-block"><del> <?=$wine['basic_price']?> CHF </del></span>
                                 <?php }?>
-                                <span class="price d-block"> <?= $soldWineprice[$i] ?>CHF</span>
+                                <span class="price d-block"> <?= $soldprice[$i] ?>CHF</span>
 
 
 

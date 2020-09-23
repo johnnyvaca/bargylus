@@ -129,6 +129,7 @@ function addWinesBasket($idWinePost)
 {
     $oneWine = getWineBottle($idWinePost);
     $oneWine['priceWithSold'] = $oneWine['basic_price'] - ($oneWine['basic_price'] * $oneWine['percentage'] / 100);
+
     $_SESSION['basket'][] = $oneWine;
     $_SESSION['flashmessage'] = 'Vin ajouté dans le panier';
     withdrawWineBottle($idWinePost);

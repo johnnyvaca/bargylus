@@ -12,7 +12,10 @@ require 'model/DisplaywienModel.php';
 function getWinesDisplay()
 {
     $wines = getWines();
+    foreach ($wines  as $i => $wine ) {
 
+        $soldprice[$i] = $wine['basic_price'] - ($wine['basic_price'] * $wine['percentage'] / 100);
+    }
     require_once 'view/wines.php';
 }
 
