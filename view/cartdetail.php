@@ -70,6 +70,10 @@ $quantity = 1;
                     </tbody>
                 </table>
 
+
+
+
+                
                 <form action="index.php" method="get">
                     <input type="hidden" name="id" value="<?=$wine['id']?>">
                     <input type="hidden" name="action" value="winesBasket">
