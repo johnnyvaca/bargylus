@@ -17,39 +17,16 @@ function home()
 }
 
 
-function getWinesSolds()
-{
-    $solds =  getSolds();
-
-    $today = date("Y, m, j,");
-
-    foreach ($solds as $i => $sold){
-
-        $soldprice[$i] = $sold['basic_price'] - ($sold['basic_price'] * $sold['percentage']/100);
-    }
-    require_once 'view/home.php';
-
-}
-
-/* author : MOA */
-function getWinesDisplay()
-{
-    $wines = getWines();
-
-    require_once 'view/wines.php';
-}
-
-/* author : MOA */
-function WineDetail($id)
-{
-    $wine = getWine($id);
-
-
-    require_once 'view/cartdetail.php';
-}
 
 function basketPage($basketContentPost)
 {
+    //pour chaque vin dans la session augemente le prix du total dans une session
+    $_SESSION['total'] = 0;
+    foreach($basketContentPost as $oneBasketContentPost)
+    {
+        $_SESSION['total'] += $oneBasketContentPost['priceWithSold'];
+    }
+
     require_once 'view/basket.php';
 }
 
@@ -72,9 +49,8 @@ function LoginPage()
 
 function pageAdmin()
 {
-    $wines = getWines();
-    $users = getUsers();
-
+ $orders = getOrdersByUser();
+var_dump($orders);
     require_once 'view/admin.php';
 }
 
@@ -117,8 +93,6 @@ function signupPage()
 
 function signup($email, $lastname, $firstname, $phoneNumber, $day, $month, $year, $streetHome, $zip, $city, $canton, $password)
 {
-
-
     $user = getUserByEmail($email);
     if ($email == $user['email']) {
         unset($_SESSION['user']);
@@ -154,6 +128,7 @@ function signup($email, $lastname, $firstname, $phoneNumber, $day, $month, $year
 function addWinesBasket($idWinePost)
 {
     $oneWine = getWineBottle($idWinePost);
+    $oneWine['priceWithSold'] = $oneWine['basic_price'] - ($oneWine['basic_price'] * $oneWine['percentage'] / 100);
     $_SESSION['basket'][] = $oneWine;
     $_SESSION['flashmessage'] = 'Vin ajouté dans le panier';
     withdrawWineBottle($idWinePost);
@@ -163,9 +138,8 @@ function addWinesBasket($idWinePost)
 //Supprime un vin du Basket et update dans la base de donnée en ajoutant un vin dans le stock
 function removeWinesBasket($idWinePost)
 {
-    foreach($_SESSION['basket'] as $i => $oneContent)
-    {
-        if($oneContent['id'] == $idWinePost){
+    foreach ($_SESSION['basket'] as $i => $oneContent) {
+        if ($oneContent['id'] == $idWinePost) {
             unset($_SESSION['basket'][$i]);
         }
     }
@@ -175,31 +149,3 @@ function removeWinesBasket($idWinePost)
 
 
 
-
-function api($username,$hash,$sender,$number,$message){
-    // Account details
-    $apiKey = urlencode($hash);
-
-// Message details
-    $numbers = array($number);
-    $sender = urlencode($sender);
-    $message = rawurlencode($message);
-    $numbers = implode(',', $numbers);
-
-// Prepare data for POST request
-    $data = array('apikey' => $apiKey, 'numbers' => $numbers, "sender" => $sender, "message" => $message);
-
-// Send the POST request with cURL
-    $ch = curl_init('https://api.txtlocal.com/send/');
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($ch);
-    curl_close($ch);
-
-// Process your response here
-    echo $response;
-}
-
-
-?>

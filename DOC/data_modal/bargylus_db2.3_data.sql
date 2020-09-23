@@ -11,158 +11,7 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-
--- Listage de la structure de la base pour bargylus_db
-DROP DATABASE IF EXISTS `bargylus_db`;
-CREATE DATABASE IF NOT EXISTS `bargylus_db` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_bin */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `bargylus_db`;
-
--- Listage de la structure de la table bargylus_db. discounts
-DROP TABLE IF EXISTS `discounts`;
-CREATE TABLE IF NOT EXISTS `discounts` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `start_date` date DEFAULT NULL,
-  `end_date` date DEFAULT NULL,
-  `percentage` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `unique` (`start_date`,`end_date`,`percentage`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- Les données exportées n'étaient pas sélectionnées.
-
--- Listage de la structure de la table bargylus_db. grapes
-DROP TABLE IF EXISTS `grapes`;
-CREATE TABLE IF NOT EXISTS `grapes` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `color` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`),
-  UNIQUE KEY `name_2` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- Les données exportées n'étaient pas sélectionnées.
-
--- Listage de la structure de la table bargylus_db. modes_payments
-DROP TABLE IF EXISTS `modes_payments`;
-CREATE TABLE IF NOT EXISTS `modes_payments` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- Les données exportées n'étaient pas sélectionnées.
-
--- Listage de la structure de la table bargylus_db. states
-DROP TABLE IF EXISTS `states`;
-CREATE TABLE IF NOT EXISTS `states` (
-  `id` int unsigned NOT NULL,
-  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `Index 2` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- Les données exportées n'étaient pas sélectionnées.
-
--- Listage de la structure de la table bargylus_db. users
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `email` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `lastname` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `firstname` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `phone_number` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `registration_date` date NOT NULL,
-  `birth_date` date NOT NULL,
-  `street_home` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `zip` int NOT NULL,
-  `city` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `canton` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `password` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `droits` int NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- Les données exportées n'étaient pas sélectionnées.
-
--- Listage de la structure de la table bargylus_db. users_buy_wines
-DROP TABLE IF EXISTS `users_buy_wines`;
-CREATE TABLE IF NOT EXISTS `users_buy_wines` (
-  `id` int NOT NULL,
-  `user_id` int DEFAULT NULL,
-  `wine_id` int DEFAULT NULL,
-  `mode_id` int NOT NULL,
-  `date` date DEFAULT NULL,
-  `price` float DEFAULT NULL,
-  `quantity` int DEFAULT NULL,
-  `state_id` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_Users_has_Wines_Wines1_idx` (`wine_id`),
-  KEY `fk_Users_has_Wines_Users1_idx` (`user_id`),
-  KEY `fk_Users_buy_Wines_ModesOfPayments1_idx` (`mode_id`),
-  KEY `fk_States_has_Buys` (`state_id`),
-  CONSTRAINT `fk_Users_buy_Wines_ModesOfPayments1` FOREIGN KEY (`mode_id`) REFERENCES `modes_payments` (`id`),
-  CONSTRAINT `fk_Users_has_Wines_Users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
-  CONSTRAINT `fk_Users_has_Wines_Wines1` FOREIGN KEY (`wine_id`) REFERENCES `wines` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- Les données exportées n'étaient pas sélectionnées.
-
--- Listage de la structure de la table bargylus_db. users_choose_mode
-DROP TABLE IF EXISTS `users_choose_mode`;
-CREATE TABLE IF NOT EXISTS `users_choose_mode` (
-  `id` int NOT NULL,
-  `user_id` int NOT NULL,
-  `mode_id` int NOT NULL,
-  `date` date DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_Users_has_ModesOfPayments_ModesOfPayments1_idx` (`mode_id`),
-  KEY `fk_Users_has_ModesOfPayments_Users_idx` (`user_id`),
-  CONSTRAINT `fk_Users_has_ModesOfPayments_ModesOfPayments1` FOREIGN KEY (`mode_id`) REFERENCES `modes_payments` (`id`),
-  CONSTRAINT `fk_Users_has_ModesOfPayments_Users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- Les données exportées n'étaient pas sélectionnées.
-
--- Listage de la structure de la table bargylus_db. wines
-DROP TABLE IF EXISTS `wines`;
-CREATE TABLE IF NOT EXISTS `wines` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `year` int NOT NULL,
-  `winename` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `alcohol` float NOT NULL,
-  `basic_price` float NOT NULL,
-  `size` int NOT NULL,
-  `stock` int NOT NULL,
-  `photo` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `discounts_id` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `uniques` (`size`,`winename`,`year`),
-  KEY `fk_DiscoutsOfWines_idx` (`discounts_id`),
-  CONSTRAINT `fk_DiscoutsOfWines_idx` FOREIGN KEY (`discounts_id`) REFERENCES `discounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- Les données exportées n'étaient pas sélectionnées.
-
--- Listage de la structure de la table bargylus_db. wines_compose_grapes
-DROP TABLE IF EXISTS `wines_compose_grapes`;
-CREATE TABLE IF NOT EXISTS `wines_compose_grapes` (
-  `id` int NOT NULL,
-  `wine_id` int NOT NULL,
-  `grape_id` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_Wines_has_Grapes_Bottle1_idx` (`grape_id`),
-  KEY `fk_Wines_has_Grapes_Wines1_idx` (`wine_id`),
-  CONSTRAINT `fk_Wines_has_Bottles_Bottles1` FOREIGN KEY (`grape_id`) REFERENCES `grapes` (`id`),
-  CONSTRAINT `fk_Wines_has_Bottles_Wines1` FOREIGN KEY (`wine_id`) REFERENCES `wines` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- Les données exportées n'étaient pas sélectionnées.
-
-
-
+-- Listage des données de la table bargylus_db.discounts : ~3 rows (environ)
 DELETE FROM `discounts`;
 /*!40000 ALTER TABLE `discounts` DISABLE KEYS */;
 INSERT INTO `discounts` (`id`, `start_date`, `end_date`, `percentage`) VALUES
@@ -199,7 +48,7 @@ INSERT INTO `modes_payments` (`id`, `name`) VALUES
 	(2, 'visacard');
 /*!40000 ALTER TABLE `modes_payments` ENABLE KEYS */;
 
--- Listage des données de la table bargylus_db.states : ~0 rows (environ)
+-- Listage des données de la table bargylus_db.states : ~3 rows (environ)
 DELETE FROM `states`;
 /*!40000 ALTER TABLE `states` DISABLE KEYS */;
 INSERT INTO `states` (`id`, `name`) VALUES
@@ -374,6 +223,7 @@ INSERT INTO `wines_compose_grapes` (`id`, `wine_id`, `grape_id`) VALUES
 	(10, 10, 10),
 	(11, 11, 11),
 	(12, 12, 12);
+/*!40000 ALTER TABLE `wines_compose_grapes` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;

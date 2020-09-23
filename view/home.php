@@ -53,25 +53,35 @@ $title = "Bargylus- Home";
             <div class="row mb-5">
                 <div class="col-12 section-title text-center mb-5">
                     <h2 class="d-block">Notre promotion </h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, perspiciatis!</p>
-                    <span><?= $today ?> </span>
-                    <p><a href="index.php?action=displaywines">voir les vins <span class="icon-long-arrow-right"></span></a></p>
+                    <p>Bargylus élabore des vins de grande qualité, régulièrement distingués dans les
+                        principaux concours.!</p>
+                    <span><?= $currantday ?> </span>
+                    <p><a href="index.php?action=soldWinDisplay"><b>voir les vins en PROMOTION!</b> <span class="icon-long-arrow-right"></span></a></p>
                 </div>
             </div>
             <div class="row">
-                <?php foreach ($solds as $i => $sold) { ?>
+
+                <?php
+
+                foreach ($solds as $i => $sold) {
+
+                    if($sold['discounts_id'] != 1){ ?>
                 <div class="col-lg-4 mb-5 col-md-6">
 
                     <div class="wine_v_1 text-center pb-4">
-                        <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/<?=$sold['photo'] ?>" alt="Image" class="img-fluid"></a>
+                        <a href="index.php?action=winedetail&id=<?=$sold['id']?>" class="thumbnail d-block mb-4"><img src="images/<?=$sold['photo'] ?>" alt="Image" class="img-fluid"></a>
                         <div>
                             <h3 class="heading mb-1"><a href="#"><?=$sold['winename']?></a></h3>
-                            <span class="price"><?=$sold['basic_price']?> CHF</span>
+                            <span class="price"><?= $soldprice[$i]?> CHF</span>
                         </div>
                         <div class="wine-actions">
 
                             <h3 class="heading-2"><a href="#"><?=$sold['winename']?></a></h3>
-                            <span class="price d-block"><del><?=$sold['basic_price']?> CHF</del><?=$soldprice[$i]?>CHF</span>
+                            <span class="price d-block">
+
+                                    <del> <?=$sold['basic_price']?> CHF </del><br>
+                                    <?= $soldprice[$i] ?>CHF</span>
+
 
                             <div class="rating">
                                 <span class="icon-star"></span>
@@ -85,7 +95,7 @@ $title = "Bargylus- Home";
                         </div>
                     </div>
                 </div>
-                <?php } ?>
+                <?php }} ?>
         </div>
     </div>
 
