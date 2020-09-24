@@ -152,8 +152,12 @@ function removeWinesBasket($idWinePost)
 {
     foreach ($_SESSION['basket'] as $i => $oneContent) {
         if ($oneContent['id'] == $idWinePost) {
+            $_SESSION['totalQuantity'] -= $oneContent['quantity'];
             unset($_SESSION['basket'][$i]);
         }
+    }
+    if($_SESSION['totalQuantity'] == 0){
+        unset($_SESSION['totalQuantity']);
     }
     addWineBottle($idWinePost);
     basketPage($_SESSION['basket']);
