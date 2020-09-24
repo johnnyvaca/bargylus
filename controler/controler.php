@@ -24,7 +24,6 @@ function basketPage($basketContentPost)
     $_SESSION['total'] = 0;
     foreach($basketContentPost as $oneBasketContentPost)
     {
-
         $_SESSION['total'] +=$oneBasketContentPost['priceTotalOneWine'];
     }
 
@@ -131,11 +130,18 @@ function addWinesBasket($idWinePost, $quantity)
    if($quantity == null){
        $quantity = 1;
    }
+    $oneWine['totalQuantity'] = 0;
     $oneWine = getWineBottle($idWinePost);
     $oneWine['priceWithSold'] = $oneWine['basic_price'] - ($oneWine['basic_price'] * $oneWine['percentage'] / 100);
     $oneWine['priceTotalOneWine'] = $quantity*$oneWine['priceWithSold'];
     $oneWine['quantity'] = $quantity;
     $_SESSION['basket'][] = $oneWine;
+    $_SESSION['totalQuantity'] = 0;
+$wines = $_SESSION['basket'];
+    foreach ($wines as $wine){
+        $_SESSION['totalQuantity'] += $wine['quantity'];
+    }
+
     $_SESSION['flashmessage'] = 'Vin ajouté dans le panier';
     withdrawWineBottle($idWinePost);
     getWinesDisplay();
