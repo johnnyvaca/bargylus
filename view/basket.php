@@ -20,7 +20,8 @@ $title = "Wine_Basket";
           </div>
         </div>
         <div class="row mb-5">
-          <form class="col-md-12" method="post">
+          <form class="col-md-12" action="index.php" method="get">
+              <input type="hidden" name="action" value="updateWinesBasket">
             <div class="site-blocks-table">
               <table class="table table-bordered">
                 <thead> <?php //todo ?>
@@ -36,6 +37,7 @@ $title = "Wine_Basket";
                 <tbody>
                 <?php foreach($basketContentPost as $oneBasketContent){ ?>
                   <tr>
+                      <input type="hidden" name="id[]" value="<?= $oneBasketContent['id']?>">
                     <td class="product-thumbnail">
                       <img src="images/<?= $oneBasketContent['photo'] ?>" alt="Image" class="img-fluid">
                     </td>
@@ -47,12 +49,12 @@ $title = "Wine_Basket";
                         <!-- applique le calcul ici Altin avec les boutons  -->
                       <div class="input-group mb-3" style="max-width: 120px;">
                         <div class="input-group-prepend">
-                          <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                          <a class="btn btn-outline-primary js-btn-minus" type="button" >&minus;</a>
                         </div>
-                        <input type="text" class="form-control text-center border mr-0" value="<?= $oneBasketContent['quantity'] ?>" placeholder=""
+                        <input type="text" class="form-control text-center border mr-0" name='quantity[]' value="<?= $oneBasketContent['quantity'] ?>" placeholder=""
                           aria-label="Example text with button addon" aria-describedby="button-addon1">
                         <div class="input-group-append">
-                          <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                          <a class="btn btn-outline-primary js-btn-plus" type="button">&plus;</a>
                         </div>
                       </div>
 
@@ -67,7 +69,6 @@ $title = "Wine_Basket";
                 </tbody>
               </table>
             </div>
-          </form>
         </div>
 
       </div>
@@ -81,6 +82,7 @@ $title = "Wine_Basket";
               <div class="col-md-6 mb-3 mb-md-0">
                 <button class="btn btn-primary btn-md btn-block">Update Cart</button>
               </div>
+            </form>
               <div class="col-md-6">
                 <a href="index.php?action=displaywines"><button class="btn btn-outline-primary btn-md btn-block" >Continue Shopping</button></a>
               </div>
