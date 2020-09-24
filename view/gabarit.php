@@ -112,7 +112,6 @@
                                 <li class="btn btn-primary"><a href="index.php?action=basket"
                                                                class="nav-link text-center white"><span
                                                 class="icon-shopping-bag mr-3"></span>panier  <?=$_SESSION['totalQuantity']?></a></li>
-
                             </ul>
                         </nav>
                     </div>
