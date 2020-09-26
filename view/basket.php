@@ -51,7 +51,7 @@ $title = "Wine_Basket";
                         <div class="input-group-prepend">
                           <a class="btn btn-outline-primary js-btn-minus" type="button" >&minus;</a>
                         </div>
-                        <input type="text" class="form-control text-center border mr-0" name='quantity[]' value="<?= $oneBasketContent['quantity'] ?>" placeholder=""
+                        <input type="text" class="form-control text-center border-0 mr-sm-0" name='quantity[]' value="<?= $oneBasketContent['quantity'] ?>" placeholder=""
                           aria-label="Example text with button addon" aria-describedby="button-addon1">
                         <div class="input-group-append">
                           <a class="btn btn-outline-primary js-btn-plus" type="button">&plus;</a>

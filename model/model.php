@@ -110,11 +110,11 @@ function getWineBottle($id)
 
 }
 //(ALTIN)fonction qui Update le stock d'une bouteille
-function withdrawWineBottle($id)
+function withdrawWineBottle($id,$quantity)
 {
     try {
         $dbh = getPDO();
-        $query = 'UPDATE wines set stock = stock - 1 WHERE wines.id =:id';
+        $query = 'UPDATE wines set stock = stock - '.$quantity.' WHERE wines.id =:id';
         $statment = $dbh->prepare($query);
         $statment->execute(['id' => $id]);//prepare query
         $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
@@ -126,11 +126,11 @@ function withdrawWineBottle($id)
         return null;
     }
 }
-function addWineBottle($id)
+function addWineBottle($id,$quantity)
 {
     try {
         $dbh = getPDO();
-        $query = 'UPDATE wines set stock = stock + 1 WHERE wines.id =:id';
+        $query = 'UPDATE wines set stock = stock + '. $quantity.  ' WHERE wines.id =:id';
         $statment = $dbh->prepare($query);
         $statment->execute(['id' => $id]);//prepare query
         $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
