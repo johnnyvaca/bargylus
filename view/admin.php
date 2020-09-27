@@ -8,8 +8,10 @@ $title = "Bargylus - Admin";
 <?php
 
 foreach ($orders as $order){
+    var_dump($order);
     ?>
-
+<br>
+<br>
     <?php
 }
 ?>

@@ -49,8 +49,8 @@ function LoginPage()
 
 function pageAdmin()
 {
- $orders = getOrdersByUser();
-var_dump($orders);
+ $orders = getOrders();
+
     require_once 'view/admin.php';
 }
 
