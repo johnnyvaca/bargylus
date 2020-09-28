@@ -49,7 +49,18 @@ function LoginPage()
 
 function pageAdmin()
 {
+  $stateOther =  array(1,2,3);
+
  $orders = getOrders();
+
+
+
+
+foreach ( $orders  as  $order){
+    if($order['state']){
+
+    }
+}
 
     require_once 'view/admin.php';
 }
