@@ -193,5 +193,26 @@ function removeWinesBasket($idWinePost)
     basketPage($_SESSION['basket']);
 }
 
+function updateBasket($quantityPost)
+{
 
+    foreach ($_SESSION['basket'] as $i => $toto){
+        if($_SESSION['basket'][$i]['quantity'] < $quantityPost[$i]){
+            $quantity =  $quantityPost[$i] - $_SESSION['basket'][$i]['quantity'];
+            withdrawWineBottle($_SESSION['basket'][$i]['id'], $quantity);
+            $_SESSION['totalQuantity'] += $quantity;
+        }
+        if($_SESSION['basket'][$i]['quantity'] > $quantityPost[$i]){
+            $quantity =   $_SESSION['basket'][$i]['quantity'] - $quantityPost[$i];
+            addWineBottle($_SESSION['basket'][$i]['id'], $quantity);
+            $_SESSION['totalQuantity'] -= $quantity;
+        }
+
+        $_SESSION['basket'][$i]['priceTotalOneWine'] = $quantityPost[$i]*$_SESSION['basket'][$i]['priceWithSold'];
+        $_SESSION['basket'][$i]['quantity'] = $quantityPost[$i];
+
+    }
+    basketPage($_SESSION['basket']);
+
+}
 

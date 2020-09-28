@@ -84,9 +84,8 @@ switch ($action) {
         addWinesBasket($idWine,$quantity);
         break;
     case "updateWinesBasket":
-        $idWines = $_GET['id'];
         $quantity = $_GET['quantity'];
-        UpdateBasket($idWines, $quantity);
+        updateBasket($quantity);
         break;
     case 'removeWineBasket':
         $idWine = $_GET['id'];

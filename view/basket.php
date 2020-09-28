@@ -16,7 +16,7 @@ $title = "Wine_Basket";
       <div class="container">
         <div class="row mb-5 justify-content-center">
           <div class="col-7 section-title text-center mb-5">
-            <h2 class="d-block">Cart</h2>
+            <h2 class="d-block">Panier</h2>
           </div>
         </div>
         <div class="row mb-5">
@@ -27,17 +27,16 @@ $title = "Wine_Basket";
                 <thead> <?php //todo ?>
                 <tr>  <!--traduction en français   -->
                     <th class="product-thumbnail">Image</th>
-                    <th class="product-name">Product</th>
-                    <th class="product-price">Price</th>
-                    <th class="product-quantity">Quantity</th>
+                    <th class="product-name">Produit</th>
+                    <th class="product-price">Prix</th>
+                    <th class="product-quantity">Quantité</th>
                     <th class="product-total">Total</th>
-                    <th class="product-remove">Remove</th>
+                    <th class="product-remove">Retirer</th>
                   </tr>
                 </thead>
                 <tbody>
                 <?php foreach($basketContentPost as $oneBasketContent){ ?>
                   <tr>
-                      <input type="hidden" name="id[]" value="<?= $oneBasketContent['id']?>">
                     <td class="product-thumbnail">
                       <img src="images/<?= $oneBasketContent['photo'] ?>" alt="Image" class="img-fluid">
                     </td>
@@ -80,11 +79,11 @@ $title = "Wine_Basket";
           <div class="col-md-6">
             <div class="row mb-5">
               <div class="col-md-6 mb-3 mb-md-0">
-                <button class="btn btn-primary btn-md btn-block">Update Cart</button>
+                <button class="btn btn-primary btn-md btn-block">Mettre à jour le Panier</button>
               </div>
             </form>
               <div class="col-md-6">
-                <a href="index.php?action=displaywines"><button class="btn btn-outline-primary btn-md btn-block" >Continue Shopping</button></a>
+                <a href="index.php?action=displaywines"><button class="btn btn-outline-primary btn-md btn-block" >Continuer Shopping</button></a>
               </div>
             </div>
               </div>
@@ -95,7 +94,7 @@ $title = "Wine_Basket";
               <div class="col-md-7">
                 <div class="row">
                   <div class="col-md-12 text-right border-bottom mb-5">
-                    <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
+                    <h3 class="text-black h4 text-uppercase">Total du panier</h3>
                   </div>
                 </div>
                 <div class="row mb-5">
@@ -109,8 +108,7 @@ $title = "Wine_Basket";
 
                 <div class="row">
                   <div class="col-md-12">
-                    <button class="btn btn-primary btn-lg btn-block" onclick="window.location='checkout.html'">Proceed To
-                      Checkout</button>
+                    <button class="btn btn-primary btn-lg btn-block" onclick="window.location='checkout.html'">Procéder au paiement</button>
                   </div>
                 </div>
               </div>
