@@ -49,18 +49,22 @@ function LoginPage()
 
 function pageAdmin()
 {
-  $stateOther =  array(1,2,3);
+  $options =  0;
 
  $orders = getOrders();
 
 
 
 
-foreach ( $orders  as  $order){
-    if($order['state']){
-
+foreach ( $orders  as $i => $order){
+    $options[$i][] = "<option value=".$order['state'].">".$order['state']."</option>";
+    for ($ii = 0; $ii < 3 ; $ii++){
+        if($ii != $options[$i]){
+            $options[$ii] = "<option value=".$order['state'].">".$order['state']."</option>";
+        }
     }
 }
+
 
     require_once 'view/admin.php';
 }
