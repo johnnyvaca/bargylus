@@ -17,14 +17,12 @@ function home()
 }
 
 
-
 function basketPage($basketContentPost)
 {
     //pour chaque vin dans la session augemente le prix du total dans une session
     $_SESSION['total'] = 0;
-    foreach($basketContentPost as $oneBasketContentPost)
-    {
-        $_SESSION['total'] +=$oneBasketContentPost['priceTotalOneWine'];
+    foreach ($basketContentPost as $oneBasketContentPost) {
+        $_SESSION['total'] += $oneBasketContentPost['priceTotalOneWine'];
     }
 
     require_once 'view/basket.php';
@@ -50,28 +48,32 @@ function LoginPage()
 function pageAdmin()
 {
 
-  $states =  getStates();
- $orders = getOrders();
+    $states = getStates();
+    $orders = getOrders();
 
-$options = array();
-$optionsNames = array();
+    $options = array();
 
-foreach ( $orders  as $i => $order){
+    foreach ($orders as $i => $order) {
+
+            if ($orders[$i]['number'] != $orders[$i - 1]['number']) {
+
+                foreach ($states as $ii => $state) {
+
+                    if ($states[$ii]['id'] != $orders[$i]['state_id']) {
 
 
-    foreach ( $states as $ii => $state){
-        if($state['id'] != $order['state_id']){
-            $options[$i][$ii] = $ii."ha";
-        }else{
-            //$options[$i][$ii] = " value='".$order['states_id']."' selected >".$state['state_name']." ";
-            $options[$i][$ii] = $ii;
-        }
+                        $options[$i][$ii] = "<option value='" . $state['id'] . "'>" . $state['state_name'] . "</option> ";
+                    } else {
+
+                        $options[$i][$ii] = "<option value='" . $state['id'] . "' selected >" . $state['state_name']. "</option> ";
+                    }
+
+                }
+
+            }
 
     }
-}
 
-
-var_dump($options);
     require_once 'view/admin.php';
 }
 
@@ -88,7 +90,7 @@ function tryLogin($emailPost, $passwordPost)
 
             if ($user['droits'] == 1) {
                 pageAdmin();
-            } else if(isset($_SESSION['basket']['ProceedToPayment'])){
+            } else if (isset($_SESSION['basket']['ProceedToPayment'])) {
                 basketPage($_SESSION['basket']);
             } else {
                 getWinesDisplay();
@@ -152,33 +154,33 @@ function addWinesBasket($idWinePost, $quantity)
 {
 
     $wines = $_SESSION['basket'];
-    foreach ($wines as $i =>$wine){
-        if($wine['id'] == $idWinePost ){
+    foreach ($wines as $i => $wine) {
+        if ($wine['id'] == $idWinePost) {
             $_SESSION['basket'][$i]['quantity'] += $quantity;
 
-            $_SESSION['basket'][$i]['priceTotalOneWine'] = $_SESSION['basket'][$i]['quantity']*$_SESSION['basket'][$i]['priceWithSold'];
+            $_SESSION['basket'][$i]['priceTotalOneWine'] = $_SESSION['basket'][$i]['quantity'] * $_SESSION['basket'][$i]['priceWithSold'];
             $_SESSION['totalQuantity'] += $quantity;
 
 
-        $_SESSION['flashmessage'] = 'Vin ajouté dans le panier';
-        withdrawWineBottle($idWinePost, $quantity);
-        getWinesDisplay();
+            $_SESSION['flashmessage'] = 'Vin ajouté dans le panier';
+            withdrawWineBottle($idWinePost, $quantity);
+            getWinesDisplay();
             return 0;
         }
     }
 
-   if($quantity == null){
-       $quantity = 1;
-   }
+    if ($quantity == null) {
+        $quantity = 1;
+    }
     $oneWine['totalQuantity'] = 0;
     $oneWine = getWineBottle($idWinePost);
     $oneWine['priceWithSold'] = $oneWine['basic_price'] - ($oneWine['basic_price'] * $oneWine['percentage'] / 100);
-    $oneWine['priceTotalOneWine'] = $quantity*$oneWine['priceWithSold'];
+    $oneWine['priceTotalOneWine'] = $quantity * $oneWine['priceWithSold'];
     $oneWine['quantity'] = $quantity;
     $_SESSION['basket'][] = $oneWine;
     $_SESSION['totalQuantity'] = 0;
-$wines = $_SESSION['basket'];
-    foreach ($wines as $wine){
+    $wines = $_SESSION['basket'];
+    foreach ($wines as $wine) {
         $_SESSION['totalQuantity'] += $wine['quantity'];
     }
 
@@ -198,29 +200,29 @@ function removeWinesBasket($idWinePost)
             unset($_SESSION['basket'][$i]);
         }
     }
-    if($_SESSION['totalQuantity'] == 0){
+    if ($_SESSION['totalQuantity'] == 0) {
         unset($_SESSION['totalQuantity']);
     }
-    addWineBottle($idWinePost,$quantity);
+    addWineBottle($idWinePost, $quantity);
     basketPage($_SESSION['basket']);
 }
 
 function updateBasket($quantityPost)
 {
 
-    foreach ($_SESSION['basket'] as $i => $toto){
-        if($_SESSION['basket'][$i]['quantity'] < $quantityPost[$i]){
-            $quantity =  $quantityPost[$i] - $_SESSION['basket'][$i]['quantity'];
+    foreach ($_SESSION['basket'] as $i => $toto) {
+        if ($_SESSION['basket'][$i]['quantity'] < $quantityPost[$i]) {
+            $quantity = $quantityPost[$i] - $_SESSION['basket'][$i]['quantity'];
             withdrawWineBottle($_SESSION['basket'][$i]['id'], $quantity);
             $_SESSION['totalQuantity'] += $quantity;
         }
-        if($_SESSION['basket'][$i]['quantity'] > $quantityPost[$i]){
-            $quantity =   $_SESSION['basket'][$i]['quantity'] - $quantityPost[$i];
+        if ($_SESSION['basket'][$i]['quantity'] > $quantityPost[$i]) {
+            $quantity = $_SESSION['basket'][$i]['quantity'] - $quantityPost[$i];
             addWineBottle($_SESSION['basket'][$i]['id'], $quantity);
             $_SESSION['totalQuantity'] -= $quantity;
         }
 
-        $_SESSION['basket'][$i]['priceTotalOneWine'] = $quantityPost[$i]*$_SESSION['basket'][$i]['priceWithSold'];
+        $_SESSION['basket'][$i]['priceTotalOneWine'] = $quantityPost[$i] * $_SESSION['basket'][$i]['priceWithSold'];
         $_SESSION['basket'][$i]['quantity'] = $quantityPost[$i];
 
     }
@@ -228,12 +230,21 @@ function updateBasket($quantityPost)
 
 }
 
-function proceedToPayment(){
+function proceedToPayment()
+{
     $_SESSION['basket']['ProceedToPayment'];
-    if(isset($_SESSION['user'])){
+    if (isset($_SESSION['user'])) {
         home();
     } else {
         LoginPage();
     }
 }
 
+function updateStates($idOrder,$state){
+
+
+        updateStateOrderById($idOrder,$state);
+
+    pageAdmin();
+
+}

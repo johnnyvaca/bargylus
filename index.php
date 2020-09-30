@@ -94,6 +94,13 @@ switch ($action) {
     case 'proceedPayment':
         proceedToPayment();
         break;
+    case 'updateState':
+        $id = $_POST['orderId'];
+        $state = $_POST['state'];
+
+        var_dump($id);
+        updateStates($id,$state);
+        break;
     default;
         home();
         break;
