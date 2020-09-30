@@ -50,7 +50,8 @@ function LoginPage()
 function pageAdmin()
 {
 
-
+  $states =  getStates();
+ $countStates = count($states);
  $orders = getOrders();
 
 
@@ -58,28 +59,13 @@ $options = array();
 $optionsNames = array();
 
 foreach ( $orders  as $i => $order){
-    if ($order['state'] == 0){
-        $orders[$i]['state_name'][0] = "magasin";
-    } if ($order['state'] == 1){
-        $orders[$i]['state_name'][0] = "en chemin";
-    } if ($order['state'] == 2){
-        $orders[$i]['state_name'][0] = "arrivé";
-    }
-    $orders[$i]['state_option'][0] = "<option value=\"".$order['state']."\" selected >".$orders[$i]['state_name'][0]." </option>";
-    for ($ii = 0; $ii < 3 ; $ii++){
-        if($ii != $order['state']){
 
-            if ($ii == 0){
-                $orders[$i]['state_name'][0] = "magasin";
-                $orders[$i]['state_option'][0] ="<option value=\"".$order['state']."\" >". $orders[$i]['state_name'][0] ." </option>";
-            } if ($ii == 1){
-                $orders[$i]['state_name'][1] = "en chemin";
-                $orders[$i]['state_option'][1] = "<option value=\"".$order['state']."\" >". $orders[$i]['state_name'][1] ." </option>";
-            } if ($ii == 2){
-                $orders[$i]['state_name'][2] = "arrivé";
-                $orders[$i]['state_option'][2] = "<option value=\"".$order['state']."\" >". $orders[$i]['state_name'][2]." </option>";
-            }
 
+    foreach ( $states as $ii => $state){
+        if($ii != $order['states_id']){
+
+        }else{
+            $orders[$i]['state_option'][$ii] = "<option value=\"".$order['states_id']."\" selected >".$order['state_name']." </option>";
         }
 
     }

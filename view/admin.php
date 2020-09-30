@@ -4,7 +4,6 @@ $title = "Bargylus - Admin";
 var_dump($orders);
 
 ?>
-    <br><br><br><p>sdf</p>
 <form action="../index.php" method="get">
 <input type="hidden" name="action" value="updateState">
     <table class="table table-striped">
