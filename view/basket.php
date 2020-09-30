@@ -108,7 +108,7 @@ $title = "Wine_Basket";
 
                 <div class="row">
                   <div class="col-md-12">
-                    <button class="btn btn-primary btn-lg btn-block" onclick="window.location='checkout.html'">Procéder au paiement</button>
+                    <a href="index.php?action=proceedPayment" class="btn btn-primary btn-lg btn-block" onclick="window.location='checkout.html'">Procéder au paiement</a>
                   </div>
                 </div>
               </div>

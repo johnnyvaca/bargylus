@@ -91,7 +91,9 @@ switch ($action) {
         $idWine = $_GET['id'];
         removeWinesBasket($idWine);
         break;
-
+    case 'proceedPayment':
+        proceedToPayment();
+        break;
     default;
         home();
         break;

@@ -88,6 +88,8 @@ function tryLogin($emailPost, $passwordPost)
 
             if ($user['droits'] == 1) {
                 pageAdmin();
+            } else if(isset($_SESSION['basket']['ProceedToPayment'])){
+                basketPage($_SESSION['basket']);
             } else {
                 getWinesDisplay();
             }
@@ -101,8 +103,8 @@ function tryLogin($emailPost, $passwordPost)
 
 function logout()
 {
-
     unset($_SESSION['user']);
+    unset($_SESSION['basket']);
     require_once 'view/home.php';
 }
 
@@ -224,5 +226,14 @@ function updateBasket($quantityPost)
     }
     basketPage($_SESSION['basket']);
 
+}
+
+function proceedToPayment(){
+    $_SESSION['basket']['ProceedToPayment'];
+    if(isset($_SESSION['user'])){
+        home();
+    } else {
+        LoginPage();
+    }
 }
 
