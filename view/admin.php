@@ -16,7 +16,7 @@ $title = "Bargylus - Admin";
             <?php
             if ($orders[$i]['id'] != $orders[$i - 1]['id']) {
                 ?>
-                <tr class="table-danger"><td><?=$order['id']?></td><td><?=$order['firstname']?></td><td><?=$order['lastname']?></td><td><select name="<?=$order['id_order']?>"><?=$options[$i][0]?><?=$options[$i][1]?><<?=$options[$i][2]?>/select></td><td><button></button></td></tr>
+                <tr class="table-danger"><td><?=$order['id']?></td><td><?=$order['firstname']?></td><td><?=$order['lastname']?></td><td><select name="<?=$order['id_order']?>"><?=$options[$i]['option'][0]?><?=$options[$i]['option'][1]?><<?=$options[$i]['option'][2]?>/select></td><td><button></button></td></tr>
            <?php }
 
             if ($orders[$i]['number'] != $orders[$i - 1]['number']) {
