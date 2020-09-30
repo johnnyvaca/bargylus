@@ -1,9 +1,12 @@
 <?php
 ob_start();
 $title = "Bargylus - Admin";
-var_dump($orders);
+
 
 ?>
+<br>
+<br>
+<br>
 <form action="../index.php" method="get">
 <input type="hidden" name="action" value="updateState">
     <table class="table table-striped">
@@ -13,7 +16,7 @@ var_dump($orders);
             <?php
             if ($orders[$i]['id'] != $orders[$i - 1]['id']) {
                 ?>
-                <tr class="table-danger"><td><?=$order['id']?></td><td><?=$order['firstname']?></td><td><?=$order['lastname']?></td><td><select name="<?=$order['id_order']?>"><?=$orders[$i]['state_option'][0]?><?=$orders[1]['state_option']?><?=$orders[2]['state_option']?></select></td><td><button></button></td></tr>
+                <tr class="table-danger"><td><?=$order['id']?></td><td><?=$order['firstname']?></td><td><?=$order['lastname']?></td><td><select name="<?=$order['id_order']?>"><?=$options[$i][0]?><?=$options[$i][1]?><<?=$options[$i][2]?>/select></td><td><button></button></td></tr>
            <?php }
 
             if ($orders[$i]['number'] != $orders[$i - 1]['number']) {

@@ -51,10 +51,9 @@ function pageAdmin()
 {
 
   $states =  getStates();
- $countStates = count($states);
  $orders = getOrders();
 
-
+$options = array();
 $options = array();
 $optionsNames = array();
 
@@ -62,16 +61,17 @@ foreach ( $orders  as $i => $order){
 
 
     foreach ( $states as $ii => $state){
-        if($ii != $order['states_id']){
-
+        if($state['id'] != $order['state_id']){
+            $options[$i][$ii]['option'] = "<option value='".$order['states_id']."' >".$state['state_name']." </option>";
         }else{
-            $orders[$i]['state_option'][$ii] = "<option value=\"".$order['states_id']."\" selected >".$order['state_name']." </option>";
+            $options[$i][$ii]['option'] = "<option value=\"".$order['states_id']."\" selected >".$state['state_name']." </option>";
         }
 
     }
 }
 
 
+var_dump($options);
     require_once 'view/admin.php';
 }
 
