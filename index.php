@@ -7,8 +7,8 @@
  */
 
 require "controler/controler.php";
-require "controler/DiscountControler.php";
-require "controler/DisplaywineControler.php";
+require  "controler/discountControler.php";
+require  "controler/DisplaywineControler.php";
 
 session_start();
 // to go home by default
@@ -97,9 +97,10 @@ switch ($action) {
     case 'updateState':
         $id = $_POST['orderId'];
         $state = $_POST['state'];
+        $user_id = $_POST['user_id'];
 
-        var_dump($id);
-        updateStates($id,$state);
+
+        updateStates($id,$state,$user_id);
         break;
     default;
         home();

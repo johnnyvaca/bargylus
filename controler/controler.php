@@ -7,7 +7,7 @@
  */
 
 require 'model/model.php';
-
+require 'mail/mail.php';
 function home()
 {
     getWinesSolds();
@@ -240,10 +240,14 @@ function proceedToPayment()
     }
 }
 
-function updateStates($idOrder,$state){
+function updateStates($idOrder,$state,$user_id){
+    updateStateOrderById($idOrder,$state);
+   $order = getOrdersById($idOrder);
+    $subject = "commande Bargylus - ".$order['state_name'];
+    $body = "<p>votre commande ".$order['number']." est : ".$order['state_name']."</p>";
+  $user =  getUserById($user_id);
 
-
-        updateStateOrderById($idOrder,$state);
+    sendEmailByUser($user['email'], $user['lastname'],$user['firstname'],$subject, $body);
 
     pageAdmin();
 

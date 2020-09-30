@@ -25,8 +25,8 @@ $title = "Bargylus - Admin";
 
                 if ($orders[$i]['number'] != $orders[$i - 1]['number']) {
                     ?>
-            <form action="index.php?action=updateState" method="post">
-
+            <form action="../index.php?action=updateState" method="post">
+                <input type="hidden" name="user_id" value="<?=$order['id']?>">
                 <input type="hidden" name="orderId" value="<?=$order['id_order']?>">
                     <tr class="table-primary">
                         <td></td>

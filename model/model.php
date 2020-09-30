@@ -13,7 +13,7 @@
 function getPDO()
 {
     require "model/.constant.php";
-    $dbh = new PDO('mysql:host=' . $dbhost . ';dbname=' . $dbname.';charset=utf8', $user, $pass);
+    $dbh = new PDO('mysql:host=' . $dbhost . ';dbname=' . $dbname. ';charset=utf8', $user, $pass);
     return $dbh;
 }
 
@@ -22,7 +22,7 @@ function getUsers()
 {
     require "model/.constant.php";
     try {
-        $dbh = new PDO('mysql:host=' . $dbhost . ';dbname=' . $dbname, $user, $pass);
+        $dbh = getPDO();
         $query = 'SELECT * FROM users ';
         $statment = $dbh->prepare($query);//prepare query, il doit faire des vérifications et il va pas exécuter tant
         //qu'il y a des choses incorrects
@@ -36,7 +36,24 @@ function getUsers()
         return null;
     }
 }
-
+function getUserById($id)
+{
+    require "model/.constant.php";
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT * FROM users WHERE id=:id';
+        $statment = $dbh->prepare($query);//prepare query, il doit faire des vérifications et il va pas exécuter tant
+        //qu'il y a des choses incorrects
+        $statment->execute(['id' => $id]);//execute query
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client cherche tous les résultats
+        $dbh = null; //refermer une connection quand on a fini
+        if ($debug) var_dump($queryResult);
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
 function getUserByEmail($email)
 {
     require "model/.constant.php";
@@ -143,18 +160,20 @@ function addWineBottle($id,$quantity)
     }
 }
 
-function getOrdersByUser(){
+function getOrdersById($id){
     require "model/.constant.php";
     $dbh = getPDO();
     try {
 
-        $query = 'SELECT users.id, users.firstname , users.lastname, wines.winename, users_buy_wines.date, users_buy_wines.quantity, orders.number FROM users_buy_wines
-                        INNER JOIN users ON users_buy_wines.user_id = users.id
-                        INNER JOIN orders ON users_buy_wines.orders_id = orders.id
-                        INNER JOIN wines ON users_buy_wines.wine_id = wines.id
-                        WHERE users.id =:id';
+        $query = "select users.id, users.firstname, users.lastname,wines.winename, users.email, orders_contain_wines.quantity, 
+                    orders_contain_wines.price as 'price_wine', 
+                    orders.number, orders.states_id, orders.total_price, orders.id AS 'id_order', states.name AS 'state_name', states.id AS 'state_id'   FROM bargylus_db.orders_contain_wines
+inner join wines on orders_contain_wines.wine_id = wines.id
+inner join orders on  orders_contain_wines.order_id = orders.id
+INNER JOIN states ON orders.states_id = states.id
+inner join users on  orders.user_id = users.id WHERE orders.id =:id";
         $statment = $dbh->prepare($query);
-        $statment->execute();//prepare query
+        $statment->execute(['id' => $id]);//prepare query
         $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
         $dbh = null;
         return $queryResult;
