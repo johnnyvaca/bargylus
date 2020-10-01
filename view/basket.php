@@ -108,7 +108,9 @@ $title = "Wine_Basket";
 
                 <div class="row">
                   <div class="col-md-12">
+                      <?php if(isset($_SESSION['basket'])){?>
                     <a href="index.php?action=proceedPayment" class="btn btn-primary btn-lg btn-block" onclick="window.location='checkout.html'">Procéder au paiement</a>
+                      <?php } ?>
                   </div>
                 </div>
               </div>

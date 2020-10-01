@@ -7,7 +7,6 @@
  */
 
 require 'model/model.php';
-require 'mail/mail.php';
 function home()
 {
     getWinesSolds();
@@ -88,9 +87,16 @@ function tryLogin($emailPost, $passwordPost)
             $_SESSION['user'] = $user;
             $_SESSION['flashmessage'] = 'Bienvenue ' . $user['firstname'] . $user['lastname'];
 
+
+
+
             if ($user['droits'] == 1) {
-                pageAdmin();
-            } else if (isset($_SESSION['basket']['ProceedToPayment'])) {
+                if(isset($_SESSION['ProceedToPayment'])){
+                    basketPage($_SESSION['basket']);
+                }else{
+                    pageAdmin();
+                }
+            } else if(isset($_SESSION['ProceedToPayment'])){
                 basketPage($_SESSION['basket']);
             } else {
                 getWinesDisplay();
@@ -107,6 +113,8 @@ function logout()
 {
     unset($_SESSION['user']);
     unset($_SESSION['basket']);
+    unset($_SESSION['ProceedToPayment']);
+    unset($_SESSION['totalQuantity']);
     require_once 'view/home.php';
 }
 
@@ -152,7 +160,10 @@ function signup($email, $lastname, $firstname, $phoneNumber, $day, $month, $year
 // et supprime une bouteille dans la base de données
 function addWinesBasket($idWinePost, $quantity)
 {
-
+    if ($quantity == null) {
+        $quantity = 1;
+    }
+    
     $wines = $_SESSION['basket'];
     foreach ($wines as $i => $wine) {
         if ($wine['id'] == $idWinePost) {
@@ -169,9 +180,7 @@ function addWinesBasket($idWinePost, $quantity)
         }
     }
 
-    if ($quantity == null) {
-        $quantity = 1;
-    }
+
     $oneWine['totalQuantity'] = 0;
     $oneWine = getWineBottle($idWinePost);
     $oneWine['priceWithSold'] = $oneWine['basic_price'] - ($oneWine['basic_price'] * $oneWine['percentage'] / 100);
@@ -230,10 +239,10 @@ function updateBasket($quantityPost)
 
 }
 
-function proceedToPayment()
-{
-    $_SESSION['basket']['ProceedToPayment'];
-    if (isset($_SESSION['user'])) {
+
+function proceedToPayment(){
+    $_SESSION['ProceedToPayment'] = true;
+    if(isset($_SESSION['user'])){
         home();
     } else {
         LoginPage();
@@ -247,7 +256,7 @@ function updateStates($idOrder,$state,$user_id){
     $body = "<p>votre commande ".$order['number']." est : ".$order['state_name']."</p>";
   $user =  getUserById($user_id);
 
-    sendEmailByUser($user['email'], $user['lastname'],$user['firstname'],$subject, $body);
+   // sendEmailByUser($user['email'], $user['lastname'],$user['firstname'],$subject, $body);
 
     pageAdmin();
 
