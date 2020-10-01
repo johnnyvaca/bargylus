@@ -160,10 +160,11 @@ function signup($email, $lastname, $firstname, $phoneNumber, $day, $month, $year
 // et supprime une bouteille dans la base de données
 function addWinesBasket($idWinePost, $quantity)
 {
+    unset($_SESSION['ProceedToPayment']);
     if ($quantity == null) {
         $quantity = 1;
     }
-    
+
     $wines = $_SESSION['basket'];
     foreach ($wines as $i => $wine) {
         if ($wine['id'] == $idWinePost) {
@@ -171,6 +172,7 @@ function addWinesBasket($idWinePost, $quantity)
 
             $_SESSION['basket'][$i]['priceTotalOneWine'] = $_SESSION['basket'][$i]['quantity'] * $_SESSION['basket'][$i]['priceWithSold'];
             $_SESSION['totalQuantity'] += $quantity;
+
 
 
             $_SESSION['flashmessage'] = 'Vin ajouté dans le panier';
@@ -202,11 +204,13 @@ function addWinesBasket($idWinePost, $quantity)
 //Supprime un vin du Basket et update dans la base de donnée en ajoutant un vin dans le stock
 function removeWinesBasket($idWinePost)
 {
+    unset($_SESSION['ProceedToPayment']);
     foreach ($_SESSION['basket'] as $i => $oneContent) {
         if ($oneContent['id'] == $idWinePost) {
             $quantity = $oneContent['quantity'];
             $_SESSION['totalQuantity'] -= $oneContent['quantity'];
             unset($_SESSION['basket'][$i]);
+
         }
     }
     if ($_SESSION['totalQuantity'] == 0) {
@@ -230,9 +234,16 @@ function updateBasket($quantityPost)
             addWineBottle($_SESSION['basket'][$i]['id'], $quantity);
             $_SESSION['totalQuantity'] -= $quantity;
         }
-
+        if($_SESSION['basket'][$i]['quantity'] != $quantityPost[$i]){
+            unset($_SESSION['ProceedToPayment']);
+        }
+        
         $_SESSION['basket'][$i]['priceTotalOneWine'] = $quantityPost[$i] * $_SESSION['basket'][$i]['priceWithSold'];
-        $_SESSION['basket'][$i]['quantity'] = $quantityPost[$i];
+        if($quantityPost[$i] > 0){
+            $_SESSION['basket'][$i]['quantity'] = $quantityPost[$i];
+        }else{
+            unset($_SESSION['basket'][$i]);
+        }
 
     }
     basketPage($_SESSION['basket']);
