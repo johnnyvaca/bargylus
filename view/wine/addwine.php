@@ -11,8 +11,9 @@
 
 ob_start();
 $title = "Bargylus- About";
+//todo add wine
 ?>
-// add wine
+
 
 
 <?php

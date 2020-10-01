@@ -82,7 +82,6 @@ $title = "Bargylus- Home";
                                     <del> <?=$sold['basic_price']?> CHF </del><br>
                                     <?= $soldprice[$i] ?>CHF</span>
 
-
                             <div class="rating">
                                 <span class="icon-star"></span>
                                 <span class="icon-star"></span>
@@ -102,7 +101,6 @@ $title = "Bargylus- Home";
                 <?php }} ?>
         </div>
     </div>
-
 <?php
 $content = ob_get_clean();
 require "gabarit.php";
