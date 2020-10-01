@@ -31,6 +31,15 @@ switch ($action) {
 
         WineDetail($idwine);
         break;
+    case'addwine':
+
+        break;
+    case'editywine':
+
+        break;
+    case'deletewine':
+
+        break;
 
     case'about':
         aboutPage();
