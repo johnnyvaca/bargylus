@@ -9,6 +9,7 @@ ob_start();
 $title = "Bargylus- wines";
 
 ?>
+
     <div class="site-section mt-5">
         <div class="container">
 
@@ -19,7 +20,7 @@ $title = "Bargylus- wines";
                     <h1> Notre vins </h1>
                 </div>
             </div>
-
+            <div class="btn btn-primary btn-sm "><a href="index.php?action=addwine" class="nav-link text-center white"> ajouter </a></div>
             <div class="row">
                 <?php foreach ($wines as $i => $wine) { ?>
                     <div class="col-lg-4 mb-5 col-md-6">
@@ -53,10 +54,21 @@ $title = "Bargylus- wines";
                                 <?php } else { ?>
                                     <span>vin épuisé</span>
                                 <?php } ?>
+
                             </div>
+
                         </div>
+                        <?php if ($_SESSION["user"]["droits"] == 1) { ?>
+                        <nav class="site-navigation position-relative text-left" role="navigation">
+                            <ul class="site-menu main-menu js-clone-nav mx-auto d-none pl-0 d-lg-block border-none">
+                                <li class="btn btn-primary btn-sm"><a href="index.php?action=editywine" class="nav-link text-center white">Modifier </a></li>
+                                <li class="btn btn-primary btn-sm"><a href="index.php?action=deletewine" class="nav-link text-center white">Supprimer </a></li>
+                            </ul>
+                        </nav>
+                        <?php } ?>
                     </div>
                 <?php } ?>
+
             </div>
         </div>
     </div>
