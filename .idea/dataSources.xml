@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="bargylus_db@web21.swisscenter.com" uuid="cf12ee9e-19fa-4258-a4e0-389b825ec4a2">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://web21.swisscenter.com:3306/bargylus_db</jdbc-url>
+    </data-source>
+  </component>
+</project>

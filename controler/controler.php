@@ -7,6 +7,7 @@
  */
 
 require 'model/model.php';
+require 'controler/mail.php';
 function home()
 {
     getWinesSolds();
@@ -54,22 +55,22 @@ function pageAdmin()
 
     foreach ($orders as $i => $order) {
 
-            if ($orders[$i]['number'] != $orders[$i - 1]['number']) {
+        if ($orders[$i]['number'] != $orders[$i - 1]['number']) {
 
-                foreach ($states as $ii => $state) {
+            foreach ($states as $ii => $state) {
 
-                    if ($states[$ii]['id'] != $orders[$i]['state_id']) {
+                if ($states[$ii]['id'] != $orders[$i]['state_id']) {
 
 
-                        $options[$i][$ii] = "<option value='" . $state['id'] . "'>" . $state['state_name'] . "</option> ";
-                    } else {
+                    $options[$i][$ii] = "<option value='" . $state['id'] . "'>" . $state['state_name'] . "</option> ";
+                } else {
 
-                        $options[$i][$ii] = "<option value='" . $state['id'] . "' selected >" . $state['state_name']. "</option> ";
-                    }
-
+                    $options[$i][$ii] = "<option value='" . $state['id'] . "' selected >" . $state['state_name']. "</option> ";
                 }
 
             }
+
+        }
 
     }
 
@@ -261,13 +262,15 @@ function proceedToPayment(){
 }
 
 function updateStates($idOrder,$state,$user_id){
+    $order = getOrdersById($idOrder);
+    ob_start();
+    include "view/mail_state.php";
+    $body = ob_get_clean();
     updateStateOrderById($idOrder,$state);
-   $order = getOrdersById($idOrder);
-    $subject = "commande Bargylus - ".$order['state_name'];
-    $body = "<p>votre commande ".$order['number']." est : ".$order['state_name']."</p>";
-  $user =  getUserById($user_id);
+    $subject = "Bargylus - commande numero ".$order[0]['id_order'];
+    $user =  getUserById($user_id);
 
-   // sendEmailByUser($user['email'], $user['lastname'],$user['firstname'],$subject, $body);
+    sendEmailByUser($user['email'], $user['lastname'],$user['firstname'],$subject, $body);
 
     pageAdmin();
 

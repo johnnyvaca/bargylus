@@ -174,7 +174,7 @@ INNER JOIN states ON orders.states_id = states.id
 inner join users on  orders.user_id = users.id WHERE orders.id =:id";
         $statment = $dbh->prepare($query);
         $statment->execute(['id' => $id]);//prepare query
-        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
+        $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
         $dbh = null;
         return $queryResult;
         if ($debug) var_dump($queryResult);
@@ -194,7 +194,7 @@ function getOrders(){
 inner join wines on orders_contain_wines.wine_id = wines.id
 inner join orders on  orders_contain_wines.order_id = orders.id
 INNER JOIN states ON orders.states_id = states.id
-inner join users on  orders.user_id = users.id WHERE users.lastname LIKE \'%\' ORDER BY users.lastname';
+inner join users on  orders.user_id = users.id WHERE users.lastname LIKE \'%\' ORDER BY orders.number';
         $statment = $dbh->prepare($query);
         $statment->execute();//prepare query
         $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
