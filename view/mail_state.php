@@ -1,83 +1,136 @@
-<?php
-ob_start();
+<!DOCTYPE html>
+<html lang="fr">
 
-?>
+<head>
 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<div class="justify-content-center">
-    <div class=" section-title text-center ">
-        <h3 class="d-block">Commande <?= $order[0]['number'] ?></h3>
-    </div>
-</div>
-<!--class="mx-auto" style="width: 200px;"-->
-<div class="justify-content-center">
-    <div class=" section-title text-center ">
-        <span class="btn btn-primary py-1 px-1"><h3><?= $order[0]['state_name'] ?></h3></span>
-    </div>
-</div>
-<br>
-<div class="row ">
-        <div class="site-blocks-table">
-            <p><b>Liste de votre commande</b></p>
-            <table class="table table-bordered">
-                <thead> <?php //todo ?>
-                <tr>  <!--traduction en français   -->
-                    <!-- <th class="product-thumbnail">Image</th> -->
-                    <th class="product-name">Vin</th>
-                    <th class="product-price">Prix CHF</th>
-                    <th class="product-quantity">Quantit&eacute;</th>
-                    <th class="product-total">Total CHF</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php foreach ($order
+    <style type="text/css">
+        table, th, td, tr {
 
-                as $oneOrder){ ?>
-                <tr>
-                    <!--
-                                <td class="product-thumbnail">
-                                    <img src="https://bargylus.mycpnv.ch/images/<?= $oneOrder['photo'] ?>" alt="Image" class="img-fluid">
-                                </td>
-                                -->
-                    <td>
-                        <b><?= $oneOrder['winename'] ?></b>
-                    </td>
-                    <td><?= $oneOrder['price_wine'] ?></td>
-                    <td>
-                        <?= $oneOrder['quantity'] ?>
-                    </td>
-                    <!-- applique le calcul ici Altin -->
-                    <td><?php echo $oneOrder['quantity'] * $oneOrder['price_wine'] ?></td>
-                    <?php } ?>
-                </tr>
+            border-spacing: 0;
+        }
 
+        table {
+            width: 100%;
+        }
 
-                </tbody>
-            </table>
-        </div>
-</div>
+        th, .foot {
+            /*     background-color: #925186; */
+            background-color: #c984d4;
+        }
 
-<div class="site-section pt-5 bg-light">
+        thead, th {
+            border: #c984d4;
+        }
+    </style>
 
-    <div class="col-md-6 pl-5">
-        <div class="row justify-content-end">
-            <div class="col-md-7">
-                <div class="row">
-                    <div class="col-md-12 text-right border-bottom mb-5">
-                        <h3 class="text-black h4 text-uppercase">TOTAL PRIX COMMANDE</h3>
-                    </div>
-                </div>
-                <div class="row mb-5">
-                    <div class="col-md-6 text-right">
-                        <strong class="text-black"><?= $oneOrder['total_price'] ?> CHF</strong>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+</head>
 
-<?php
-$content = ob_get_clean();
-require "gabarit_email.php";
-?>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th colspan="4"><p><img alt="vide" src="https://bargylus.mycpnv.ch/images/logo.png"></p></th>
+    </tr>
+    <tr>
+        <th colspan="4"><h2>Commande <?= $order[0]['number'] ?></h2></th>
+    </tr>
+    <tr>
+        <th colspan="4"><h2><?= $order[0]['state_name'] ?></h2></th>
+    </tr>
+    <tr>
+        <th colspan="4">
+            <!-- <button onclick="window.location.href = 'https://bargylus.mycpnv.ch/';">Voir votre commande</button></th> -->
+            <a href="https://www.bargylus.mycpnv.ch/"> Voir votre commande</a>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td></td>
+        <td>Lieu de livraison</td>
+        <td>Mode de payement</td>
+        <td></td>
+
+    </tr>
+    <tr>
+        <td></td>
+        <td><?= $user['firstname'] ?><?= $user['lastname'] ?></td>
+        <td rowspan="2"><?= $order[0]['price_wine'] ?> CHF</td>
+        <td></td>
+
+    </tr>
+    <tr>
+        <td></td>
+        <td><?= $user['street_home'] ?></td>
+        <!--  <td>3333</td> -->
+        <td></td>
+
+    </tr>
+    <tr>
+        <td></td>
+        <td><?= $user['city'] ?> <?= $user['zip'] ?></td>
+        <td>Visa</td>
+        <td></td>
+
+    </tr>
+    <tr>
+        <td></td>
+        <td><?= $user['phone_number'] ?></td>
+        <td>****345</td>
+        <td></td>
+
+    </tr>
+    <tr>
+        <td colspan="4">...</td>
+
+    </tr>
+    <tr>
+        <td colspan="4">Contenu de votre commande</td>
+    </tr>
+    <!-- LISTE DE VINS -->
+    <?php foreach ($order as $value) { ?>
+        <tr>
+            <td rowspan="3"><img src="https://bargylus.mycpnv.ch/images/<?= $value['photo'] ?>" width="150"
+                                 style="width: 70%; max-width: 125px;"></td>
+
+            <td colspan="2"><?= $value['winename'] ?> x<?= $value['quantity'] ?></td>
+            <td><?= $value['price_wine'] * $value['quantity'] ?> CHF</td>
+
+        </tr>
+        <tr>
+            <td colspan="2" rowspan="2"><?= $value['price_wine'] ?> CHF</td>
+
+        </tr>
+        <tr>
+
+        </tr>
+    <?php } ?>
+    <tr>
+        <td></td>
+        <td colspan="2">Prix Total</td>
+        <td><?= $order[0]['total_price'] ?> CHF</td>
+    </tr>
+    <tr class="foot ">
+        <td></td>
+        <td>
+            <a href="https://www.bargylus.mycpnv.ch/">Contact</a>
+        </td>
+        <td>
+            <a href="https://www.bargylus.mycpnv.ch/">Nos vins</a>
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+
+        <td colspan="4"> ...</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+
+</html>

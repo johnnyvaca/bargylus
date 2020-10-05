@@ -1,5 +1,5 @@
 <?php
-
+require_once 'view/helpers.php' ;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -44,7 +44,8 @@ function sendEmailByUser($email, $lastname,$firstname,$subject, $body)
         $mail->AltBody = 'Equipe Bargylus';
 
         $mail->send();
-        echo 'Le mail à bien été envoyé';
+
+       echo getFlashMessage();
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
