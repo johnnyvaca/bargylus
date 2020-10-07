@@ -28,6 +28,10 @@ function basketPage($basketContentPost)
     require_once 'view/basket.php';
 }
 
+function profilPage(){
+    require_once 'view/profil.php';
+}
+
 function payPage()
 {
     require_once 'view/pay.php';
