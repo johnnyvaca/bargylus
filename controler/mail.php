@@ -29,8 +29,8 @@ function sendEmailByUser($email, $lastname,$firstname,$subject, $body)
         $mail->addAddress($email,$lastname." ". $firstname);     // Add a recipient
 
 
-        // $mail->addReplyTo('info@example.com', 'Information');
-        //   $mail->addCC('cc@example.com');
+         $mail->addReplyTo('etatCommandeClient@bargylus.com', 'Etat de commandes');
+           $mail->addCC('johnny.vaca-jaramillo@cpnv.ch');
         //  $mail->addBCC('bcc@example.com');
 
         // Attachments
