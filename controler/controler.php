@@ -28,6 +28,11 @@ function basketPage($basketContentPost)
     require_once 'view/basket.php';
 }
 
+function payPage()
+{
+    require_once 'view/pay.php';
+}
+
 function aboutPage()
 {
 
@@ -253,7 +258,7 @@ function proceedToPayment()
 {
     $_SESSION['ProceedToPayment'] = true;
     if (isset($_SESSION['user'])) {
-        home();
+        payPage();
     } else {
         LoginPage();
     }
