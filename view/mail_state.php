@@ -58,8 +58,8 @@
     </tr>
     <tr>
         <td></td>
-        <td><?= $user['firstname'] ?><?= $user['lastname'] ?></td>
-        <td rowspan="2"><?= $order[0]['price_wine'] ?> CHF</td>
+        <td><?= $user['firstname'] ?> <?= $user['lastname'] ?></td>
+        <td rowspan="2"><?= $order[0]['total_price'] ?> CHF</td>
         <td></td>
 
     </tr>
@@ -117,10 +117,10 @@
     <tr class="foot ">
         <td></td>
         <td>
-            <a href="https://www.bargylus.mycpnv.ch/">Contact</a>
+            <a href="https://www.bargylus.mycpnv.ch/index.php?action=contact">Contact</a>
         </td>
         <td>
-            <a href="https://www.bargylus.mycpnv.ch/">Nos vins</a>
+            <a href="https://www.bargylus.mycpnv.ch/index.php?action=displaywines">Nos vins</a>
         </td>
         <td></td>
     </tr>
