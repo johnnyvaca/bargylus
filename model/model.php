@@ -170,7 +170,7 @@ function getOrdersById($id)
     try {
 
         $query = "select users.id, users.firstname, users.lastname,wines.winename, users.email, orders_contain_wines.quantity, 
-                    orders_contain_wines.price as 'price_wine', 
+                    orders_contain_wines.price as 'price_wine',  orders.date_purchase, 
                     orders.number, orders.states_id, orders.total_price, orders.id AS 'id_order', states.name AS 'state_name', states.id AS 'state_id', wines.photo   FROM bargylus_db.orders_contain_wines
 inner join wines on orders_contain_wines.wine_id = wines.id
 inner join orders on  orders_contain_wines.order_id = orders.id
@@ -195,7 +195,7 @@ function getOrders()
     try {
 
         $query = 'select users.id, users.firstname, users.lastname,wines.winename, users.email, orders_contain_wines.quantity, 
-                    orders_contain_wines.price as \'price_wine\', 
+                    orders_contain_wines.price as \'price_wine\', orders.date_purchase, 
                     orders.number, orders.states_id, orders.total_price, orders.id AS \'id_order\', states.name AS "state_name", states.id AS "state_id"   FROM bargylus_db.orders_contain_wines
 inner join wines on orders_contain_wines.wine_id = wines.id
 inner join orders on  orders_contain_wines.order_id = orders.id
