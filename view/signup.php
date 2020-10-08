@@ -31,92 +31,97 @@ $title = "Bargylus- sign up";
                 <form method="post" action="index.php?action=signup">
                     <div class="row">
                         <div class="col-md-6 form-group">
-                            <label for="email">Email Address</label>
+                            <label for="email">Adresse Email</label>
                             <input type="text" id="email" name="email" class="form-control form-control-lg"
-                                   placeholder="Email Address">
+                                   placeholder="Adresse Email" required>
                         </div>
 
                         <div class="col-md-6 form-group">
-                            <label for="password">Password</label>
+                            <label for="password">Mot de Passe</label>
                             <input type="password" id="password" name="password" class="form-control form-control-lg"
-                                   placeholder="Password">
+                                   placeholder="Mot de Passe" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 form-group">
-                            <label for="lastname">Lastname</label>
-                            <input type="text" id="lastname" name="lastname" class="form-control form-control-lg"
-                                   placeholder="lastname">
-                        </div>
-
-                        <div class="col-md-6 form-group">
-                            <label for="firstname">firstname</label>
+                            <label for="firstname">Prénom</label>
                             <input type="text" id="firstname" name="firstname" class="form-control form-control-lg"
-                                   placeholder="firstname">
+                                   placeholder="Prénom" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="lastname">Nom</label>
+                            <input type="text" id="lastname" name="lastname" class="form-control form-control-lg"
+                                   placeholder="Nom" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4 form-group">
-                            <label for="birth_date">day</label>
-                            <select type="text" id="birth_date" name="day" class="form-control form-control-lg"
-                                    placeholder="birth date">
+                            <label for="birth_date">Jour</label>
+                            <select type="text" id="birth_date" name="day" class="form-control form-control-lg" required>
                                 <?php
                                 for ($i = 1; $i <= 31; $i++) { ?>
-                                    <option><?= $i ?></option>
+                                    <option value="<?= $i ?>"><?= $i ?></option>
                                 <?php } ?>
                             </select>
                         </div>
                         <div class="col-md-4 form-group">
-                            <label for="birth_date">month</label>
-                            <select type="text" id="birth_date" name="month" class="form-control form-control-lg"
-                                    placeholder="birth date">
-                                <?php
-                                for ($i = 1; $i <= 12; $i++) { ?>
-                                    <option><?= $i ?></option>
-                                <?php } ?>
+                            <label for="birth_date">Mois</label>
+                            <select type="text" id="month" name="month" class="form-control form-control-lg" required>
+                                <option value="1">Janvier</option>
+                                <option value="2">Fevrier</option>
+                                <option value="3">Mars</option>
+                                <option value="4">Avril</option>
+                                <option value="5">Mai</option>
+                                <option value="6">Juin</option>
+                                <option value="7">Juillet</option>
+                                <option value="8">Août</option>
+                                <option value="9">Septembre</option>
+                                <option value="10">Octobre</option>
+                                <option value="11">Novembre</option>
+                                <option value="12">Décembre</option>
                             </select>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="birth_date">year</label>
                             <select type="text" id="birth_date" name="year" class="form-control form-control-lg"
-                                    placeholder="birth date">
+                                    placeholder="birth date" required>
                                 <?php
-                                for ($i = 2020; $i >= 1940; $i--) { ?>
-                                    <option><?= $i ?></option>
+                                for ($i = date('Y')-16; $i >= 1900; $i--) { ?>
+                                    <option value="<?= $i ?>"><?= $i ?></option>
                                 <?php } ?>
                             </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4 form-group">
-                            <label for="phone_number">phone</label>
+                            <label for="phone_number">Numéro de téléphone</label>
                             <input type="text" id="phone_number" name="phone_number"
-                                   class="form-control form-control-lg" placeholder="phone number">
+                                   class="form-control form-control-lg" placeholder="Numéro de téléphone" required>
                         </div>
 
                         <div class="col-md-4 form-group">
-                            <label for="street_home">street</label>
+                            <label for="street_home">Rue</label>
                             <input type="text" id="street_home" name="street_home" class="form-control form-control-lg"
-                                   placeholder="street home">
+                                   placeholder="Rue" required>
                         </div>
 
                         <div class="col-md-4 form-group">
-                            <label for="zip">zip</label>
+                            <label for="zip">Code postal</label>
                             <input type="text" id="zip" name="zip" class="form-control form-control-lg"
-                                   placeholder="zip">
+                                   placeholder="code postal" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 form-group">
-                            <label for="city">city</label>
+                            <label for="city">Ville</label>
                             <input type="text" id="city" name="city" class="form-control form-control-lg"
-                                   placeholder="city">
+                                   placeholder="Ville">
                         </div>
 
                         <div class="col-md-6 form-group">
-                            <label for="canton">canton</label>
+                            <label for="canton">Canton</label>
                             <input type="text" id="canton" name="canton" class="form-control form-control-lg"
-                                   placeholder="canton">
+                                   placeholder="Canton">
                         </div>
                     </div>
                     <div class="row">

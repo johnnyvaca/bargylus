@@ -1,0 +1,5 @@
+ajout dans le panier - erreurs depuis la page d'accueil
+chaque client peut voir ces commandes
+connexion, gérer la page de connexion (erreurs)
+passe au sprint 7
+faire plus petit la page de login
