@@ -10,13 +10,12 @@ ob_start();
 $title = "Bargylus- contact";
 ?>
 
-<div class="hero-2" style="background-image: url('../images/hero_2.png');">
-    <div class="container">
-        <div class="row justify-content-center text-center align-items-center">
-            <div class="col-md-8">
-                <span class="sub-title">Get In Touch</span>
-                <h2>Contact</h2>
-            </div>
+
+<div class="container">
+    <div class="row justify-content-center text-center align-items-center">
+        <div class="col-md-8">
+            <span class="sub-title">Get In Touch</span>
+            <h2>Contact</h2>
         </div>
     </div>
 </div>

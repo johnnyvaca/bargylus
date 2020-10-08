@@ -8,13 +8,12 @@
 ob_start();
 $title = "Bargylus- About";
 ?>
-<div class="hero-2" style="background-image: url('/images/hero_2.png');">
-    <div class="container">
-        <div class="row justify-content-center text-center align-items-center">
-            <div class="col-md-8">
-                <span class="sub-title">Welcome</span>
-                <h2>About Us</h2>
-            </div>
+
+<div class="container">
+    <div class="row justify-content-center text-center align-items-center">
+        <div class="col-md-8">
+            <span class="sub-title">Welcome</span>
+            <h2>About Us</h2>
         </div>
     </div>
 </div>
@@ -38,14 +37,15 @@ $title = "Bargylus- About";
                 <div class="site-section-heading pt-3 mb-4">
                     <h2 class="text-black font-heading-serif">How We Started</h2>
                 </div>
-                <p>Rerum quis soluta, esse, cupiditate voluptate ipsum? Sunt unde eos vitae suscipit harum eligendi reprehenderit, illo eaque sit!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus consequuntur hic quaerat cupiditate tempore temporibus nulla at eum!</p>
+                <p>Rerum quis soluta, esse, cupiditate voluptate ipsum? Sunt unde eos vitae suscipit harum eligendi
+                    reprehenderit, illo eaque sit!</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus consequuntur hic quaerat
+                    cupiditate tempore temporibus nulla at eum!</p>
 
             </div>
         </div>
     </div>
 </div>
-
 
 
 <div class="site-section py-5 bg-light custom-border-bottom" data-aos="fade">
@@ -55,8 +55,9 @@ $title = "Bargylus- About";
                 <div class="block-16">
                     <figure>
                         <img src="images/hero_2.jpg" alt="Image placeholder" class="img-fluid ">
-                        <a href="https://vimeo.com/channels/staffpicks/93951774" class="play-button popup-vimeo" data-fancybox><span
-                                class="icon-play"></span></a>
+                        <a href="https://vimeo.com/channels/staffpicks/93951774" class="play-button popup-vimeo"
+                           data-fancybox><span
+                                    class="icon-play"></span></a>
 
                     </figure>
                 </div>
@@ -67,9 +68,10 @@ $title = "Bargylus- About";
                 <div class="site-section-heading pt-3 mb-4">
                     <h2 class="text-black font-heading-serif">Wines For You All</h2>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus consequuntur hic quaerat cupiditate tempore temporibus nulla at eum!</p>
-                <p>Magni debitis minima ipsam, itaque nam eligendi iusto? Adipisci blanditiis itaque ipsam cupiditate architecto, dolore saepe placeat culpa.</p>
-
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus consequuntur hic quaerat
+                    cupiditate tempore temporibus nulla at eum!</p>
+                <p>Magni debitis minima ipsam, itaque nam eligendi iusto? Adipisci blanditiis itaque ipsam cupiditate
+                    architecto, dolore saepe placeat culpa.</p>
 
 
             </div>
@@ -86,7 +88,8 @@ $title = "Bargylus- About";
                 </div>
                 <div class="text">
                     <h2 class="font-heading-serif">Free Shipping</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer
+                        accumsan
                         tincidunt fringilla.</p>
                 </div>
             </div>
@@ -96,7 +99,8 @@ $title = "Bargylus- About";
                 </div>
                 <div class="text">
                     <h2 class="font-heading-serif">Free Returns</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer
+                        accumsan
                         tincidunt fringilla.</p>
                 </div>
             </div>
@@ -106,7 +110,8 @@ $title = "Bargylus- About";
                 </div>
                 <div class="text">
                     <h2 class="font-heading-serif">Customer Support</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer
+                        accumsan
                         tincidunt fringilla.</p>
                 </div>
             </div>
@@ -120,22 +125,30 @@ $title = "Bargylus- About";
 
             <blockquote class="testimony">
                 <img src="images/person_1.jpg" alt="Image">
-                <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
+                <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi
+                    quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae
+                    placeat in cumque?&rdquo;</p>
                 <p class="small text-primary">&mdash; Collin Miller</p>
             </blockquote>
             <blockquote class="testimony">
                 <img src="images/person_2.jpg" alt="Image">
-                <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
+                <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi
+                    quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae
+                    placeat in cumque?&rdquo;</p>
                 <p class="small text-primary">&mdash; Harley Perkins</p>
             </blockquote>
             <blockquote class="testimony">
                 <img src="images/person_3.jpg" alt="Image">
-                <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
+                <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi
+                    quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae
+                    placeat in cumque?&rdquo;</p>
                 <p class="small text-primary">&mdash; Levi Morris</p>
             </blockquote>
             <blockquote class="testimony">
                 <img src="images/person_1.jpg" alt="Image">
-                <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
+                <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi
+                    quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae
+                    placeat in cumque?&rdquo;</p>
                 <p class="small text-primary">&mdash; Allie Smith</p>
             </blockquote>
 

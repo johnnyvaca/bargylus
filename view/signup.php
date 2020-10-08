@@ -10,12 +10,11 @@ ob_start();
 $title = "Bargylus- sign up";
 ?>
 
-<div class="hero-2" style="background-image: url('../images/hero_2.png');">
-    <div class="container">
-        <div class="row justify-content-center text-center align-items-center">
-            <div class="col-md-8">
-                <h2 class="text-center">Sign Up</h2>
-            </div>
+
+<div class="container">
+    <div class="row justify-content-center text-center align-items-center">
+        <div class="col-md-8">
+            <h2 class="text-center">Sign Up</h2>
         </div>
     </div>
 </div>
@@ -70,21 +69,21 @@ $title = "Bargylus- sign up";
                         <div class="col-md-4 form-group">
                             <label for="birth_date">month</label>
                             <select type="text" id="birth_date" name="month" class="form-control form-control-lg"
-                                   placeholder="birth date">
-                            <?php
-                            for ($i = 1; $i <= 12; $i++) { ?>
-                                <option><?= $i ?></option>
-                            <?php } ?>
+                                    placeholder="birth date">
+                                <?php
+                                for ($i = 1; $i <= 12; $i++) { ?>
+                                    <option><?= $i ?></option>
+                                <?php } ?>
                             </select>
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="birth_date">year</label>
                             <select type="text" id="birth_date" name="year" class="form-control form-control-lg"
-                                   placeholder="birth date">
-                            <?php
-                            for ($i = 2020; $i >= 1940; $i--) { ?>
-                                <option><?= $i ?></option>
-                            <?php } ?>
+                                    placeholder="birth date">
+                                <?php
+                                for ($i = 2020; $i >= 1940; $i--) { ?>
+                                    <option><?= $i ?></option>
+                                <?php } ?>
                             </select>
                         </div>
                     </div>
