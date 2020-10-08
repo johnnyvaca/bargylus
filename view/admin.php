@@ -30,7 +30,7 @@ $title = "Bargylus - Admin";
                 <input type="hidden" name="orderId" value="<?=$order['id_order']?>">
                     <tr class="table-primary">
                         <td></td>
-                        <td>commande <?=$order['id_order']?> : <?= $order['number'] ?></td>
+                        <td>commande : <?= $order['number'] ?>        date : <?=$order['date_purchase']?></td>
                         <td>total : <?= $order['total_price'] ?></td>
                         <td>état :<?= $order['state_name'] ?></td>
                         <td>

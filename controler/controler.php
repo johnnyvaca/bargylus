@@ -7,6 +7,7 @@
  */
 
 require 'model/model.php';
+require 'controler/mail.php';
 function home()
 {
     getWinesSolds();
@@ -25,6 +26,15 @@ function basketPage($basketContentPost)
     }
 
     require_once 'view/basket.php';
+}
+
+function profilPage(){
+    require_once 'view/profil.php';
+}
+
+function payPage()
+{
+    require_once 'view/pay.php';
 }
 
 function aboutPage()
@@ -54,22 +64,22 @@ function pageAdmin()
 
     foreach ($orders as $i => $order) {
 
-            if ($orders[$i]['number'] != $orders[$i - 1]['number']) {
+        if ($orders[$i]['number'] != $orders[$i - 1]['number']) {
 
-                foreach ($states as $ii => $state) {
+            foreach ($states as $ii => $state) {
 
-                    if ($states[$ii]['id'] != $orders[$i]['state_id']) {
+                if ($states[$ii]['id'] != $orders[$i]['state_id']) {
 
 
-                        $options[$i][$ii] = "<option value='" . $state['id'] . "'>" . $state['state_name'] . "</option> ";
-                    } else {
+                    $options[$i][$ii] = "<option value='" . $state['id'] . "'>" . $state['state_name'] . "</option> ";
+                } else {
 
-                        $options[$i][$ii] = "<option value='" . $state['id'] . "' selected >" . $state['state_name']. "</option> ";
-                    }
-
+                    $options[$i][$ii] = "<option value='" . $state['id'] . "' selected >" . $state['state_name'] . "</option> ";
                 }
 
             }
+
+        }
 
     }
 
@@ -88,15 +98,13 @@ function tryLogin($emailPost, $passwordPost)
             $_SESSION['flashmessage'] = 'Bienvenue ' . $user['firstname'] . $user['lastname'];
 
 
-
-
             if ($user['droits'] == 1) {
-                if(isset($_SESSION['ProceedToPayment'])){
+                if (isset($_SESSION['ProceedToPayment'])) {
                     basketPage($_SESSION['basket']);
-                }else{
+                } else {
                     pageAdmin();
                 }
-            } else if(isset($_SESSION['ProceedToPayment'])){
+            } else if (isset($_SESSION['ProceedToPayment'])) {
                 basketPage($_SESSION['basket']);
             } else {
                 getWinesDisplay();
@@ -174,7 +182,6 @@ function addWinesBasket($idWinePost, $quantity)
             $_SESSION['totalQuantity'] += $quantity;
 
 
-
             $_SESSION['flashmessage'] = 'Vin ajouté dans le panier';
             withdrawWineBottle($idWinePost, $quantity);
             getWinesDisplay();
@@ -234,14 +241,14 @@ function updateBasket($quantityPost)
             addWineBottle($_SESSION['basket'][$i]['id'], $quantity);
             $_SESSION['totalQuantity'] -= $quantity;
         }
-        if($_SESSION['basket'][$i]['quantity'] != $quantityPost[$i]){
+        if ($_SESSION['basket'][$i]['quantity'] != $quantityPost[$i]) {
             unset($_SESSION['ProceedToPayment']);
         }
-        
+
         $_SESSION['basket'][$i]['priceTotalOneWine'] = $quantityPost[$i] * $_SESSION['basket'][$i]['priceWithSold'];
-        if($quantityPost[$i] > 0){
+        if ($quantityPost[$i] > 0) {
             $_SESSION['basket'][$i]['quantity'] = $quantityPost[$i];
-        }else{
+        } else {
             unset($_SESSION['basket'][$i]);
         }
 
@@ -251,24 +258,28 @@ function updateBasket($quantityPost)
 }
 
 
-function proceedToPayment(){
+function proceedToPayment()
+{
     $_SESSION['ProceedToPayment'] = true;
-    if(isset($_SESSION['user'])){
-        home();
+    if (isset($_SESSION['user'])) {
+        payPage();
     } else {
         LoginPage();
     }
 }
 
-function updateStates($idOrder,$state,$user_id){
-    updateStateOrderById($idOrder,$state);
-   $order = getOrdersById($idOrder);
-    $subject = "commande Bargylus - ".$order['state_name'];
-    $body = "<p>votre commande ".$order['number']." est : ".$order['state_name']."</p>";
-  $user =  getUserById($user_id);
+function updateStates($idOrder, $state, $user_id)
+{
+    $order = getOrdersById($idOrder);
+    $user = getUserById($user_id);
+    ob_start();
+    include "view/mail_state.php";
+    $body = ob_get_clean();
+    updateStateOrderById($idOrder, $state);
+    $subject = "Bargylus - commande numero " . $order[0]['number'];
 
-   // sendEmailByUser($user['email'], $user['lastname'],$user['firstname'],$subject, $body);
-
+    $_SESSION['flashmessage'] = 'l\'état du vin à bien été changé';
+    sendEmailByUser($user['email'], $user['lastname'], $user['firstname'], $subject, $body);
     pageAdmin();
 
 }

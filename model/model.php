@@ -13,7 +13,7 @@
 function getPDO()
 {
     require "model/.constant.php";
-    $dbh = new PDO('mysql:host=' . $dbhost . ';dbname=' . $dbname. ';charset=utf8', $user, $pass);
+    $dbh = new PDO('mysql:host=' . $dbhost . ';dbname=' . $dbname . ';charset=utf8', $user, $pass);
     return $dbh;
 }
 
@@ -36,6 +36,7 @@ function getUsers()
         return null;
     }
 }
+
 function getUserById($id)
 {
     require "model/.constant.php";
@@ -54,6 +55,7 @@ function getUserById($id)
         return null;
     }
 }
+
 function getUserByEmail($email)
 {
     require "model/.constant.php";
@@ -92,7 +94,6 @@ function createUser($oneUser)
 }
 
 
-
 //(ALTIN)fonction qui cherche une bouteille avec toutes ses informations au panier
 function getWineBottle($id)
 {
@@ -126,28 +127,13 @@ function getWineBottle($id)
     }
 
 }
+
 //(ALTIN)fonction qui Update le stock d'une bouteille
-function withdrawWineBottle($id,$quantity)
+function withdrawWineBottle($id, $quantity)
 {
     try {
         $dbh = getPDO();
-        $query = 'UPDATE wines set stock = stock - '.$quantity.' WHERE wines.id =:id';
-        $statment = $dbh->prepare($query);
-        $statment->execute(['id' => $id]);//prepare query
-        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
-        $dbh = null;
-        if ($debug) var_dump($queryResult);
-        return $queryResult;
-    } catch (PDOException $e) {
-        print "Error!: " . $e->getMessage() . "<br/>";
-        return null;
-    }
-}
-function addWineBottle($id,$quantity)
-{
-    try {
-        $dbh = getPDO();
-        $query = 'UPDATE wines set stock = stock + '. $quantity.  ' WHERE wines.id =:id';
+        $query = 'UPDATE wines set stock = stock - ' . $quantity . ' WHERE wines.id =:id';
         $statment = $dbh->prepare($query);
         $statment->execute(['id' => $id]);//prepare query
         $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
@@ -160,21 +146,39 @@ function addWineBottle($id,$quantity)
     }
 }
 
-function getOrdersById($id){
+function addWineBottle($id, $quantity)
+{
+    try {
+        $dbh = getPDO();
+        $query = 'UPDATE wines set stock = stock + ' . $quantity . ' WHERE wines.id =:id';
+        $statment = $dbh->prepare($query);
+        $statment->execute(['id' => $id]);//prepare query
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        if ($debug) var_dump($queryResult);
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+
+function getOrdersById($id)
+{
     require "model/.constant.php";
     $dbh = getPDO();
     try {
 
         $query = "select users.id, users.firstname, users.lastname,wines.winename, users.email, orders_contain_wines.quantity, 
-                    orders_contain_wines.price as 'price_wine', 
-                    orders.number, orders.states_id, orders.total_price, orders.id AS 'id_order', states.name AS 'state_name', states.id AS 'state_id'   FROM bargylus_db.orders_contain_wines
+                    orders_contain_wines.price as 'price_wine',  orders.date_purchase, 
+                    orders.number, orders.states_id, orders.total_price, orders.id AS 'id_order', states.name AS 'state_name', states.id AS 'state_id', wines.photo   FROM bargylus_db.orders_contain_wines
 inner join wines on orders_contain_wines.wine_id = wines.id
 inner join orders on  orders_contain_wines.order_id = orders.id
 INNER JOIN states ON orders.states_id = states.id
 inner join users on  orders.user_id = users.id WHERE orders.id =:id";
         $statment = $dbh->prepare($query);
         $statment->execute(['id' => $id]);//prepare query
-        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
+        $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
         $dbh = null;
         return $queryResult;
         if ($debug) var_dump($queryResult);
@@ -183,18 +187,20 @@ inner join users on  orders.user_id = users.id WHERE orders.id =:id";
         return null;
     }
 }
-function getOrders(){
+
+function getOrders()
+{
     require "model/.constant.php";
     $dbh = getPDO();
     try {
 
         $query = 'select users.id, users.firstname, users.lastname,wines.winename, users.email, orders_contain_wines.quantity, 
-                    orders_contain_wines.price as \'price_wine\', 
+                    orders_contain_wines.price as \'price_wine\', orders.date_purchase, 
                     orders.number, orders.states_id, orders.total_price, orders.id AS \'id_order\', states.name AS "state_name", states.id AS "state_id"   FROM bargylus_db.orders_contain_wines
 inner join wines on orders_contain_wines.wine_id = wines.id
 inner join orders on  orders_contain_wines.order_id = orders.id
 INNER JOIN states ON orders.states_id = states.id
-inner join users on  orders.user_id = users.id WHERE users.lastname LIKE \'%\' ORDER BY users.lastname';
+inner join users on  orders.user_id = users.id WHERE users.lastname LIKE \'%\' ORDER BY orders.number';
         $statment = $dbh->prepare($query);
         $statment->execute();//prepare query
         $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
@@ -206,7 +212,9 @@ inner join users on  orders.user_id = users.id WHERE users.lastname LIKE \'%\' O
         return null;
     }
 }
-function getStates(){
+
+function getStates()
+{
     require "model/.constant.php";
     $dbh = getPDO();
     try {
@@ -223,7 +231,8 @@ function getStates(){
         return null;
     }
 }
-function updateStateOrderById($id,$state)
+
+function updateStateOrderById($id, $state)
 {
     try {
         $dbh = getPDO();

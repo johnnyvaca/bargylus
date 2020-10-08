@@ -107,8 +107,9 @@ switch ($action) {
         $id = $_POST['orderId'];
         $state = $_POST['state'];
         $user_id = $_POST['user_id'];
-
-
+    case 'profil':
+        profilPage();
+        break;
         updateStates($id,$state,$user_id);
         break;
     default;
