@@ -107,12 +107,15 @@ switch ($action) {
         $id = $_POST['orderId'];
         $state = $_POST['state'];
         $user_id = $_POST['user_id'];
+        updateStates($id,$state,$user_id);
+        break;
     case 'profil':
         profilPage();
         break;
-        updateStates($id,$state,$user_id);
+    case 'myorders':
+        myOrdersPage();
         break;
-    default;
+    default :
         home();
         break;
 }

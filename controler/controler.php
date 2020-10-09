@@ -134,13 +134,53 @@ function signupPage()
 
 function signup($email, $lastname, $firstname, $phoneNumber, $day, $month, $year, $streetHome, $zip, $city, $canton, $password)
 {
+
+    $userOne = [
+        'email' => $email,
+        'lastname' => $lastname,
+        'firstname' => $firstname,
+        'phone_number' => $phoneNumber,
+        'year' => $year,
+        'month' => $month,
+        'day' => $day,
+        'street_home' => $streetHome,
+        'zip' => $zip,
+        'city' => $city,
+        'canton' => $canton,
+        'password' => $password,
+    ];
     $user = getUserByEmail($email);
     if ($email == $user['email']) {
         unset($_SESSION['user']);
-        $_SESSION['flashmessage'] = 'l\'email est déjà utilisé';
+        $_SESSION['flashmessage'] = 'l\'email est déjà utilisé  ';
         signupPage();
         return;
     } else {
+        if (!stristr($email,'@')) {
+            unset($_SESSION['user']);
+            $_SESSION['flashmessage'] = "l'email n'est pas inscrit correctement @ obligatoire ";
+            signupPage();
+            return;
+        }
+
+        if($year == date('Y')-16){
+            if($month > date('m')){
+                unset($_SESSION['user']);
+                $_SESSION['flashmessage'] = 'vous n\'avez toujours pas l\'age pour acheter du vin  ';
+                signupPage();
+                return;
+            }
+            if($month == date('m')){
+                if($day > date('d')){
+                    unset($_SESSION['user']);
+                    $_SESSION['flashmessage'] = 'vous n\'avez toujours pas l\'age pour acheter du vin  ';
+                    signupPage();
+                    return;
+                }
+
+            }
+
+        }
         $_SESSION['flashmessage'] = 'Bienvenu!!! vous êtes connectés';
     }
     $hash = password_hash($password, PASSWORD_DEFAULT);
@@ -281,5 +321,12 @@ function updateStates($idOrder, $state, $user_id)
     $_SESSION['flashmessage'] = 'l\'état du vin à bien été changé';
     sendEmailByUser($user['email'], $user['lastname'], $user['firstname'], $subject, $body);
     pageAdmin();
+
+}
+function  myOrdersPage(){
+    $id = 5;
+  $orders = getOrdersByUserId($id);
+  $wines = $orders;
+  require "view/myorders.php";
 
 }

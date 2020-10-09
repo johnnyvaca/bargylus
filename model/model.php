@@ -187,6 +187,31 @@ inner join users on  orders.user_id = users.id WHERE orders.id =:id";
         return null;
     }
 }
+function getOrdersByUserId($id)
+{
+    require "model/.constant.php";
+    $dbh = getPDO();
+    try {
+
+        $query = "select users.id, users.firstname, users.lastname,wines.winename, users.email, orders_contain_wines.quantity, 
+                    orders_contain_wines.price as 'price_wine',  orders.date_purchase, 
+                    orders.number, orders.states_id, orders.total_price, orders.id AS 'id_order', states.name AS 'state_name', 
+                    states.id AS 'state_id', wines.photo,wines.id as 'wine_id'   FROM bargylus_db.orders_contain_wines
+inner join wines on orders_contain_wines.wine_id = wines.id
+inner join orders on  orders_contain_wines.order_id = orders.id
+INNER JOIN states ON orders.states_id = states.id
+inner join users on  orders.user_id = users.id WHERE users.id =:id";
+        $statment = $dbh->prepare($query);
+        $statment->execute(['id' => $id]);//prepare query
+        $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        return $queryResult;
+        if ($debug) var_dump($queryResult);
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
 
 function getOrders()
 {
