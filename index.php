@@ -6,9 +6,9 @@
  *DATE:14.05.2020
  */
 
-require "controler/controler.php";
 require  "controler/discountControler.php";
 require  "controler/DisplaywineControler.php";
+require "controler/controler.php";
 
 session_start();
 // to go home by default
@@ -114,6 +114,10 @@ switch ($action) {
         break;
     case 'myorders':
         myOrdersPage();
+        break;
+    case 'order':
+        $id = $_GET['id'];
+        orderPage($id);
         break;
     default :
         home();

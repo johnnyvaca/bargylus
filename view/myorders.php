@@ -1,14 +1,13 @@
 <?php
 ob_start();
 $title = "Bargylus - mes achats";
-
 ?>
     <div class="site-section mt-5">
         <div class="container">
             <?php foreach ($orders as $i => $order) { ?>
 
-
-                <div class="row mb-5">
+                <a href="index.php?action=order&id=<?=$order['id_order']?>">
+                <div class="row mb-5 bg-primary text-white">
 
                     <?php if ($orders[$i]['number'] != $orders[$i - 1]['number']) {
                         ?>
@@ -21,50 +20,28 @@ $title = "Bargylus - mes achats";
 
 
                 </div>
+                </a>
                 <?php if ($orders[$i]['number'] != $orders[$i - 1]['number']) {
                     ?>
                     <div class="row">
 
-                        <?php var_dump($wines); foreach ($wines as $w => $wine) {
-                            if ($wines[$w]['wine_id'] != $wines[$w - 1]['wine_id']) {
+                        <?php foreach ($wines as $w => $wine) {
+                            if ($orders[$i]['number'] == $wines[$w]['number']) {
                                 ?>
 
-                                <div class="col-lg-3 mb-3 col-md-3">
+                                <div class="col-lg-2 mb-2 col-md-2">
 
                                     <div class="wine_v_1 text-center pb-3">
-                                        <a href="index.php?action=winedetail&id=<?= $wine['id'] ?>"
+                                        <a href="index.php?action=winedetail&id=<?= $wine['wine_id'] ?>"
                                            class="thumbnail d-block mb-4"><img
                                                     src="images/<?= $wine['photo'] ?>" alt="Image"
                                                     class="img-fluid"></a>
                                         <div>
-                                            <h3 class="heading mb-1"><a href="#"><?= $wine['winename'] ?></a></h3>
-                                            <span class="price"><?= $wine[$i] ?> CHF</span>
+                                            <h3 class="heading mb-1"><a href="#"><?= $wine['winename'] ?>
+                                                    x<?= $wine['quantity'] ?></a></h3>
+                                            <span class="price"><?= $wine['price_wine'] * $wine['quantity'] ?> CHF</span>
                                         </div>
-                                        <div class="wine-actions">
 
-                                            <h3 class="heading-2"><a href="#"><?= $wine['winename'] ?></a></h3>
-                                            <span class="price d-block">
-
-                                    <del> <?= $wine['basic_price'] ?> CHF </del><br>
-                                    <?= $wine[$i] ?>CHF</span>
-
-                                            <div class="rating">
-                                                <span class="icon-star"></span>
-                                                <span class="icon-star"></span>
-                                                <span class="icon-star"></span>
-                                                <span class="icon-star"></span>
-                                                <span class="icon-star-o"></span>
-                                            </div>
-                                            <!-- si le vin est épuisé -->
-                                            <?php if ($wine['stock'] > 0) { ?>
-                                                <a href="index.php?action=winesBasket&id=<?= $wine['id'] ?>"
-                                                   class="btn add"><span
-                                                            class="icon-shopping-bag mr-3"></span> ajouter au panier
-                                                </a>
-                                            <?php } else { ?>
-                                                <span>vin épuisé</span>
-                                            <?php } ?>
-                                        </div>
                                     </div>
                                 </div>
                             <?php }

@@ -324,9 +324,16 @@ function updateStates($idOrder, $state, $user_id)
 
 }
 function  myOrdersPage(){
-    $id = 5;
+    $id = 13;
   $orders = getOrdersByUserId($id);
   $wines = $orders;
   require "view/myorders.php";
 
+}
+function orderPage($id){
+
+
+  $order =  getOrdersById($id);
+ // $order +=   getGrapesOrder($id);
+    require "view/order.php";
 }

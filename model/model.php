@@ -171,7 +171,7 @@ function getOrdersById($id)
 
         $query = "select users.id, users.firstname, users.lastname,wines.winename, users.email, orders_contain_wines.quantity, 
                     orders_contain_wines.price as 'price_wine',  orders.date_purchase, 
-                    orders.number, orders.states_id, orders.total_price, orders.id AS 'id_order', states.name AS 'state_name', states.id AS 'state_id', wines.photo   FROM bargylus_db.orders_contain_wines
+                    orders.number, orders.states_id, orders.total_price, orders.id AS 'id_order', states.name AS 'state_name', states.id AS 'state_id', wines.photo, wines.id as 'wine_id'   FROM bargylus_db.orders_contain_wines
 inner join wines on orders_contain_wines.wine_id = wines.id
 inner join orders on  orders_contain_wines.order_id = orders.id
 INNER JOIN states ON orders.states_id = states.id
@@ -272,4 +272,26 @@ function updateStateOrderById($id, $state)
         print "Error!: " . $e->getMessage() . "<br/>";
         return null;
     }
+}
+function getGrapesOrder($id)
+{
+
+    require "model/.constant.php";
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT grapes.name as "grapes_name",grapes.color FROM wines            
+                        INNER JOIN wines_compose_grapes on  wines.id = wines_compose_grapes.wine_id  
+                        INNER JOIN grapes on  wines_compose_grapes.grape_id =grapes.id
+                        WHERE wines.id =:id';
+        $statment = $dbh->prepare($query);
+        $statment->execute(['id' => $id]);//prepare query
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        return $queryResult;
+        if ($debug) var_dump($queryResult);
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+
 }
