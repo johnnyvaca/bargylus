@@ -11,14 +11,13 @@ $title = "Bargylus- Login";
 ?>
 
 
-    <div class="container">
-        <div class="row justify-content-center text-center align-items-center">
-            <div class="col-md-8">
-                <h2 class="text-center">Login</h2>
-            </div>
+<div class="container">
+    <div class="row justify-content-center text-center align-items-center">
+        <div class="col-md-8">
+            <h2 class="text-center">Login</h2>
         </div>
     </div>
-
+</div>
 
 
 <div class="site-section bg-light">
@@ -33,18 +32,23 @@ $title = "Bargylus- Login";
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <label for="eaddress">Email Address</label>
-                            <input type="text" id="eaddress" name="email" class="form-control form-control-lg" placeholder="Email Address" required>
+                            <input type="text" id="eaddress" name="email" class="form-control form-control-lg"
+                                   placeholder="Email Address" required>
                         </div>
                     </div>
-                    <div class="row" >
+                    <div class="row">
                         <div class="col-md-12 form-group">
                             <label for="fname">Password</label>
-                            <input type="password" id="fname" name="password" class="form-control form-control-lg" placeholder="Password" required>
+                            <input type="password" id="fname" name="password" class="form-control form-control-lg"
+                                   placeholder="Password" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
                             <input type="submit" value="Login" class="btn btn-primary py-3 px-5">
+                            <a href="index.php?action=signupPage"
+                               class="btn btn-primary py-3 px-5">s'inscrire</a>
+
                         </div>
                     </div>
 

@@ -3,7 +3,6 @@ ob_start();
 $title = "profil_Page";
 ?>
 
-<?= var_dump($_SESSION['user']) ?>
 
 <br>
 <br>
@@ -71,6 +70,8 @@ $title = "profil_Page";
     <br>
     <div class="w-100 d-flex justify-content-center">
         <button>Editer profil</button>
+        <a href="index.php?action=myorders"
+           class="btn btn-primary py-3 px-5">Voir mes commandes</a>
     </div>
     <br>
 </div>

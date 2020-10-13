@@ -19,7 +19,6 @@ if (isset($_GET['action'])) {
 }
 
 
-
 switch ($action) {
 
     case'displaywines':
@@ -118,6 +117,38 @@ switch ($action) {
     case 'order':
         $id = $_GET['id'];
         orderPage($id);
+        break;
+    case 'deliveries':
+        deliveriesPage();
+        break;
+    case 'payPage':
+     $deliverySelected =   $_POST['deliverySelected'];
+        payPage($deliverySelected);
+        break;
+    case 'modifyDelivery':
+        $id = $_GET['id'];
+        modifyDelivery($id);
+        break;
+    case 'updateDelivery':
+        $lastname = $_POST['lastname'];
+        $firstname = $_POST['firstname'];
+        $street = $_POST['street'];
+        $zip = $_POST['zip'];
+        $city = $_POST['city'];
+        $id = $_POST['id'];
+        updateDelivery($firstname,$lastname,$street,$zip,$city,$id);
+        break;
+    case'addDeliveryPage':
+        addDeliveryPage();
+        break;
+    case 'addDelivery':
+        $lastname = $_POST['lastname'];
+        $firstname = $_POST['firstname'];
+        $street = $_POST['street'];
+        $zip = $_POST['zip'];
+        $city = $_POST['city'];
+        $id = $_POST['id'];
+        addDelivery($firstname,$lastname,$street,$zip,$city,$id);
         break;
     default :
         home();

@@ -31,9 +31,21 @@ function basketPage($basketContentPost)
 function profilPage(){
     require_once 'view/profil.php';
 }
+function deliveriesPage(){
+    $id = $_SESSION['user']['id'];
+    $deliveries =  getDeliveriesByUserId($id);
+    require_once 'view/deliveries.php';
+}
 
-function payPage()
+function payPage($deliverySelected)
 {
+
+if(isset($_POST['deliverySelected'])) {
+    $lastOrder = getDeliveryById($deliverySelected);
+}else{
+    $lastOrder  = getLastDeliveryByUserId($_SESSION['user']['id']);
+}
+
     require_once 'view/pay.php';
 }
 
@@ -95,7 +107,7 @@ function tryLogin($emailPost, $passwordPost)
         if (password_verify($passwordPost, $user['password'])) {
             unset($user['password']);
             $_SESSION['user'] = $user;
-            $_SESSION['flashmessage'] = 'Bienvenue ' . $user['firstname'] . $user['lastname'];
+            $_SESSION['flashmessage'] = 'Bienvenue ' . $user['firstname'] ." ". $user['lastname'];
 
 
             if ($user['droits'] == 1) {
@@ -300,9 +312,19 @@ function updateBasket($quantityPost)
 
 function proceedToPayment()
 {
+    if (0){
+         echo '<br>total quantity  '.$_SESSION["total"];
+         echo '<br>total quantity  '.$_SESSION["totalQuantity"];
+        echo '<br>id  '.$_SESSION['basket'][0]['id'];
+       echo '<br>price total one wine  '. $_SESSION['basket'][0]['priceTotalOneWine'];
+    }
     $_SESSION['ProceedToPayment'] = true;
     if (isset($_SESSION['user'])) {
-        payPage();
+
+
+        $lastOrder  = getLastDeliveryByUserId($_SESSION['user']['id']);
+
+        payPage($lastOrder['delivery_id']);
     } else {
         LoginPage();
     }
@@ -324,7 +346,7 @@ function updateStates($idOrder, $state, $user_id)
 
 }
 function  myOrdersPage(){
-    $id = 13;
+    $id = $_SESSION['user']['id'];
   $orders = getOrdersByUserId($id);
   $wines = $orders;
   require "view/myorders.php";
@@ -336,4 +358,38 @@ function orderPage($id){
   $order =  getOrdersById($id);
  // $order +=   getGrapesOrder($id);
     require "view/order.php";
+}
+function modifyDelivery($id){
+  $delivery =  getDeliveryById($id);
+    require_once 'view/modifyDelivery.php';
+
+}
+function updateDelivery($firstname,$lastname,$street,$zip,$city,$id){
+  $delivery =  [
+        'firstname' => $firstname,
+        'lastname' => $lastname,
+        'street' => $street,
+        'zip' => $zip,
+      'city' => $city,
+      'id'  => $id
+    ];
+
+    updateDeliveryModel($delivery);
+    deliveriesPage();
+
+}
+function addDeliveryPage(){
+    require_once 'view/addDeliveryPage.php';
+}
+function addDelivery($firstname,$lastname,$street,$zip,$city){
+
+    $delivery =  [
+        'firstname' => $firstname,
+        'lastname' => $lastname,
+        'street' => $street,
+        'zip' => $zip,
+        'city' => $city
+    ];
+   addDeliveryModel($delivery);
+    deliveriesPage();
 }

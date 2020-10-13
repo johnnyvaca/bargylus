@@ -107,9 +107,6 @@
                                                                class="nav-link text-center white">Login</a>' ?></li>
                                 <?php } ?>
 
-                                <li class="btn btn-primary"><a href="index.php?action=signupPage"
-                                                               class="nav-link text-center white">s'inscrire</a></li>
-
 
                                 <li class="btn btn-primary"><a href="index.php?action=basket"
                                                                class="nav-link text-center white"><span
