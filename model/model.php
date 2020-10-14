@@ -323,13 +323,11 @@ where users.id = :id';
 
 function getDeliveriesByUserId($id)
 {
-
     require "model/.constant.php";
     try {
         $dbh = getPDO();
-        $query = 'select deliveries.firstname, deliveries.lastname, deliveries.street, deliveries.zip, deliveries.city, deliveries.id as "delivery_id" from orders
-inner join deliveries on orders.delivery_id = deliveries.id
-inner join users on orders.user_id = users.id
+        $query = 'select deliveries.firstname, deliveries.lastname, deliveries.street, deliveries.zip, deliveries.city, deliveries.id as "delivery_id" from deliveries
+inner join users on deliveries.user_id = users.id
 where users.id = :id';
         $statment = $dbh->prepare($query);
         $statment->execute(['id' => $id]);//prepare query
@@ -394,8 +392,8 @@ function addDeliveryModel($delivery)
     require "model/.constant.php";
     $dbh = getPDO();
     try {
-        $query = "INSERT INTO deliveries(firstname,lastname,street,zip,city) 
-                  VALUES  (:firstname,:lastname,:street,:zip,:city)";
+        $query = "INSERT INTO deliveries(firstname,lastname,street,zip,city,user_id) 
+                  VALUES  (:firstname,:lastname,:street,:zip,:city,:user_id)";
         $stmt = $dbh->prepare($query);
         $stmt->execute($delivery);
 

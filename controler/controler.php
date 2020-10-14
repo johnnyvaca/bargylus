@@ -388,7 +388,8 @@ function addDelivery($firstname,$lastname,$street,$zip,$city){
         'lastname' => $lastname,
         'street' => $street,
         'zip' => $zip,
-        'city' => $city
+        'city' => $city,
+        'user_id'=> $_SESSION['user']['id']
     ];
    addDeliveryModel($delivery);
     deliveriesPage();
