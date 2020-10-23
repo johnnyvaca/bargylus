@@ -39,7 +39,12 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/main.css">
 
-
+<style>
+    .scrollit {
+        overflow: scroll;
+        height: 10%;
+    }
+</style>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="200">
@@ -93,8 +98,8 @@
                                 <?php if (isset($_SESSION["user"])) { ?>
                                     <li class="btn btn-primary"><?= '<a href="index.php?action=logout"
                                                                class="nav-link text-center white">logout</a>' ?></li>
-                                    <li class="btn btn-primary"><?= '<a href="index.php?action=profil"
-                                                               class="nav-link text-center white">Profil</a>' ?></li>
+                                    <li class="btn btn-primary"><a href="index.php?action=profil&id=<?=$_SESSION['user']['id']?>"
+                                                               class="nav-link text-center white">Profil</a></li>
 
                                     <?php if ($_SESSION["user"]["droits"] == 1) { ?>
                                         <li class="btn btn-primary"><?= '<a href="index.php?action=adminPage"

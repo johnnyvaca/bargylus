@@ -13,7 +13,7 @@ $title = "Bargylus - mes achats";
                         ?>
                         <div class="col-3">commande : <?= $order['number'] ?></div>
                         <div class="col-3">date : <?= $order['date_purchase'] ?></div>
-                        <div class="col-3">total : <?= $order['total_price'] ?></div>
+                        <div class="col-3">total : <?= $order['total_price'] ?> CHF</div>
                         <div class="col-3">état :<?= $order['state_name'] ?></div>
                         <?php
                     } ?>

@@ -19,6 +19,19 @@ $title = "commande";
                 <h2 class="d-block">Commande <?= $order[0]['number'] ?></h2>
             </div>
         </div>
+        <div class="col-lg-3 mb-3 col-md-3">
+
+            <div class="wine_v_1 text-center pb-4">
+
+                <div>
+
+                    <h3 class="text-black"><b>Adresse livraison</b></h3>
+                                <span class="price">  <h3><?= $order[0]['firstname_delivery'] ?> <?= $order[0]['lastname_delivery'] ?>
+                                </h3><?= $order[0]['street_delivery'] ?><br> <?= $order[0]['zip_delivery'] ?> <?= $order[0]['city_delivery'] ?><br></span>
+                </div>
+
+            </div>
+        </div>
         <div class="row mb-5">
 
             <div class="site-blocks-table">
@@ -51,16 +64,16 @@ $title = "commande";
                                 <h2 class="h5 cart-product-title text-black"><?= $value['winename'] ?></h2>
                         </a>
                         </td>
-                        <td><a href="index.php?action=winedetail&id=<?= $value['wine_id'] ?>"
+                        <td><span
                                class="thumbnail d-block mb-4"><?= $value['price_wine'] ?> CHF</td>
                         </a>
                         <td>
-                            <a href="index.php?action=winedetail&id=<?= $value['wine_id'] ?>"
-                               class="thumbnail d-block mb-4"><?= $value['quantity'] ?>X</a>
+                            <span
+                               class="thumbnail d-block mb-4"><?= $value['quantity'] ?>X</span>
                         </td>
                         <!-- applique le calcul ici Altin -->
-                        <td><a href="index.php?action=winedetail&id=<?= $value['wine_id'] ?>"
-                               class="thumbnail d-block mb-4"><?= $value['price_wine'] * $value['quantity'] ?> CHF</a>
+                        <td><span
+                               class="thumbnail d-block mb-4"><?= $value['price_wine'] * $value['quantity'] ?> CHF</span>
                         </td>
                         <?php } ?>
 

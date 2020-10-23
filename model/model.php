@@ -169,11 +169,12 @@ function getOrdersById($id)
     $dbh = getPDO();
     try {
 
-        $query = "select users.id, users.firstname, users.lastname,wines.winename, users.email, orders_contain_wines.quantity, 
+        $query = "select deliveries.firstname as 'firstname_delivery', deliveries.lastname as 'lastname_delivery', deliveries.street as 'street_delivery',deliveries.city as 'city_delivery', deliveries.zip as 'zip_delivery' , users.id, users.firstname, users.lastname,wines.winename, users.email, orders_contain_wines.quantity, 
                     orders_contain_wines.price as 'price_wine',  orders.date_purchase, 
                     orders.number, orders.states_id, orders.total_price, orders.id AS 'id_order', states.name AS 'state_name', states.id AS 'state_id', wines.photo, wines.id as 'wine_id'   FROM bargylus_db.orders_contain_wines
 inner join wines on orders_contain_wines.wine_id = wines.id
 inner join orders on  orders_contain_wines.order_id = orders.id
+inner join deliveries on  orders.delivery_id = deliveries.id
 INNER JOIN states ON orders.states_id = states.id
 inner join users on  orders.user_id = users.id WHERE orders.id =:id";
         $statment = $dbh->prepare($query);
@@ -304,10 +305,12 @@ function getLastDeliveryByUserId($id)
     require "model/.constant.php";
     try {
         $dbh = getPDO();
-        $query = 'select deliveries.firstname, deliveries.lastname, deliveries.street, deliveries.zip, deliveries.city, max(orders.id) as "last_order" , deliveries.id as "delivery_id" from orders
-inner join deliveries on orders.delivery_id = deliveries.id
-inner join users on orders.user_id = users.id
-where users.id = :id';
+        $query = 'select orders.id,deliveries.firstname, deliveries.lastname, deliveries.street, deliveries.zip, deliveries.city , deliveries.id as "delivery_id", orders.id  as "last_order" from orders
+INNER JOIN users ON orders.user_id = users.id
+INNER JOIN deliveries ON orders.delivery_id = deliveries.id
+INNER JOIN bargylus_db.users_receivein_deliveries ON users_receivein_deliveries.delivery_id = deliveries.id
+where users.id = :id AND users_receivein_deliveries.visibility = 1
+order by orders.id desc LIMIT 1';
         $statment = $dbh->prepare($query);
         $statment->execute(['id' => $id]);//prepare query
         $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
@@ -320,14 +323,59 @@ where users.id = :id';
     }
 
 }
+function getLastInvoiceByUserId($id)
+{
 
+    require "model/.constant.php";
+    try {
+        $dbh = getPDO();
+        $query = 'select modes_payments.name, orders.id,invoices.firstname, invoices.lastname, invoices.street, invoices.zip, invoices.city , invoices.id as "invoice_id", max(orders.id) as "last_order" from orders
+inner join modes_payments on orders.mode_payment_id = modes_payments.id
+inner join invoices on orders.invoice_id = invoices.id
+inner join users on invoices.user_id = users.id
+where users.id = :id
+GROUP BY invoice_id
+HAVING max(orders.id) = orders.id
+order by orders.id desc limit 1';
+        $statment = $dbh->prepare($query);
+        $statment->execute(['id' => $id]);//prepare query
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        return $queryResult;
+        if ($debug) var_dump($queryResult);
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+
+}
 function getDeliveriesByUserId($id)
 {
     require "model/.constant.php";
     try {
         $dbh = getPDO();
-        $query = 'select deliveries.firstname, deliveries.lastname, deliveries.street, deliveries.zip, deliveries.city, deliveries.id as "delivery_id" from deliveries
-inner join users on deliveries.user_id = users.id
+        $query = 'select deliveries.firstname, deliveries.lastname, deliveries.street, deliveries.zip, deliveries.city, deliveries.id as "delivery_id", users.id as "user_id" from users_receivein_deliveries
+INNER JOIN deliveries ON users_receivein_deliveries.delivery_id = deliveries.id
+INNER JOIN users ON users_receivein_deliveries.user_id =  users.id
+WHERE users.id = :id and users_receivein_deliveries.visibility = 1';
+        $statment = $dbh->prepare($query);
+        $statment->execute(['id' => $id]);//prepare query
+        $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        return $queryResult;
+        if ($debug) var_dump($queryResult);
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+function getInvoicesByUserId($id)
+{
+    require "model/.constant.php";
+    try {
+        $dbh = getPDO();
+        $query = 'select invoices.firstname, invoices.lastname, invoices.street, invoices.zip, invoices.city, invoices.id as "invoice_id", users.id as "user_id" from invoices
+inner join users on invoices.user_id = users.id
 where users.id = :id';
         $statment = $dbh->prepare($query);
         $statment->execute(['id' => $id]);//prepare query
@@ -339,18 +387,95 @@ where users.id = :id';
         print "Error!: " . $e->getMessage() . "<br/>";
         return null;
     }
-
 }
-
 function getDeliveryById($id)
 {
 
     require "model/.constant.php";
     try {
         $dbh = getPDO();
-        $query = 'select deliveries.firstname, deliveries.lastname, deliveries.street, deliveries.zip, deliveries.city, deliveries.id as "delivery_id" from deliveries
+        $query = 'select users.id as "user_id", deliveries.firstname, deliveries.lastname, deliveries.street, deliveries.zip, deliveries.city, deliveries.id as "delivery_id" from users_receivein_deliveries
+INNER JOIN deliveries ON users_receivein_deliveries.delivery_id = deliveries.id
+INNER JOIN users ON users_receivein_deliveries.user_id =  users.id
+WHERE deliveries.id = :id';
+        $statment = $dbh->prepare($query);
+        $statment->execute(['id' => $id]);//prepare query
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        return $queryResult;
+        if ($debug) var_dump($queryResult);
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
 
-where deliveries.id = :id';
+}
+function getDeliveries()
+{
+    require "model/.constant.php";
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT * FROM deliveries';
+        $statment = $dbh->prepare($query);
+        $statment->execute();//prepare query
+        $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        return $queryResult;
+        if ($debug) var_dump($queryResult);
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+
+}
+function getReceives()
+{
+    require "model/.constant.php";
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT * FROM users_receivein_deliveries';
+        $statment = $dbh->prepare($query);
+        $statment->execute();//prepare query
+        $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        return $queryResult;
+        if ($debug) var_dump($queryResult);
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+
+}
+function getInvoices()
+{
+    require "model/.constant.php";
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT * FROM invoices';
+        $statment = $dbh->prepare($query);
+        $statment->execute();//prepare query
+        $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        return $queryResult;
+        if ($debug) var_dump($queryResult);
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+
+}
+function getInvoiceById($id)
+{
+
+    require "model/.constant.php";
+    try {
+        $dbh = getPDO();
+        $query = 'select users.id as "user_id", modes_payments.name,modes_payments.id as "mode_payment_id",invoices.firstname, invoices.lastname, invoices.street, invoices.zip, invoices.city,  invoices.id as "invoice_id" from orders
+inner join modes_payments on orders.mode_payment_id = modes_payments.id
+inner join invoices on orders.invoice_id = invoices.id
+inner join users on invoices.user_id = users.id
+
+where invoices.id = :id';
         $statment = $dbh->prepare($query);
         $statment->execute(['id' => $id]);//prepare query
         $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
@@ -387,17 +512,91 @@ WHERE deliveries.id =:id';
     }
 
 }
+function updateInvoiceModel($invoice)
+{
+    try {
+        $dbh = getPDO();
+        $query = 'UPDATE invoices
+set 
+firstname =:firstname, 
+lastname =:lastname, 
+street =:street, 
+zip =:zip, 
+city =:city 
+WHERE invoices.id =:id';
+        $statment = $dbh->prepare($query);
+        $statment->execute($invoice);//prepare query
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        return $queryResult;
+        if ($debug) var_dump($queryResult);
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+
+}
 function addDeliveryModel($delivery)
 {
     require "model/.constant.php";
     $dbh = getPDO();
     try {
-        $query = "INSERT INTO deliveries(firstname,lastname,street,zip,city,user_id) 
-                  VALUES  (:firstname,:lastname,:street,:zip,:city,:user_id)";
+        $query = "INSERT INTO deliveries(firstname,lastname,street,zip,city) 
+                  VALUES  (:firstname,:lastname,:street,:zip,:city)";
         $stmt = $dbh->prepare($query);
         $stmt->execute($delivery);
 
         $dbh->lastInsertId();
+        $dbh = null;
+    } catch (PDOException $e) {
+        print "Error!:" . $e->getMessage() . "<br/>";
+        die();
+    }
+}
+function addInvoiceModel($invoice)
+{
+    require "model/.constant.php";
+    $dbh = getPDO();
+    try {
+        $query = "INSERT INTO  invoices(firstname,lastname,street,zip,city,user_id) 
+                  VALUES  (:firstname,:lastname,:street,:zip,:city,:user_id)";
+        $stmt = $dbh->prepare($query);
+        $stmt->execute($invoice);
+
+        $dbh->lastInsertId();
+        $dbh = null;
+    } catch (PDOException $e) {
+        print "Error!:" . $e->getMessage() . "<br/>";
+        die();
+    }
+}
+function addReceiveInModel($delivery)
+{
+    require "model/.constant.php";
+    $dbh = getPDO();
+    try {
+        $query = "INSERT INTO users_receivein_deliveries(delivery_id,user_id) 
+                  VALUES  (:delivery_id,:user_id)";
+        $stmt = $dbh->prepare($query);
+        $stmt->execute($delivery);
+
+        $dbh->lastInsertId();
+        $dbh = null;
+    } catch (PDOException $e) {
+        print "Error!:" . $e->getMessage() . "<br/>";
+        die();
+    }
+}
+function deleteDeliveryModel($id)
+{
+    $dbh = getPDO();
+    try {
+        $query = "UPDATE deliveries
+set 
+visibility =0
+WHERE deliveries.id =:id";
+        $stmt = $dbh->prepare($query);
+        $stmt->execute(['id' => $id]);
         $dbh = null;
     } catch (PDOException $e) {
         print "Error!:" . $e->getMessage() . "<br/>";

@@ -25,26 +25,46 @@ function basketPage($basketContentPost)
         $_SESSION['total'] += $oneBasketContentPost['priceTotalOneWine'];
     }
 
+    $users = getUsers();
     require_once 'view/basket.php';
 }
 
-function profilPage(){
+function profilPage($id)
+{
+    $user = getUserById($id);
     require_once 'view/profil.php';
 }
-function deliveriesPage(){
-    $id = $_SESSION['user']['id'];
-    $deliveries =  getDeliveriesByUserId($id);
+
+function deliveriesPage($id)
+{
+    $user = getUserById($id);
+    $deliveries = getDeliveriesByUserId($id);
     require_once 'view/deliveries.php';
 }
 
-function payPage($deliverySelected)
+function invoicesPage($id)
+{
+    $user = getUserById($id);
+    $invoices = getInvoicesByUserId($id);
+    require_once 'view/invoices.php';
+}
+
+function payPage($deliverySelected, $id, $invoiceSelected)
 {
 
-if(isset($_POST['deliverySelected'])) {
-    $lastOrder = getDeliveryById($deliverySelected);
-}else{
-    $lastOrder  = getLastDeliveryByUserId($_SESSION['user']['id']);
-}
+    $user = getUserById($id);
+    if (isset($deliverySelected)) {
+        $lastOrderDelivery = getDeliveryById($deliverySelected);
+    } else {
+            $lastOrderDelivery = getLastDeliveryByUserId($id);
+
+    }
+    if (isset($invoiceSelected)) {
+        $lastOrderInvoice =    getInvoiceById($invoiceSelected);
+
+    }else{
+        $lastOrderInvoice = getLastInvoiceByUserId($id);
+    }
 
     require_once 'view/pay.php';
 }
@@ -107,7 +127,7 @@ function tryLogin($emailPost, $passwordPost)
         if (password_verify($passwordPost, $user['password'])) {
             unset($user['password']);
             $_SESSION['user'] = $user;
-            $_SESSION['flashmessage'] = 'Bienvenue ' . $user['firstname'] ." ". $user['lastname'];
+            $_SESSION['flashmessage'] = 'Bienvenue ' . $user['firstname'] . " " . $user['lastname'];
 
 
             if ($user['droits'] == 1) {
@@ -168,22 +188,22 @@ function signup($email, $lastname, $firstname, $phoneNumber, $day, $month, $year
         signupPage();
         return;
     } else {
-        if (!stristr($email,'@')) {
+        if (!stristr($email, '@')) {
             unset($_SESSION['user']);
             $_SESSION['flashmessage'] = "l'email n'est pas inscrit correctement @ obligatoire ";
             signupPage();
             return;
         }
 
-        if($year == date('Y')-16){
-            if($month > date('m')){
+        if ($year == date('Y') - 16) {
+            if ($month > date('m')) {
                 unset($_SESSION['user']);
                 $_SESSION['flashmessage'] = 'vous n\'avez toujours pas l\'age pour acheter du vin  ';
                 signupPage();
                 return;
             }
-            if($month == date('m')){
-                if($day > date('d')){
+            if ($month == date('m')) {
+                if ($day > date('d')) {
                     unset($_SESSION['user']);
                     $_SESSION['flashmessage'] = 'vous n\'avez toujours pas l\'age pour acheter du vin  ';
                     signupPage();
@@ -310,21 +330,16 @@ function updateBasket($quantityPost)
 }
 
 
-function proceedToPayment()
+function proceedToPayment($id)
 {
-    if (0){
-         echo '<br>total quantity  '.$_SESSION["total"];
-         echo '<br>total quantity  '.$_SESSION["totalQuantity"];
-        echo '<br>id  '.$_SESSION['basket'][0]['id'];
-       echo '<br>price total one wine  '. $_SESSION['basket'][0]['priceTotalOneWine'];
-    }
     $_SESSION['ProceedToPayment'] = true;
     if (isset($_SESSION['user'])) {
 
 
-        $lastOrder  = getLastDeliveryByUserId($_SESSION['user']['id']);
+        $lastOrder = getLastDeliveryByUserId($id);
+        $lastInvoice = getLastInvoiceByUserId($id);
 
-        payPage($lastOrder['delivery_id']);
+        payPage($lastOrder['delivery_id'], $id, $lastInvoice['invoice_id']);
     } else {
         LoginPage();
     }
@@ -345,52 +360,189 @@ function updateStates($idOrder, $state, $user_id)
     pageAdmin();
 
 }
-function  myOrdersPage(){
-    $id = $_SESSION['user']['id'];
-  $orders = getOrdersByUserId($id);
-  $wines = $orders;
-  require "view/myorders.php";
+
+function myOrdersPage($id)
+{
+
+    $orders = getOrdersByUserId($id);
+    $wines = $orders;
+    require "view/myorders.php";
 
 }
-function orderPage($id){
+
+function orderPage($id)
+{
 
 
-  $order =  getOrdersById($id);
- // $order +=   getGrapesOrder($id);
+    $order = getOrdersById($id);
+    // $order +=   getGrapesOrder($id);
     require "view/order.php";
 }
-function modifyDelivery($id){
-  $delivery =  getDeliveryById($id);
+
+function modifyDelivery($delivery_id)
+{
+
+    $delivery = getDeliveryById($delivery_id);
     require_once 'view/modifyDelivery.php';
-
 }
-function updateDelivery($firstname,$lastname,$street,$zip,$city,$id){
-  $delivery =  [
-        'firstname' => $firstname,
-        'lastname' => $lastname,
-        'street' => $street,
-        'zip' => $zip,
-      'city' => $city,
-      'id'  => $id
-    ];
+function modifyInvoice($invoice_id)
+{
 
-    updateDeliveryModel($delivery);
-    deliveriesPage();
-
+    $invoice = getInvoiceById($invoice_id);
+    require_once 'view/modifyInvoice.php';
 }
-function addDeliveryPage(){
-    require_once 'view/addDeliveryPage.php';
-}
-function addDelivery($firstname,$lastname,$street,$zip,$city){
 
-    $delivery =  [
+function updateDelivery($firstname, $lastname, $street, $zip, $city, $delivery_id, $id)
+{
+
+
+    if (!is_numeric($zip)) {
+        $_SESSION['flashmessage'] = 'le code postale n\'est pas un nombre';
+        deliveriesPage($id);
+        return;
+    }
+    if ($zip < 1) {
+        $_SESSION['flashmessage'] = 'le code postale est plus petit ou égal à 0';
+        deliveriesPage($id);
+        return;
+    }
+    $delivery = [
         'firstname' => $firstname,
         'lastname' => $lastname,
         'street' => $street,
         'zip' => $zip,
         'city' => $city,
-        'user_id'=> $_SESSION['user']['id']
+        'id' => $delivery_id
     ];
-   addDeliveryModel($delivery);
-    deliveriesPage();
+    updateDeliveryModel($delivery);
+    deliveriesPage($id);
+}
+function updateInvoice($firstname, $lastname, $street, $zip, $city, $invoice_id, $id)
+{
+
+
+    if (!is_numeric($zip)) {
+        $_SESSION['flashmessage'] = 'le code postale n\'est pas un nombre';
+        deliveriesPage($id);
+        return;
+    }
+    if ($zip < 1) {
+        $_SESSION['flashmessage'] = 'le code postale est plus petit ou égal à 0';
+        deliveriesPage($id);
+        return;
+    }
+    $invoice = [
+        'firstname' => $firstname,
+        'lastname' => $lastname,
+        'street' => $street,
+        'zip' => $zip,
+        'city' => $city,
+        'id' => $invoice_id
+    ];
+    updateInvoiceModel($invoice);
+    invoicesPage($id);
+}
+function addDeliveryPage($id)
+{
+    $user = getUserById($id);
+    require_once 'view/addDeliveryPage.php';
+}
+function addInvoicePage($id)
+{
+    $user = getUserById($id);
+    require_once 'view/addInvoicePage.php';
+}
+function addDelivery($firstname, $lastname, $street, $zip, $city, $id)
+{
+
+    if (!is_numeric($zip)) {
+        $_SESSION['flashmessage'] = 'le code postale n\'est pas un nombre';
+        addDeliveryPage($id);
+        return 0;
+    }
+    if ($zip < 1) {
+        $_SESSION['flashmessage'] = 'le code postale est plus petit ou égal à 0';
+        addDeliveryPage($id);
+        return 0;
+    }
+
+
+    $delivery = [
+        'firstname' => $firstname,
+        'lastname' => $lastname,
+        'street' => $street,
+        'zip' => $zip,
+        'city' => $city
+    ];
+    addDeliveryModel($delivery);
+    $deliveries = getDeliveries();
+    $receives = getReceives();
+    foreach ($deliveries as $i  => $value){
+        if($value['firstname'] == $firstname && $value['lastname'] == $lastname && $value['street'] == $street && $value['zip'] == $zip){
+
+            $receive = [
+                'delivery_id' => $value['id'],
+                'user_id' => $id
+            ];
+            addReceiveInModel($receive);
+        }
+    }
+    deliveriesPage($id);
+
+
+}
+function addInvoice($firstname, $lastname, $street, $zip, $city, $id)
+{
+
+    if (!is_numeric($zip)) {
+        $_SESSION['flashmessage'] = 'le code postale n\'est pas un nombre';
+        addInvoicePage($id);
+        return 0;
+    }
+    if ($zip < 1) {
+        $_SESSION['flashmessage'] = 'le code postale est inferieur ou égal à 0';
+        addInvoicePage($id);
+        return 0;
+    }
+
+
+    $invoices = getInvoices();
+
+    foreach ($invoices as $value){
+        if($value['firstname'] == $firstname && $value['lastname'] == $lastname && $value['street'] == $street && $value['zip'] == $zip && $value['user_id'] == $id){
+            $_SESSION['flashmessage'] = "Cette adresse de facturation existe déjà";
+            addInvoicePage($id);
+            return 0;
+        }
+    }
+
+    $invoice = [
+        'firstname' => $firstname,
+        'lastname' => $lastname,
+        'street' => $street,
+        'zip' => $zip,
+        'city' => $city,
+        'user_id'=>$id
+    ];
+    addInvoiceModel($invoice);
+    invoicesPage($id);
+
+
+}
+function deleteDelivery($id, $delivery_id)
+{
+    deleteDeliveryModel($delivery_id);
+    deliveriesPage($id);
+}
+function  modePayment($id,$mode_payment){
+    if(!$mode_payment){
+        $_SESSION['flashmessage'] = "vous n'avez pas choisis votre mode de paiement";
+        proceedToPayment($id);
+        return 0;
+    }
+
+    contractPage();
+}
+function contractPage(){
+    require_once 'view/contract.php';
 }

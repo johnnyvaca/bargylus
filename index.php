@@ -100,7 +100,8 @@ switch ($action) {
         removeWinesBasket($idWine);
         break;
     case 'proceedPayment':
-        proceedToPayment();
+        $id = $_GET['id'];
+        proceedToPayment($id);
         break;
     case 'updateState':
         $id = $_POST['orderId'];
@@ -109,25 +110,41 @@ switch ($action) {
         updateStates($id,$state,$user_id);
         break;
     case 'profil':
-        profilPage();
+        $id = $_GET['id'];
+        profilPage($id);
         break;
     case 'myorders':
-        myOrdersPage();
+        $id = $_GET['id'];
+        myOrdersPage($id);
         break;
     case 'order':
         $id = $_GET['id'];
         orderPage($id);
         break;
     case 'deliveries':
-        deliveriesPage();
+        $id = $_GET['id'];
+        deliveriesPage($id);
+        break;
+    case 'invoices':
+        $id = $_GET['id'];
+        invoicesPage($id);
         break;
     case 'payPage':
+       $id = $_POST['id'];
      $deliverySelected =   $_POST['deliverySelected'];
-        payPage($deliverySelected);
+        $invoiceSelected =   $_POST['invoiceSelected'];
+
+        payPage($deliverySelected,$id,$invoiceSelected);
         break;
     case 'modifyDelivery':
-        $id = $_GET['id'];
-        modifyDelivery($id);
+        $delivery_id = $_GET['delivery_id'];
+
+        modifyDelivery($delivery_id);
+        break;
+    case 'modifyInvoice':
+        $invoice_id = $_GET['invoice_id'];
+
+        modifyInvoice($invoice_id);
         break;
     case 'updateDelivery':
         $lastname = $_POST['lastname'];
@@ -135,11 +152,27 @@ switch ($action) {
         $street = $_POST['street'];
         $zip = $_POST['zip'];
         $city = $_POST['city'];
+        $delivery_id = $_POST['delivery_id'];
         $id = $_POST['id'];
-        updateDelivery($firstname,$lastname,$street,$zip,$city,$id);
+        updateDelivery($firstname,$lastname,$street,$zip,$city,$delivery_id,$id);
+        break;
+    case 'updateInvoice':
+        $lastname = $_POST['lastname'];
+        $firstname = $_POST['firstname'];
+        $street = $_POST['street'];
+        $zip = $_POST['zip'];
+        $city = $_POST['city'];
+        $invoice_id = $_POST['invoice_id'];
+        $id = $_POST['id'];
+        updateInvoice($firstname,$lastname,$street,$zip,$city,$invoice_id,$id);
         break;
     case'addDeliveryPage':
-        addDeliveryPage();
+       $id = $_GET['id'];
+        addDeliveryPage($id);
+        break;
+    case'addInvoicePage':
+        $id = $_GET['id'];
+        addInvoicePage($id);
         break;
     case 'addDelivery':
         $lastname = $_POST['lastname'];
@@ -149,6 +182,25 @@ switch ($action) {
         $city = $_POST['city'];
         $id = $_POST['id'];
         addDelivery($firstname,$lastname,$street,$zip,$city,$id);
+        break;
+    case 'addInvoice':
+        $lastname = $_POST['lastname'];
+        $firstname = $_POST['firstname'];
+        $street = $_POST['street'];
+        $zip = $_POST['zip'];
+        $city = $_POST['city'];
+        $id = $_POST['id'];
+        addInvoice($firstname,$lastname,$street,$zip,$city,$id);
+        break;
+    case 'deleteDelivery':
+        $id = $_GET['id'];
+        $delivery_id = $_GET['delivery_id'];
+        deleteDelivery($id,$delivery_id);
+        break;
+    case 'mode_payment':
+        $id = $_POST['id'];
+        $mode_payment = $_POST['mode_payment'];
+        modePayment($id,$mode_payment);
         break;
     default :
         home();

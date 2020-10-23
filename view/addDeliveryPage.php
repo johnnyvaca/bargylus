@@ -20,6 +20,7 @@ $title = "Bargylus- sign up";
                     <h2>Insérer données de livraison</h2><br>
                 </div>
                 <form method="post" action="index.php?action=addDelivery">
+                    <input type="hidden" name="id" value="<?=$user['id']?>">
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label for="firstname">Prénom</label>
@@ -53,7 +54,7 @@ $title = "Bargylus- sign up";
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <input type="submit" value="Ajouter une livraison" class="btn btn-primary py-3 px-5">
+                            <input type="submit" value="Ajouter une adresse de livraison" class="btn btn-primary col-xl-12">
                         </div>
                     </div>
 
