@@ -91,5 +91,3 @@ $title = "profilEdit_Page";
 $content = ob_get_clean();
 require "gabarit.php";
 ?>
-
-?>
