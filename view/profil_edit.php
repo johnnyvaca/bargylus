@@ -15,10 +15,15 @@ $title = "profilEdit_Page";
     </div>
     <div class="row">
         <div class="col-md-4">
+            <form method="post" action="index.php?action=profilElementEdition">
             <span class="text-black"> Prénom: </span>
             <br>
-            <span><?= $user['firstname'] ?></span>
-            <button class="btn btn-primary py-3 px-3">Editer</button>
+            <span id="labelFirstname"><?= $user['firstname'] ?></span>
+            <input type="text" id="textFirstname" name="firstname" class="form-control form-control-lg"
+                    placeholder="Prénom" required hidden>
+            <button class="btn btn-primary py-3 px-3" id="editFirstname">Editer</button>
+            <a class="btn btn-primary py-3 px-3" id="confirmationFirstname" hidden>Confirmer</a>
+            </form>
         </div>
         <div class="col-md-4">
             <span class="text-black"> Nom: </span>
