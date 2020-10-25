@@ -113,6 +113,10 @@ switch ($action) {
         $id = $_GET['id'];
         profilPage($id);
         break;
+    case 'editProfil':
+        $id = $_GET['id'];
+        editProfil($id);
+        break;
     case 'myorders':
         $id = $_GET['id'];
         myOrdersPage($id);

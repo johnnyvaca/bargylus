@@ -35,6 +35,11 @@ function profilPage($id)
     require_once 'view/profil.php';
 }
 
+function editProfil($id){
+    $user = getUserById($id);
+    require_once 'view/profil_edit.php';
+}
+
 function deliveriesPage($id)
 {
     $user = getUserById($id);
@@ -546,3 +551,4 @@ function  modePayment($id,$mode_payment){
 function contractPage(){
     require_once 'view/contract.php';
 }
+
