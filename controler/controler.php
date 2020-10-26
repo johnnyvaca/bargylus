@@ -58,6 +58,7 @@ function payPage($deliverySelected, $id, $invoiceSelected)
     } else {
             $lastOrderDelivery = getLastDeliveryByUserId($id);
 
+
     }
     if (isset($invoiceSelected)) {
         $lastOrderInvoice =    getInvoiceById($invoiceSelected);
@@ -337,6 +338,7 @@ function proceedToPayment($id)
 
 
         $lastOrder = getLastDeliveryByUserId($id);
+
         $lastInvoice = getLastInvoiceByUserId($id);
 
         payPage($lastOrder['delivery_id'], $id, $lastInvoice['invoice_id']);
@@ -399,13 +401,23 @@ function updateDelivery($firstname, $lastname, $street, $zip, $city, $delivery_i
     if (!is_numeric($zip)) {
         $_SESSION['flashmessage'] = 'le code postale n\'est pas un nombre';
         deliveriesPage($id);
-        return;
+        return 0;
     }
     if ($zip < 1) {
         $_SESSION['flashmessage'] = 'le code postale est plus petit ou égal à 0';
         deliveriesPage($id);
-        return;
+        return 0;
     }
+    $deliveries = getDeliveries();
+
+    foreach ($deliveries as $i  => $value){
+        if($value['firstname'] == $firstname && $value['lastname'] == $lastname && $value['street'] == $street && $value['zip'] == $zip && $value['user_id'] == $id){
+            addDeliveryVisibility($value['id']);
+            deliveriesPage($id);
+            return  0;
+        }
+    }
+
     $delivery = [
         'firstname' => $firstname,
         'lastname' => $lastname,
@@ -467,27 +479,27 @@ function addDelivery($firstname, $lastname, $street, $zip, $city, $id)
     }
 
 
+    $deliveries = getDeliveries();
+
+    foreach ($deliveries as $i  => $value){
+        if($value['firstname'] == $firstname && $value['lastname'] == $lastname && $value['street'] == $street && $value['zip'] == $zip && $value['user_id'] == $id){
+            addDeliveryVisibility($value['id']);
+            deliveriesPage($id);
+            return  0;
+        }
+    }
+
     $delivery = [
         'firstname' => $firstname,
         'lastname' => $lastname,
         'street' => $street,
         'zip' => $zip,
-        'city' => $city
+        'city' => $city,
+        'user_id' => $id
     ];
     addDeliveryModel($delivery);
-    $deliveries = getDeliveries();
-    $receives = getReceives();
-    foreach ($deliveries as $i  => $value){
-        if($value['firstname'] == $firstname && $value['lastname'] == $lastname && $value['street'] == $street && $value['zip'] == $zip){
-
-            $receive = [
-                'delivery_id' => $value['id'],
-                'user_id' => $id
-            ];
-            addReceiveInModel($receive);
-        }
-    }
     deliveriesPage($id);
+    return  0;
 
 
 }

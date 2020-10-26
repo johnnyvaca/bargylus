@@ -308,8 +308,7 @@ function getLastDeliveryByUserId($id)
         $query = 'select orders.id,deliveries.firstname, deliveries.lastname, deliveries.street, deliveries.zip, deliveries.city , deliveries.id as "delivery_id", orders.id  as "last_order" from orders
 INNER JOIN users ON orders.user_id = users.id
 INNER JOIN deliveries ON orders.delivery_id = deliveries.id
-INNER JOIN bargylus_db.users_receivein_deliveries ON users_receivein_deliveries.delivery_id = deliveries.id
-where users.id = :id AND users_receivein_deliveries.visibility = 1
+where users.id = :id AND deliveries.visibility = 1
 order by orders.id desc LIMIT 1';
         $statment = $dbh->prepare($query);
         $statment->execute(['id' => $id]);//prepare query
@@ -354,10 +353,9 @@ function getDeliveriesByUserId($id)
     require "model/.constant.php";
     try {
         $dbh = getPDO();
-        $query = 'select deliveries.firstname, deliveries.lastname, deliveries.street, deliveries.zip, deliveries.city, deliveries.id as "delivery_id", users.id as "user_id" from users_receivein_deliveries
-INNER JOIN deliveries ON users_receivein_deliveries.delivery_id = deliveries.id
-INNER JOIN users ON users_receivein_deliveries.user_id =  users.id
-WHERE users.id = :id and users_receivein_deliveries.visibility = 1';
+        $query = 'select deliveries.firstname, deliveries.lastname, deliveries.street, deliveries.zip, deliveries.city, deliveries.id as "delivery_id", users.id as "user_id" from deliveries
+INNER JOIN users ON deliveries.user_id =  users.id
+WHERE users.id = :id and deliveries.visibility = 1';
         $statment = $dbh->prepare($query);
         $statment->execute(['id' => $id]);//prepare query
         $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
@@ -394,9 +392,8 @@ function getDeliveryById($id)
     require "model/.constant.php";
     try {
         $dbh = getPDO();
-        $query = 'select users.id as "user_id", deliveries.firstname, deliveries.lastname, deliveries.street, deliveries.zip, deliveries.city, deliveries.id as "delivery_id" from users_receivein_deliveries
-INNER JOIN deliveries ON users_receivein_deliveries.delivery_id = deliveries.id
-INNER JOIN users ON users_receivein_deliveries.user_id =  users.id
+        $query = 'select deliveries.user_id, deliveries.firstname, deliveries.lastname, deliveries.street, deliveries.zip, deliveries.city, deliveries.id as "delivery_id" from deliveries
+INNER JOIN users ON deliveries.user_id =  users.id
 WHERE deliveries.id = :id';
         $statment = $dbh->prepare($query);
         $statment->execute(['id' => $id]);//prepare query
@@ -488,6 +485,7 @@ where invoices.id = :id';
     }
 
 }
+
 function updateDeliveryModel($delivery)
 {
     try {
@@ -506,6 +504,23 @@ WHERE deliveries.id =:id';
         $dbh = null;
         return $queryResult;
         if ($debug) var_dump($queryResult);
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+
+}
+function addDeliveryVisibility($id)
+{
+    try {
+        $dbh = getPDO();
+        $query = 'UPDATE deliveries 
+set 
+visibility = 1
+WHERE deliveries.id =:id';
+        $statment = $dbh->prepare($query);
+        $statment->execute(['id'=>$id]);
+        $dbh = null;
     } catch (PDOException $e) {
         print "Error!: " . $e->getMessage() . "<br/>";
         return null;
@@ -541,8 +556,8 @@ function addDeliveryModel($delivery)
     require "model/.constant.php";
     $dbh = getPDO();
     try {
-        $query = "INSERT INTO deliveries(firstname,lastname,street,zip,city) 
-                  VALUES  (:firstname,:lastname,:street,:zip,:city)";
+        $query = "INSERT INTO deliveries(firstname,lastname,street,zip,city, user_id) 
+                  VALUES  (:firstname,:lastname,:street,:zip,:city,:user_id)";
         $stmt = $dbh->prepare($query);
         $stmt->execute($delivery);
 
