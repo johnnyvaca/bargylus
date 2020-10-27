@@ -620,6 +620,7 @@ WHERE deliveries.id =:id";
         die();
     }
 
+
 }
 
 function deleteInvoiceModel($id)
