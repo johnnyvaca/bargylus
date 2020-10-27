@@ -213,11 +213,6 @@ switch ($action) {
         $delivery_id = $_GET['delivery_id'];
         deleteDelivery($id,$delivery_id);
         break;
-        case 'deleteInvoice':
-        $id = $_GET['id'];
-        $invoice_id = $_GET['invoice_id'];
-        deleteInvoice($id,$invoice_id);
-        break;
     case 'mode_payment':
         $id = $_POST['id'];
         $mode_payment = $_POST['mode_payment'];
