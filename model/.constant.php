@@ -2,5 +2,5 @@
 $dbhost = 'localhost';
 $dbname = 'bargylus_db';
 $user = 'root';
-$pass = 'root';
+$pass = 'Pa$$w0rd';
 $debug = false;
