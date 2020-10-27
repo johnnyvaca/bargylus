@@ -157,6 +157,16 @@ function tryLogin($emailPost, $passwordPost)
 
 function logout()
 {
+    $wines = getWines();
+
+    foreach ($wines as $i => $wine) {
+        foreach ($_SESSION['basket']  as $b => $item){
+            if($wine['id'] == $item['id']){
+                addWineBottle($item['id'],$_SESSION['basket'][$b]['quantity']);
+            }
+        }
+
+    }
     unset($_SESSION['user']);
     unset($_SESSION['basket']);
     unset($_SESSION['ProceedToPayment']);
