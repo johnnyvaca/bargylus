@@ -637,7 +637,7 @@ WHERE invoices.id =:id";
     } catch (PDOException $e) {
         print "Error!:" . $e->getMessage() . "<br/>";
         die();
-
+    }}
 
         function updateElementFirstname($id, $value)
         {
@@ -758,9 +758,6 @@ WHERE users.id =:id';
                 return null;
 
             }
-
-
-}
 
 
 }
