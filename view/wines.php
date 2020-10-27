@@ -9,7 +9,6 @@ ob_start();
 $title = "Bargylus- wines";
 
 ?>
-
     <div class="site-section mt-5">
         <div class="container">
 
