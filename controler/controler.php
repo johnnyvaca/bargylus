@@ -37,7 +37,48 @@ function profilPage($id)
 
 function editProfil($id){
     $user = getUserById($id);
-    require_once 'view/profil_edit.php';
+    require 'view/profil_edit.php';
+}
+
+function profilElementEdition($id,$firstname,$lastname,$number,$street,$zip,$city,$day,$month,$year){
+
+    if($firstname != NULL){
+        updateElementFirstname($id, $firstname);
+    }
+    if($lastname != NULL){
+        updateElementLastname($id, $lastname);
+    }
+    if($number != NULL){
+        updateElementNumber($id, $number);
+    }
+    if($street != NULL){
+        updateElementStreet($id, $street);
+    }
+    if($zip != NULL){
+        updateElementZip($id, $zip);
+    }
+    if($city != NULL){
+        updateElementCity($id, $city);
+    }
+    if($day != NULL && $day != NULL&& $day != NULL){
+        $today = date('Y-m-d');
+        $date_of_birth = strtotime("$year-$month-$day");
+        $todayYear = date("Y");
+        $Age = $todayYear - $year;
+        $todayMinusAge = strtotime("$today -$Age year");
+        if($todayMinusAge < $date_of_birth){
+            $Age = $Age - 1;
+        }
+
+        if($Age >= 16){
+            $birthdate = $year . '-' . $month . '-' . $day;
+            updateElementBirthdate($id, $birthdate);
+            $_SESSION['flashmessage']= "vous n'avez pas 16 ans222";
+        } else{
+            $_SESSION['flashmessage']= "vous n'avez pas 16 ans";
+        }
+
+    }
 }
 
 function deliveriesPage($id)
