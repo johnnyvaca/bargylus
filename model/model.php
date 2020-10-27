@@ -425,24 +425,6 @@ function getDeliveries()
     }
 
 }
-function getReceives()
-{
-    require "model/.constant.php";
-    try {
-        $dbh = getPDO();
-        $query = 'SELECT * FROM users_receivein_deliveries';
-        $statment = $dbh->prepare($query);
-        $statment->execute();//prepare query
-        $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
-        $dbh = null;
-        return $queryResult;
-        if ($debug) var_dump($queryResult);
-    } catch (PDOException $e) {
-        print "Error!: " . $e->getMessage() . "<br/>";
-        return null;
-    }
-
-}
 function getInvoices()
 {
     require "model/.constant.php";
@@ -610,6 +592,22 @@ function deleteDeliveryModel($id)
 set 
 visibility =0
 WHERE deliveries.id =:id";
+        $stmt = $dbh->prepare($query);
+        $stmt->execute(['id' => $id]);
+        $dbh = null;
+    } catch (PDOException $e) {
+        print "Error!:" . $e->getMessage() . "<br/>";
+        die();
+    }
+}
+function deleteInvoiceModel($id)
+{
+    $dbh = getPDO();
+    try {
+        $query = "UPDATE invoices
+set 
+visibility =0
+WHERE invoices.id =:id";
         $stmt = $dbh->prepare($query);
         $stmt->execute(['id' => $id]);
         $dbh = null;

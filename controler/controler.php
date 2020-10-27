@@ -561,6 +561,11 @@ function deleteDelivery($id, $delivery_id)
     deleteDeliveryModel($delivery_id);
     deliveriesPage($id);
 }
+function deleteInvoice($id,$invoice_id)
+{
+    deleteInvoiceModel($invoice_id);
+    invoicesPage($id);
+}
 function  modePayment($id,$mode_payment){
     if(!$mode_payment){
         $_SESSION['flashmessage'] = "vous n'avez pas choisis votre mode de paiement";
