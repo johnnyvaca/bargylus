@@ -31,7 +31,7 @@ switch ($action) {
         WineDetail($idwine);
         break;
     case'addwine':
-
+        addNewWine();
         break;
     case'editywine':
 

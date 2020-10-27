@@ -33,6 +33,10 @@ function WineDetail($id)
     require_once 'view/cartdetail.php';
 }
 
+function addNewWine()
+{
 
+    require_once 'view/addwine.php';
+}
 
 
