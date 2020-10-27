@@ -31,7 +31,7 @@ switch ($action) {
         WineDetail($idwine);
         break;
     case'addwine':
-
+        addNewWine();
         break;
     case'editywine':
 
@@ -117,6 +117,18 @@ switch ($action) {
         $id = $_GET['id'];
         editProfil($id);
         break;
+    case 'profilElementEdition':
+        $id = $_POST['id'];
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $number = $_POST['number'];
+        $street = $_POST['street'];
+        $zip = $_POST['zip'];
+        $city = $_POST['city'];
+        $day = $_POST['day'];
+        $month = $_POST['month'];
+        $year = $_POST['year'];
+        profilElementEdition($id,$firstname,$lastname,$number,$street,$zip,$city,$day,$month,$year);
     case 'myorders':
         $id = $_GET['id'];
         myOrdersPage($id);
