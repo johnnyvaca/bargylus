@@ -1,6 +1,6 @@
 -- --------------------------------------------------------
 -- Hôte :                        127.0.0.1
--- Version du serveur:           8.0.20 - MySQL Community Server - GPL
+-- Version du serveur:           8.0.21 - MySQL Community Server - GPL
 -- SE du serveur:                Win64
 -- HeidiSQL Version:             11.0.0.5919
 -- --------------------------------------------------------
@@ -21,23 +21,25 @@ USE `bargylus_db`;
 DROP TABLE IF EXISTS `deliveries`;
 CREATE TABLE IF NOT EXISTS `deliveries` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `firstname` varchar(45) COLLATE utf8_bin NOT NULL,
-  `lastname` varchar(45) COLLATE utf8_bin NOT NULL,
-  `street` varchar(45) COLLATE utf8_bin NOT NULL,
+  `firstname` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `lastname` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `street` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `zip` int unsigned NOT NULL,
-  `city` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `city` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `user_id` int NOT NULL,
+  `visibility` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `fk_deliveries_users1_idx` (`user_id`),
   CONSTRAINT `fk_deliveries_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Listage des données de la table bargylus_db.deliveries : ~6 rows (environ)
+-- Listage des données de la table bargylus_db.deliveries : ~2 rows (environ)
 DELETE FROM `deliveries`;
 /*!40000 ALTER TABLE `deliveries` DISABLE KEYS */;
-INSERT INTO `deliveries` (`id`, `firstname`, `lastname`, `street`, `zip`, `city`, `user_id`) VALUES
-	(7, 'Johnny', 'Vaca', 'Chemin de renens 13', 1004, 'Lausanne', 13),
-	(8, 'Patricia', 'Portilla', 'Chemin des retraires 2', 1002, 'Zurich', 13);
+INSERT INTO `deliveries` (`id`, `firstname`, `lastname`, `street`, `zip`, `city`, `user_id`, `visibility`) VALUES
+	(7, 'Johnny', 'Vaca', 'Chemin de renens 13', 1004, 'Lausanne', 13, 1),
+	(8, 'Patricia', 'Portilla', 'Chemin des retraires 2', 1002, 'Zurich', 13, 0),
+	(17, 'Johnny2', 'Vaca', 'Chemin de renens 13', 1004, 'Lausanne', 13, 0);
 /*!40000 ALTER TABLE `deliveries` ENABLE KEYS */;
 
 -- Listage de la structure de la table bargylus_db. discounts
@@ -71,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `grapes` (
   UNIQUE KEY `name_2` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Listage des données de la table bargylus_db.grapes : ~12 rows (environ)
+-- Listage des données de la table bargylus_db.grapes : ~6 rows (environ)
 DELETE FROM `grapes`;
 /*!40000 ALTER TABLE `grapes` DISABLE KEYS */;
 INSERT INTO `grapes` (`id`, `name`, `color`) VALUES
@@ -93,12 +95,13 @@ INSERT INTO `grapes` (`id`, `name`, `color`) VALUES
 DROP TABLE IF EXISTS `invoices`;
 CREATE TABLE IF NOT EXISTS `invoices` (
   `id` int NOT NULL,
-  `firstname` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `lastname` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `street` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `zip` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `city` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `firstname` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `lastname` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `street` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `zip` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `city` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `user_id` int DEFAULT NULL,
+  `visibility` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `fk_invoices_users1_idx` (`user_id`),
   CONSTRAINT `fk_invoices_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
@@ -107,9 +110,9 @@ CREATE TABLE IF NOT EXISTS `invoices` (
 -- Listage des données de la table bargylus_db.invoices : ~2 rows (environ)
 DELETE FROM `invoices`;
 /*!40000 ALTER TABLE `invoices` DISABLE KEYS */;
-INSERT INTO `invoices` (`id`, `firstname`, `lastname`, `street`, `zip`, `city`, `user_id`) VALUES
-	(1, 'johnny', 'vaca', 'chemin de Renens 13', '1004', 'Lausanne', 13),
-	(2, 'Patricia', 'Jaramillo', 'Chemin des Retraites 2', '1004', 'Lausanne', 13);
+INSERT INTO `invoices` (`id`, `firstname`, `lastname`, `street`, `zip`, `city`, `user_id`, `visibility`) VALUES
+	(1, 'johnny', 'vaca', 'chemin de Renens 13', '1004', 'Lausanne', 13, 0),
+	(2, 'Patricia', 'Jaramillo', 'Chemin des Retraites 2', '1004', 'Lausanne', 13, 0);
 /*!40000 ALTER TABLE `invoices` ENABLE KEYS */;
 
 -- Listage de la structure de la table bargylus_db. modes_payments
@@ -267,12 +270,12 @@ CREATE TABLE IF NOT EXISTS `wines` (
   CONSTRAINT `fk_DiscoutsOfWines_idx` FOREIGN KEY (`discounts_id`) REFERENCES `discounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Listage des données de la table bargylus_db.wines : ~12 rows (environ)
+-- Listage des données de la table bargylus_db.wines : ~0 rows (environ)
 DELETE FROM `wines`;
 /*!40000 ALTER TABLE `wines` DISABLE KEYS */;
 INSERT INTO `wines` (`id`, `year`, `winename`, `alcohol`, `basic_price`, `size`, `stock`, `photo`, `discounts_id`) VALUES
 	(1, 2011, 'Amigne', 17, 32, 2, 17, 'wine_1.png', 2),
-	(2, 2012, 'Païen', 18, 30, 1, 23, 'wine_2.png', 3),
+	(2, 2012, 'Païen', 18, 30, 1, 22, 'wine_2.png', 3),
 	(3, 2013, 'Emitage', 16, 24, 2, 26, 'wine_3.png', 1),
 	(4, 2014, 'Altesse', 20, 30, 1, 19, 'wine_4.png', 3),
 	(5, 2015, 'petite-Arvine', 18, 30, 2, 12, 'wine_5.png', 1),
@@ -298,7 +301,7 @@ CREATE TABLE IF NOT EXISTS `wines_compose_grapes` (
   CONSTRAINT `fk_Wines_has_Bottles_Wines1` FOREIGN KEY (`wine_id`) REFERENCES `wines` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Listage des données de la table bargylus_db.wines_compose_grapes : ~12 rows (environ)
+-- Listage des données de la table bargylus_db.wines_compose_grapes : ~0 rows (environ)
 DELETE FROM `wines_compose_grapes`;
 /*!40000 ALTER TABLE `wines_compose_grapes` DISABLE KEYS */;
 INSERT INTO `wines_compose_grapes` (`id`, `wine_id`, `grape_id`) VALUES
