@@ -19,7 +19,9 @@ $title = "Bargylus- wines";
                     <h1> Notre vins </h1>
                 </div>
             </div>
-            <div class="btn btn-primary btn-sm "><a href="index.php?action=addwine" class="nav-link text-center white"> ajouter </a></div>
+            <?php if ($_SESSION["user"]["droits"] == 1) { ?>
+            <div class="btn btn-primary btn-sm "><a href="index.php?action=addwine" class="nav-link text-center white"> Ajouter un vin  </a></div>
+            <?php } ?>
             <div class="row">
                 <?php foreach ($wines as $i => $wine) { ?>
                     <div class="col-lg-4 mb-5 col-md-6">
@@ -37,8 +39,6 @@ $title = "Bargylus- wines";
                                 <span class="price d-block"><del> <?=$wine['basic_price']?> CHF </del></span>
                                 <?php }?>
                                 <span class="price d-block"> <?= $wine['sold_price'] ?>CHF</span>
-
-
 
                                 <div class="rating">
                                     <span class="icon-star"></span>
