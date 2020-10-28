@@ -62,3 +62,9 @@ function getWine($id)
     }
 
 }
+
+function addNewWineToDisplay(){
+
+
+
+}

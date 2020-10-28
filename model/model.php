@@ -322,6 +322,7 @@ order by orders.id desc LIMIT 1';
     }
 
 }
+
 function getLastInvoiceByUserId($id)
 {
 
@@ -348,6 +349,7 @@ order by orders.id desc limit 1';
     }
 
 }
+
 function getDeliveriesByUserId($id)
 {
     require "model/.constant.php";
@@ -367,6 +369,7 @@ WHERE users.id = :id and deliveries.visibility = 1';
         return null;
     }
 }
+
 function getInvoicesByUserId($id)
 {
     require "model/.constant.php";
@@ -386,6 +389,7 @@ where users.id = :id';
         return null;
     }
 }
+
 function getDeliveryById($id)
 {
 
@@ -407,6 +411,7 @@ WHERE deliveries.id = :id';
     }
 
 }
+
 function getDeliveries()
 {
     require "model/.constant.php";
@@ -425,6 +430,7 @@ function getDeliveries()
     }
 
 }
+
 function getReceives()
 {
     require "model/.constant.php";
@@ -443,6 +449,7 @@ function getReceives()
     }
 
 }
+
 function getInvoices()
 {
     require "model/.constant.php";
@@ -461,6 +468,7 @@ function getInvoices()
     }
 
 }
+
 function getInvoiceById($id)
 {
 
@@ -510,6 +518,7 @@ WHERE deliveries.id =:id';
     }
 
 }
+
 function addDeliveryVisibility($id)
 {
     try {
@@ -519,7 +528,7 @@ set
 visibility = 1
 WHERE deliveries.id =:id';
         $statment = $dbh->prepare($query);
-        $statment->execute(['id'=>$id]);
+        $statment->execute(['id' => $id]);
         $dbh = null;
     } catch (PDOException $e) {
         print "Error!: " . $e->getMessage() . "<br/>";
@@ -527,6 +536,7 @@ WHERE deliveries.id =:id';
     }
 
 }
+
 function updateInvoiceModel($invoice)
 {
     try {
@@ -551,6 +561,7 @@ WHERE invoices.id =:id';
     }
 
 }
+
 function addDeliveryModel($delivery)
 {
     require "model/.constant.php";
@@ -568,6 +579,7 @@ function addDeliveryModel($delivery)
         die();
     }
 }
+
 function addInvoiceModel($invoice)
 {
     require "model/.constant.php";
@@ -585,6 +597,7 @@ function addInvoiceModel($invoice)
         die();
     }
 }
+
 function addReceiveInModel($delivery)
 {
     require "model/.constant.php";
@@ -602,14 +615,15 @@ function addReceiveInModel($delivery)
         die();
     }
 }
+
 function deleteDeliveryModel($id)
 {
     $dbh = getPDO();
     try {
         $query = "UPDATE deliveries
-set 
-visibility =0
-WHERE deliveries.id =:id";
+                set 
+            visibility =0
+        WHERE deliveries.id =:id";
         $stmt = $dbh->prepare($query);
         $stmt->execute(['id' => $id]);
         $dbh = null;
