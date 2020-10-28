@@ -24,38 +24,41 @@ $title = "Bargylus- About";
                     <div class="row d-flex justify-content-center ">
                         <div class="col-md-3 form-group">
                             <label for="fname">Millésime</label>
-                            <input type="number" placeholder="l'année" id="fname" min="1980"  max="2100" class="form-control form-control-lg" required>
+                            <input type="number" name="wyear" placeholder="l'année" id="wyear" min="1980"  max="2100" class="form-control form-control-lg" required>
 
                         </div>
                         <div class="col-md-3 form-group">
                             <label for="lname"> vin</label>
-                            <input type="text" placeholder="par exemple pinot blanc" id="lname" class="form-control form-control-lg" required>
+                            <input type="text" name="wname" placeholder="par exemple pinot blanc" id="wname" class="form-control form-control-lg" required>
                         </div>
                         <div class="col-md-3 form-group">
                             <label for="eaddress">Alcool</label>
-                            <input type="number" placeholder="" eaddress min="1" class="form-control form-control-lg" required>
+                            <input type="number" name="walcohol" placeholder="la taux d'alcool"  min="1" class="form-control form-control-lg" required>
                         </div>
                     </div>
 
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-3 form-group">
                             <label for="tel">prix</label>
-                            <input type="number" id="tel" min="1" class="form-control form-control-lg" required>
+                            <input type="number" name="wprix" id="tel" min="1" class="form-control form-control-lg" required>
                         </div>
                         <div class="col-md-3 form-group">
                             <label for="tel">taille</label>
-                            <input type="number" id="tel" min="1" class="form-control form-control-lg" required>
+                            <input type="number" name="wsize" id="tel" min="1" class="form-control form-control-lg" required>
                         </div>
                         <div class="col-md-3 form-group">
                             <label for="tel">stock</label>
-                            <input type="number" id="tel"  min="1" class="form-control form-control-lg" required>
+                            <input type="number" id="tel" name="wstock"  min="1" class="form-control form-control-lg" required>
                         </div>
+
+
+                    </div>
+                    <div class="row d-flex justify-content-center">
                         <div class="col-md-3 form-group">
-                            <label for="tel"></label>
-                            <input type="number" id="tel"  min="1"  max="3" class="form-control form-control-lg" required>
+                            <input id="browse" type="file"  name="wphoto" multiple>
+                            <div id="preview" ></div>
                         </div>
                     </div>
-
                     <div class="row ">
                         <div class="col-12 d-flex justify-content-center">
                             <input type="submit" value="Ajouter" class="btn btn-primary py-3 px-5 ">

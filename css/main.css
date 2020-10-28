@@ -15,3 +15,6 @@ body,li{
     font-family: "Arial";
     font-size: 20px !important;
 }
+#preview img {
+    max-height: 100px; 
+}

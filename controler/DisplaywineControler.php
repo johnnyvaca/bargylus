@@ -35,6 +35,7 @@ function WineDetail($id)
 
 function addNewWine()
 {
+  $discounts =   getDiscounts();
 
     require_once 'view/addwine.php';
 }

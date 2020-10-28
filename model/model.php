@@ -333,7 +333,7 @@ function getLastInvoiceByUserId($id)
 inner join modes_payments on orders.mode_payment_id = modes_payments.id
 inner join invoices on orders.invoice_id = invoices.id
 inner join users on invoices.user_id = users.id
-where users.id = :id
+where users.id = :id AND invoices.visibility = 1
 GROUP BY invoice_id
 HAVING max(orders.id) = orders.id
 order by orders.id desc limit 1';
@@ -377,7 +377,7 @@ function getInvoicesByUserId($id)
         $dbh = getPDO();
         $query = 'select invoices.firstname, invoices.lastname, invoices.street, invoices.zip, invoices.city, invoices.id as "invoice_id", users.id as "user_id" from invoices
 inner join users on invoices.user_id = users.id
-where users.id = :id';
+where users.id = :id and invoices.visibility = 1';
         $statment = $dbh->prepare($query);
         $statment->execute(['id' => $id]);//prepare query
         $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
@@ -527,6 +527,23 @@ function addDeliveryVisibility($id)
 set 
 visibility = 1
 WHERE deliveries.id =:id';
+        $statment = $dbh->prepare($query);
+        $statment->execute(['id' => $id]);
+        $dbh = null;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+
+}
+function addInvoiceVisibility($id)
+{
+    try {
+        $dbh = getPDO();
+        $query = 'UPDATE invoices 
+set 
+visibility = 1
+WHERE invoices.id =:id';
         $statment = $dbh->prepare($query);
         $statment->execute(['id' => $id]);
         $dbh = null;

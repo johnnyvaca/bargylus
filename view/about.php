@@ -58,12 +58,10 @@ $title = "Bargylus- About";
                         <a href="https://vimeo.com/channels/staffpicks/93951774" class="play-button popup-vimeo"
                            data-fancybox><span
                                     class="icon-play"></span></a>
-
                     </figure>
                 </div>
             </div>
             <div class="col-md-5 mr-auto">
-
 
                 <div class="site-section-heading pt-3 mb-4">
                     <h2 class="text-black font-heading-serif">Wines For You All</h2>
@@ -72,7 +70,6 @@ $title = "Bargylus- About";
                     cupiditate tempore temporibus nulla at eum!</p>
                 <p>Magni debitis minima ipsam, itaque nam eligendi iusto? Adipisci blanditiis itaque ipsam cupiditate
                     architecto, dolore saepe placeat culpa.</p>
-
 
             </div>
         </div>

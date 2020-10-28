@@ -479,6 +479,7 @@ function updateDelivery($firstname, $lastname, $street, $zip, $city, $delivery_i
     ];
     updateDeliveryModel($delivery);
     deliveriesPage($id);
+    return 0;
 }
 function updateInvoice($firstname, $lastname, $street, $zip, $city, $invoice_id, $id)
 {
@@ -494,6 +495,16 @@ function updateInvoice($firstname, $lastname, $street, $zip, $city, $invoice_id,
         deliveriesPage($id);
         return;
     }
+    $invoices = getInvoices();
+
+    foreach ($invoices as $i  => $value){
+        if($value['firstname'] == $firstname && $value['lastname'] == $lastname && $value['street'] == $street && $value['zip'] == $zip && $value['user_id'] == $id){
+            addInvoiceVisibility($value['id']);
+            invoicesPage($id);
+            return  0;
+        }
+    }
+
     $invoice = [
         'firstname' => $firstname,
         'lastname' => $lastname,
@@ -571,11 +582,13 @@ function addInvoice($firstname, $lastname, $street, $zip, $city, $id)
 
     $invoices = getInvoices();
 
-    foreach ($invoices as $value){
+    foreach ($invoices as $i  => $value){
+        var_dump($value);
+        echo "<br>";
         if($value['firstname'] == $firstname && $value['lastname'] == $lastname && $value['street'] == $street && $value['zip'] == $zip && $value['user_id'] == $id){
-            $_SESSION['flashmessage'] = "Cette adresse de facturation existe déjà";
-            addInvoicePage($id);
-            return 0;
+            addInvoiceVisibility($value['id']);
+            invoicesPage($id);
+            return  0;
         }
     }
 
@@ -594,8 +607,19 @@ function addInvoice($firstname, $lastname, $street, $zip, $city, $id)
 }
 function deleteDelivery($id, $delivery_id)
 {
+    if($delivery_id == $_POST['deliverySelected']){
+        unset($_POST['deliverySelected']);
+    }
     deleteDeliveryModel($delivery_id);
     deliveriesPage($id);
+}
+function deleteInvoice($id, $invoice_id)
+{
+    if($invoice_id == $_POST['invoiceSelected']){
+        unset($_POST['invoiceSelected']);
+    }
+    deleteInvoiceModel($invoice_id);
+    invoicesPage($id);
 }
 function  modePayment($id,$mode_payment){
     if(!$mode_payment){

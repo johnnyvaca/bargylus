@@ -24,6 +24,7 @@ $title = "Facturation";
 
                                 <span class="price">  <h3><?= $invoice['firstname'] ?> <?= $invoice['lastname'] ?>
                                 </h3><?= $invoice['street'] ?><br> <?= $invoice['zip'] ?> <?= $invoice['city'] ?><br></span>
+                            <a class="btn  btn-primary" href="index.php?action=deleteInvoice&invoice_id=<?= $invoice['invoice_id']?>&id=<?=$user['id']?>" >Supprimer</a>
                             <a class="col-12 btn-primary" href="index.php?action=modifyInvoice&invoice_id=<?= $invoice['invoice_id']?>&id=<?=$user['id']?>">modifier</a>
                             <input type="radio" name="invoiceSelected" value="<?= $invoice['invoice_id'] ?>">
                         </div>
