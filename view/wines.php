@@ -20,7 +20,7 @@ $title = "Bargylus- wines";
                 </div>
             </div>
             <?php if ($_SESSION["user"]["droits"] == 1) { ?>
-            <div class="btn btn-primary btn-sm "><a href="index.php?action=addwine" class="nav-link text-center white"> Ajouter un vin  </a></div>
+            <div class="btn btn-primary btn-sm "><a href="index.php?action=addwinePage" class="nav-link text-center white"> Ajouter un vin  </a></div>
             <?php } ?>
             <div class="row">
                 <?php foreach ($wines as $i => $wine) { ?>

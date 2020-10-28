@@ -8,6 +8,7 @@
 require 'model/DisplaywienModel.php';
 
 
+
 /* author : MOA */
 function getWinesDisplay()
 {
@@ -33,11 +34,28 @@ function WineDetail($id)
     require_once 'view/cartdetail.php';
 }
 
-function addNewWine()
+
+function addNewWinePage()
 {
-  $discounts =   getDiscounts();
+    require_once 'model/DiscountModel.php';
+    $Ndiscounts =  getDiscounts();
+    $Ngrapes = getGrapes();
+
 
     require_once 'view/addwine.php';
 }
+function addWine($wyear, $wname, $walcohol, $wprice, $wsize,$wstock,$wphoto,$wdiscount){
 
+    $Nwine = [
+        'wyear' => $wyear,
+        'wname' => $wname,
+        'walcohol' => $walcohol,
+        'wprice' => $wprice,
+        'wsize' => $wsize,
+        'wstock' => $wstock,
+        'wdiscounts_id' => $wdiscount
+    ];
 
+    addNewWineToDisplay($Nwine);
+    addNewWinePage();
+}

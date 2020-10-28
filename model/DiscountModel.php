@@ -42,7 +42,7 @@ function getDiscounts()
     require "model/.constant.php";
     try {
         $dbh = getPDO();
-        $query = 'SELECT * FROM discounts';
+        $query = 'SELECT * FROM discounts where id like "%%" order by discounts.id';
         $statment = $dbh->prepare($query);
         $statment->execute();//prepare query
         $queryResult = $statment->fetchall(PDO::FETCH_ASSOC);//prepare result for client

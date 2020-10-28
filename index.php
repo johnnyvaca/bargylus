@@ -30,8 +30,22 @@ switch ($action) {
 
         WineDetail($idwine);
         break;
-    case'addwine':
-        addNewWine();
+    case'addwinePage':
+        addNewWinePage();
+        break;
+    case 'addwine':
+
+        $wyear = $_POST['wyear'];
+        $wname = $_POST['wname'];
+        $walcohol =$_POST['walcohol'];
+        $wprice =$_POST['wprice'];
+        $wsize = $_POST['wsize'];
+        $wstock = $_POST['wstock'];
+        $wphoto = $_POST['wphoto'];
+        $wdiscount = $_POST['discount'];
+
+        echo "<br>$wyear $wname $walcohol $wprice $wsize $wstock $wphoto $wdiscount<br>";
+        addWine($wyear, $wname, $walcohol, $wprice, $wsize,$wstock,$wphoto, $wdiscount);
         break;
     case'editywine':
 
