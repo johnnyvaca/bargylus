@@ -60,7 +60,7 @@ function profilElementEdition($id,$firstname,$lastname,$number,$street,$zip,$cit
     if($city != NULL){
         updateElementCity($id, $city);
     }
-    if($day != NULL && $day != NULL&& $day != NULL){
+    if($day != NULL){
         $today = date('Y-m-d');
         $date_of_birth = strtotime("$year-$month-$day");
         $todayYear = date("Y");
@@ -73,12 +73,17 @@ function profilElementEdition($id,$firstname,$lastname,$number,$street,$zip,$cit
         if($Age >= 16){
             $birthdate = $year . '-' . $month . '-' . $day;
             updateElementBirthdate($id, $birthdate);
-            $_SESSION['flashmessage']= "vous n'avez pas 16 ans222";
+            $_SESSION['flashmessage']= "vous avez mis à jour le profil";
         } else{
             $_SESSION['flashmessage']= "vous n'avez pas 16 ans";
         }
 
     }
+    if($day == NULL){
+        $_SESSION['flashmessage']= "vous avez mis à jour le profil";
+    }
+
+    editProfil($id);
 }
 
 function deliveriesPage($id)

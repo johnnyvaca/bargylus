@@ -129,6 +129,7 @@ switch ($action) {
         $month = $_POST['month'];
         $year = $_POST['year'];
         profilElementEdition($id,$firstname,$lastname,$number,$street,$zip,$city,$day,$month,$year);
+        break;
     case 'myorders':
         $id = $_GET['id'];
         myOrdersPage($id);
