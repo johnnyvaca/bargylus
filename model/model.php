@@ -631,4 +631,146 @@ function deleteDeliveryModel($id)
         print "Error!:" . $e->getMessage() . "<br/>";
         die();
     }
+
+
 }
+
+function deleteInvoiceModel($id)
+{
+    $dbh = getPDO();
+    try {
+        $query = "UPDATE invoices
+set 
+visibility =0
+WHERE invoices.id =:id";
+        $stmt = $dbh->prepare($query);
+        $stmt->execute(['id' => $id]);
+        $dbh = null;
+    } catch (PDOException $e) {
+        print "Error!:" . $e->getMessage() . "<br/>";
+        die();
+    }}
+
+        function updateElementFirstname($id, $value)
+        {
+            try {
+                $dbh = getPDO();
+                $query = 'UPDATE users
+set 
+firstname = :val
+WHERE users.id =:id';
+                $statment = $dbh->prepare($query);
+                $statment->execute(['val' => $value, 'id' => $id]);//prepare query
+                $dbh = null;
+            } catch (PDOException $e) {
+                print "Error!: " . $e->getMessage() . "<br/>";
+                return null;
+            }
+        }
+
+        function updateElementLastname($id, $value)
+        {
+            try {
+                $dbh = getPDO();
+                $query = 'UPDATE users
+set 
+lastname = :val
+WHERE users.id =:id';
+                $statment = $dbh->prepare($query);
+                $statment->execute(['val' => $value, 'id' => $id]);//prepare query
+                $dbh = null;
+            } catch (PDOException $e) {
+                print "Error!: " . $e->getMessage() . "<br/>";
+                return null;
+            }
+        }
+
+        function updateElementNumber($id, $value)
+        {
+            try {
+                $dbh = getPDO();
+                $query = 'UPDATE users
+set 
+phone_number = :val
+WHERE users.id =:id';
+                $statment = $dbh->prepare($query);
+                $statment->execute(['val' => $value, 'id' => $id]);//prepare query
+                $dbh = null;
+            } catch (PDOException $e) {
+                print "Error!: " . $e->getMessage() . "<br/>";
+                return null;
+            }
+        }
+
+        function updateElementBirthdate($id, $value)
+        {
+            try {
+                $dbh = getPDO();
+                $query = 'UPDATE users
+set 
+birth_date = :val
+WHERE users.id =:id';
+                $statment = $dbh->prepare($query);
+                $statment->execute(['val' => $value, 'id' => $id]);//prepare query
+                $dbh = null;
+            } catch (PDOException $e) {
+                print "Error!: " . $e->getMessage() . "<br/>";
+                return null;
+            }
+        }
+
+        function updateElementStreet($id, $value)
+        {
+            try {
+                $dbh = getPDO();
+                $query = 'UPDATE users
+set 
+street_home = :val
+WHERE users.id =:id';
+                $statment = $dbh->prepare($query);
+                $statment->execute(['val' => $value, 'id' => $id]);//prepare query
+                $dbh = null;
+            } catch (PDOException $e) {
+                print "Error!: " . $e->getMessage() . "<br/>";
+                return null;
+            }
+        }
+
+
+        function updateElementZip($id, $value)
+        {
+            try {
+                $dbh = getPDO();
+                $query = 'UPDATE users
+set 
+zip = :val
+WHERE users.id =:id';
+                $statment = $dbh->prepare($query);
+                $statment->execute(['val' => $value, 'id' => $id]);//prepare query
+                $dbh = null;
+            } catch (PDOException $e) {
+                print "Error!: " . $e->getMessage() . "<br/>";
+                return null;
+            }
+        }
+
+        function updateElementCity($id, $value)
+        {
+            try {
+                $dbh = getPDO();
+                $query = 'UPDATE users
+set 
+city = :val
+WHERE users.id =:id';
+                $statment = $dbh->prepare($query);
+                $statment->execute(['val' => $value, 'id' => $id]);//prepare query
+                $dbh = null;
+            } catch (PDOException $e) {
+                print "Error!: " . $e->getMessage() . "<br/>";
+                return null;
+
+            }
+
+
+}
+
