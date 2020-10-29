@@ -621,16 +621,19 @@ function deleteInvoice($id, $invoice_id)
     deleteInvoiceModel($invoice_id);
     invoicesPage($id);
 }
-function  modePayment($id,$mode_payment){
+function  modePayment($id,$mode_payment,$delivery,$invoice){
     if(!$mode_payment){
         $_SESSION['flashmessage'] = "vous n'avez pas choisis votre mode de paiement";
         proceedToPayment($id);
         return 0;
     }
 
-    contractPage();
+    contractPage($id,$mode_payment,$delivery,$invoice);
 }
-function contractPage(){
+function contractPage($id,$mode_payment,$delivery,$invoice){
     require_once 'view/contract.php';
 }
 
+function checkout(){
+
+}
