@@ -95,8 +95,9 @@ $title = "Bargylus- About";
                     <div class="row d-flex justify-content-center">
                         <div class="row ">
                             <div class="col-12 d-flex justify-content-center">
-                                <input type="submit" value="Ajouter" class="btn btn-primary py-3 px-5 ">
                                 <a class="btn btn-info py-3 px-5" href="index.php?action=displaywines">Retour</a>
+                                <input type="submit" value="Ajouter" class="btn btn-primary py-3 px-5 ">
+
                             </div>
                         </div>
                 </form>

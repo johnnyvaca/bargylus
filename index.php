@@ -43,9 +43,10 @@ switch ($action) {
         $wstock = $_POST['wstock'];
         $wphoto = $_POST['wphoto'];
         $wdiscount = $_POST['discount'];
+        $wgrape = $_POST['grape'];
 
         echo "<br>$wyear $wname $walcohol $wprice $wsize $wstock $wphoto $wdiscount<br>";
-        addWine($wyear, $wname, $walcohol, $wprice, $wsize,$wstock,$wphoto, $wdiscount);
+        addWine($wyear, $wname, $walcohol, $wprice, $wsize,$wstock,$wphoto, $wdiscount,$wgrape);
         break;
     case'editywine':
 

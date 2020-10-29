@@ -44,7 +44,7 @@ function addNewWinePage()
 
     require_once 'view/addwine.php';
 }
-function addWine($wyear, $wname, $walcohol, $wprice, $wsize,$wstock,$wphoto,$wdiscount){
+function addWine($wyear, $wname, $walcohol, $wprice, $wsize,$wstock,$wphoto,$wdiscount,$wgrape){
 
     $Nwine = [
         'wyear' => $wyear,
@@ -53,9 +53,11 @@ function addWine($wyear, $wname, $walcohol, $wprice, $wsize,$wstock,$wphoto,$wdi
         'wprice' => $wprice,
         'wsize' => $wsize,
         'wstock' => $wstock,
+        'wphoto' => $wphoto,
         'wdiscounts_id' => $wdiscount
     ];
+ $id =    addNewWineToDisplay($Nwine);
+    addgrapeToNewWine($id,$wgrape);
 
-    addNewWineToDisplay($Nwine);
     addNewWinePage();
 }
