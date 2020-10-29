@@ -238,6 +238,9 @@ switch ($action) {
         $mode_payment = $_POST['mode_payment'];
         modePayment($id,$mode_payment);
         break;
+    case 'checkout':
+        checkout();
+        break;
     default :
         home();
         break;
