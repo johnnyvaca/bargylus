@@ -634,6 +634,12 @@ function contractPage($id,$mode_payment,$delivery,$invoice){
     require_once 'view/contract.php';
 }
 
+function listOfDeliveriesPage(){
+    $deliveries = getDeliveries();
+    require_once 'view/listOfDeliveries.php';
+}
+
 function checkout(){
 
 }
+

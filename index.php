@@ -242,6 +242,9 @@ switch ($action) {
     case 'checkout':
         checkout();
         break;
+    case 'listOfDeliveriesPage':
+        listOfDeliveriesPage();
+        break;
     default :
         home();
         break;
