@@ -107,6 +107,8 @@
                                     <?php if ($_SESSION["user"]["droits"] == 1) { ?>
                                         <li class="btn btn-primary"><?= '<a href="index.php?action=adminPage"
                                                                class="nav-link text-center white">Administration</a>' ?></li>
+                                        <li class="btn btn-primary"><?= '<a href="index.php?action=adminPage"
+                                                               class="nav-link text-center white">Archives</a>' ?></li>
 
                                     <?php } ?>
                                 <?php } else { ?>
