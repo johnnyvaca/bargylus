@@ -245,6 +245,10 @@ switch ($action) {
     case 'listOfDeliveriesPage':
         listOfDeliveriesPage();
         break;
+    case 'archiveDeliveries':
+        $zip = $_POST['zip'];
+        ArchiveDeliveries($zip);
+        break;
     default :
         home();
         break;

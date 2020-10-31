@@ -639,6 +639,22 @@ function listOfDeliveriesPage(){
     require_once 'view/listOfDeliveries.php';
 }
 
+//fonction qui update la table archives pour chaque deliveries, si le zip entré équivaut au zip du delivries. Puis supprime de la base de données
+// pour chaque deliveries update dans archives. Finalement retourne à la page des deliveries
+function ArchiveDeliveries($zip){
+    $deliveries = getDeliveries();
+    foreach($deliveries as $delivery)
+    {
+        if($zip == $delivery['zip']){
+            updateArchives($delivery);
+        }
+
+    }
+
+    deleteDeliveries($zip);
+    listOfDeliveriesPage();
+}
+
 function checkout(){
 
 }

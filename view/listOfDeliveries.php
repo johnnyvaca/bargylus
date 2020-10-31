@@ -29,9 +29,14 @@ $title = "list of deliveries";
                         <th><?= $delivery['street'] ?></th>
                         <th><?= $delivery['zip'] ?></th>
                         <th><?= $delivery['city'] ?></th>
+                        <th><?= $delivery['visibility'] ?></th>
                     </tr>
                 <?php } ?>
         </table>
+    <form method="post" action="index.php?action=archiveDeliveries">
+        <input type="number" name="zip" placeholder="zip" required>
+        <button type="submit" class="btn btn-primary py-3 px-3">Archiver</button>
+    </form>
 </div>
 
 <?php

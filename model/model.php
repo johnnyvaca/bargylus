@@ -791,3 +791,37 @@ WHERE users.id =:id';
 
 }
 
+
+//fonction qui update dans la table archives les données de deliveries
+function updateArchives($delivery)
+{
+    try {
+        $dbh = getPDO();
+        $query = 'INSERT INTO archives(firstname,lastname,street,zip,city,user_id,visibility) VALUES(:firstname,:lastname,:street,:zip,:city,:user_id,:visibility)';
+        $statment = $dbh->prepare($query);
+        $statment->execute($delivery);
+        $dbh = null;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+
+
+
+//fonction qui supprime les deliveries par rapport au zip entré
+function deleteDeliveries($zip){
+    try {
+        $dbh = getPDO();
+        $query = 'DELETE from deliveries WHERE zip=:zip';
+        $statment = $dbh->prepare($query);
+        $statment->execute(['zip' => $zip]);
+        $dbh = null;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+
+
+
