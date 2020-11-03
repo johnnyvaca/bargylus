@@ -236,11 +236,18 @@ switch ($action) {
         break;
     case 'mode_payment':
         $id = $_POST['id'];
+        $delivery = $_POST['delivery'];
+        $invoice = $_POST['invoice'];
         $mode_payment = $_POST['mode_payment'];
-        modePayment($id,$mode_payment);
+        modePayment($id,$mode_payment,$delivery,$invoice);
         break;
     case 'checkout':
-        checkout();
+        $id = $_POST['id'];
+        $delivery = $_POST['delivery'];
+        $invoice = $_POST['invoice'];
+        $mode_payment = $_POST['mode_payment'];
+       $condition = $_POST['condition'];
+        checkout($condition,$id,$delivery,$invoice,$mode_payment);
         break;
     case 'listOfDeliveriesPage':
         listOfDeliveriesPage();

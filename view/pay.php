@@ -13,6 +13,8 @@ $title = "pay_Page";
         <div class="row">
             <form action="index.php?action=mode_payment" method="post">
                 <input type="hidden" name="id" value="<?= $user['id'] ?>">
+                <input type="hidden" name="delivery" value="<?= $lastOrderDelivery['delivery_id'] ?>">
+                <input type="hidden" name="invoice" value="<?= $lastOrderInvoice['invoice_id'] ?>">
             <div class="input-group col-lg-9">
                 <h3>1. Adresse de livraison</h3>
                 <div class="input-group">
@@ -35,7 +37,7 @@ $title = "pay_Page";
                     <div class="input-group-prepend">
                         <div class="input-group-text">
                             <input type="radio" aria-label="Radio button for following text input" name="mode_payment"
-                                   value="<?= $lastOrderInvoice['mode_payment_id'] ?>">
+                                   value="1">
                         </div>
                     </div>
                     <span type="text" class="form-control"

@@ -634,6 +634,7 @@ function contractPage($id,$mode_payment,$delivery,$invoice){
     require_once 'view/contract.php';
 }
 
+
 function listOfDeliveriesPage(){
     $deliveries = getDeliveries();
     require_once 'view/listOfDeliveries.php';
@@ -655,7 +656,41 @@ function ArchiveDeliveries($zip){
     listOfDeliveriesPage();
 }
 
-function checkout(){
 
+function checkout($condition,$id,$delivery,$invoice,$mode_payment){
+
+    if($condition != NULL){
+        $lastnumber =  getNewOrderNumber();
+        $order = [
+            'new_number' => $lastnumber,
+            'total_price' => $_SESSION['total'],
+            'user_id' => $id,
+            'date_purchase'=> date('Y-m-d'),
+            'mode_payment_id' => $mode_payment,
+            'delivery_id' => $delivery,
+            'invoice_id' => $invoice
+            ];
+     $lastId =   addOrder($order);
+     foreach ($_SESSION['basket'] as $i => $value){
+         $contains = [
+             'wine_id' => $value['id'],
+             'order_id'=> $lastId,
+             'quantity' => $value['quantity'],
+             'price' => $value['priceWithSold']
+         ];
+         addOrdersContainWines($contains);
+     }
+        $order = getOrdersById($lastId);
+        $user = getUserById($id);
+        ob_start();
+        include "view/mail_state.php";
+        $body = ob_get_clean();
+        updateStateOrderById($lastId, 1);
+        $subject = "Bargylus - commande numero " . $order[0]['number'];
+
+        $_SESSION['flashmessage'] = 'l\'état du vin à bien été changé';
+        sendEmailByUser($user['email'], $user['lastname'], $user['firstname'], $subject, $body);
+        myOrdersPage($id);
+    }
 }
 

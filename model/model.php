@@ -790,6 +790,25 @@ WHERE users.id =:id';
 
 
 }
+function getNewOrderNumber()
+{
+
+    require "model/.constant.php";
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT MAX(orders.number)+1 as number from orders';
+        $statment = $dbh->prepare($query);
+        $statment->execute();//prepare query
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        extract($queryResult);
+        return $number;
+        if ($debug) var_dump($queryResult);
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+
 
 
 //fonction qui update dans la table archives les données de deliveries
@@ -824,4 +843,43 @@ function deleteDeliveries($zip){
 }
 
 
+
+
+}
+function addOrder($order)
+{
+    require "model/.constant.php";
+    $dbh = getPDO();
+    try {
+        $query = "INSERT INTO orders(orders.number,total_price,user_id,date_purchase,mode_payment_id, delivery_id,invoice_id) 
+                  VALUES  (:new_number,:total_price,:user_id,:date_purchase,:mode_payment_id, :delivery_id,:invoice_id)";
+        $stmt = $dbh->prepare($query);
+        $stmt->execute($order);
+
+       $id = $dbh->lastInsertId();
+        $dbh = null;
+        return $id;
+    } catch (PDOException $e) {
+        print "Error!:" . $e->getMessage() . "<br/>";
+        die();
+    }
+}
+function addOrdersContainWines($order)
+{
+    require "model/.constant.php";
+    $dbh = getPDO();
+    try {
+        $query = "INSERT INTO orders_contain_wines(wine_id,order_id,quantity,price) 
+                  VALUES  (:wine_id,:order_id,:quantity,:price)";
+        $stmt = $dbh->prepare($query);
+        $stmt->execute($order);
+
+        $id = $dbh->lastInsertId();
+        $dbh = null;
+        return $id;
+    } catch (PDOException $e) {
+        print "Error!:" . $e->getMessage() . "<br/>";
+        die();
+    }
+}
 
