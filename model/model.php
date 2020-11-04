@@ -475,9 +475,7 @@ function getInvoiceById($id)
     require "model/.constant.php";
     try {
         $dbh = getPDO();
-        $query = 'select users.id as "user_id", modes_payments.name,modes_payments.id as "mode_payment_id",invoices.firstname, invoices.lastname, invoices.street, invoices.zip, invoices.city,  invoices.id as "invoice_id" from orders
-inner join modes_payments on orders.mode_payment_id = modes_payments.id
-inner join invoices on orders.invoice_id = invoices.id
+        $query = 'select users.id as "user_id",invoices.firstname, invoices.lastname, invoices.street, invoices.zip, invoices.city,  invoices.id as "invoice_id" from invoices
 inner join users on invoices.user_id = users.id
 
 where invoices.id = :id';

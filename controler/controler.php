@@ -113,6 +113,7 @@ function payPage($deliverySelected, $id, $invoiceSelected)
     }
     if (isset($invoiceSelected)) {
         $lastOrderInvoice =    getInvoiceById($invoiceSelected);
+        var_dump($invoiceSelected);
 
     }else{
         $lastOrderInvoice = getLastInvoiceByUserId($id);
@@ -690,7 +691,7 @@ function checkout($condition,$id,$delivery,$invoice,$mode_payment){
 
         $_SESSION['flashmessage'] = 'l\'état du vin à bien été changé';
         sendEmailByUser($user['email'], $user['lastname'], $user['firstname'], $subject, $body);
-        myOrdersPage($id);
+        orderPage($id);
     }
 }
 
