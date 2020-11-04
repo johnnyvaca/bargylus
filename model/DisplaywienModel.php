@@ -145,3 +145,23 @@ function addgrapeToNewWine($wine, $grape)
 
 
 }
+
+/***
+ * @param $id
+ * @return bool
+ */
+
+function deleteOneWine($id)
+{
+    try {
+        $dbh = getPDO();
+        $query = " DELETE FROM wines WHERE id =:id;";
+        $statement = $dbh->prepare($query);//prepare query
+        $statement->execute(['id' => $id]);//execute query
+        $dbh = null;
+        return true;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return false;
+    }
+}

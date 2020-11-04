@@ -61,3 +61,9 @@ function addWine($wyear, $wname, $walcohol, $wprice, $wsize,$wstock,$wphoto,$wdi
 
     addNewWinePage();
 }
+
+function deleteWineFromdisplay(){
+
+    deleteOneWine();
+
+}
