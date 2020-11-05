@@ -53,6 +53,8 @@ switch ($action) {
         break;
     case'deletewine':
 
+        deleteWineFromdisplay();
+
         break;
 
     case'about':

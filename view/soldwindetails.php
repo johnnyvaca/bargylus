@@ -73,6 +73,7 @@ $title = "Wine_soldwindetails";
 
                         <p><a href="index.php?action=winesBasket&id=<?= $wine['id'] ?>"
                               class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Aujouter au panier</a></p>
+
                     <?php } else { ?>
                         <span>vin épuisé</span>
                     <?php } ?>

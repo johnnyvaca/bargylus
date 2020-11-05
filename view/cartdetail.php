@@ -83,7 +83,7 @@ $quantity = 1;
                     </div>
 
                 </div>
-
+                    <div><a href="indexphp?action=displaywines" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Retour</a></div>
                 <!-- si le vin est épuisé -->
                 <?php if($wine['stock'] > 0){ ?>
 
