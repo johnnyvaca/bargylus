@@ -217,9 +217,10 @@ function signupPage()
     require_once 'view/signup.php';
 }
 
-function signup($email, $lastname, $firstname, $phoneNumber, $day, $month, $year, $streetHome, $zip, $city, $canton, $password)
+function signup($email, $lastname, $firstname, $phoneNumber, $day, $month, $year, $streetHome, $zip, $city, $canton, $password,$admin)
 {
 
+    var_dump($admin);
     $userOne = [
         'email' => $email,
         'lastname' => $lastname,
@@ -284,6 +285,9 @@ function signup($email, $lastname, $firstname, $phoneNumber, $day, $month, $year
         'password' => $hash,
         'droits' => 0
     ];
+    if($admin != NULL){
+        $oneUser['droits'] = 1;
+    }
     createUser($oneUser);
     tryLogin($email, $password);
 
@@ -703,4 +707,9 @@ function newsletters($firstname,$lastname,$message,$phone,$adresse){
     $body = ob_get_clean();
     $subject = "Bargylus - newsletters";
     sendEmailAdmin($adresse, $lastname, $firstname, $subject, $body);
+}
+
+function listOfAccounts(){
+   $users =  getUsers();
+    require_once 'view/pageUsers.php';
 }

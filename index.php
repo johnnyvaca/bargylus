@@ -100,7 +100,8 @@ switch ($action) {
         $city = $_POST['city'];
         $canton = $_POST['canton'];
         $password = $_POST['password'];
-        signup($email,$lastname,$firstname,$phoneNumber,$day,$month,$year,$streetHome,$zip,$city,$canton,$password);
+        $admin = $_POST['admin'];
+        signup($email,$lastname,$firstname,$phoneNumber,$day,$month,$year,$streetHome,$zip,$city,$canton,$password,$admin);
         break;
     //(Altin) Appelle la fonction addWinesBasket
     case 'winesBasket':
@@ -265,6 +266,9 @@ switch ($action) {
            $phone = $_POST['phone'];
            $adresse = $_POST['adresse'];
            newsletters($firstname,$lastname,$message,$phone,$adresse);
+        break;
+    case 'listOfAccounts':
+        listOfAccounts();
         break;
     default :
         home();

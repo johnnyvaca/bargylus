@@ -86,7 +86,6 @@
                     <div class="mx-auto">
                         <nav class="site-navigation position-relative text-left" role="navigation">
                             <ul class="site-menu main-menu js-clone-nav mx-auto d-none pl-0 d-lg-block border-none">
-
                                 <li class="active"><a href="index.php?action=home" class="nav-link text-left">Page
                                         d'accueil</a>
                                 </li>
@@ -106,10 +105,11 @@
 
                                     <?php if ($_SESSION["user"]["droits"] == 1) { ?>
                                         <li class="btn btn-primary"><?= '<a href="index.php?action=adminPage"
-                                                               class="nav-link text-center white">Administration</a>' ?></li>
+                                                               class="nav-link text-center white">Commandes</a>' ?></li>
                                         <li class="btn btn-primary"><?= '<a href="index.php?action=listOfDeliveriesPage"
                                                                class="nav-link text-center white">Archives</a>' ?></li>
-
+                                        <li class="btn btn-primary"><a href="index.php?action=listOfAccounts"
+                                                               class="nav-link text-center white">Comptes</a></li>
                                     <?php } ?>
                                 <?php } else { ?>
 
