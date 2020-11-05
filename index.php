@@ -256,6 +256,14 @@ switch ($action) {
         $zip = $_POST['zip'];
         ArchiveDeliveries($zip);
         break;
+    case 'newsletters':
+           $firstname = $_POST['firstname'];
+           $lastname = $_POST['lastname'];
+           $message = $_POST['message'];
+           $phone = $_POST['phone'];
+           $adresse = $_POST['adresse'];
+           newsletters($firstname,$lastname,$message,$phone,$adresse);
+        break;
     default :
         home();
         break;
