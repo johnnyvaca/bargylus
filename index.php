@@ -53,7 +53,8 @@ switch ($action) {
         break;
     case'deletewine':
 
-        deleteWineFromdisplay();
+        $id= $_GET['id'];
+        deleteWineFromdisplay($id);
 
         break;
 

@@ -9,7 +9,7 @@ require 'model/DisplaywienModel.php';
 
 
 
-/* author : MOA */
+
 function getWinesDisplay()
 {
     $wines = getWines();
@@ -23,7 +23,7 @@ function getWinesDisplay()
 }
 
 
-/* author : MOA */
+
 function WineDetail($id)
 {
     $wine = getWine($id);
@@ -62,8 +62,8 @@ function addWine($wyear, $wname, $walcohol, $wprice, $wsize,$wstock,$wphoto,$wdi
     addNewWinePage();
 }
 
-function deleteWineFromdisplay(){
+function deleteWineFromdisplay($id){
 
-    deleteOneWine();
-
+    deleteOneWine($id);
+    getWinesDisplay();
 }
