@@ -57,6 +57,7 @@ function addWine($wyear, $wname, $walcohol, $wprice, $wsize,$wstock,$wphoto,$wdi
         'wdiscounts_id' => $wdiscount
     ];
  $id =    addNewWineToDisplay($Nwine);
+ echo "$id $wgrape";
     addgrapeToNewWine($id,$wgrape);
 
     addNewWinePage();
