@@ -10,7 +10,7 @@
 ob_start();
 $title = "Bargylus- About";
 ?>
-// update wine
+
 
 
 <?php

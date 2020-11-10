@@ -53,6 +53,9 @@ switch ($action) {
         break;
     case'deletewine':
 
+        $id= $_GET['id'];
+        deleteWineFromdisplay($id);
+
         break;
 
     case'about':
@@ -98,7 +101,8 @@ switch ($action) {
         $city = $_POST['city'];
         $canton = $_POST['canton'];
         $password = $_POST['password'];
-        signup($email,$lastname,$firstname,$phoneNumber,$day,$month,$year,$streetHome,$zip,$city,$canton,$password);
+        $admin = $_POST['admin'];
+        signup($email,$lastname,$firstname,$phoneNumber,$day,$month,$year,$streetHome,$zip,$city,$canton,$password,$admin);
         break;
     //(Altin) Appelle la fonction addWinesBasket
     case 'winesBasket':
@@ -255,6 +259,17 @@ switch ($action) {
     case 'archiveDeliveries':
         $zip = $_POST['zip'];
         ArchiveDeliveries($zip);
+        break;
+    case 'newsletters':
+           $firstname = $_POST['firstname'];
+           $lastname = $_POST['lastname'];
+           $message = $_POST['message'];
+           $phone = $_POST['phone'];
+           $adresse = $_POST['adresse'];
+           newsletters($firstname,$lastname,$message,$phone,$adresse);
+        break;
+    case 'listOfAccounts':
+        listOfAccounts();
         break;
     default :
         home();

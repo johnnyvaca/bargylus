@@ -57,7 +57,8 @@ $title = "Bargylus- sign up";
                     <div class="row">
                         <div class="col-md-4 form-group">
                             <label for="birth_date">Jour</label>
-                            <select type="text" id="birth_date" name="day" class="form-control form-control-lg" required>
+                            <select type="text" id="birth_date" name="day" class="form-control form-control-lg"
+                                    required>
                                 <?php
                                 for ($i = 1; $i <= 31; $i++) { ?>
                                     <option value="<?= $i ?>"><?= $i ?></option>
@@ -86,7 +87,7 @@ $title = "Bargylus- sign up";
                             <select type="text" id="birth_date" name="year" class="form-control form-control-lg"
                                     placeholder="birth date" required>
                                 <?php
-                                for ($i = date('Y')-16; $i >= 1900; $i--) { ?>
+                                for ($i = date('Y') - 16; $i >= 1900; $i--) { ?>
                                     <option value="<?= $i ?>"><?= $i ?></option>
                                 <?php } ?>
                             </select>
@@ -124,6 +125,14 @@ $title = "Bargylus- sign up";
                                    placeholder="Canton">
                         </div>
                     </div>
+                    <?php if ($_SESSION["user"]["droits"] == 1) { ?>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label> Utilisateur Admin</label>
+                            <input type="checkbox" name="admin">
+                        </div>
+                    </div>
+                    <?php }?>
                     <div class="row">
                         <div class="col-12">
                             <input type="submit" value="signUp" class="btn btn-primary py-3 px-5">

@@ -19,11 +19,11 @@ function getWines()
 
         $query = 'SELECT wines.id,wines.year,wines.winename,wines.alcohol,wines.basic_price,
                     wines.size,wines.stock,wines.discounts_id,grapes.name,grapes.color,
-                        discounts.percentage,discounts.start_date,discounts.end_date, wines.photo FROM wines            
+                        discounts.percentage,discounts.start_date,discounts.end_date, wines.photo, wines.visibility FROM wines            
                         INNER JOIN wines_compose_grapes on  wines.id = wines_compose_grapes.wine_id
                         INNER JOIN grapes on  wines_compose_grapes.grape_id =grapes.id
                         INNER JOIN discounts ON wines.discounts_id = discounts.id
-                        order by winename Asc';
+                        where wines.winename like "%" and wines.visibility = 1 order by winename Asc';
         $statment = $dbh->prepare($query);
         $statment->execute();//prepare query
         $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
@@ -144,4 +144,26 @@ function addgrapeToNewWine($wine, $grape)
     }
 
 
+}
+
+/***
+ * @param $id
+ * @return bool
+ */
+
+function deleteOneWine($id)
+{
+    try {
+        $dbh = getPDO();
+        $query = "UPDATE wines
+                  SET visibility =0
+                  WHERE id=:id; ";
+        $statement = $dbh->prepare($query);//prepare query
+        $statement->execute(['id' => $id]);//execute query
+        $dbh = null;
+        return true;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return false;
+    }
 }

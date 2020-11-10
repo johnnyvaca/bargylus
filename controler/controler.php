@@ -113,6 +113,7 @@ function payPage($deliverySelected, $id, $invoiceSelected)
     }
     if (isset($invoiceSelected)) {
         $lastOrderInvoice =    getInvoiceById($invoiceSelected);
+        var_dump($invoiceSelected);
 
     }else{
         $lastOrderInvoice = getLastInvoiceByUserId($id);
@@ -216,9 +217,10 @@ function signupPage()
     require_once 'view/signup.php';
 }
 
-function signup($email, $lastname, $firstname, $phoneNumber, $day, $month, $year, $streetHome, $zip, $city, $canton, $password)
+function signup($email, $lastname, $firstname, $phoneNumber, $day, $month, $year, $streetHome, $zip, $city, $canton, $password,$admin)
 {
 
+    var_dump($admin);
     $userOne = [
         'email' => $email,
         'lastname' => $lastname,
@@ -283,6 +285,9 @@ function signup($email, $lastname, $firstname, $phoneNumber, $day, $month, $year
         'password' => $hash,
         'droits' => 0
     ];
+    if($admin != NULL){
+        $oneUser['droits'] = 1;
+    }
     createUser($oneUser);
     tryLogin($email, $password);
 
@@ -688,9 +693,23 @@ function checkout($condition,$id,$delivery,$invoice,$mode_payment){
         updateStateOrderById($lastId, 1);
         $subject = "Bargylus - commande numero " . $order[0]['number'];
 
-        $_SESSION['flashmessage'] = 'l\'état du vin à bien été changé';
+        $_SESSION['flashmessage'] = 'la commande à été crée';
         sendEmailByUser($user['email'], $user['lastname'], $user['firstname'], $subject, $body);
-        myOrdersPage($id);
+        orderPage($id);
+    }else{
+        $_SESSION['flashmessage'] = " veuillez accepter les conditions d'achat";
+        contractPage($id,$mode_payment,$delivery,$invoice);
     }
 }
+function newsletters($firstname,$lastname,$message,$phone,$adresse){
+    ob_start();
+    include "view/mail_newsletters.php";
+    $body = ob_get_clean();
+    $subject = "Bargylus - newsletters";
+    sendEmailAdmin($adresse, $lastname, $firstname, $subject, $body);
+}
 
+function listOfAccounts(){
+   $users =  getUsers();
+    require_once 'view/pageUsers.php';
+}

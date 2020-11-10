@@ -475,9 +475,7 @@ function getInvoiceById($id)
     require "model/.constant.php";
     try {
         $dbh = getPDO();
-        $query = 'select users.id as "user_id", modes_payments.name,modes_payments.id as "mode_payment_id",invoices.firstname, invoices.lastname, invoices.street, invoices.zip, invoices.city,  invoices.id as "invoice_id" from orders
-inner join modes_payments on orders.mode_payment_id = modes_payments.id
-inner join invoices on orders.invoice_id = invoices.id
+        $query = 'select users.id as "user_id",invoices.firstname, invoices.lastname, invoices.street, invoices.zip, invoices.city,  invoices.id as "invoice_id" from invoices
 inner join users on invoices.user_id = users.id
 
 where invoices.id = :id';
@@ -536,6 +534,7 @@ WHERE deliveries.id =:id';
     }
 
 }
+
 function addInvoiceVisibility($id)
 {
     try {
@@ -666,130 +665,132 @@ WHERE invoices.id =:id";
     } catch (PDOException $e) {
         print "Error!:" . $e->getMessage() . "<br/>";
         die();
-    }}
+    }
+}
 
-        function updateElementFirstname($id, $value)
-        {
-            try {
-                $dbh = getPDO();
-                $query = 'UPDATE users
+function updateElementFirstname($id, $value)
+{
+    try {
+        $dbh = getPDO();
+        $query = 'UPDATE users
 set 
 firstname = :val
 WHERE users.id =:id';
-                $statment = $dbh->prepare($query);
-                $statment->execute(['val' => $value, 'id' => $id]);//prepare query
-                $dbh = null;
-            } catch (PDOException $e) {
-                print "Error!: " . $e->getMessage() . "<br/>";
-                return null;
-            }
-        }
+        $statment = $dbh->prepare($query);
+        $statment->execute(['val' => $value, 'id' => $id]);//prepare query
+        $dbh = null;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
 
-        function updateElementLastname($id, $value)
-        {
-            try {
-                $dbh = getPDO();
-                $query = 'UPDATE users
+function updateElementLastname($id, $value)
+{
+    try {
+        $dbh = getPDO();
+        $query = 'UPDATE users
 set 
 lastname = :val
 WHERE users.id =:id';
-                $statment = $dbh->prepare($query);
-                $statment->execute(['val' => $value, 'id' => $id]);//prepare query
-                $dbh = null;
-            } catch (PDOException $e) {
-                print "Error!: " . $e->getMessage() . "<br/>";
-                return null;
-            }
-        }
+        $statment = $dbh->prepare($query);
+        $statment->execute(['val' => $value, 'id' => $id]);//prepare query
+        $dbh = null;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
 
-        function updateElementNumber($id, $value)
-        {
-            try {
-                $dbh = getPDO();
-                $query = 'UPDATE users
+function updateElementNumber($id, $value)
+{
+    try {
+        $dbh = getPDO();
+        $query = 'UPDATE users
 set 
 phone_number = :val
 WHERE users.id =:id';
-                $statment = $dbh->prepare($query);
-                $statment->execute(['val' => $value, 'id' => $id]);//prepare query
-                $dbh = null;
-            } catch (PDOException $e) {
-                print "Error!: " . $e->getMessage() . "<br/>";
-                return null;
-            }
-        }
+        $statment = $dbh->prepare($query);
+        $statment->execute(['val' => $value, 'id' => $id]);//prepare query
+        $dbh = null;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
 
-        function updateElementBirthdate($id, $value)
-        {
-            try {
-                $dbh = getPDO();
-                $query = 'UPDATE users
+function updateElementBirthdate($id, $value)
+{
+    try {
+        $dbh = getPDO();
+        $query = 'UPDATE users
 set 
 birth_date = :val
 WHERE users.id =:id';
-                $statment = $dbh->prepare($query);
-                $statment->execute(['val' => $value, 'id' => $id]);//prepare query
-                $dbh = null;
-            } catch (PDOException $e) {
-                print "Error!: " . $e->getMessage() . "<br/>";
-                return null;
-            }
-        }
+        $statment = $dbh->prepare($query);
+        $statment->execute(['val' => $value, 'id' => $id]);//prepare query
+        $dbh = null;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
 
-        function updateElementStreet($id, $value)
-        {
-            try {
-                $dbh = getPDO();
-                $query = 'UPDATE users
+function updateElementStreet($id, $value)
+{
+    try {
+        $dbh = getPDO();
+        $query = 'UPDATE users
 set 
 street_home = :val
 WHERE users.id =:id';
-                $statment = $dbh->prepare($query);
-                $statment->execute(['val' => $value, 'id' => $id]);//prepare query
-                $dbh = null;
-            } catch (PDOException $e) {
-                print "Error!: " . $e->getMessage() . "<br/>";
-                return null;
-            }
-        }
+        $statment = $dbh->prepare($query);
+        $statment->execute(['val' => $value, 'id' => $id]);//prepare query
+        $dbh = null;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
 
 
-        function updateElementZip($id, $value)
-        {
-            try {
-                $dbh = getPDO();
-                $query = 'UPDATE users
+function updateElementZip($id, $value)
+{
+    try {
+        $dbh = getPDO();
+        $query = 'UPDATE users
 set 
 zip = :val
 WHERE users.id =:id';
-                $statment = $dbh->prepare($query);
-                $statment->execute(['val' => $value, 'id' => $id]);//prepare query
-                $dbh = null;
-            } catch (PDOException $e) {
-                print "Error!: " . $e->getMessage() . "<br/>";
-                return null;
-            }
-        }
+        $statment = $dbh->prepare($query);
+        $statment->execute(['val' => $value, 'id' => $id]);//prepare query
+        $dbh = null;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
 
-        function updateElementCity($id, $value)
-        {
-            try {
-                $dbh = getPDO();
-                $query = 'UPDATE users
+function updateElementCity($id, $value)
+{
+    try {
+        $dbh = getPDO();
+        $query = 'UPDATE users
 set 
 city = :val
 WHERE users.id =:id';
-                $statment = $dbh->prepare($query);
-                $statment->execute(['val' => $value, 'id' => $id]);//prepare query
-                $dbh = null;
-            } catch (PDOException $e) {
-                print "Error!: " . $e->getMessage() . "<br/>";
-                return null;
+        $statment = $dbh->prepare($query);
+        $statment->execute(['val' => $value, 'id' => $id]);//prepare query
+        $dbh = null;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
 
-            }
+    }
 
 
 }
+
 function getNewOrderNumber()
 {
 
@@ -810,42 +811,40 @@ function getNewOrderNumber()
     }
 
 
-
 //fonction qui update dans la table archives les données de deliveries
-function updateArchives($delivery)
-{
-    try {
-        $dbh = getPDO();
-        $query = 'INSERT INTO archives(firstname,lastname,street,zip,city,user_id,visibility) VALUES(:firstname,:lastname,:street,:zip,:city,:user_id,:visibility)';
-        $statment = $dbh->prepare($query);
-        $statment->execute($delivery);
-        $dbh = null;
-    } catch (PDOException $e) {
-        print "Error!: " . $e->getMessage() . "<br/>";
-        return null;
+    function updateArchives($delivery)
+    {
+        try {
+            $dbh = getPDO();
+            $query = 'INSERT INTO archives(firstname,lastname,street,zip,city,user_id,visibility) VALUES(:firstname,:lastname,:street,:zip,:city,:user_id,:visibility)';
+            $statment = $dbh->prepare($query);
+            $statment->execute($delivery);
+            $dbh = null;
+        } catch (PDOException $e) {
+            print "Error!: " . $e->getMessage() . "<br/>";
+            return null;
+        }
     }
-}
-
 
 
 //fonction qui supprime les deliveries par rapport au zip entré
-function deleteDeliveries($zip){
-    try {
-        $dbh = getPDO();
-        $query = 'DELETE from deliveries WHERE zip=:zip';
-        $statment = $dbh->prepare($query);
-        $statment->execute(['zip' => $zip]);
-        $dbh = null;
-    } catch (PDOException $e) {
-        print "Error!: " . $e->getMessage() . "<br/>";
-        return null;
+    function deleteDeliveries($zip)
+    {
+        try {
+            $dbh = getPDO();
+            $query = 'DELETE from deliveries WHERE zip=:zip';
+            $statment = $dbh->prepare($query);
+            $statment->execute(['zip' => $zip]);
+            $dbh = null;
+        } catch (PDOException $e) {
+            print "Error!: " . $e->getMessage() . "<br/>";
+            return null;
+        }
     }
-}
-
-
 
 
 }
+
 function addOrder($order)
 {
     require "model/.constant.php";
@@ -856,7 +855,7 @@ function addOrder($order)
         $stmt = $dbh->prepare($query);
         $stmt->execute($order);
 
-       $id = $dbh->lastInsertId();
+        $id = $dbh->lastInsertId();
         $dbh = null;
         return $id;
     } catch (PDOException $e) {
@@ -864,6 +863,7 @@ function addOrder($order)
         die();
     }
 }
+
 function addOrdersContainWines($order)
 {
     require "model/.constant.php";

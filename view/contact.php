@@ -29,32 +29,32 @@ $title = "Bargylus- contact";
                 <div class="section-title mb-5">
                     <h2 class="d-flex justify-content-center">Contact Us</h2>
                 </div>
-                <form method="post">
+                <form method="post" action="index.php?action=newsletters">
 
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label for="fname">First Name</label>
-                            <input type="text" id="fname" class="form-control form-control-lg">
+                            <input type="text" name="firstname" id="fname" class="form-control form-control-lg">
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="lname">Last Name</label>
-                            <input type="text" id="lname" class="form-control form-control-lg">
+                            <input type="text" name="lastname"  id="lname" class="form-control form-control-lg">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label for="eaddress">Email Address</label>
-                            <input type="text" id="eaddress" class="form-control form-control-lg">
+                            <input type="text" name="adresse"  id="eaddress" class="form-control form-control-lg">
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="tel">Tel. Number</label>
-                            <input type="text" id="tel" class="form-control form-control-lg">
+                            <input type="text" name="phone" id="tel" class="form-control form-control-lg">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <label for="message">Message</label>
-                            <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+                            <textarea name="message" id="message" cols="30" rows="10" class="form-control"></textarea>
                         </div>
                     </div>
 
