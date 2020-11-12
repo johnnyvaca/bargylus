@@ -5,8 +5,8 @@ class Category
     private function getPDO()
     {
 
-        $dbh = new PDO('mysql:host=localhost;dbname=tuto;charset=utf8', "root", "Pa$\$w0rd");
-        return $dbh;
+        $pdo = new PDO('mysql:host=localhost;dbname=tuto;charset=utf8', "root", "root");
+        return $pdo;
     }
     private $id;
 
@@ -28,12 +28,13 @@ class Category
             $fields = "*";
         }
         try {
-            $dbh = self::getPDO();
-            $query = "SELECT $fields FROM categories WHERE id=".self::getId()." ";
-            $statment = $dbh->prepare($query);//prepare query, il doit faire des vérifications et il va pas exécuter tant
+            $pdo = self::getPDO();
+            $query = "SELECT $fields FROM categories WHERE id=".self::getId();
+            $statment = $pdo->prepare($query);//prepare query, il doit faire des vérifications et il va pas exécuter tant
             //qu'il y a des choses incorrects
             $statment->execute();//execute query
             $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client cherche tous les résultats
+
             $dbh = null; //refermer une connection quand on a fini
             if ($debug) var_dump($queryResult);
             foreach ($queryResult as $i => $value){
