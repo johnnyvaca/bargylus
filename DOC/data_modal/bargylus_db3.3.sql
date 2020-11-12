@@ -313,7 +313,7 @@ CREATE TABLE `wines` (
   UNIQUE KEY `uniques` (`size`,`winename`,`year`),
   KEY `fk_DiscoutsOfWines_idx` (`discounts_id`),
   CONSTRAINT `fk_DiscoutsOfWines_idx` FOREIGN KEY (`discounts_id`) REFERENCES `discounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -322,7 +322,7 @@ CREATE TABLE `wines` (
 
 LOCK TABLES `wines` WRITE;
 /*!40000 ALTER TABLE `wines` DISABLE KEYS */;
-INSERT INTO `wines` VALUES (1,2011,'Amigne',17,32,2,17,'wine_1.png',2,1),(2,2012,'Païen',18,30,1,22,'wine_2.png',3,1),(3,2013,'Emitage',16,24,2,26,'wine_3.png',1,1),(4,2014,'Altesse',20,30,1,16,'wine_4.png',3,1),(5,2015,'petite-Arvine',18,30,2,12,'wine_5.png',1,1),(6,2016,'Arvine',17,28,2,28,'wine_6.png',2,1),(7,2017,'Aligoté',20,24,2,30,'wine_7.png',1,1),(8,2018,'Muscat',17,32,1,30,'wine_1.png',1,1),(9,2019,'Réze',16,38,1,14,'wine_2.png',3,1),(10,2010,'Lafnetscha',16,38,1,27,'wine_3.png',1,1),(11,2009,'Joubertin',16,38,1,30,'wine_4.png',3,1),(12,2008,'Johannisberg',20,32,1,30,'wine_1.png',1,1);
+INSERT INTO `wines` VALUES (1,2011,'Amigne',17,32,2,17,'wine_1.png',2,1),(2,2012,'Païen',18,30,1,22,'wine_2.png',3,1),(3,2013,'Emitage',16,24,2,26,'wine_3.png',1,1),(4,2014,'Altesse',20,30,1,16,'wine_4.png',3,1),(5,2015,'petite-Arvine',18,30,2,12,'wine_5.png',1,0),(6,2016,'Arvine',17,28,2,28,'wine_6.png',2,1),(7,2017,'Aligoté',20,24,2,30,'wine_7.png',1,0),(8,2018,'Muscat',17,32,1,30,'wine_1.png',1,1),(9,2019,'Réze',16,38,1,14,'wine_2.png',3,0),(10,2010,'Lafnetscha',16,38,1,27,'wine_3.png',1,1),(11,2009,'Joubertin',16,38,1,30,'wine_4.png',3,1),(12,2008,'Johannisberg',20,32,1,30,'wine_1.png',1,1),(13,2099,'DFSDF',5454,454,544,454,'wine_5.png',3,1),(14,1980,'AAAAA',1,23,23,23,'wine_5.png',1,1),(15,1982,'DFSDF',12,121,111,123,'wine_3.png',1,1);
 /*!40000 ALTER TABLE `wines` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -334,7 +334,7 @@ DROP TABLE IF EXISTS `wines_compose_grapes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `wines_compose_grapes` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `wine_id` int NOT NULL,
   `grape_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -342,7 +342,7 @@ CREATE TABLE `wines_compose_grapes` (
   KEY `fk_Wines_has_Grapes_Wines1_idx` (`wine_id`),
   CONSTRAINT `fk_Wines_has_Bottles_Bottles1` FOREIGN KEY (`grape_id`) REFERENCES `grapes` (`id`),
   CONSTRAINT `fk_Wines_has_Bottles_Wines1` FOREIGN KEY (`wine_id`) REFERENCES `wines` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -364,4 +364,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-10 19:29:41
+-- Dump completed on 2020-11-10 19:42:02
