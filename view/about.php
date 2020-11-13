@@ -25,7 +25,7 @@ $title = "Bargylus- About";
             <div class="col-md-6">
                 <div class="block-16">
                     <figure>
-                        <img src="images/hero_1.jpg" alt="Image placeholder" class="img-fluid">
+                        <img src="images/bargluslus.jpg" alt="Image placeholder" class="img-fluid">
 
                     </figure>
                 </div>
@@ -35,12 +35,10 @@ $title = "Bargylus- About";
 
 
                 <div class="site-section-heading pt-3 mb-4">
-                    <h2 class="text-black font-heading-serif">How We Started</h2>
+                    <h2 class="text-black font-heading-serif">Comment nous avons commencé</h2>
                 </div>
-                <p>Rerum quis soluta, esse, cupiditate voluptate ipsum? Sunt unde eos vitae suscipit harum eligendi
-                    reprehenderit, illo eaque sit!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus consequuntur hic quaerat
-                    cupiditate tempore temporibus nulla at eum!</p>
+                <p>Bargylus vient de l'initiative de l'entrepreneur M.Julien Ithurbide qui est directeur de cette entreprise<br>
+                étant un grand amateur de vins et y voyant un potentiel marketing, il a avec quelques amis monté Bargylus</p>
 
             </div>
         </div>
@@ -54,7 +52,7 @@ $title = "Bargylus- About";
             <div class="col-md-6 order-md-2">
                 <div class="block-16">
                     <figure>
-                        <img src="images/hero_2.jpg" alt="Image placeholder" class="img-fluid ">
+                        <img src="images/grape.png" alt="Image placeholder" class="img-fluid ">
                         <a href="https://vimeo.com/channels/staffpicks/93951774" class="play-button popup-vimeo"
                            data-fancybox><span
                                     class="icon-play"></span></a>
@@ -64,12 +62,10 @@ $title = "Bargylus- About";
             <div class="col-md-5 mr-auto">
 
                 <div class="site-section-heading pt-3 mb-4">
-                    <h2 class="text-black font-heading-serif">Wines For You All</h2>
+                    <h2 class="text-black font-heading-serif">Vins pour tous</h2>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus consequuntur hic quaerat
-                    cupiditate tempore temporibus nulla at eum!</p>
-                <p>Magni debitis minima ipsam, itaque nam eligendi iusto? Adipisci blanditiis itaque ipsam cupiditate
-                    architecto, dolore saepe placeat culpa.</p>
+                <p>Du vin délicat et fin pour amateurs de vins en tous genre</p>
+
 
             </div>
         </div>
@@ -84,10 +80,7 @@ $title = "Bargylus- About";
                     <span class="icon-truck text-primary"></span>
                 </div>
                 <div class="text">
-                    <h2 class="font-heading-serif">Free Shipping</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer
-                        accumsan
-                        tincidunt fringilla.</p>
+                    <h2 class="font-heading-serif">Livraison gratuite</h2>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
@@ -95,10 +88,7 @@ $title = "Bargylus- About";
                     <span class="icon-refresh2 text-primary"></span>
                 </div>
                 <div class="text">
-                    <h2 class="font-heading-serif">Free Returns</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer
-                        accumsan
-                        tincidunt fringilla.</p>
+                    <h2 class="font-heading-serif">Satisfait ou remboursé</h2>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
@@ -106,10 +96,7 @@ $title = "Bargylus- About";
                     <span class="icon-help text-primary"></span>
                 </div>
                 <div class="text">
-                    <h2 class="font-heading-serif">Customer Support</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer
-                        accumsan
-                        tincidunt fringilla.</p>
+                    <h2 class="font-heading-serif">Support client</h2>
                 </div>
             </div>
         </div>
