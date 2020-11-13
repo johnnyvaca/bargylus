@@ -94,7 +94,6 @@
                                 <li class="active"><a href="index.php?action=about" class="nav-link text-left">À
                                         propos</a>
                                 </li>
-                                <li class="active"><a href="#" class="nav-link text-left">Magasin</a></li>
                                 <li class="active "><a href="index.php?action=contact" class="nav-link text-left">Contact</a>
                                 </li>
                                 <?php if (isset($_SESSION["user"])) { ?>
