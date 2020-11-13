@@ -74,5 +74,28 @@ function UpdateWinePage($id){
 
     $Ngrapes = getGrapes();
     $Ndiscounts =  getDiscounts();
+    $wine =  getWine($id);
+
     require_once 'view/updatewien.php';
+}
+function editWine($id, $wyear, $wname, $walcohol, $wprice, $wsize,$wstock,$wphoto, $wdiscount,$wgrape){
+
+    $edit = [
+        'id' =>$id,
+        'wyear'=>$wyear,
+        'wwinename' =>$wname,
+        'walcohol' =>$walcohol,
+        'wprice'=>$wprice,
+        'wsize'=>$wsize,
+        'wstock'=>$wstock,
+        'photo'=>"$wphoto",
+        'wdiscounts'=>$wdiscount
+    ];
+
+
+    editOneWine($edit);
+    editGrapesWines($id,$wgrape);
+    getWinesDisplay();
+
+
 }
