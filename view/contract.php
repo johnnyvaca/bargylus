@@ -51,7 +51,7 @@ $title = "Bargylus- About";
             <input type="hidden" name="mode_payment" value="<?=$mode_payment?>">
             <a href="#" class="col-xl-4 btn-outline-primary text-center">Annuler</a>
             <a href="#" class="col-xl-4 btn-danger text-center">En arrière</a>
-            <button class="col-xl-4 btn-primary text-center">Acheter maintenant</button>
+            <button class="col-xl-4 btn-primary text-center">Acheter</button>
             </form>
         </div>
     </div>

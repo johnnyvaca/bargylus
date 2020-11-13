@@ -31,7 +31,7 @@ $title = "pay_Page";
             <div class="input-group col-lg-9">
 
 
-                <h3>2. Mode de payement</h3>
+                <h3>2. Mode de paiement</h3>
                 <div class="input-group">
 
                     <div class="input-group-prepend">
