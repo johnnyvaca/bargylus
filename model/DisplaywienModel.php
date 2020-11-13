@@ -167,3 +167,47 @@ function deleteOneWine($id)
         return false;
     }
 }
+function editOneWine($wine)
+{
+    try {
+        $dbh = getPDO();
+        $query = "UPDATE wines
+                  SET 
+                  wines.year =:wyear,
+                  winename =:wwinename,
+                  alcohol =:walcohol,
+                  basic_price =:wprice,
+                  wines.size =:wsize,
+                  stock =:wstock,
+                  photo =:photo,
+                  discounts_id =:wdiscounts
+                  
+                  WHERE id=:id ";
+        $statement = $dbh->prepare($query);//prepare query
+        $statement->execute($wine);//execute query
+        $dbh = null;
+        return true;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return false;
+    }
+}
+function editGrapesWines($wine,$grape)
+{
+    try {
+        $dbh = getPDO();
+        $query = "UPDATE wines_compose_grapes
+                  SET 
+                  wine_id =:wine,
+                  grape_id =:grape
+                  
+                  WHERE id=:wine ";
+        $statement = $dbh->prepare($query);//prepare query
+        $statement->execute(['wine'=>$wine,'grape'=>$grape]);//execute query
+        $dbh = null;
+        return true;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return false;
+    }
+}
