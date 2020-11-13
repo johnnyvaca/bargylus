@@ -50,7 +50,22 @@ switch ($action) {
         break;
     case'editywine':
         $id= $_GET['id'];
+
+
         UpdateWinePage($id);
+        break;
+    case 'updateWine':
+        $id = $_POST['id'];
+        $wyear = $_POST['wyear'];
+        $wname = $_POST['wname'];
+        $walcohol =$_POST['walcohol'];
+        $wprice =$_POST['wprice'];
+        $wsize = $_POST['wsize'];
+        $wstock = $_POST['wstock'];
+        $wphoto = $_POST['photo'];
+        $wdiscount = $_POST['discount'];
+        $wgrape = $_POST['wgrape'];
+        editWine($id, $wyear, $wname, $walcohol, $wprice, $wsize,$wstock,$wphoto, $wdiscount,$wgrape);
         break;
     case'deletewine':
 
