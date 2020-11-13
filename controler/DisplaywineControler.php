@@ -44,6 +44,7 @@ function addNewWinePage()
 
     require_once 'view/addwine.php';
 }
+
 function addWine($wyear, $wname, $walcohol, $wprice, $wsize,$wstock,$wphoto,$wdiscount,$wgrape){
 
     $Nwine = [
@@ -67,4 +68,11 @@ function deleteWineFromdisplay($id){
 
     deleteOneWine($id);
     getWinesDisplay();
+}
+
+function UpdateWinePage($id){
+
+    $Ngrapes = getGrapes();
+    $Ndiscounts =  getDiscounts();
+    require_once 'view/updatewien.php';
 }

@@ -60,7 +60,7 @@ $title = "Bargylus- wines";
                         <?php if ($_SESSION["user"]["droits"] == 1) { ?>
                         <nav class="site-navigation position-relative text-left" role="navigation">
                             <ul class="site-menu main-menu js-clone-nav mx-auto d-none pl-0 d-lg-block border-none">
-                                <li class="btn btn-primary btn-sm"><a href="index.php?action=editywine" class="nav-link text-center white">Modifier </a></li>
+                                <li class="btn btn-primary btn-sm"><a href="index.php?action=editywine&id=<?= $wine['id'] ?>" class="nav-link text-center white">Modifier </a></li>
 
                                 <li class="btn btn-primary btn-sm"><a href="index.php?action=deletewine&id=<?= $wine['id'] ?>" class="nav-link text-center white">Supprimer </a></li>
 

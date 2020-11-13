@@ -49,7 +49,8 @@ switch ($action) {
         addWine($wyear, $wname, $walcohol, $wprice, $wsize,$wstock,$wphoto, $wdiscount,$wgrape);
         break;
     case'editywine':
-
+        $id= $_GET['id'];
+        UpdateWinePage($id);
         break;
     case'deletewine':
 
