@@ -27,27 +27,27 @@ $title = "Bargylus- contact";
 
             <div class="col-lg-12">
                 <div class="section-title mb-5">
-                    <h2 class="d-flex justify-content-center">Contact Us</h2>
+                    <h2 class="d-flex justify-content-center">Contactez-nous</h2>
                 </div>
                 <form method="post" action="index.php?action=newsletters">
 
                     <div class="row">
                         <div class="col-md-6 form-group">
-                            <label for="fname">First Name</label>
+                            <label for="fname">Prénom</label>
                             <input type="text" name="firstname" id="fname" class="form-control form-control-lg">
                         </div>
                         <div class="col-md-6 form-group">
-                            <label for="lname">Last Name</label>
+                            <label for="lname">Nom</label>
                             <input type="text" name="lastname"  id="lname" class="form-control form-control-lg">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 form-group">
-                            <label for="eaddress">Email Address</label>
+                            <label for="eaddress">Adresse email</label>
                             <input type="text" name="adresse"  id="eaddress" class="form-control form-control-lg">
                         </div>
                         <div class="col-md-6 form-group">
-                            <label for="tel">Tel. Number</label>
+                            <label for="tel">Numéro de tél.</label>
                             <input type="text" name="phone" id="tel" class="form-control form-control-lg">
                         </div>
                     </div>
@@ -60,7 +60,7 @@ $title = "Bargylus- contact";
 
                     <div class="row">
                         <div class="col-12">
-                            <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                            <input type="submit" value="Envoyer Message" class="btn btn-primary py-3 px-5">
                         </div>
                     </div>
 

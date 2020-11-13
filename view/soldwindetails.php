@@ -31,9 +31,9 @@ $title = "Wine_soldwindetails";
                         <tr>
                             <th class="product-thumbnail">Année</th>
                             <th class="product-total">Cépage</th>
-                            <th class="product-total">taux:d'alcool</th>
-                            <th class="product-price"> Price</th>
-                            <th class="product-quantity">disponibilté</th>
+                            <th class="product-total">Taux d'alcool</th>
+                            <th class="product-price"> Prix</th>
+                            <th class="product-quantity">Disponibilté</th>
                             <th class="product-total">Taille</th>
                         </tr>
                         </thead>
