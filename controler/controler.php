@@ -113,7 +113,6 @@ function payPage($deliverySelected, $id, $invoiceSelected)
     }
     if (isset($invoiceSelected)) {
         $lastOrderInvoice =    getInvoiceById($invoiceSelected);
-        var_dump($invoiceSelected);
 
     }else{
         $lastOrderInvoice = getLastInvoiceByUserId($id);
@@ -173,6 +172,7 @@ function pageAdmin()
 
 function tryLogin($emailPost, $passwordPost)
 {
+ $emailPost =   strtolower($emailPost);
     $user = getUserByEmail($emailPost);
     if ($emailPost == $user['email']) {
 
@@ -199,6 +199,10 @@ function tryLogin($emailPost, $passwordPost)
             $_SESSION['flashmessage'] = 'email ou password erroné';
             LoginPage();
         }
+    }else{
+        unset($_SESSION['user']);
+        $_SESSION['flashmessage'] = 'email ou password erroné';
+        LoginPage();
     }
 }
 
@@ -219,8 +223,12 @@ function signupPage()
 
 function signup($email, $lastname, $firstname, $phoneNumber, $day, $month, $year, $streetHome, $zip, $city, $canton, $password,$admin)
 {
-
-    var_dump($admin);
+    $email =   strtolower($email);
+    if($admin == NULL){
+        $admin = 0;
+    }else{
+        $admin = 1;
+    }
     $userOne = [
         'email' => $email,
         'lastname' => $lastname,
@@ -234,6 +242,7 @@ function signup($email, $lastname, $firstname, $phoneNumber, $day, $month, $year
         'city' => $city,
         'canton' => $canton,
         'password' => $password,
+        'droits' => $admin
     ];
     $user = getUserByEmail($email);
     if ($email == $user['email']) {
@@ -283,11 +292,10 @@ function signup($email, $lastname, $firstname, $phoneNumber, $day, $month, $year
         'city' => $city,
         'canton' => $canton,
         'password' => $hash,
-        'droits' => 0
+        'droits' => $admin
     ];
-    if($admin != NULL){
-        $oneUser['droits'] = 1;
-    }
+
+
     createUser($oneUser);
     tryLogin($email, $password);
 
@@ -588,7 +596,7 @@ function addInvoice($firstname, $lastname, $street, $zip, $city, $id)
     $invoices = getInvoices();
 
     foreach ($invoices as $i  => $value){
-        var_dump($value);
+
         echo "<br>";
         if($value['firstname'] == $firstname && $value['lastname'] == $lastname && $value['street'] == $street && $value['zip'] == $zip && $value['user_id'] == $id){
             addInvoiceVisibility($value['id']);
