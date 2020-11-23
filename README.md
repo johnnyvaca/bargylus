@@ -11,6 +11,6 @@ la vente de vins
 les utilisateurs
 
 le lien pour accéder : www.bargylus.mycpnv.ch
-compte administrateur :
+- compte administrateur :
 - nom d'utilisateur : root
 - mot de passe      : root
