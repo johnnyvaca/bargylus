@@ -2,12 +2,15 @@
 ## réalisation d'une cave à vin
 
 
-Etu. : Altin, Johnny, Marwan
+Etu. : Altin Zili, Johnny Vaca, Marwan Alhelo
 Une application web qui va nous permettre de gérer une cave à vin et la vente directe de nos produits.
 Nous nous trouvons en Suisse, un pays qui produit du bon vin et nous voulons investir notre énergie et notre temps pour faire profiter du savoir-faire helvétique à des producteurs situés à l'étranger.
 Fonctionnalités :
-Au niveau de la gestion interne du vin dans la cave nous pourrons gérer : Les ingrédients et les ustensiles nécessaires
-Les périodes de réalisation du vin
-La perte et le gain d’argent
-La liste de tous les vins vendus
-La liste de tous les vins demandés avec la personne qui s’est connectée Etc...
+Au niveau de la gestion interne du vin dans la cave nous pourrons gérer
+la vente de vins
+les utilisateurs
+
+le lien pour accéder : www.bargylus.mycpnv.ch
+compte administrateur :
+- nom d'utilisateur : root
+- mot de passe      : root
