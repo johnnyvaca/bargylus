@@ -44,13 +44,11 @@ $title = "Bargylus- About";
 
             </div>
             <form action="index.php?action=checkout" method="post">
-            <input type="checkbox" name="condition">
+            accepter les conditions d'achat<input type="checkbox" name="condition">
             <input type="hidden" name="id" value="<?=$id?>">
             <input type="hidden" name="delivery" value="<?=$delivery?>">
             <input type="hidden" name="invoice" value="<?=$invoice?>">
             <input type="hidden" name="mode_payment" value="<?=$mode_payment?>">
-            <a href="#" class="col-xl-4 btn-outline-primary text-center">Annuler</a>
-            <a href="#" class="col-xl-4 btn-danger text-center">En arrière</a>
             <button class="col-xl-4 btn-primary text-center">Acheter</button>
             </form>
         </div>

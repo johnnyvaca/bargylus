@@ -84,8 +84,9 @@ function createUser($oneUser)
         $stmt = $dbh->prepare($query);
         $stmt->execute($oneUser);
 
-        $dbh->lastInsertId();
+     $id =   $dbh->lastInsertId();
         $dbh = null;
+        return $id;
     } catch (PDOException $e) {
         print "Error!:" . $e->getMessage() . "<br/>";
         die();
@@ -299,6 +300,50 @@ function getGrapesOrder($id)
 
 }
 
+function getDelivery($id){
+
+
+
+        require "model/.constant.php";
+    try {
+        $dbh = getPDO();
+        $query = 'select deliveries.firstname, deliveries.lastname, deliveries.street, deliveries.zip, deliveries.city , deliveries.id as "delivery_id" from deliveries
+INNER JOIN users ON deliveries.user_id = users.id
+where users.id =:id AND deliveries.visibility = 1
+order by deliveries.id desc LIMIT 1';
+        $statment = $dbh->prepare($query);
+        $statment->execute(['id' => $id]);//prepare query
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        return $queryResult;
+        if ($debug) var_dump($queryResult);
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+function getInvoice($id){
+
+
+
+    require "model/.constant.php";
+    try {
+        $dbh = getPDO();
+        $query = 'select invoices.firstname, invoices.lastname, invoices.street, invoices.zip, invoices.city , invoices.id as "invoice_id" from invoices
+INNER JOIN users ON invoices.user_id = users.id
+where users.id =:id AND invoices.visibility = 1
+order by invoices.id desc LIMIT 1';
+        $statment = $dbh->prepare($query);
+        $statment->execute(['id' => $id]);//prepare query
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        return $queryResult;
+        if ($debug) var_dump($queryResult);
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
 function getLastDeliveryByUserId($id)
 {
 

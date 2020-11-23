@@ -107,15 +107,20 @@ function payPage($deliverySelected, $id, $invoiceSelected)
     if (isset($deliverySelected)) {
         $lastOrderDelivery = getDeliveryById($deliverySelected);
     } else {
+
             $lastOrderDelivery = getLastDeliveryByUserId($id);
-
-
+            if($lastOrderDelivery == NULL){
+                $lastOrderDelivery =     getDelivery($id);
+            }
     }
     if (isset($invoiceSelected)) {
         $lastOrderInvoice =    getInvoiceById($invoiceSelected);
 
     }else{
         $lastOrderInvoice = getLastInvoiceByUserId($id);
+        if($lastOrderInvoice == NULL){
+            $lastOrderInvoice = getInvoice($id);
+        }
     }
 
     require_once 'view/pay.php';
@@ -277,7 +282,7 @@ function signup($email, $lastname, $firstname, $phoneNumber, $day, $month, $year
 
         }
         $_SESSION['flashmessage'] = 'Bienvenu!!! vous êtes connectés';
-    }
+
     $hash = password_hash($password, PASSWORD_DEFAULT);
 
     $oneUser = [
@@ -296,9 +301,21 @@ function signup($email, $lastname, $firstname, $phoneNumber, $day, $month, $year
     ];
 
 
-    createUser($oneUser);
-    tryLogin($email, $password);
+ $id =   createUser($oneUser);
 
+        $invoice = [
+            'firstname' => $firstname,
+            'lastname' => $lastname,
+            'street' => $streetHome,
+            'zip' => $zip,
+            'city' => $city,
+            'user_id'=>$id
+        ];
+        addInvoiceModel($invoice);
+        addDeliveryModel($invoice);
+
+    tryLogin($email, $password);
+    }
 }
 
 //(Altin) Fonction qui ajoute un vin dans la session
@@ -616,7 +633,6 @@ function addInvoice($firstname, $lastname, $street, $zip, $city, $id)
     addInvoiceModel($invoice);
     invoicesPage($id);
 
-
 }
 function deleteDelivery($id, $delivery_id)
 {
@@ -703,7 +719,7 @@ function checkout($condition,$id,$delivery,$invoice,$mode_payment){
 
         $_SESSION['flashmessage'] = 'la commande à été crée';
         sendEmailByUser($user['email'], $user['lastname'], $user['firstname'], $subject, $body);
-        orderPage($id);
+        orderPage($lastId);
     }else{
         $_SESSION['flashmessage'] = " veuillez accepter les conditions d'achat";
         contractPage($id,$mode_payment,$delivery,$invoice);
