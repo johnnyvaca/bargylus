@@ -31,8 +31,8 @@
 
     <link rel="stylesheet" href="/css/bootstrap-datepicker.css">
 
-    <script src="js/gabarit.js"></script>
-    <script src="js/stayle.js"></script>
+
+    <script src="/js/stayle.js"></script>
 
     <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
 
@@ -51,7 +51,9 @@
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="200">
-
+<div class="splash">
+    <img src="../images/splash.gif" width="100%">
+</div>
 <div class="site-wrap">
 
     <div class="site-mobile-menu site-navbar-target">
@@ -68,7 +70,7 @@
             <div class="row align-items-center">
                 <div class="col-12 text-center">
                     <a href="index.php?action=home" class="site-logo">
-                        <img src="/images/logo.png" alt="Image" class="img-fluid " id="logo">
+                     <!--   <img src="/images/logo.png" alt="Image" class="img-fluid" id="logo"> -->
                     </a>
                 </div>
                 <a href="#" class="mx-auto d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
@@ -86,39 +88,38 @@
                     <div class="mx-auto">
                         <nav class="site-navigation position-relative text-left" role="navigation">
                             <ul class="site-menu main-menu js-clone-nav mx-auto d-none pl-0 d-lg-block border-none">
-                                <li class="active"><a href="index.php?action=home" class="nav-link text-left">Page
-                                        d'accueil</a>
+                                <li class="active"><a href="index.php?action=home" class="nav-link text-left text-danger">Quienes somos</a>
                                 </li>
-                                <li class="active"><a href="index.php?action=displaywines" class="nav-link text-left">Vins</a>
+                                <li class="active"><a href="index.php?action=displaywines" class="nav-link text-left text-danger">Administracion</a>
                                 </li>
-                                <li class="active"><a href="index.php?action=about" class="nav-link text-left">À
-                                        propos</a>
+                                <li class="active"><a href="index.php?action=about" class="nav-link text-left text-danger">Congregaciones</a>
                                 </li>
-                                <li class="active "><a href="index.php?action=contact" class="nav-link text-left">Contact</a>
+                                <li class="active "><a href="index.php?action=contact" class="nav-link text-left text-danger">Eventos</a>
                                 </li>
                                 <?php if (isset($_SESSION["user"])) { ?>
-                                    <li class="btn btn-primary"><?= '<a href="index.php?action=logout"
+                                    <li class="btn btn-danger"><?= '<a href="index.php?action=logout"
                                                                class="nav-link text-center white">Déconnexion</a>' ?></li>
-                                    <li class="btn btn-primary"><a href="index.php?action=profil&id=<?=$_SESSION['user']['id']?>"
+                                    <li class="btn btn-danger"><a href="index.php?action=profil&id=<?=$_SESSION['user']['id']?>"
                                                                class="nav-link text-center white">Profil</a></li>
 
                                     <?php if ($_SESSION["user"]["droits"] == 1) { ?>
-                                        <li class="btn btn-primary"><?= '<a href="index.php?action=adminPage"
+                                        <li class="btn btn-danger"><?= '<a href="index.php?action=adminPage"
                                                                class="nav-link text-center white">Commandes</a>' ?></li>
-                                        <li class="btn btn-primary"><a href="index.php?action=listOfAccounts"
+                                        <li class="btn btn-danger"><a href="index.php?action=listOfAccounts"
                                                                class="nav-link text-center white">Comptes</a></li>
                                     <?php } ?>
                                 <?php } else { ?>
 
-                                    <li class="btn btn-primary"><?= '<a href="index.php?action=login"
-                                                               class="nav-link text-center white">Connexion</a>' ?></li>
+                                    <li class="btn btn-danger"><?= '<a href="index.php?action=login"
+                                                               class="nav-link text-center white">Donaciones</a>' ?></li>
                                 <?php } ?>
 
-
+<!--
                                 <li class="btn btn-primary"><a href="index.php?action=basket"
                                                                class="nav-link text-center white"><span
                                                 class="icon-shopping-bag mr-3"></span>panier <?= $_SESSION['totalQuantity'] ?>
                                     </a></li>
+                                    -->
                             </ul>
                         </nav>
                     </div>
@@ -132,7 +133,7 @@
 
 <?= $content; ?>
 
-
+<!--
 <div class="footer">
     <div class="container">
 
@@ -150,13 +151,13 @@
             <div class="col-12">
                 <div class="copyright">
                     <p>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
                         Copyright ©
                         <script>document.write(new Date().getFullYear());</script>
                         All rights reserved | This template is made with <i class="icon-heart text-danger"
                                                                             aria-hidden="true"></i> by <a href="#"
                                                                                                           target="_blank">Marwanophe</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
                     </p>
 
                 </div>
@@ -164,7 +165,7 @@
         </div>
     </div>
 </div>
-
+-->
 
 </div>
 <!-- .site-wrap -->
@@ -196,6 +197,7 @@
 <script src="/js/main.js"></script>
 
 <script src="/js/signup.js"></script>
+<script src="/js/gabarit.js"></script>
 </body>
 
 </html>

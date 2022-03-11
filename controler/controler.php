@@ -720,6 +720,7 @@ function checkout($condition,$id,$delivery,$invoice,$mode_payment){
         $_SESSION['flashmessage'] = 'la commande à été crée';
         sendEmailByUser($user['email'], $user['lastname'], $user['firstname'], $subject, $body);
         orderPage($lastId);
+        updateBasket(0);
     }else{
         $_SESSION['flashmessage'] = " veuillez accepter les conditions d'achat";
         contractPage($id,$mode_payment,$delivery,$invoice);

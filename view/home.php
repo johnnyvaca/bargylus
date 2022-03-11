@@ -9,7 +9,9 @@
 ob_start();
 $title = "Bargylus- Home";
 ?>
+<!--
 <div class="owl-carousel hero-slide owl-style " >
+
         <div class="intro-section container" style="background-image: url('images/hero_1.png');">
             <div class="row justify-content-center text-center align-items-center">
                 <div class="col-s-8">
@@ -43,8 +45,8 @@ $title = "Bargylus- Home";
             </div>
         </div>
     </div>
-    </div>
-
+</div>
+-->
 <!-- here we have to apply the sold -->
 
     <div class="site-section mt-5">
@@ -52,14 +54,15 @@ $title = "Bargylus- Home";
 
             <div class="row mb-5">
                 <div class="col-12 section-title text-center mb-5">
-                    <h2 class="d-block">Notre promotion </h2>
-                    <p>Bargylus élabore des vins de grande qualité, régulièrement distingués dans les
-                        principaux concours.!</p>
+                    <h2 class="d-block">Bienvenues à la EEANJESUS </h2>
+
+                    <p>il y a un seul Seigneur, une seule foi, un seul baptême... Éphésiens 4:5</p>
                     <span><?= $currantday ?> </span>
-                    <p><a href="index.php?action=displaywines"><b>voir les vins </b> <span class="icon-long-arrow-right"></span></a></p>
+
                 </div>
             </div>
-            <div class="row">
+
+     <!--       <div class="row">
 
                 <?php
 
@@ -89,7 +92,7 @@ $title = "Bargylus- Home";
                                 <span class="icon-star"></span>
                                 <span class="icon-star-o"></span>
                             </div>
-                            <!-- si le vin est épuisé -->
+                             si le vin est épuisé
                             <?php if($sold['stock'] > 0){ ?>
                                 <a href="index.php?action=winesBasket&id=<?=$sold['id']?>" class="btn add"><span class="icon-shopping-bag mr-3"></span> ajouter au panier </a>
                             <?php } else { ?>
@@ -99,7 +102,8 @@ $title = "Bargylus- Home";
                     </div>
                 </div>
                 <?php }} ?>
-        </div>
+        </div> -->
+    </div>
     </div>
 <?php
 $content = ob_get_clean();

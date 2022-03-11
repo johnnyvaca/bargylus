@@ -23,7 +23,7 @@
 
 			.active {
 				> a {
-					color: $primary;
+					color: $danger;
 					display: inline-block;
 					padding-left: 10px;
 					padding-right: 10px;
@@ -115,7 +115,7 @@
 					}
 					.active {
 						> a {
-							color: $primary!important;
+							color: $danger!important;
 						}
 					}
 					> li {
@@ -266,7 +266,7 @@
 			position: relative;
 			color: $gray-900;
 			&:hover {
-				color: $primary;
+				color: $danger;
 			}
 		}
 		li {
@@ -274,7 +274,7 @@
 			display: block;
 			&.active {
 				> a {
-					color: $primary!important;
+					color: $danger!important;
 				}
 			}
 		}
@@ -389,7 +389,7 @@
 
 				&.active {
 					> a {
-						color: $primary;
+						color: $danger;
 					}
 				}
 			}
@@ -415,7 +415,7 @@
 						}
 						&.active {
 							&:after {
-								background: $primary;
+								background: $danger;
 							}
 						}
 					}

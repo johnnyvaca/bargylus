@@ -1,3 +1,10 @@
+const splash = document.querySelector('.splash');
+function test(){
+    setTimeout(() =>{
+        splash.style.width = 0;
+    },3000)
+
+}
 
 function fnEditProfilFirstname(){
     labelFirstname.hidden = true;
@@ -52,6 +59,7 @@ function fnEditProfilBirthdate(){
 
 
 function init() {
+    test()
     editFirstname.addEventListener("click", fnEditProfilFirstname)
     editLastname.addEventListener("click", fnEditProfilLastname)
     editNumber.addEventListener("click", fnEditProfilNumber)
@@ -59,7 +67,8 @@ function init() {
     editZip.addEventListener("click", fnEditProfilZip)
     editCity.addEventListener("click", fnEditProfilCity)
     editBirthdate.addEventListener("click", fnEditProfilBirthdate)
+
 }
 
 //lit tout l'html avant de lancer la fonction init
-document, addEventListener("DOMContentLoaded", init)
+document.addEventListener("DOMContentLoaded", init)

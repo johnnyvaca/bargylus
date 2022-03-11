@@ -109,7 +109,7 @@
 			}
 			&.active {
 				> span {
-					background: $primary;
+					background: $danger;
 				}
 			}
 		}
@@ -276,7 +276,7 @@
 				left: -20px;
 				border-top: 40px solid transparent;
 				border-bottom: 40px solid transparent;
-				border-right: 40px solid $primary;
+				border-right: 40px solid $danger;
 			}
 			> span {
 				color: $black;
@@ -357,7 +357,7 @@
 }
 .section-subtitle {
 	font-weight: 300;
-	color: $primary;
+	color: $danger;
 	text-transform: uppercase;
 	font-size: 1.3rem;
 }
@@ -404,7 +404,7 @@
 		opacity: 0;
 		visibility: hidden;
 		.project-item-category {
-			color: $primary;
+			color: $danger;
 			font-family: $font-family-sans-serif;
 			text-transform: uppercase;
 		}
@@ -492,7 +492,7 @@
 			color: $black;
 		}
 		.position {
-			color: $primary;
+			color: $danger;
 		}
 	}
 	&:hover {
@@ -544,7 +544,7 @@
 		font-family: $font-family-sans-serif;
 		text-transform: uppercase;
 		font-size: 1.2rem;
-		color: $primary;
+		color: $danger;
 	}
 }
 
@@ -579,7 +579,7 @@
 				color: rgb(176, 176, 176);
 			}
 			a {
-				color: $primary;
+				color: $danger;
 			}
 		}
 	}
@@ -809,7 +809,7 @@
 }
 
 .more {
-	color: $primary;
+	color: $danger;
 	text-transform: uppercase;
 	font-size: .83rem;
 }
@@ -873,8 +873,8 @@
 			padding-right: 20px;
 			border-color: $black;
 			&:hover {
-				background: $primary;
-				border-color: $primary;
+				background: $danger;
+				border-color: $danger;
 			}
 		}
 		h2 {
@@ -908,8 +908,8 @@
 			padding-right: 20px;
 			border-color: $black;
 			&:hover {
-				background: $primary;
-				border-color: $primary;
+				background: $danger;
+				border-color: $danger;
 			}
 		}
 		h2 {
@@ -999,7 +999,7 @@
 
 		.price {
 			font-size: 20px;
-			color: $primary;
+			color: $danger;
 			font-family: $font-family-serif;
 			del {
 				color: #ccc;
@@ -1017,12 +1017,12 @@
 		}
 
 		.btn {
-			background: $primary;
+			background: $danger;
 			color: $white;
 			padding: 10px 20px;
 			border-radius: 0;
 			&:hover {
-				background: darken($primary, 10%);
+				background: darken($danger, 10%);
 				color: $white;
 			}
 		}
@@ -1104,7 +1104,7 @@
 	img {
 		max-width: auto!important;
 		width: 80px!important;
-		border: 4px solid $primary;
+		border: 4px solid $danger;
 		margin-bottom: 30px;
 		border-radius: 50%;
 		margin-left: auto!important;
@@ -1147,7 +1147,7 @@
 		width: 40px;
 		height: 40px;
 		border-radius: 50%;
-		background: $primary;
+		background: $danger;
 		color: $white;
 		top: 0;
 		transition: .3s all ease;
@@ -1200,7 +1200,7 @@
 		tr {
 			&:first-child {
 				td {
-					border-top: 1px solid $primary!important;
+					border-top: 1px solid $danger!important;
 				}
 			}
 		}
