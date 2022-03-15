@@ -20,7 +20,7 @@ if (isset($_GET['action'])) {
 switch ($action) {
 
     case 'signup':
-createUser($_POST['email']);
+        create2($_POST['date2']);
         break;
     default :
         home2();

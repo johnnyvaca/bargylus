@@ -9,33 +9,49 @@
 ob_start();
 
 ?>
-    <form method="post" action="index.php?action=signup">
-       <p>hello</p>
-        <input type="text" placeholder="fecha">
-        <input type="text" placeholder="hora"><br>
-        <input type="text" placeholder="quantidad adultos">
-        <input type="text" placeholder="quantidad niños"><br>
-        <input type="text" placeholder="recepcion"><br>
-        <input type="text" placeholder="recepcion"><br>
-        <input type="text" placeholder="piano"><br>
-        <input type="text" placeholder="bateria"><br>
-        <input type="text" placeholder="bajo"><br>
-        <input type="text" placeholder="piano"><br>
-        <input type="text" placeholder="guitarra"><br>
-        <input type="text" placeholder="direccion"><br>
-        <input type="text" placeholder="predicacion"><br>
-        <input type="text" placeholder="coro"><br>
-        <input type="text" placeholder="coro"><br>
-        <input type="text" placeholder="coro"><br>
-        <input type="text" placeholder="ofrenda"><br>
-        <input type="text" placeholder="ofrenda"><br>
-        <input type="text" placeholder="proyeccion"><br>
-        <input type="text" placeholder="transmission"><br>
-        <input type="text" placeholder="cocina"><br>
-        <input type="text" placeholder="cocina"><br>
-        <input type="text" placeholder="cocina"><br>
-    </form>
+    <form method="post" action="index.php?action=signup" id="form">
 
+        <label>
+            <input type="date" name="date2" id="dd">
+        </label><br>
+        <input type="time"><br>
+    <?php  foreach ($users as $user){ ?>
+        <input type="text" placeholder="quantidad adultos" id="test">
+<?php } ?>
+
+
+
+
+
+<datalist>
+<?php
+foreach ($users as $user){ ?>
+         <option value="<?=$user['firstname']?>">
+            <?php } ?>
+    </datalist>
+    <datalist id="id2">
+        <?php
+        foreach ($users as $user){ ?>
+        <option value="<?=$user['lastname']?>">
+            <?php  } ?>
+    </datalist>
+    <script>
+function fnEditProfilFirstname(){
+    let p = document.createElement("input");
+    p.value = 'coucou'
+    const userprofile = document.querySelector('#form');
+userprofile.appendChild(p)
+form.chil
+    test.value = "new value2"
+
+}
+        function init() {
+            dd.addEventListener("input", fnEditProfilFirstname)
+        }
+
+        //lit tout l'html avant de lancer la fonction init
+        document.addEventListener("DOMContentLoaded", init)
+    </script>
 <?php
 $content2 = ob_get_clean();
 require "view/gabarit.php";

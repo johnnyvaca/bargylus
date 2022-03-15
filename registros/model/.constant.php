@@ -1,5 +1,5 @@
 <?php
-    $dbhost = 'localhost';
+$dbhost = 'localhost';
 $dbname = 'registros';
 $user = 'root';
 $pass = 'root';
