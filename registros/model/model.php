@@ -77,10 +77,11 @@ function getDataByDate($date2)
     require "model/.constant.php";
     try {
         $dbh = getPDO();
-        $query = 'SELECT name,firstname,lastname,users.id as users_id, services.id as services_id, culte.id as culte_id FROM users_has_services us
+        $query = "SELECT s.name, firstname,lastname,users.id AS 'users_id', culte.id AS 'culte_id', s.id AS 'services_id' FROM users_has_services us
                   JOIN users ON users.id = us.users_id
                   JOIN culte ON culte.id = us.culte_id
-                  JOIN services s ON s.id = us.services_id WHERE culte.date =:date4';
+                  JOIN services s ON s.id = us.services_id
+						WHERE culte.date =:date4";
         $statment = $dbh->prepare($query);//prepare query, il doit faire des vérifications et il va pas exécuter tant
         //qu'il y a des choses incorrects
         $statment->execute(['date4' => $date2]);//execute query
