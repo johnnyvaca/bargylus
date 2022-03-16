@@ -155,7 +155,7 @@ function createCulto($oneUser)
     $dbh = getPDO();
     try {
         $query = "INSERT INTO culte(date,adultos,ninos) 
-                  VALUES  (:date,:adultos,:ninos)";
+                  VALUES  (:date2,:adultos,:ninos)";
         $stmt = $dbh->prepare($query);
         $stmt->execute($oneUser);
 
@@ -648,7 +648,25 @@ where invoices.id = :id';
     }
 
 }
+function updateCulto($delivery)
+{
+    try {
+        $dbh = getPDO();
+        $query = "UPDATE  culte set 
+                  date = :date2, 
+                  adultos =:adultos, 
+                  ninos =:ninos 
+                  WHERE id =:id";
+        $statment = $dbh->prepare($query);
+        $statment->execute($delivery);//prepare query
+       //prepare result for client
+        $dbh = null;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
 
+}
 function updateDeliveryModel($delivery)
 {
     try {
@@ -665,8 +683,7 @@ WHERE deliveries.id =:id';
         $statment->execute($delivery);//prepare query
         $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
         $dbh = null;
-        return $queryResult;
-        if ($debug) var_dump($queryResult);
+
     } catch (PDOException $e) {
         print "Error!: " . $e->getMessage() . "<br/>";
         return null;

@@ -26,13 +26,27 @@ $_SESSION["date"] = $date;
 }
 function home3($date,$adultos,$ninos,$culto_id,$name,$services_id,$firstname,$lastname,$users_id)
 {
+
     $cultos = getCulteByDate($_SESSION["date"]);
+    var_dump($cultos."<br>");
     $oneCulto = [
-        'date' => $date,
-        'adultos' => $ninos,
-        'ninos' => $adultos
+        'date2' => $date,
+        'adultos' => $adultos,
+        'ninos' => $ninos,
+        'id' => $culto_id
     ];
-    createCulto($oneCulto);
+    if(!$ninos){
+        $ninos = 0;
+    }
+    if(!$adultos){
+        $adultos = 0;
+    }
+    if(!$culto_id){
+        createCulto($oneCulto);
+    }else{
+        updateCulto($oneCulto);
+    }
+/*
     foreach($firstname as $key => $service){
 
         $oneUser = [
@@ -45,37 +59,15 @@ function home3($date,$adultos,$ninos,$culto_id,$name,$services_id,$firstname,$la
 
     }
 
-
+*/
     $_SESSION["date"] = $date;
     $users = getUsers();
     $cultos = getCulteByDate($_SESSION["date"]);
-    $cultos = getCulteByDate($_SESSION["date"]);
-    if(!$cultos){
-        $cultos = [
-            '0'=>[
-                'date' => $date
-            ]
-        ];
-    }
+
+    var_dump($cultos);
+
     $datas = getDataByDate($_SESSION["date"]);
 
 
     require_once 'view/home.php';
-}
-function create($date,$adultos,$ninos){
-    $oneUser = [
-        'date' => $date,
-        'adultos' => $adultos,
-        'ninos' => $ninos
-
-    ];
-}
-function create2($date){
-    $oneUser = [
-        'date2' => $date
-
-    ];
-
-
-    home2();
 }

@@ -20,15 +20,11 @@ if (isset($_GET['action'])) {
 switch ($action) {
 
     case 'signup':
-        var_dump($_POST["date"]);
-        var_dump($_POST["adultos"]);
-        var_dump($_POST["ninos"]);
-        var_dump($_POST["culto_id"]);
+
         home3($_POST["date"],$_POST["adultos"],$_POST["ninos"],$_POST["culto_id"],$_POST["name"],$_POST["services_id"],$_POST["firstname"],$_POST["lastname"],$_POST["users_id"]);
 
         break;
     default :
-        var_dump($_POST["name"]);
         home2();
 
         break;
