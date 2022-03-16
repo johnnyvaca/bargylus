@@ -54,12 +54,12 @@ function getCulto()
         return null;
     }
 }
-function getCulte($date)
+function getCulteByDate($date)
 {
     require "model/.constant.php";
     try {
         $dbh = getPDO();
-        $query = 'SELECT * FROM culte  WHERE date =:date3 ';
+        $query = 'SELECT * FROM culte c WHERE c.date =:date3 ';
         $statment = $dbh->prepare($query);//prepare query, il doit faire des vérifications et il va pas exécuter tant
         //qu'il y a des choses incorrects
         $statment->execute(['date3' => $date]);//execute query
@@ -72,7 +72,27 @@ function getCulte($date)
         return null;
     }
 }
-
+function getDataByDate($date2)
+{
+    require "model/.constant.php";
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT name,firstname,lastname FROM users_has_services us
+                  JOIN users ON users.id = us.users_id
+                  JOIN culte ON culte.id = us.culte_id
+                  JOIN services s ON s.id = us.services_id WHERE culte.date =:date4';
+        $statment = $dbh->prepare($query);//prepare query, il doit faire des vérifications et il va pas exécuter tant
+        //qu'il y a des choses incorrects
+        $statment->execute(['date4' => $date2]);//execute query
+        $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client cherche tous les résultats
+        $dbh = null; //refermer une connection quand on a fini
+        if ($debug) var_dump($queryResult);
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
 function getUserById($id)
 {
     require "model/.constant.php";

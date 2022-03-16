@@ -9,11 +9,20 @@
 ob_start();
 
 ?>
+
     <form method="post" action="index.php?action=signup" id="form">
-
-    <input type="date" name="date2" id="dd" value="<?=$cultos[0]["date"]?>">
-
-
+    <input type="date" name="date" id="dd" value="<?=$cultos[0]["date"]?>"><br>
+    <input type="text" name="adultos" id="dd" value="<?=$cultos[0]["adultos"]?>">
+    <input type="text" name="ninos" id="ninos" value="<?=$cultos[0]["ninos"]?>"><br>
+<?php
+foreach ($datas as $data){ ?>
+    <input type="text" name="name[]" id="dd" value="<?=$data["name"]?>">
+    <input type="text" name="firstname[]" id="dd" value="<?=$data["firstname"]?>">
+    <input type="text" name="lastname[]" id="dd" value="<?=$data["lastname"]?>">
+    <br>
+<?php   } ?>
+        <input type="submit" value="hello">
+    </form>
 
 
 
@@ -32,12 +41,14 @@ foreach ($users as $user){ ?>
     </datalist>
     <script>
 function fnEditProfilFirstname(){
+    /*
     let p = document.createElement("input");
     p.value = 'coucou'
     const userprofile = document.querySelector('#form');
 userprofile.appendChild(p)
 form.chil
-    test.value = "new value2"
+    test.value = "new value2"*/
+    form.submit()
 
 }
         function init() {

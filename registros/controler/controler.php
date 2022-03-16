@@ -4,10 +4,27 @@ function home2()
 {
 
 $date = date("Y-m-d");
-$datet   = "2022-03-10";
+$date2 = "2022-03-10";
+$_SESSION["date"] = $date2;
 $users = getUsers();
-$cultos = getCulte($datet);
-var_dump($cultos);
+$cultos = getCulteByDate($date2);
+ $datas = getDataByDate($date2);
+
+
+    require_once 'view/home.php';
+}
+function home3($date,$adultos,$ninos,$name,$fisrtname,$lastname)
+{
+foreach($datas as $data){
+    
+}
+
+
+    $users = getUsers();
+    $cultos = getCulteByDate($date);
+    $datas = getDataByDate($date);
+
+    $_SESSION["date"] = $date;
     require_once 'view/home.php';
 }
 function create($date,$adultos,$ninos,$services_id,$users_id){
