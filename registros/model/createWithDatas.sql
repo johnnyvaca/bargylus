@@ -23,18 +23,22 @@ DROP TABLE IF EXISTS `culte`;
 CREATE TABLE IF NOT EXISTS `culte` (
   `id` int NOT NULL AUTO_INCREMENT,
   `date` varchar(45) DEFAULT NULL,
-  `adultos` varchar(45) DEFAULT NULL,
-  `ninos` varchar(45) DEFAULT NULL,
+  `adultos` int DEFAULT NULL,
+  `ninos` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `unique` (`date`,`adultos`,`ninos`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3;
+  UNIQUE KEY `unique` (`date`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb3;
 
 -- Listage des données de la table registros.culte : ~0 rows (environ)
 DELETE FROM `culte`;
 /*!40000 ALTER TABLE `culte` DISABLE KEYS */;
 INSERT INTO `culte` (`id`, `date`, `adultos`, `ninos`) VALUES
-	(11, '2022-03-10', '100', '10'),
-	(12, '2022-03-20', '200', '20');
+	(11, '2022-03-10', 2000, 20),
+	(12, '2022-03-08', 200, 20),
+	(15, '2022-03-15', 1000, 10),
+	(16, NULL, 100, 10),
+	(17, '2022-04-20', 100, 10),
+	(18, '2022-03-18', 100, 10);
 /*!40000 ALTER TABLE `culte` ENABLE KEYS */;
 
 -- Listage de la structure de la table registros. services
@@ -88,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `users_has_services` (
   CONSTRAINT `fk_users_has_services_culte1` FOREIGN KEY (`culte_id`) REFERENCES `culte` (`id`),
   CONSTRAINT `fk_users_has_services_services1` FOREIGN KEY (`services_id`) REFERENCES `services` (`id`),
   CONSTRAINT `fk_users_has_services_users` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb3;
 
 -- Listage des données de la table registros.users_has_services : ~0 rows (environ)
 DELETE FROM `users_has_services`;
@@ -99,7 +103,9 @@ INSERT INTO `users_has_services` (`users_id`, `services_id`, `culte_id`, `id`) V
 	(8, 6, 11, 3),
 	(7, 5, 12, 4),
 	(8, 6, 12, 5),
-	(6, 4, 12, 6);
+	(6, 4, 12, 6),
+	(NULL, NULL, 15, 65),
+	(NULL, NULL, 15, 66);
 /*!40000 ALTER TABLE `users_has_services` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
