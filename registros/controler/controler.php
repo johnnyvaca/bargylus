@@ -23,7 +23,7 @@ function home3($date,$adultos,$ninos,$culto_id,$name,$services_id,$firstname,$la
             'services_id' => $services_id[$key],
             'culte_id' => $cultos[0]["id"]
         ];
-        var_dump($oneUser); ?> <br><?php
+
         createData($oneUser);
 
     }

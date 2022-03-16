@@ -11,7 +11,8 @@ ob_start();
 ?>
 
     <form method="post" action="index.php?action=signup" id="form">
-    <input type="date" name="date" id="dd" value="<?=$cultos[0]["date"]?>"><br>
+    <input type="date" name="date" id="dd" value="<?=$cultos[0]["date"]?>">
+        <a title="hello" href="" id="addService">ajouter un service</a><br>
     <input type="text" name="adultos" id="dd" value="<?=$cultos[0]["adultos"]?>">
     <input type="text" name="ninos" id="ninos" value="<?=$cultos[0]["ninos"]?>"><br>
     <input type="hidden" name="culto_id" id="ninos" value="<?=$cultos[0]["id"]?>">
@@ -55,8 +56,18 @@ form.chil
     form.submit()
 
 }
+function fnAddInputs(){
+
+    let p = document.createElement("input");
+    p.value = 'coucou'
+    const userprofile = document.querySelector('#form');
+    userprofile.appendChild(p)
+
+
+}
         function init() {
             dd.addEventListener("input", fnEditProfilFirstname)
+            addServiceb.addEventListener("click",fnAddInputs)
         }
 
         //lit tout l'html avant de lancer la fonction init

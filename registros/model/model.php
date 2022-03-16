@@ -155,7 +155,7 @@ function createData($oneUser)
     $dbh = getPDO();
     try {
         $query = "INSERT INTO users_has_services(users_id,services_id,culte_id) 
-                  VALUES  (:users_id,:services_id,:culte_id";
+                  VALUES  (:users_id,:services_id,:culte_id)";
         $stmt = $dbh->prepare($query);
         $stmt->execute($oneUser);
 
@@ -163,8 +163,8 @@ function createData($oneUser)
         $dbh = null;
         return $id;
     } catch (PDOException $e) {
-        print "Error!:" . $e->getMessage() . "<br/>";
-        die();
+       // print "Error!:" . $e->getMessage() . "<br/>";
+      //  die();
     }
     //
 }
