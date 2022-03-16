@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controler/controler.php" beforeDir="false" afterPath="$PROJECT_DIR$/controler/controler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/getDatas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/model/getDatas.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/model.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/home.php" afterDir="false" />
     </list>
@@ -53,7 +52,8 @@
       <workItem from="1647108057250" duration="3043000" />
       <workItem from="1647356881359" duration="6626000" />
       <workItem from="1647370388932" duration="4050000" />
-      <workItem from="1647406026220" duration="6433000" />
+      <workItem from="1647406026220" duration="6452000" />
+      <workItem from="1647414300956" duration="2146000" />
     </task>
     <servers />
   </component>

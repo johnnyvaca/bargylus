@@ -14,11 +14,15 @@ ob_start();
     <input type="date" name="date" id="dd" value="<?=$cultos[0]["date"]?>"><br>
     <input type="text" name="adultos" id="dd" value="<?=$cultos[0]["adultos"]?>">
     <input type="text" name="ninos" id="ninos" value="<?=$cultos[0]["ninos"]?>"><br>
+    <input type="hidden" name="culto_id" id="ninos" value="<?=$cultos[0]["id"]?>">
 <?php
 foreach ($datas as $data){ ?>
     <input type="text" name="name[]" id="dd" value="<?=$data["name"]?>">
     <input type="text" name="firstname[]" id="dd" value="<?=$data["firstname"]?>">
     <input type="text" name="lastname[]" id="dd" value="<?=$data["lastname"]?>">
+
+    <input type="hidden" name="services_id[]" id="dd" value="<?=$data["services_id"]?>">
+    <input type="hidden" name="users_id[]" id="dd" value="<?=$data["users_id"]?>">
     <br>
 <?php   } ?>
         <input type="submit" value="hello">

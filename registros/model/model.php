@@ -77,7 +77,7 @@ function getDataByDate($date2)
     require "model/.constant.php";
     try {
         $dbh = getPDO();
-        $query = 'SELECT name,firstname,lastname FROM users_has_services us
+        $query = 'SELECT name,firstname,lastname,users.id as users_id, services.id as services_id, culte.id as culte_id FROM users_has_services us
                   JOIN users ON users.id = us.users_id
                   JOIN culte ON culte.id = us.culte_id
                   JOIN services s ON s.id = us.services_id WHERE culte.date =:date4';
@@ -135,8 +135,26 @@ function createCulto($oneUser)
 {
     $dbh = getPDO();
     try {
-        $query = "INSERT INTO culte(date) 
+        $query = "INSERT INTO culte(date,adultos,ninos) 
                   VALUES  (:date2)";
+        $stmt = $dbh->prepare($query);
+        $stmt->execute($oneUser);
+
+        $id =   $dbh->lastInsertId();
+        $dbh = null;
+        return $id;
+    } catch (PDOException $e) {
+        print "Error!:" . $e->getMessage() . "<br/>";
+        die();
+    }
+    //
+}
+function createData($oneUser)
+{
+    $dbh = getPDO();
+    try {
+        $query = "INSERT INTO users_has_services(users_id,services_id,culte_id) 
+                  VALUES  (:users_id,:services_id,:culte_id";
         $stmt = $dbh->prepare($query);
         $stmt->execute($oneUser);
 
