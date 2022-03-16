@@ -36,6 +36,24 @@ function getUsers()
         return null;
     }
 }
+function getServices()
+{
+    require "model/.constant.php";
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT * FROM services ';
+        $statment = $dbh->prepare($query);//prepare query, il doit faire des vérifications et il va pas exécuter tant
+        //qu'il y a des choses incorrects
+        $statment->execute();//execute query
+        $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client cherche tous les résultats
+        $dbh = null; //refermer une connection quand on a fini
+        if ($debug) var_dump($queryResult);
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
 function getCulto()
 {
     require "model/.constant.php";
@@ -137,7 +155,7 @@ function createCulto($oneUser)
     $dbh = getPDO();
     try {
         $query = "INSERT INTO culte(date,adultos,ninos) 
-                  VALUES  (:date2)";
+                  VALUES  (:date,:adultos,:ninos)";
         $stmt = $dbh->prepare($query);
         $stmt->execute($oneUser);
 
