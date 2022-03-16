@@ -80,13 +80,14 @@ CREATE TABLE IF NOT EXISTS `users_has_services` (
   `culte_id` int NOT NULL,
   `id` int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `unique` (`users_id`,`culte_id`),
   KEY `fk_users_has_services_services1_idx` (`services_id`),
   KEY `fk_users_has_services_users_idx` (`users_id`),
   KEY `fk_users_has_services_culte1_idx` (`culte_id`),
   CONSTRAINT `fk_users_has_services_culte1` FOREIGN KEY (`culte_id`) REFERENCES `culte` (`id`),
   CONSTRAINT `fk_users_has_services_services1` FOREIGN KEY (`services_id`) REFERENCES `services` (`id`),
   CONSTRAINT `fk_users_has_services_users` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb3;
 
 -- Listage des données de la table registros.users_has_services : ~0 rows (environ)
 DELETE FROM `users_has_services`;
