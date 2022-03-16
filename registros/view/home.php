@@ -11,13 +11,8 @@ ob_start();
 ?>
     <form method="post" action="index.php?action=signup" id="form">
 
-        <label>
-            <input type="date" name="date2" id="dd">
-        </label><br>
-        <input type="time"><br>
-    <?php  foreach ($users as $user){ ?>
-        <input type="text" placeholder="quantidad adultos" id="test">
-<?php } ?>
+    <input type="date" name="date2" id="dd" value="<?=$cultos[0]["date"]?>">
+
 
 
 
