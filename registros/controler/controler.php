@@ -31,9 +31,17 @@ function home3($dateNew,$adultos,$ninos,$culto_id,$name,$services_id,$firstname,
     $users = getUsers();
     foreach ($users as $key => $user){
         $userOld = explode(" ",$firstname[$key]);
+
       ////////  var_dump($userOld);
         if($user['firstname'] = $userOld[0] && $user['lastname'] = $userOld[1] ){
             $userId[$key] = $user['id'];
+
+        }
+    }
+
+    foreach ($services as $key => $service){
+        if($service['name'] = $name[$key]){
+            $serviceId[$key] = $service['id'];
         }
     }
 
@@ -52,14 +60,8 @@ function home3($dateNew,$adultos,$ninos,$culto_id,$name,$services_id,$firstname,
             'adultos' => $adultos,
             'ninos' => $ninos
         ];
-   $id =     createCulto($oneCulto);
-        $oneCulto = [
-            'date2' => $_SESSION["date"],
-            'adultos' => $adultos,
-            'ninos' => $ninos,
-            'id' => $id
-        ];
-   var_dump($id);
+        $id = createCulto($oneCulto);
+        $oneCulto['id'] =$id;
     }else{
         $oneCulto = [
             'date2' => $_SESSION["date"],
@@ -69,16 +71,14 @@ function home3($dateNew,$adultos,$ninos,$culto_id,$name,$services_id,$firstname,
         ];
         updateCulto($oneCulto);
     }
-var_dump($userId);
     foreach($firstname as $key => $service){
 
         $oneUser = [
             'users_id' => $userId[$key],
-            'services_id' => $services_id[$key],
+            'services_id' => $serviceId[$key],
             'culte_id' => $oneCulto['id']
         ];
-
-     ///////   var_dump($oneUser);
+        var_dump($oneUser);
         createData($oneUser);
 
     }
@@ -96,6 +96,7 @@ var_dump($userId);
     }
 
     $datas = getDataByDate($_SESSION["date"]);
+    var_dump($datas);
 
 
     require_once 'view/home.php';

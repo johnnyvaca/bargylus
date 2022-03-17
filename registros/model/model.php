@@ -181,8 +181,8 @@ function createData($oneUser)
         $dbh = null;
         return $id;
     } catch (PDOException $e) {
-       // print "Error!:" . $e->getMessage() . "<br/>";
-      //  die();
+        print "Error!:" . $e->getMessage() . "<br/>";
+        die();
     }
     //
 }

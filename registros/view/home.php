@@ -79,7 +79,6 @@ function fnAddInputs(){
     const userprofile = document.querySelector('#form');
     userprofile.appendChild(p)
     userprofile.appendChild(p2)
-    userprofile.appendChild(p3)
     userprofile.appendChild(p4)
 }
         function init() {
