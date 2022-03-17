@@ -21,7 +21,7 @@ switch ($action) {
 
     case 'signup':
 
-        home3($_POST["date"],$_POST["adultos"],$_POST["ninos"],$_POST["culto_id"],$_POST["name"],$_POST["services_id"],$_POST["firstname"],$_POST["lastname"],$_POST["users_id"]);
+        home3($_POST["date"],$_POST["adultos"],$_POST["ninos"],$_POST["culto_id"],$_POST["name"],$_POST["services_id"],$_POST["firstname"],$_POST["users_id"]);
 
         break;
     default :

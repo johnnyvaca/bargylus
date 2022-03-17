@@ -18,9 +18,14 @@ ob_start();
     <input type="hidden" name="culto_id" id="ninos" value="<?=$cultos[0]["id"]?>">
 <?php
 foreach ($datas as $data){ ?>
-    <input type="text" name="name[]" id="dd" value="<?=$data["name"]?>" list="listName">
-    <input type="text" name="firstname[]" id="dd" value="<?=$data["firstname"]?>" list="listUserFirst">
-    <input type="text" name="lastname[]" id="dd" value="<?=$data["lastname"]?>" list="listUserLast">
+    <select  name="name[]" id="dd">
+
+        <?php
+        foreach ($services as $service){ ?>
+            <option  value="<?=$service['name']?>"><?=$service['name']?></option>
+            <?php } ?>
+    </select>
+    <input type="text" name="firstname[]" id="dd" title="coucou" value="<?=$data["firstname"]?> <?=$data["lastname"]?>" list="listUserFirst">
 
     <input type="hidden" name="services_id[]" id="dd" value="<?=$data["services_id"]?>">
     <input type="hidden" name="users_id[]" id="dd" value="<?=$data["users_id"]?>">
@@ -40,7 +45,7 @@ foreach ($datas as $data){ ?>
 <datalist id="listUserFirst">
 <?php
 foreach ($users as $user){ ?>
-         <option value="<?=$user['firstname']?>">
+         <option value="<?=$user['firstname']?> <?=$user['lastname']?>">
              <?php } ?>
     </datalist>
     <datalist id="listUserLast">
@@ -64,14 +69,11 @@ form.chil
 function fnAddInputs(){
     let p = document.createElement("input");
     let p2 = document.createElement("input");
-    let p3 = document.createElement("input");
     let p4 = document.createElement("br");
     p.name="name[]"
     p.setAttribute("list",'listName')
     p2.name="firstname[]"
     p2.setAttribute("list",'listUserFirst')
-    p3.name="lastname[]"
-    p3.setAttribute("list",'listUserLast')
 
 
     const userprofile = document.querySelector('#form');

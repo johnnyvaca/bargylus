@@ -27,18 +27,19 @@ CREATE TABLE IF NOT EXISTS `culte` (
   `ninos` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique` (`date`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb3;
 
--- Listage des données de la table registros.culte : ~0 rows (environ)
+-- Listage des données de la table registros.culte : ~7 rows (environ)
 DELETE FROM `culte`;
 /*!40000 ALTER TABLE `culte` DISABLE KEYS */;
 INSERT INTO `culte` (`id`, `date`, `adultos`, `ninos`) VALUES
-	(11, '2022-03-10', 2000, 20),
+	(11, '2022-03-20', 2000, 20),
 	(12, '2022-03-08', 200, 20),
 	(15, '2022-03-15', 1000, 10),
 	(16, NULL, 100, 10),
 	(17, '2022-04-20', 100, 10),
-	(18, '2022-03-18', 100, 10);
+	(18, '2022-03-18', 100, 10),
+	(19, '2022-03-17', 200, 30);
 /*!40000 ALTER TABLE `culte` ENABLE KEYS */;
 
 -- Listage de la structure de la table registros. services
@@ -49,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `services` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 
--- Listage des données de la table registros.services : ~0 rows (environ)
+-- Listage des données de la table registros.services : ~2 rows (environ)
 DELETE FROM `services`;
 /*!40000 ALTER TABLE `services` DISABLE KEYS */;
 INSERT INTO `services` (`id`, `name`) VALUES
@@ -68,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
 
--- Listage des données de la table registros.users : ~0 rows (environ)
+-- Listage des données de la table registros.users : ~2 rows (environ)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `firstname`, `lastname`) VALUES
@@ -94,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `users_has_services` (
   CONSTRAINT `fk_users_has_services_users` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb3;
 
--- Listage des données de la table registros.users_has_services : ~0 rows (environ)
+-- Listage des données de la table registros.users_has_services : ~7 rows (environ)
 DELETE FROM `users_has_services`;
 /*!40000 ALTER TABLE `users_has_services` DISABLE KEYS */;
 INSERT INTO `users_has_services` (`users_id`, `services_id`, `culte_id`, `id`) VALUES
