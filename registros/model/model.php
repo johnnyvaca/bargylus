@@ -96,7 +96,10 @@ function getData()
     require "model/.constant.php";
     try {
         $dbh = getPDO();
-        $query = "SELECT * FROM users_has_services";
+        $query = "SELECT s.name, firstname,lastname,users.id AS 'users_id', culte.id AS 'culte_id', s.id AS 'services_id' FROM users_has_services us
+                  JOIN users ON users.id = us.users_id
+                  JOIN culte ON culte.id = us.culte_id
+                  JOIN services s ON s.id = us.services_id";
         $statment = $dbh->prepare($query);//prepare query, il doit faire des vérifications et il va pas exécuter tant
         //qu'il y a des choses incorrects
         $statment->execute();//execute query

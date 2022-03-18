@@ -16,8 +16,11 @@ ob_start();
     <input type="text" name="adultos" id="dd" value="<?=$cultos[0]["adultos"]?>">
     <input type="text" name="ninos" id="ninos" value="<?=$cultos[0]["ninos"]?>"><br>
     <input type="hidden" name="culto_id" id="ninos" value="<?=$cultos[0]["id"]?>">
-<?php
+
+
+        <?php
 foreach ($datas as $data){ ?>
+    <input type="text" name="firstname[]" id="dd" title="coucou" value="<?=$data["firstname"]?> <?=$data["lastname"]?>" list="listUserFirst">
     <select  name="name[]" id="dd">
 
         <?php
@@ -25,7 +28,6 @@ foreach ($datas as $data){ ?>
             <option  value="<?=$service['name']?>"><?=$service['name']?></option>
             <?php } ?>
     </select>
-    <input type="text" name="firstname[]" id="dd" title="coucou" value="<?=$data["firstname"]?> <?=$data["lastname"]?>" list="listUserFirst">
 
     <input type="hidden" name="services_id[]" id="dd" value="<?=$data["services_id"]?>">
     <input type="hidden" name="users_id[]" id="dd" value="<?=$data["users_id"]?>">
@@ -77,8 +79,8 @@ function fnAddInputs(){
 
 
     const userprofile = document.querySelector('#form');
-    userprofile.appendChild(p)
     userprofile.appendChild(p2)
+    userprofile.appendChild(p)
     userprofile.appendChild(p4)
 }
         function init() {

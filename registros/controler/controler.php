@@ -27,20 +27,22 @@ function home3($dateNew,$adultos,$ninos,$culto_id,$name,$services_id,$firstname,
 {
 ////////// var_dump($firstname);
 
-    $services = getServices();
-    $users = getUsers();
+    $services = array_unique(getServices());
+
+    $users = array_unique(getUsers());
+   // var_dump($services);
+  //  var_dump($users);
+    $userOld = [];
     foreach ($users as $key => $user){
         $userOld = explode(" ",$firstname[$key]);
 
-      ////////  var_dump($userOld);
-        if($user['firstname'] = $userOld[0] && $user['lastname'] = $userOld[1] ){
+        if($user['firstname'] == $userOld[0] && $user['lastname'] == $userOld[1] ){
             $userId[$key] = $user['id'];
-
         }
     }
 
     foreach ($services as $key => $service){
-        if($service['name'] = $name[$key]){
+        if($service['name'] == $name[$key]){
             $serviceId[$key] = $service['id'];
         }
     }
@@ -71,20 +73,18 @@ function home3($dateNew,$adultos,$ninos,$culto_id,$name,$services_id,$firstname,
         ];
         updateCulto($oneCulto);
     }
-    $datas2 = getData();
+    $datas = getData();
 $test = 0;
-    foreach($datas2 as $key => $data){
+    foreach($datas as $key => $data){
 
+        if( !(in_array($data['users_id'],$userId) && in_array($data['services_id'], $serviceId) && in_array($data['culte_id'], array_column($oneCulto,'id')) )){
 
-        if($data['users_id'] != $userId[$key] && $data['services_id'] != $serviceId[$key] && $data['culte_id'] != $oneCulto['id']){
-          if(!($userId[$key] === NULL || $serviceId[$key] === NULL)){
-              var_dump($userId[$key] .' - '.$serviceId[$key].' - '.$oneCulto['id'].'<br>');
+            if(!(in_array(null,$userId) || in_array(null, $serviceId))){
               $oneUser = [
                   'users_id' => $userId[$key],
                   'services_id' => $serviceId[$key],
                   'culte_id' => $oneCulto['id']
               ];
-              ////////////////  var_dump($oneUser);
               createData($oneUser);
               $test = $test+1;
           }
