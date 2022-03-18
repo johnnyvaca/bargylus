@@ -71,15 +71,26 @@ function home3($dateNew,$adultos,$ninos,$culto_id,$name,$services_id,$firstname,
         ];
         updateCulto($oneCulto);
     }
-    foreach($firstname as $key => $service){
+    $datas2 = getData();
+$test = 0;
+    foreach($datas2 as $key => $data){
 
-        $oneUser = [
-            'users_id' => $userId[$key],
-            'services_id' => $serviceId[$key],
-            'culte_id' => $oneCulto['id']
-        ];
-        var_dump($oneUser);
-        createData($oneUser);
+
+        if($data['users_id'] != $userId[$key] && $data['services_id'] != $serviceId[$key] && $data['culte_id'] != $oneCulto['id']){
+          if(!($userId[$key] === NULL || $serviceId[$key] === NULL)){
+              var_dump($userId[$key] .' - '.$serviceId[$key].' - '.$oneCulto['id'].'<br>');
+              $oneUser = [
+                  'users_id' => $userId[$key],
+                  'services_id' => $serviceId[$key],
+                  'culte_id' => $oneCulto['id']
+              ];
+              ////////////////  var_dump($oneUser);
+              createData($oneUser);
+              $test = $test+1;
+          }
+
+        }
+
 
     }
 
@@ -96,7 +107,7 @@ function home3($dateNew,$adultos,$ninos,$culto_id,$name,$services_id,$firstname,
     }
 
     $datas = getDataByDate($_SESSION["date"]);
-    var_dump($datas);
+
 
 
     require_once 'view/home.php';
