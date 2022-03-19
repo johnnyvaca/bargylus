@@ -17,7 +17,6 @@ ob_start();
     <input type="text" name="ninos" id="ninos" value="<?=$cultos[0]["ninos"]?>"><br>
     <input type="hidden" name="culto_id" id="ninos" value="<?=$cultos[0]["id"]?>">
 
-
         <?php
 foreach ($datas as $data){ ?>
     <input type="text" name="firstname[]" id="dd" title="coucou" value="<?=$data["firstname"]?> <?=$data["lastname"]?>" list="listUserFirst">
