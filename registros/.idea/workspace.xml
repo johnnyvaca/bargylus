@@ -4,6 +4,7 @@
     <list default="true" id="74c8df9d-bd5e-4e47-96cd-ec001fe230ac" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controler/controler.php" beforeDir="false" afterPath="$PROJECT_DIR$/controler/controler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/model.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/home.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +60,7 @@
       <workItem from="1647516680278" duration="3138000" />
       <workItem from="1647539426702" duration="3037000" />
       <workItem from="1647628293484" duration="7525000" />
-      <workItem from="1647636623509" duration="23343000" />
+      <workItem from="1647636623509" duration="30655000" />
     </task>
     <servers />
   </component>

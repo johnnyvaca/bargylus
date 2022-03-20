@@ -20,13 +20,7 @@ ob_start();
         <?php
 foreach ($datas as $data){ ?>
     <input type="text" name="firstname[]" id="dd" title="coucou" value="<?=$data["firstname"]?> <?=$data["lastname"]?>" list="listUserFirst">
-    <select  name="name[]" id="dd">
-
-        <?php
-        foreach ($services as $service){ ?>
-            <option  value="<?=$service['name']?>"><?=$service['name']?></option>
-            <?php } ?>
-    </select>
+    <input type="text" name="name[]" id="dd" title="coucou" value="<?=$data["name"]?>" list="listName">
 
     <input type="hidden" name="services_id[]" id="dd" value="<?=$data["services_id"]?>">
     <input type="hidden" name="users_id[]" id="dd" value="<?=$data["users_id"]?>">

@@ -32,29 +32,45 @@ function home3($dateNew,$adultos,$ninos,$culto_id,$name,$services_id,$firstname,
     $users = getUsers();
 
     $userOld = '';
-    var_dump($culto_id);
-
+    $keyDeleted = 0;
+echo $culto_id.'<br>';
     foreach ($users as $key => $user) {
         foreach ($firstname as $key2 => $item) {
+
+
                     $userOld = explode(" ", $item);
-
-            if ($user['firstname'] == $userOld[0] && $user['lastname'] == $userOld[1]) {
-
-                $userId[$key] = $user['id'];
-            }
+                        if ($user['firstname'] == $userOld[0] && $user['lastname'] == $userOld[1]) {
+             //               echo $userOld[0].' '. $userOld[1].' - '. $key2.'<br>';
+                            $userId[$key2] = $user['id'];
+                        }
         }
+// echo '<br>';
+        unset($firstname[$keyDeleted]);
+        $keyDeleted+=1;
     }
 
+$userId2 = ksort($userId,SORT_NUMERIC);
+echo '<br><br>';
 
-    foreach ($name as $key => $user) {
 
-        foreach ($services as $key2 => $item) {
-                        if ($user == $item['name']) {
+    $keyDeleted = 0;
+    foreach ($services as $key => $user) {
 
-                            $serviceId[$key] = $item['id'];
+        foreach ($name as $key2 => $item) {
+
+                        if ($item == $user['name']) {
+                            echo $user['name'].' - '. $item.'<br>';
+                            $serviceId[$key2] = $user['id'];
                         }
                     }
+        echo '<br>';
+        unset($name[$keyDeleted]);
+        $keyDeleted+=1;
     }
+var_dump($userId);
+    echo '<br><br>';
+var_dump($serviceId);
+
 
     $cultos = getCulteByDate($_SESSION["date"]);
 
@@ -82,13 +98,17 @@ function home3($dateNew,$adultos,$ninos,$culto_id,$name,$services_id,$firstname,
         updateCulto($oneCulto);
     }
     $datas = getData();
+
+
+    echo '------------------------------------------------------';
 if(!isset($id)){
 
     foreach($datas as $key => $data){
       echo  '<br>';
       if($culto_id == $data['culte_id']){
      foreach ($name as $key2 => $service){
-
+      echo  $serviceId[$key2] .' - '.$userId[$key2] .'<br>';
+/*
             echo $data['users_id'] .' - '.$data['services_id'].' - '. $data['culte_id'] .' || ';
         //   echo '<br>BDD: - user: ' .$data['users_id'] .' ||  service:'. $data['services_id'] . ' || '. $data['culte_id'];
          //  echo '<br>MOI: - user: ' .$userId[$key2] .' ||  service:'. $serviceId[$key2] . ' || ' . $culto_id. '<br>' ;
@@ -99,8 +119,9 @@ if(!isset($id)){
                  'culte_id' => $culto_id
              ];
              print_r($oneUser);
-          //   createData($oneUser);
+             createData($oneUser);
          }
+         */
         }
      }
       /*  if( in_array($data['users_id'],$userId) == false && in_array($data['services_id'], $serviceId) == false  && in_array($data['culte_id'], array_column($oneCulto,'id')) == false  ){
