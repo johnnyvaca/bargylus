@@ -16,16 +16,16 @@ ob_start();
                 <div class="col-6">
                     <input type="date" class="form-control" name="date" id="calendar" value="<?= $cultos["date"] ?>">
                 </div>
-                <div class="col-6" style="background-color: #00549b;right: 20px">
-                    <input id="addService" type="button" value="ajouter un service">
+                <div class="col-6" style="background-color: rgba(255,255,255,0);right: 20px">
+                    <input id="addService" type="button" class="btn btn-danger" value="ajouter un service">
                 </div>
             </div>
         </div>
 
 
         <br><br>
-        <input type="text" name="adultos" id="dd" value="<?= $cultos["adultos"] ?>">
-        <input type="text" name="ninos" id="ninos" value="<?= $cultos["ninos"] ?>"><br>
+        <input type="text" placeholder="quantité adultes" name="adultos" id="dd" value="<?= $cultos["adultos"] ?>">
+        <input type="text" placeholder="quantité enfants" name="ninos" id="ninos" value="<?= $cultos["ninos"] ?>"><br>
         <input type="hidden" name="culto_id" id="ninos" value="<?= $cultos["id"] ?>">
 
         <?php
@@ -34,6 +34,7 @@ ob_start();
             <input type="text" name="name[]" id="dd" title="coucou" value="<?= $data["name"] ?>" list="listName">
             <input type="text" name="firstname[]" id="dd" title="coucou"
                    value="<?= $data["firstname"] ?> <?= $data["lastname"] ?>" list="listUserFirst">
+            <a type="button" href="index.php?action=deleteData&id2=<?=$data["id"]?>" class="btn btn-danger">X</a>
 
             <input type="hidden" name="services_id[]" id="dd" value="<?= $data["services_id"] ?>">
             <input type="hidden" name="users_id[]" id="dd" value="<?= $data["users_id"] ?>">
@@ -42,7 +43,7 @@ ob_start();
 
     </form>
     <br>
-    <button id="confirmer" style="background-color: #00549b; height: 25px; width: 300px; color: white;text-align: center">Confirmer</button>
+    <button id="confirmer" class="btn btn-primary" style="background-color: #00549b; height: 40px; width: 90%;margin-left: 15px; margin-right: 100px; color: white;text-align: center">Confirmer</button>
 </div>
 
     <datalist id="listName">
@@ -81,14 +82,17 @@ ob_start();
             let p2 = document.createElement("input");
             let p4 = document.createElement("br");
             p.name = "name[]"
+            p.placeholder = "nom du service"
             p.setAttribute("list", 'listName')
             p2.name = "firstname[]"
+            p2.style = ";left:100px;"
+            p2.placeholder = "nom et prénom"
             p2.setAttribute("list", 'listUserFirst')
 
 
             const userprofile = document.querySelector('#form');
-            userprofile.appendChild(p2)
             userprofile.appendChild(p)
+            userprofile.appendChild(p2)
             userprofile.appendChild(p4)
         }
 

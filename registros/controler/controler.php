@@ -55,10 +55,12 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
             updateCulto($oneCulto);
         }
     }
+    echo '<br><br><br>';
 
         if ($name != "") {
             foreach ($name as $key => $service) {
                 $isExist = getisExist($users[$key]['id'], $services[$key]['id'], $oneCulto['id']);
+
                 if ($isExist == null) {
                     $oneUser = [
                         'users_id' => $users[$key]['id'],
@@ -81,9 +83,28 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
             'date' => $_SESSION["date"]
         ];
     }
-
     $datas = getDataByDate($_SESSION["date"]);
 
 
     require_once 'view/home.php';
+}
+
+
+function deleteData2($id2){
+    var_dump($id2);
+    deleteData3($id2);
+  /*  $users = getUsers();
+    $services = getServices();
+
+    $cultos = getCulteByDate($_SESSION["date"]);
+
+    if (!$cultos) {
+        $cultos = [
+            'date' => $_SESSION["date"]
+        ];
+    }
+    $datas = getDataByDate($_SESSION["date"]);
+
+    require_once 'view/home.php';
+  */
 }

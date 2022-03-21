@@ -175,7 +175,7 @@ function getDataByDate($date2)
     require "model/.constant.php";
     try {
         $dbh = getPDO();
-        $query = "SELECT s.name, firstname,lastname,users.id AS 'users_id', culte.id AS 'culte_id', s.id AS 'services_id' FROM users_has_services us
+        $query = "SELECT us.id AS 'id', s.name, firstname,lastname,users.id AS 'users_id', culte.id AS 'culte_id', s.id AS 'services_id' FROM users_has_services us
                   JOIN users ON users.id = us.users_id
                   JOIN culte ON culte.id = us.culte_id
                   JOIN services s ON s.id = us.services_id
@@ -1082,13 +1082,13 @@ function getNewOrderNumber()
 
 
 //fonction qui supprime les deliveries par rapport au zip entré
-    function deleteDeliveries($zip)
+    function deleteData3($id)
     {
         try {
             $dbh = getPDO();
-            $query = 'DELETE from deliveries WHERE zip=:zip';
+            $query = 'DELETE from users_has_services WHERE id=:id';
             $statment = $dbh->prepare($query);
-            $statment->execute(['zip' => $zip]);
+            $statment->execute(['id' => $id]);
             $dbh = null;
         } catch (PDOException $e) {
             print "Error!: " . $e->getMessage() . "<br/>";
