@@ -8,10 +8,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 
-<body style="background-color: #516b36">
-<div style="background-color: red;position: absolute; left: 30%;right: 30%;top: 0;bottom: 0">
-    <div style="width: 100%; background-color: #58366b;height: 15%;">
-        <p style="width:60%; background-color: blue;position: absolute; top: 5%;left: 20%; font-size: 30px">ASSISTENCE EEANJESUS</p>
+<body style="background-color: #D1D3D4">
+<div style="  border-style: solid;background-color: #ffffff ;border-color: #00549b;border-width: 10px;position: absolute; left: 30%;right: 30%; min-height: 100%">
+    <div style="width: 100%; background-color: rgb(101,0,222);height: 50px; " class="shadow p-3 mb-5 bg-white rounded">
+        <p style="text-align: center; width:400px;font-family: 'Arial' ;color: #00549b;position: absolute; top: 5px;left: 20px; font-size: 30px">ASSISTENCE EEANJESUS</p>
     </div>
     <?= $content2; ?>
 </div>

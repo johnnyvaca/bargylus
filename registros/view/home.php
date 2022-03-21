@@ -8,16 +8,16 @@
 
 ob_start();
 ?>
-<div style="position: absolute;height: 100%; background-color: ">
+<div style="position: relative;bottom:0px;top:0px justify-content: center;align-items: center; background-color: rgba(255,255,255,0.86)">
     <form method="post" action="index.php?action=signup" id="form">
 
         <div  class="container">
             <div class="row">
                 <div class="col-6">
-                    <input type="date" class="form-control" name="date" id="dd" value="<?= $cultos["date"] ?>">
+                    <input type="date" class="form-control" name="date" id="calendar" value="<?= $cultos["date"] ?>">
                 </div>
-                <div class="col-6" style="background-color: #ad4848;">
-                    <a title="hello" id="addService">ajouter un service</a>
+                <div class="col-6" style="background-color: #00549b;right: 20px">
+                    <input id="addService" type="button" value="ajouter un service">
                 </div>
             </div>
         </div>
@@ -30,9 +30,10 @@ ob_start();
 
         <?php
         foreach ($datas as $data) { ?>
+
+            <input type="text" name="name[]" id="dd" title="coucou" value="<?= $data["name"] ?>" list="listName">
             <input type="text" name="firstname[]" id="dd" title="coucou"
                    value="<?= $data["firstname"] ?> <?= $data["lastname"] ?>" list="listUserFirst">
-            <input type="text" name="name[]" id="dd" title="coucou" value="<?= $data["name"] ?>" list="listName">
 
             <input type="hidden" name="services_id[]" id="dd" value="<?= $data["services_id"] ?>">
             <input type="hidden" name="users_id[]" id="dd" value="<?= $data["users_id"] ?>">
@@ -41,7 +42,7 @@ ob_start();
 
     </form>
     <br>
-    <button id="confirmer" style="background-color: darkgreen; height: 20px; width: 300px">Confirmer</button>
+    <button id="confirmer" style="background-color: #00549b; height: 25px; width: 300px; color: white;text-align: center">Confirmer</button>
 </div>
 
     <datalist id="listName">
@@ -92,7 +93,7 @@ ob_start();
         }
 
         function init() {
-            dd.addEventListener("input", fnEditProfilFirstname)
+            calendar.addEventListener("input", fnEditProfilFirstname)
             confirmer.addEventListener("click", fnEditProfilFirstname)
             addService.addEventListener("click", fnAddInputs)
         }
