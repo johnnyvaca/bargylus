@@ -81,7 +81,7 @@ function getCulteByDate($date)
         $statment = $dbh->prepare($query);//prepare query, il doit faire des vérifications et il va pas exécuter tant
         //qu'il y a des choses incorrects
         $statment->execute(['date3' => $date]);//execute query
-        $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client cherche tous les résultats
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client cherche tous les résultats
         $dbh = null; //refermer une connection quand on a fini
         if ($debug) var_dump($queryResult);
         return $queryResult;
@@ -91,17 +91,54 @@ function getCulteByDate($date)
     }
 }
 
+function getServicesByName($item)
+{
+    require "model/.constant.php";
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT * FROM services WHERE name =:item ';
+        $statment = $dbh->prepare($query);//prepare query, il doit faire des vérifications et il va pas exécuter tant
+        //qu'il y a des choses incorrects
+        $statment->execute(['item' => $item]);//execute query
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client cherche tous les résultats
+        $dbh = null; //refermer une connection quand on a fini
+        if ($debug) var_dump($queryResult);
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
 
 function getUserByFirstAndLastname($firstname,$lastname)
 {
     require "model/.constant.php";
     try {
         $dbh = getPDO();
-        $query = 'SELECT * FROM users WHERE firstname =:firstnmae AND lastname =:lastname ';
+        $query = 'SELECT * FROM users WHERE firstname =:firstname AND lastname =:lastname ';
         $statment = $dbh->prepare($query);//prepare query, il doit faire des vérifications et il va pas exécuter tant
         //qu'il y a des choses incorrects
         $statment->execute(['firstname' => $firstname,'lastname'=> $lastname]);//execute query
-        $queryResult = $statment->fetchAll(PDO::FETCH_ASSOC);//prepare result for client cherche tous les résultats
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client cherche tous les résultats
+        $dbh = null; //refermer une connection quand on a fini
+        if ($debug) var_dump($queryResult);
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+
+function getisExist($users_id,$services_id,$culte_id)
+{
+    require "model/.constant.php";
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT * FROM users_has_services WHERE users_id =:users_id AND services_id =:services_id AND culte_id =:culte_id';
+        $statment = $dbh->prepare($query);//prepare query, il doit faire des vérifications et il va pas exécuter tant
+        //qu'il y a des choses incorrects
+        $statment->execute(['users_id' => $users_id,'services_id'=> $services_id,'culte_id' => $culte_id]);//execute query
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client cherche tous les résultats
         $dbh = null; //refermer une connection quand on a fini
         if ($debug) var_dump($queryResult);
         return $queryResult;

@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `users_has_services` (
   `culte_id` int NOT NULL,
   `id` int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `unique` (`users_id`,`culte_id`),
+  UNIQUE KEY `unique` (`users_id`,`services_id`,`culte_id`),
   KEY `fk_users_has_services_services1_idx` (`services_id`),
   KEY `fk_users_has_services_users_idx` (`users_id`),
   KEY `fk_users_has_services_culte1_idx` (`culte_id`),

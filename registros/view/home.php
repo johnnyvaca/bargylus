@@ -11,11 +11,11 @@ ob_start();
     <button title="hello" id="addService">ajouter un service</button>
     <form method="post" action="index.php?action=signup" id="form">
       <input type="submit" value="CONFIRMER" STYLE="background-color: darkgreen"><br>
-    <input type="date" name="date" id="dd" value="<?=$cultos[0]["date"]?>"><br><br>
+    <input type="date" name="date" id="dd" value="<?=$cultos["date"]?>"><br><br>
 
-    <input type="text" name="adultos" id="dd" value="<?=$cultos[0]["adultos"]?>">
-    <input type="text" name="ninos" id="ninos" value="<?=$cultos[0]["ninos"]?>"><br>
-    <input type="hidden" name="culto_id" id="ninos" value="<?=$cultos[0]["id"]?>">
+    <input type="text" name="adultos" id="dd" value="<?=$cultos["adultos"]?>">
+    <input type="text" name="ninos" id="ninos" value="<?=$cultos["ninos"]?>"><br>
+    <input type="hidden" name="culto_id" id="ninos" value="<?=$cultos["id"]?>">
 
         <?php
 foreach ($datas as $data){ ?>

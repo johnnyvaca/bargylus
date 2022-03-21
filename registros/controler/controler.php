@@ -2,158 +2,87 @@
 require "model/model.php";
 function home2()
 {
+    $date = date("Y-m-d");
 
-$date = date("Y-m-d");
-
-$_SESSION["date"] = $date;
-
-    $users = array_column(getUsers(), 'value');
-
+    $_SESSION["date"] = $date;
     $users = getUsers();
     $services = getServices();
-    $cultos =getCulteByDate($_SESSION["date"]);
-    if(!$cultos){
+
+    $cultos = getCulteByDate($_SESSION["date"]);
+
+    if (!$cultos) {
         $cultos = [
-            '0'=>[
-                'date' => $date
-            ]
+            'date' => $_SESSION["date"]
         ];
     }
     $datas = getDataByDate($_SESSION["date"]);
-
 
     require_once 'view/home.php';
 }
-function home3($dateNew,$adultos,$ninos,$culto_id,$name,$services_id,$firstname,$users_id)
+
+function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firstname, $users_id)
 {
-
-    $services = getServices();
-
-    $users = getUsers();
-
-    $userOld = '';
-    $keyDeleted = 0;
-echo $culto_id.'<br>';
-    foreach ($users as $key => $user) {
-        foreach ($firstname as $key2 => $item) {
-
-
-                    $userOld = explode(" ", $item);
-                        if ($user['firstname'] == $userOld[0] && $user['lastname'] == $userOld[1]) {
-             //               echo $userOld[0].' '. $userOld[1].' - '. $key2.'<br>';
-                            $userId[$key2] = $user['id'];
-                        }
-        }
-// echo '<br>';
-        unset($firstname[$keyDeleted]);
-        $keyDeleted+=1;
+    foreach ($firstname as $key => $item) {
+        $userOld = explode(" ", $item);
+        $users[$key] = getUserByFirstAndLastname($userOld[0], $userOld[1]);
     }
 
-$userId2 = ksort($userId,SORT_NUMERIC);
-echo '<br><br>';
-
-
-    $keyDeleted = 0;
-    foreach ($services as $key => $user) {
-
-        foreach ($name as $key2 => $item) {
-
-                        if ($item == $user['name']) {
-                            echo $user['name'].' - '. $item.'<br>';
-                            $serviceId[$key2] = $user['id'];
-                        }
-                    }
-        echo '<br>';
-        unset($name[$keyDeleted]);
-        $keyDeleted+=1;
+    foreach ($name as $key => $item) {
+        $services[$key] = getServicesByName($item);
     }
-var_dump($userId);
-    echo '<br><br>';
-var_dump($serviceId);
-
-
     $cultos = getCulteByDate($_SESSION["date"]);
 
-    if(isset($ninos) == false){
-        $ninos = 0;
-    }
-    if(isset($adultos) == false){
-        $adultos = 0;
-    }
-    if(isset($culto_id) == false){
-        $oneCulto = [
-            'date2' => $_SESSION["date"],
-            'adultos' => $adultos,
-            'ninos' => $ninos
-        ];
-        $id = createCulto($oneCulto);
-        $oneCulto['id'] =$id;
-    }else{
-        $oneCulto = [
-            'date2' => $_SESSION["date"],
-            'adultos' => $adultos,
-            'ninos' => $ninos,
-            'id' => $culto_id
-        ];
-        updateCulto($oneCulto);
-    }
-    $datas = getData();
 
+    if ($adultos != "" || $ninos != "") {
+        if (isset($cultos['id']) == false) {
 
-    echo '------------------------------------------------------';
-if(!isset($id)){
+            $oneCulto = [
+                'date2' => $_SESSION["date"],
+                'adultos' => $adultos,
+                'ninos' => $ninos
+            ];
+            $id = createCulto($oneCulto);
 
-    foreach($datas as $key => $data){
-      echo  '<br>';
-      if($culto_id == $data['culte_id']){
-     foreach ($name as $key2 => $service){
-      echo  $serviceId[$key2] .' - '.$userId[$key2] .'<br>';
-/*
-            echo $data['users_id'] .' - '.$data['services_id'].' - '. $data['culte_id'] .' || ';
-        //   echo '<br>BDD: - user: ' .$data['users_id'] .' ||  service:'. $data['services_id'] . ' || '. $data['culte_id'];
-         //  echo '<br>MOI: - user: ' .$userId[$key2] .' ||  service:'. $serviceId[$key2] . ' || ' . $culto_id. '<br>' ;
-         if(($userId[$key2] == $data['users_id'] && $serviceId[$key2] == $data['services_id'])){
-             $oneUser = [
-                 'users_id' => $userId[$key2],
-                 'services_id' => $serviceId[$key2],
-                 'culte_id' => $culto_id
-             ];
-             print_r($oneUser);
-             createData($oneUser);
-         }
-         */
+            $oneCulto['id'] = $id;
+
+        } else {
+            $oneCulto = [
+                'date2' => $_SESSION["date"],
+                'adultos' => $adultos,
+                'ninos' => $ninos,
+                'id' => $cultos['id']
+            ];
+            updateCulto($oneCulto);
         }
-     }
-      /*  if( in_array($data['users_id'],$userId) == false && in_array($data['services_id'], $serviceId) == false  && in_array($data['culte_id'], array_column($oneCulto,'id')) == false  ){
-
-            if(!(in_array(null,$userId) || in_array(null, $serviceId))){
-              $oneUser = [
-                  'users_id' => $userId[$key],
-                  'services_id' => $serviceId[$key],
-                  'culte_id' => $oneCulto['id']
-              ];
-              createData($oneUser);
-              $test = $test+1;
-          }
-
-        }
-        */
     }
-}
+
+        if ($name != "") {
+            foreach ($name as $key => $service) {
+                $isExist = getisExist($users[$key]['id'], $services[$key]['id'], $oneCulto['id']);
+                if ($isExist == null) {
+                    $oneUser = [
+                        'users_id' => $users[$key]['id'],
+                        'services_id' => $services[$key]['id'],
+                        'culte_id' => $oneCulto['id']
+                    ];
+                    createData($oneUser);
+                }
+            }
+        }
+
 
     $_SESSION["date"] = $dateNew;
+    $users = getUsers();
+    $services = getServices();
 
     $cultos = getCulteByDate($_SESSION["date"]);
-    if($cultos == false){
+    if (isset($cultos['id']) == false) {
         $cultos = [
-            '0'=>[
-                'date' => $dateNew
-            ]
+            'date' => $_SESSION["date"]
         ];
     }
 
     $datas = getDataByDate($_SESSION["date"]);
-
 
 
     require_once 'view/home.php';
