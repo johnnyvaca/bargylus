@@ -8,16 +8,16 @@
 
 ob_start();
 ?>
-
+<div style="position: absolute;height: 100%; background-color: ">
     <form method="post" action="index.php?action=signup" id="form">
 
-        <div style="background-color: #eee;" class="container">
+        <div  class="container">
             <div class="row">
-                <div class="col-6" style="background-color: #516b36;">
+                <div class="col-6">
                     <input type="date" class="form-control" name="date" id="dd" value="<?= $cultos["date"] ?>">
                 </div>
                 <div class="col-6" style="background-color: #ad4848;">
-                    <button title="hello" id="addService">ajouter un service</button>
+                    <a title="hello" id="addService">ajouter un service</a>
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@ ob_start();
     </form>
     <br>
     <button id="confirmer" style="background-color: darkgreen; height: 20px; width: 300px">Confirmer</button>
-
+</div>
 
     <datalist id="listName">
         <?php
@@ -68,6 +68,8 @@ ob_start();
         <option value="<?= $user['lastname'] ?>">
             <?php } ?>
     </datalist>
+
+
     <script>
         function fnEditProfilFirstname() {
             form.submit()

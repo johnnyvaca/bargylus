@@ -8,7 +8,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 
-<body data-spy="scroll"  data-target=".site-navbar-target" data-offset="200">
-<?= $content2; ?>
+<body style="background-color: #516b36">
+<div style="background-color: red;position: absolute; left: 30%;right: 30%;top: 0;bottom: 0">
+    <div style="width: 100%; background-color: #58366b;height: 15%;">
+        <p style="width:60%; background-color: blue;position: absolute; top: 5%;left: 20%; font-size: 30px">ASSISTENCE EEANJESUS</p>
+    </div>
+    <?= $content2; ?>
+</div>
+
 </body>
 </html>
