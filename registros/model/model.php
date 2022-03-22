@@ -148,6 +148,26 @@ function getisExist($users_id,$services_id,$culte_id)
     }
 }
 
+function getUserIfExist($firstname,$lastname)
+{
+    require "model/.constant.php";
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT * FROM users WHERE firstname =:firstname AND lastname =:lastname';
+        $statment = $dbh->prepare($query);//prepare query, il doit faire des vérifications et il va pas exécuter tant
+        //qu'il y a des choses incorrects
+        $statment->execute(['firstname' => $firstname,'lastname'=> $lastname]);//execute query
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client cherche tous les résultats
+        $dbh = null; //refermer une connection quand on a fini
+        if ($debug) var_dump($queryResult);
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+
+
 function getData()
 {
     require "model/.constant.php";
@@ -248,6 +268,25 @@ function createCulto($oneUser)
     }
     //
 }
+
+function addUserModel($firstname,$lastname)
+{
+    $dbh = getPDO();
+    try {
+        $query = "INSERT INTO users(firstname,lastname) 
+                  VALUES  (:firstname,:lastname)";
+        $stmt = $dbh->prepare($query);
+        $stmt->execute([ 'firstname' => $firstname, 'lastname' => $lastname]);
+
+        $id =   $dbh->lastInsertId();
+        $dbh = null;
+        return $id;
+    } catch (PDOException $e) {
+        print "Error!:" . $e->getMessage() . "<br/>";
+        die();
+    }
+}
+
 function createData($oneUser)
 {
     $dbh = getPDO();
@@ -1045,41 +1084,6 @@ WHERE users.id =:id';
 
 }
 
-function getNewOrderNumber()
-{
-
-    require "model/.constant.php";
-    try {
-        $dbh = getPDO();
-        $query = 'SELECT MAX(orders.number)+1 as number from orders';
-        $statment = $dbh->prepare($query);
-        $statment->execute();//prepare query
-        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client
-        $dbh = null;
-        extract($queryResult);
-        return $number;
-        if ($debug) var_dump($queryResult);
-    } catch (PDOException $e) {
-        print "Error!: " . $e->getMessage() . "<br/>";
-        return null;
-    }
-
-
-//fonction qui update dans la table archives les données de deliveries
-    function updateArchives($delivery)
-    {
-        try {
-            $dbh = getPDO();
-            $query = 'INSERT INTO archives(firstname,lastname,street,zip,city,user_id,visibility) VALUES(:firstname,:lastname,:street,:zip,:city,:user_id,:visibility)';
-            $statment = $dbh->prepare($query);
-            $statment->execute($delivery);
-            $dbh = null;
-        } catch (PDOException $e) {
-            print "Error!: " . $e->getMessage() . "<br/>";
-            return null;
-        }
-    }
-
 
 //fonction qui supprime les deliveries par rapport au zip entré
     function deleteData3($id)
@@ -1096,44 +1100,4 @@ function getNewOrderNumber()
         }
     }
 
-
-}
-
-function addOrder($order)
-{
-    require "model/.constant.php";
-    $dbh = getPDO();
-    try {
-        $query = "INSERT INTO orders(orders.number,total_price,user_id,date_purchase,mode_payment_id, delivery_id,invoice_id) 
-                  VALUES  (:new_number,:total_price,:user_id,:date_purchase,:mode_payment_id, :delivery_id,:invoice_id)";
-        $stmt = $dbh->prepare($query);
-        $stmt->execute($order);
-
-        $id = $dbh->lastInsertId();
-        $dbh = null;
-        return $id;
-    } catch (PDOException $e) {
-        print "Error!:" . $e->getMessage() . "<br/>";
-        die();
-    }
-}
-
-function addOrdersContainWines($order)
-{
-    require "model/.constant.php";
-    $dbh = getPDO();
-    try {
-        $query = "INSERT INTO orders_contain_wines(wine_id,order_id,quantity,price) 
-                  VALUES  (:wine_id,:order_id,:quantity,:price)";
-        $stmt = $dbh->prepare($query);
-        $stmt->execute($order);
-
-        $id = $dbh->lastInsertId();
-        $dbh = null;
-        return $id;
-    } catch (PDOException $e) {
-        print "Error!:" . $e->getMessage() . "<br/>";
-        die();
-    }
-}
 

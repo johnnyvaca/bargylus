@@ -32,8 +32,7 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
     }
     $cultos = getCulteByDate($_SESSION["date"]);
 
-
-    if ($adultos != "" || $ninos != "") {
+    if (!($adultos == "" || $ninos == "")) {
         if (isset($cultos['id']) == false) {
 
             $oneCulto = [
@@ -90,10 +89,10 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
 }
 
 
-function deleteData2($id2){
-    var_dump($id2);
-    deleteData3($id2);
-  /*  $users = getUsers();
+function deleteData2($id){
+
+      deleteData3($id);
+    $users = getUsers();
     $services = getServices();
 
     $cultos = getCulteByDate($_SESSION["date"]);
@@ -106,5 +105,27 @@ function deleteData2($id2){
     $datas = getDataByDate($_SESSION["date"]);
 
     require_once 'view/home.php';
-  */
+
+}
+
+function addUser($firstname,$lastname){
+
+   $isExist = getUserIfExist($firstname,$lastname);
+
+   if($isExist == null){
+       $id =   addUserModel($firstname,$lastname);
+   }
+    $users = getUsers();
+    $services = getServices();
+
+    $cultos = getCulteByDate($_SESSION["date"]);
+
+    if (!$cultos) {
+        $cultos = [
+            'date' => $_SESSION["date"]
+        ];
+    }
+    $datas = getDataByDate($_SESSION["date"]);
+
+    require_once 'view/home.php';
 }

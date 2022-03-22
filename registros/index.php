@@ -25,8 +25,11 @@ switch ($action) {
 
         break;
     case 'deleteData':
-        deleteData2($_GET['id2']);
+        deleteData2($_GET['id']);
         break;
+    case 'addUser':
+        addUser($_POST['firstname'],$_POST['lastname']);
+    break;
     default :
         home2();
 
