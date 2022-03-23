@@ -196,9 +196,9 @@ function getDataByDate($date2)
     try {
         $dbh = getPDO();
         $query = "SELECT us.id AS 'id', s.name, firstname,lastname,users.id AS 'users_id', culte.id AS 'culte_id', s.id AS 'services_id' FROM users_has_services us
-                  JOIN users ON users.id = us.users_id
+                 LEFT  JOIN users ON users.id = us.users_id
                   JOIN culte ON culte.id = us.culte_id
-                  JOIN services s ON s.id = us.services_id
+                LEFT  JOIN services s ON s.id = us.services_id
 						WHERE culte.date =:date4";
         $statment = $dbh->prepare($query);//prepare query, il doit faire des vérifications et il va pas exécuter tant
         //qu'il y a des choses incorrects
@@ -507,7 +507,18 @@ function updateStateOrderById($id, $state)
         return null;
     }
 }
-
+function updateDataById($user,$service,$id){
+    try {
+        $dbh = getPDO();
+        $query = 'UPDATE users_has_services set users_id =:users_id, services_id=:services_id WHERE id =:id';
+        $statment = $dbh->prepare($query);
+        $statment->execute(['users_id' => $user, 'services_id' => $service, 'id' => $id]);//prepare query
+        $dbh = null;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
 function getGrapesOrder($id)
 {
 
@@ -786,6 +797,8 @@ function updateCulto($delivery)
     }
 
 }
+
+
 function updateDeliveryModel($delivery)
 {
     try {

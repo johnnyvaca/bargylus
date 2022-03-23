@@ -47,7 +47,7 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
-    <configuration name="Unnamed" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" nameIsGenerated="true" document_root="$PROJECT_DIR$" port="800">
+    <configuration name="Unnamed" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" nameIsGenerated="true" document_root="$PROJECT_DIR$" host="192.168.1.104" port="800">
       <method v="2" />
     </configuration>
   </component>
@@ -75,6 +75,7 @@
       <workItem from="1647869438623" duration="5494000" />
       <workItem from="1647878617746" duration="6691000" />
       <workItem from="1647889297806" duration="10025000" />
+      <workItem from="1647949825030" duration="18732000" />
     </task>
     <servers />
   </component>
