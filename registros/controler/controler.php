@@ -127,7 +127,7 @@ function addUser($firstname, $lastname)
 
     $isExist = getUserIfExist($firstname, $lastname);
 
-    if ($isExist == null) {
+    if ($isExist == null && $firstname != null && $lastname != null) {
         $id = addUserModel($firstname, $lastname);
     }
     $users = getUsers();
@@ -149,7 +149,7 @@ function addService($service)
 {
     $isExist = getServiceIfExist($service);
 
-    if ($isExist == null) {
+    if ($isExist == null && $service != null) {
         $id = addServiceModel($service);
     }
 
