@@ -99,9 +99,6 @@ ob_start();
         function fnEditProfilFirstname() {
             form.submit()
         }
-        function fnEditProfilFirstname2() {
-            form2.submit()
-        }
 
         function fnAddInputs() {
             let p = document.createElement("input");
@@ -125,7 +122,6 @@ ob_start();
         function init() {
             calendar.addEventListener("input", fnEditProfilFirstname)
             confirmer.addEventListener("click", fnEditProfilFirstname)
-            save.addEventListener("click", fnEditProfilFirstname2)
             addService.addEventListener("click", fnAddInputs)
         }
 

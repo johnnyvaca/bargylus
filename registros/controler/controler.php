@@ -54,8 +54,9 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
         }
     }
 
-    $length = count($name);
+
     if ($name != "") {
+        $length = count($name);
         for ($key = 0; $key < $length; $key++) {
             $isExist = getisExist($users[$key]['id'], $services[$key]['id'], $oneCulto['id']);
 
