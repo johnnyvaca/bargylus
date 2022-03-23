@@ -30,6 +30,9 @@ switch ($action) {
     case 'addUser':
         addUser($_POST['firstname'],$_POST['lastname']);
     break;
+    case 'addService':
+        addService($_POST['service']);
+        break;
     default :
         home2();
 

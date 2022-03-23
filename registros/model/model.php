@@ -166,7 +166,24 @@ function getUserIfExist($firstname,$lastname)
         return null;
     }
 }
-
+function getServiceIfExist($service)
+{
+    require "model/.constant.php";
+    try {
+        $dbh = getPDO();
+        $query = 'SELECT * FROM services WHERE name =:name';
+        $statment = $dbh->prepare($query);//prepare query, il doit faire des vérifications et il va pas exécuter tant
+        //qu'il y a des choses incorrects
+        $statment->execute(['name' => $service]);//execute query
+        $queryResult = $statment->fetch(PDO::FETCH_ASSOC);//prepare result for client cherche tous les résultats
+        $dbh = null; //refermer une connection quand on a fini
+        if ($debug) var_dump($queryResult);
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
 
 function getData()
 {
@@ -277,6 +294,24 @@ function addUserModel($firstname,$lastname)
                   VALUES  (:firstname,:lastname)";
         $stmt = $dbh->prepare($query);
         $stmt->execute([ 'firstname' => $firstname, 'lastname' => $lastname]);
+
+        $id =   $dbh->lastInsertId();
+        $dbh = null;
+        return $id;
+    } catch (PDOException $e) {
+        print "Error!:" . $e->getMessage() . "<br/>";
+        die();
+    }
+}
+
+function addServiceModel($service)
+{
+    $dbh = getPDO();
+    try {
+        $query = "INSERT INTO services(name) 
+                  VALUES  (:name)";
+        $stmt = $dbh->prepare($query);
+        $stmt->execute([ 'name' => $service]);
 
         $id =   $dbh->lastInsertId();
         $dbh = null;

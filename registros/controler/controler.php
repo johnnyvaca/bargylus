@@ -142,3 +142,26 @@ function addUser($firstname, $lastname)
 
     require_once 'view/home.php';
 }
+
+function addService($service)
+{
+
+    $isExist = getServiceIfExist($service);
+
+    if ($isExist == null) {
+        $id = addServiceModel($service);
+    }
+    $users = getUsers();
+    $services = getServices();
+
+    $cultos = getCulteByDate($_SESSION["date"]);
+
+    if (!$cultos) {
+        $cultos = [
+            'date' => $_SESSION["date"]
+        ];
+    }
+    $datas = getDataByDate($_SESSION["date"]);
+
+    require_once 'view/home.php';
+}

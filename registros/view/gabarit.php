@@ -33,7 +33,7 @@
 
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                Ajouter un utilisateur
+                Créer un utilisateur
             </button>
 
             <!-- Modal -->
@@ -69,9 +69,40 @@
                 </div>
             </div>
 
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">
+                Créer un service
+            </button>
 
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Ajouter un utilisateur</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form id="form3"  method="post" action="index.php?action=addService">
+                            <div class="modal-body">
 
-            <button class="btn btn-primary">Ajouter un service</button>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <input type="text" name="service" required class="form-control" placeholder="Nom du service">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </form>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                            <button type="button" id="save2" class="btn btn-primary">Sauvegarder</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
     <?= $content2; ?>
