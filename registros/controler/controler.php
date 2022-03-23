@@ -81,9 +81,10 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
 
         }
     }
-
-
     $_SESSION["date"] = $dateNew;
+    if ($_SESSION["date"] == null){
+        $_SESSION["date"] = date("Y-m-d");
+    }
     $users = getUsers();
     $services = getServices();
 
@@ -104,6 +105,7 @@ function deleteData2($id)
 {
 
     deleteData3($id);
+    /*
     $users = getUsers();
     $services = getServices();
 
@@ -117,7 +119,7 @@ function deleteData2($id)
     $datas = getDataByDate($_SESSION["date"]);
 
     require_once 'view/home.php';
-
+*/
 }
 
 function addUser($firstname, $lastname)
@@ -145,12 +147,17 @@ function addUser($firstname, $lastname)
 
 function addService($service)
 {
-
     $isExist = getServiceIfExist($service);
 
     if ($isExist == null) {
         $id = addServiceModel($service);
     }
+
+
+
+}
+
+function nouveau(){
     $users = getUsers();
     $services = getServices();
 
