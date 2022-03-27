@@ -27,36 +27,38 @@ CREATE TABLE IF NOT EXISTS `culte` (
   `ninos` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique` (`date`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb3;
 
--- Listage des données de la table registros.culte : ~7 rows (environ)
+-- Listage des données de la table registros.culte : ~0 rows (environ)
 DELETE FROM `culte`;
 /*!40000 ALTER TABLE `culte` DISABLE KEYS */;
-INSERT INTO `culte` (`id`, `date`, `adultos`, `ninos`) VALUES
-	(11, '2022-03-20', 2000, 20),
-	(12, '2022-03-08', 200, 20),
-	(15, '2022-03-15', 1000, 10),
-	(16, NULL, 100, 10),
-	(17, '2022-04-20', 100, 10),
-	(18, '2022-03-18', 100, 10),
-	(19, '2022-03-17', 200, 30);
 /*!40000 ALTER TABLE `culte` ENABLE KEYS */;
 
 -- Listage de la structure de la table registros. services
 DROP TABLE IF EXISTS `services`;
 CREATE TABLE IF NOT EXISTS `services` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
+  `name` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb3;
 
--- Listage des données de la table registros.services : ~2 rows (environ)
+-- Listage des données de la table registros.services : ~13 rows (environ)
 DELETE FROM `services`;
 /*!40000 ALTER TABLE `services` DISABLE KEYS */;
 INSERT INTO `services` (`id`, `name`) VALUES
-	(4, 'piano'),
-	(5, 'bateria'),
-	(6, 'direccion');
+	(4, 'Piano'),
+	(5, 'Bateria'),
+	(6, 'Dirección'),
+	(7, 'Vocalización'),
+	(8, 'Especial'),
+	(9, 'Traducción'),
+	(10, 'Transmisión'),
+	(11, 'Proyección'),
+	(12, 'Bajo'),
+	(13, 'Ofrenda'),
+	(14, 'Cocina'),
+	(15, 'Guitarra'),
+	(16, 'Recepción');
 /*!40000 ALTER TABLE `services` ENABLE KEYS */;
 
 -- Listage de la structure de la table registros. users
@@ -69,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
 
--- Listage des données de la table registros.users : ~2 rows (environ)
+-- Listage des données de la table registros.users : ~3 rows (environ)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `firstname`, `lastname`) VALUES
@@ -93,20 +95,11 @@ CREATE TABLE IF NOT EXISTS `users_has_services` (
   CONSTRAINT `fk_users_has_services_culte1` FOREIGN KEY (`culte_id`) REFERENCES `culte` (`id`),
   CONSTRAINT `fk_users_has_services_services1` FOREIGN KEY (`services_id`) REFERENCES `services` (`id`),
   CONSTRAINT `fk_users_has_services_users` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=148 DEFAULT CHARSET=utf8mb3;
 
--- Listage des données de la table registros.users_has_services : ~7 rows (environ)
+-- Listage des données de la table registros.users_has_services : ~0 rows (environ)
 DELETE FROM `users_has_services`;
 /*!40000 ALTER TABLE `users_has_services` DISABLE KEYS */;
-INSERT INTO `users_has_services` (`users_id`, `services_id`, `culte_id`, `id`) VALUES
-	(6, 5, 11, 1),
-	(7, 4, 11, 2),
-	(8, 6, 11, 3),
-	(7, 5, 12, 4),
-	(8, 6, 12, 5),
-	(6, 4, 12, 6),
-	(NULL, NULL, 15, 65),
-	(NULL, NULL, 15, 66);
 /*!40000 ALTER TABLE `users_has_services` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
