@@ -1,5 +1,47 @@
 <?php
 require "model/model.php";
+$_SESSION['base'] = $base = [
+    0 => [
+        'name' => 'Recepción',
+    ],
+    1 => [
+        'name' => 'Dirección',
+    ],
+    2 => [
+        'name' => 'Vocalización',
+    ],
+    3 => [
+        'name' => 'Bateria',
+    ],
+    4 => [
+        'name' => 'Especial',
+    ],
+    5 => [
+        'name' => 'Piano',
+    ],
+    6 => [
+        'name' => 'Traducción',
+    ],
+    7 => [
+        'name' => 'Transmisión',
+    ],
+    8 => [
+        'name' => 'Proyección',
+    ],
+    9 => [
+        'name' => 'Bajo',
+    ],
+    10 => [
+        'name' => 'Ofrenda',
+    ],
+    11 => [
+        'name' => 'Cocina',
+    ],
+    12 => [
+        'name' => 'Guitarra',
+    ],
+];
+
 function home2()
 {
     $date = date("Y-m-d");
@@ -16,10 +58,22 @@ function home2()
         ];
     }
     $datas = getDataByDate($_SESSION["date"]);
+
+
+
+
+    foreach ( $_SESSION['base'] as $key => $b){
+        if(!in_array($b['name'],array_column($datas, 'name'))){
+            $datas[sizeof($datas)]['name'] = $b['name'];
+        }
+
+    }
+
+
     require_once 'view/home.php';
 }
 
-function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firstname, $users_id, $id,$service,$first,$last)
+function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firstname, $users_id, $id, $service, $first, $last)
 {
     foreach ($firstname as $key => $item) {
         $userOld = explode(" ", $item);
@@ -31,14 +85,23 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
     }
     $cultos = getCulteByDate($_SESSION["date"]);
 
-    if (!($adultos == "" || $ninos == "")) {
+    if ($adultos != "" || $ninos != "") {
         if (isset($cultos['id']) == false) {
-
             $oneCulto = [
                 'date2' => $_SESSION["date"],
                 'adultos' => $adultos,
                 'ninos' => $ninos
             ];
+
+
+            if ($adultos == "") {
+                $oneCulto['adultos'] = 0;
+            }
+            if ($ninos == "") {
+                $oneCulto['ninos'] = 0;
+            }
+
+
             $id = createCulto($oneCulto);
 
             $oneCulto['id'] = $id;
@@ -50,6 +113,14 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
                 'ninos' => $ninos,
                 'id' => $cultos['id']
             ];
+
+
+            if ($adultos == "") {
+                $oneCulto['adultos'] = 0;
+            }
+            if ($ninos == "") {
+                $oneCulto['ninos'] = 0;
+            }
             updateCulto($oneCulto);
         }
     }
@@ -61,7 +132,7 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
             $isExist = getisExist($users[$key]['id'], $services[$key]['id'], $oneCulto['id']);
 
             if ($id[$key] == null && $isExist == null) {
-              //  echo 'user: ' . $users[$key]['id'] . '  service: ' . $services[$key]['id'] . '  culte: ' . $oneCulto['id'] . '  id: ' . $id[$key] . '<br>';
+                //  echo 'user: ' . $users[$key]['id'] . '  service: ' . $services[$key]['id'] . '  culte: ' . $oneCulto['id'] . '  id: ' . $id[$key] . '<br>';
                 $oneUser = [
                     'users_id' => $users[$key]['id'],
                     'services_id' => $services[$key]['id'],
@@ -81,7 +152,7 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
 
         }
     }
-    if($first != null && $last != null){
+    if ($first != null && $last != null) {
         $isExist = getUserIfExist($first, $last);
 
         if ($isExist == null && $first != null && $last != null) {
@@ -89,7 +160,7 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
         }
     }
 
-    if ($service != null){
+    if ($service != null) {
         $isExist = getServiceIfExist($service);
 
         if ($isExist == null && $service != null) {
@@ -98,7 +169,7 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
     }
 
     $_SESSION["date"] = $dateNew;
-    if ($_SESSION["date"] == null){
+    if ($_SESSION["date"] == null) {
         $_SESSION["date"] = date("Y-m-d");
     }
     $users = getUsers();
@@ -113,6 +184,56 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
     $datas = getDataByDate($_SESSION["date"]);
 
 
+    $base = [
+        0 => [
+            'name' => 'Recepción',
+        ],
+        1 => [
+            'name' => 'Dirección',
+        ],
+        2 => [
+            'name' => 'Vocalización',
+        ],
+        3 => [
+            'name' => 'Bateria',
+        ],
+        4 => [
+            'name' => 'Especial',
+        ],
+        5 => [
+            'name' => 'Piano',
+        ],
+        6 => [
+            'name' => 'Traducción',
+        ],
+        7 => [
+            'name' => 'Transmisión',
+        ],
+        8 => [
+            'name' => 'Proyección',
+        ],
+        9 => [
+            'name' => 'Bajo',
+        ],
+        10 => [
+            'name' => 'Ofrenda',
+        ],
+        11 => [
+            'name' => 'Cocina',
+        ],
+        12 => [
+            'name' => 'Guitarra',
+        ],
+    ];
+
+    foreach ( $base as $key => $b){
+        var_dump($b['name']);
+        if(!in_array($b['name'],array_column($datas, 'name'))){
+            $datas[sizeof($datas)]['name'] = $b['name'];
+        }
+
+    }
+
     require_once 'view/home.php';
 }
 
@@ -121,26 +242,10 @@ function deleteData2($id)
 {
 
     deleteData3($id);
-    /*
-    $users = getUsers();
-    $services = getServices();
-
-    $cultos = getCulteByDate($_SESSION["date"]);
-
-    if (!$cultos) {
-        $cultos = [
-            'date' => $_SESSION["date"]
-        ];
-    }
-    $datas = getDataByDate($_SESSION["date"]);
-
-    require_once 'view/home.php';
-*/
 }
 
 function addUser($firstname, $lastname)
 {
-
     $isExist = getUserIfExist($firstname, $lastname);
 
     if ($isExist == null && $firstname != null && $lastname != null) {
@@ -157,7 +262,12 @@ function addUser($firstname, $lastname)
         ];
     }
     $datas = getDataByDate($_SESSION["date"]);
+    foreach ( $_SESSION['base'] as $key => $b){
+        if(!in_array($b['name'],array_column($datas, 'name'))){
+            $datas[sizeof($datas)]['name'] = $b['name'];
+        }
 
+    }
     require_once 'view/home.php';
 }
 
@@ -180,12 +290,18 @@ function addService($service)
         ];
     }
     $datas = getDataByDate($_SESSION["date"]);
+    foreach ( $_SESSION['base'] as $key => $b){
+        if(!in_array($b['name'],array_column($datas, 'name'))){
+            $datas[sizeof($datas)]['name'] = $b['name'];
+        }
 
+    }
     require_once 'view/home.php';
 
 }
 
-function nouveau(){
+function nouveau()
+{
     $users = getUsers();
     $services = getServices();
 

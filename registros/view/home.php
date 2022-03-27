@@ -102,7 +102,7 @@ ob_start();
                     <option value="" data-tokens="nada">nada</option>
                     <?php
                     foreach ($services as $service) {
-                        if ($service['id'] == $data['services_id']) {
+                        if ($service['name'] == $data['name']) {
                             ?>
                             <option value="<?= $service['name'] ?>" data-tokens="<?= $service['name'] ?>"
                                     selected><?= $service['name'] ?></option>
