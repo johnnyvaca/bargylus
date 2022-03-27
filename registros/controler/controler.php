@@ -262,7 +262,48 @@ function addUser($firstname, $lastname)
         ];
     }
     $datas = getDataByDate($_SESSION["date"]);
-    foreach ( $_SESSION['base'] as $key => $b){
+    $base = [
+        0 => [
+            'name' => 'Recepción',
+        ],
+        1 => [
+            'name' => 'Dirección',
+        ],
+        2 => [
+            'name' => 'Vocalización',
+        ],
+        3 => [
+            'name' => 'Bateria',
+        ],
+        4 => [
+            'name' => 'Especial',
+        ],
+        5 => [
+            'name' => 'Piano',
+        ],
+        6 => [
+            'name' => 'Traducción',
+        ],
+        7 => [
+            'name' => 'Transmisión',
+        ],
+        8 => [
+            'name' => 'Proyección',
+        ],
+        9 => [
+            'name' => 'Bajo',
+        ],
+        10 => [
+            'name' => 'Ofrenda',
+        ],
+        11 => [
+            'name' => 'Cocina',
+        ],
+        12 => [
+            'name' => 'Guitarra',
+        ],
+    ];
+    foreach ( $datas as $key => $b){
         if(!in_array($b['name'],array_column($datas, 'name'))){
             $datas[sizeof($datas)]['name'] = $b['name'];
         }
@@ -290,7 +331,48 @@ function addService($service)
         ];
     }
     $datas = getDataByDate($_SESSION["date"]);
-    foreach ( $_SESSION['base'] as $key => $b){
+    $base = [
+        0 => [
+            'name' => 'Recepción',
+        ],
+        1 => [
+            'name' => 'Dirección',
+        ],
+        2 => [
+            'name' => 'Vocalización',
+        ],
+        3 => [
+            'name' => 'Bateria',
+        ],
+        4 => [
+            'name' => 'Especial',
+        ],
+        5 => [
+            'name' => 'Piano',
+        ],
+        6 => [
+            'name' => 'Traducción',
+        ],
+        7 => [
+            'name' => 'Transmisión',
+        ],
+        8 => [
+            'name' => 'Proyección',
+        ],
+        9 => [
+            'name' => 'Bajo',
+        ],
+        10 => [
+            'name' => 'Ofrenda',
+        ],
+        11 => [
+            'name' => 'Cocina',
+        ],
+        12 => [
+            'name' => 'Guitarra',
+        ],
+    ];
+    foreach ( $base as $key => $b){
         if(!in_array($b['name'],array_column($datas, 'name'))){
             $datas[sizeof($datas)]['name'] = $b['name'];
         }
