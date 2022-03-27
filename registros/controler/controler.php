@@ -19,7 +19,7 @@ function home2()
     require_once 'view/home.php';
 }
 
-function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firstname, $users_id, $id)
+function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firstname, $users_id, $id,$service,$first,$last)
 {
     foreach ($firstname as $key => $item) {
         $userOld = explode(" ", $item);
@@ -81,6 +81,22 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
 
         }
     }
+    if($first != null && $last != null){
+        $isExist = getUserIfExist($first, $last);
+
+        if ($isExist == null && $first != null && $last != null) {
+            $id = addUserModel($first, $last);
+        }
+    }
+
+    if ($service != null){
+        $isExist = getServiceIfExist($service);
+
+        if ($isExist == null && $service != null) {
+            $id = addServiceModel($service);
+        }
+    }
+
     $_SESSION["date"] = $dateNew;
     if ($_SESSION["date"] == null){
         $_SESSION["date"] = date("Y-m-d");

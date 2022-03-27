@@ -19,10 +19,12 @@ if (isset($_GET['action'])) {
 
 switch ($action) {
 
+
+
+
     case 'signup':
 
-        home3($_POST["date"],$_POST["adultos"],$_POST["ninos"],$_POST["culto_id"],$_POST["name"],$_POST["services_id"],$_POST["firstname"],$_POST["users_id"],$_POST['id']);
-
+        home3($_POST["date"],$_POST["adultos"],$_POST["ninos"],$_POST["culto_id"],$_POST["name"],$_POST["services_id"],$_POST["firstname"],$_POST["users_id"],$_POST['id'],$_POST['service'],$_POST['first'],$_POST['last']);
         break;
     case 'deleteData':
         deleteData2($_GET['id']);

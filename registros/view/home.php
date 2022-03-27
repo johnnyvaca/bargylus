@@ -8,68 +8,146 @@
 
 ob_start();
 ?>
-<div style="position: relative;bottom:0px;top:0px justify-content: center;align-items: center; background-color: rgba(255,255,255,0.86)">
-    <form method="post" action="index.php?action=signup" id="form">
+    <div style="position: relative;bottom:0px;top:0px justify-content: center;align-items: center; background-color: rgba(255,255,255,0.86)">
+        <form method="post" action="index.php?action=signup" id="form">
 
-        <div  class="container">
-            <div class="row">
-                <div class="col-6">
-                    <input type="date" class="form-control" name="date" id="calendar" value="<?= $cultos["date"] ?>">
-                </div>
-                <div class="col-6" style="background-color: rgba(255,255,255,0);right: 20px">
-                    <input id="addService" type="button" class="btn btn-warning" value="ajouter un service">
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Ajouter un utilisateur</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="text" name="first" required class="form-control"
+                                           placeholder="Prénom">
+                                </div>
+                                <div class="col">
+                                    <input type="text" name="last" required class="form-control"
+                                           placeholder="Nom de famille">
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Modal -->
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                            <button type="button" id="save" class="btn btn-primary">Sauvegarder</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog"
+                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Ajouter un utilisateur</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="text" name="service" required class="form-control"
+                                           placeholder="Nom du service">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler
+                            </button>
+                            <button type="button" id="save2" class="btn btn-primary">Sauvegarder</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <input type="date" class="form-control" name="date" id="calendar"
+                               value="<?= $cultos["date"] ?>">
+                    </div>
+                    <div class="col-6" style="background-color: rgba(255,255,255,0);right: 20px">
+                        <input id="addService" type="button" class="btn btn-warning" value="ajouter un service">
+                    </div>
+                </div>
+            </div>
 
 
-        <br><br>
-        <input type="text" placeholder="quantité adultes" name="adultos" id="dd" value="<?= $cultos["adultos"] ?>">
-        <input type="text" placeholder="quantité enfants" name="ninos" id="ninos" value="<?= $cultos["ninos"] ?>"><br>
-        <input type="hidden" name="culto_id" id="ninos" value="<?= $cultos["id"] ?>">
+            <br><br>
+            <input type="text" placeholder="quantité adultes" name="adultos" id="dd" value="<?= $cultos["adultos"] ?>">
+            <input type="text" placeholder="quantité enfants" name="ninos" id="ninos"
+                   value="<?= $cultos["ninos"] ?>"><br>
+            <input type="hidden" name="culto_id" id="ninos" value="<?= $cultos["id"] ?>">
 
-        <?php
-        foreach ($datas as $data) { ?>
-
-      <!--      <input type="text" name="name[]" id="dd" title="coucou" value="<?= $data["name"] ?>" list="listName"> -->
-        <select class="selectpicker" name="name[]" data-live-search="true">
-            <option value=""  data-tokens="nada" >nada</option>
             <?php
-            foreach ($services as $service){
-                if($service['id'] == $data['services_id'] ){?>
-                <option value="<?= $service['name'] ?>" data-tokens="<?= $service['name'] ?>" selected><?= $service['name'] ?></option>
-                    <?php }else{?>
-                    <option value="<?= $service['name'] ?>" data-tokens="<?= $service['name'] ?>" ><?= $service['name'] ?></option>
-                    <?php }?>
-                <?php } ?>
-        </select>
-   <!--         <input type="text" name="firstname[]" id="dd" title="coucou"
+            foreach ($datas as $data) { ?>
+
+                <!--      <input type="text" name="name[]" id="dd" title="coucou" value="<?= $data["name"] ?>" list="listName"> -->
+                <select class="selectpicker" name="name[]" data-live-search="true">
+                    <option value="" data-tokens="nada">nada</option>
+                    <?php
+                    foreach ($services as $service) {
+                        if ($service['id'] == $data['services_id']) {
+                            ?>
+                            <option value="<?= $service['name'] ?>" data-tokens="<?= $service['name'] ?>"
+                                    selected><?= $service['name'] ?></option>
+                        <?php } else {
+                            ?>
+                            <option value="<?= $service['name'] ?>"
+                                    data-tokens="<?= $service['name'] ?>"><?= $service['name'] ?></option>
+                        <?php } ?>
+                    <?php } ?>
+                </select>
+                <!--         <input type="text" name="firstname[]" id="dd" title="coucou"
                    value="<?= $data["firstname"] ?> <?= $data["lastname"] ?>" list="listUserFirst"> -->
 
-            <select class="selectpicker" name="firstname[]" data-live-search="true">
-                <option value=""  data-tokens="nada" >nada</option>
-                <?php
-                foreach ($users as $user){
-                    if($user['id'] == $data['users_id'] ){?>
-                        <option value="<?= $user['firstname'] ?> <?= $user['lastname'] ?>" data-tokens="<?= $user['firstname'] ?> <?= $user['lastname'] ?>" selected><?= $user['firstname'] ?> <?= $user['lastname'] ?></option>
-                    <?php }else{?>
-                        <option value="<?= $user['firstname'] ?> <?= $user['lastname'] ?>" data-tokens="<?= $user['lastname'] ?> <?= $user['lastname'] ?>"><?= $user['firstname'] ?> <?= $user['lastname'] ?></option>
-                    <?php }?>
-                <?php } ?>
-            </select>
-       <!--     <a type="button" href="index.php?action=deleteData&id=<?=$data["id"]?>" class="btn btn-danger">X</a> -->
-            <input type="hidden" name="services_id[]" id="dd" value="<?= $data["services_id"] ?>">
-            <input type="hidden" name="users_id[]" id="dd" value="<?= $data["users_id"] ?>">
-            <input type="hidden" name="id[]" id="dd" value="<?= $data["id"] ?>">
-            <br>
-        <?php } ?>
+                <select class="selectpicker" name="firstname[]" data-live-search="true">
+                    <option value="" data-tokens="nada">nada</option>
+                    <?php
+                    foreach ($users as $user) {
+                        if ($user['id'] == $data['users_id']) {
+                            ?>
+                            <option value="<?= $user['firstname'] ?> <?= $user['lastname'] ?>"
+                                    data-tokens="<?= $user['firstname'] ?> <?= $user['lastname'] ?>"
+                                    selected><?= $user['firstname'] ?> <?= $user['lastname'] ?></option>
+                        <?php } else {
+                            ?>
+                            <option value="<?= $user['firstname'] ?> <?= $user['lastname'] ?>"
+                                    data-tokens="<?= $user['lastname'] ?> <?= $user['lastname'] ?>"><?= $user['firstname'] ?> <?= $user['lastname'] ?></option>
+                        <?php } ?>
+                    <?php } ?>
+                </select>
+                <!--     <a type="button" href="index.php?action=deleteData&id=<?= $data["id"] ?>" class="btn btn-danger">X</a> -->
+                <input type="hidden" name="services_id[]" id="dd" value="<?= $data["services_id"] ?>">
+                <input type="hidden" name="users_id[]" id="dd" value="<?= $data["users_id"] ?>">
+                <input type="hidden" name="id[]" id="dd" value="<?= $data["id"] ?>">
+                <br>
+            <?php } ?>
 
-    </form>
-    <br>
-    <button id="confirmer" class="btn btn-primary" style="background-color: #00549b; height: 40px; width: 90%;margin-left: 15px; margin-right: 100px; color: white;text-align: center">Confirmer</button>
-    <!-- Button trigger modal -->
+        </form>
+        <br>
+        <button id="confirmer" class="btn btn-primary"
+                style="background-color: #00549b; height: 40px; width: 90%;margin-left: 15px; margin-right: 100px; color: white;text-align: center">
+            Confirmer
+        </button>
+        <!-- Button trigger modal -->
 
-</div>
+    </div>
 
     <datalist id="listName">
         <?php
@@ -81,7 +159,9 @@ ob_start();
     </datalist>
     <datalist id="listUserFirst">
         <?php
-        foreach ($users as $user){ ?>
+        foreach ($users
+
+        as $user){ ?>
         <option value="<?= $user['firstname'] ?> <?= $user['lastname'] ?>">
             <?php } ?>
     </datalist>
@@ -99,9 +179,11 @@ ob_start();
         function fnEditProfilFirstname() {
             form.submit()
         }
+
         function fnEditProfilFirstname2() {
             form2.submit()
         }
+
         function fnEditProfilFirstname3() {
             form3.submit()
         }
@@ -126,8 +208,8 @@ ob_start();
         }
 
         function init() {
-            save.addEventListener("click", fnEditProfilFirstname2)
-            save2.addEventListener("click", fnEditProfilFirstname3)
+            save.addEventListener("click", fnEditProfilFirstname)
+            save2.addEventListener("click", fnEditProfilFirstname)
             calendar.addEventListener("input", fnEditProfilFirstname)
             confirmer.addEventListener("click", fnEditProfilFirstname)
             addService.addEventListener("click", fnAddInputs)
