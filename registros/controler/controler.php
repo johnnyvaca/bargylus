@@ -1,51 +1,11 @@
 <?php
 require "model/model.php";
-$_SESSION['base'] = $base = [
-    0 => [
-        'name' => 'Recepción',
-    ],
-    1 => [
-        'name' => 'Dirección',
-    ],
-    2 => [
-        'name' => 'Vocalización',
-    ],
-    3 => [
-        'name' => 'Bateria',
-    ],
-    4 => [
-        'name' => 'Especial',
-    ],
-    5 => [
-        'name' => 'Piano',
-    ],
-    6 => [
-        'name' => 'Traducción',
-    ],
-    7 => [
-        'name' => 'Transmisión',
-    ],
-    8 => [
-        'name' => 'Proyección',
-    ],
-    9 => [
-        'name' => 'Bajo',
-    ],
-    10 => [
-        'name' => 'Ofrenda',
-    ],
-    11 => [
-        'name' => 'Cocina',
-    ],
-    12 => [
-        'name' => 'Guitarra',
-    ],
-];
+
 
 function home2()
 {
     $date = date("Y-m-d");
-    $_SESSION["date_now"]  = date("Y-m-d");
+    $_SESSION["date_now"] = date("Y-m-d");
     $_SESSION["date"] = $date;
     $users = getUsers();
     $services = getServices();
@@ -58,27 +18,66 @@ function home2()
         ];
     }
     $datas = getDataByDate($_SESSION["date"]);
+    $base = [
+        0 => [
+            'name' => 'Recepción',
+        ],
+        1 => [
+            'name' => 'Dirección',
+        ],
+        2 => [
+            'name' => 'Vocalización',
+        ],
+        3 => [
+            'name' => 'Bateria',
+        ],
+        4 => [
+            'name' => 'Especial',
+        ],
+        5 => [
+            'name' => 'Piano',
+        ],
+        6 => [
+            'name' => 'Traducción',
+        ],
+        7 => [
+            'name' => 'Transmisión',
+        ],
+        8 => [
+            'name' => 'Proyección',
+        ],
+        9 => [
+            'name' => 'Bajo',
+        ],
+        10 => [
+            'name' => 'Ofrenda',
+        ],
+        11 => [
+            'name' => 'Cocina',
+        ],
+        12 => [
+            'name' => 'Guitarra',
+        ],
+    ];
 
+    if ($_SESSION['date'] >= $_SESSION['date_now']) {
+        foreach ($base as $key => $b) {
+            if (!in_array($b['name'], array_column($datas, 'name'))) {
+                $datas[sizeof($datas)]['name'] = $b['name'];
+            }
 
-if($_SESSION['date'] >= $_SESSION['date_now']){
-    foreach ( $_SESSION['base'] as $key => $b){
-        if(!in_array($b['name'],array_column($datas, 'name'))){
-            $datas[sizeof($datas)]['name'] = $b['name'];
         }
-
     }
-}
-
-
 
 
     require_once 'view/home.php';
 }
 
 function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firstname, $users_id, $id, $service, $first, $last)
-{$_SESSION["date_now"]  = date("Y-m-d");
+{
+    $_SESSION["date_now"] = date("Y-m-d");
     foreach ($firstname as $key => $item) {
-        $userOld = explode(" ", $item);
+        $userOld = explode(" ", ucwords(strtolower($item)));
         $users[$key] = getUserByFirstAndLastname($userOld[0], $userOld[1]);
     }
 
@@ -155,6 +154,9 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
         }
     }
     if ($first != null && $last != null) {
+        $first =  ucwords(strtolower($first));
+        $last = ucwords(strtolower($last));
+        echo  $first.' '.$last. '<br>';
         $isExist = getUserIfExist($first, $last);
 
         if ($isExist == null && $first != null && $last != null) {
@@ -163,6 +165,8 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
     }
 
     if ($service != null) {
+        $service = ucwords(strtolower($service));
+        echo  $service. '<br>';
         $isExist = getServiceIfExist($service);
 
         if ($isExist == null && $service != null) {
@@ -227,7 +231,7 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
             'name' => 'Guitarra',
         ],
     ];
-    if($_SESSION['date'] >= $_SESSION['date_now']) {
+    if ($_SESSION['date'] >= $_SESSION['date_now']) {
         foreach ($base as $key => $b) {
             if (!in_array($b['name'], array_column($datas, 'name'))) {
                 $datas[sizeof($datas)]['name'] = $b['name'];
@@ -248,7 +252,10 @@ function deleteData2($id)
 
 function addUser($firstname, $lastname)
 {
-    $_SESSION["date_now"]  = date("Y-m-d");
+    $_SESSION["date_now"] = date("Y-m-d");
+    $firstname =  ucwords(strtolower($firstname));
+    $lastname = ucwords(strtolower($lastname));
+    echo  $firstname.' '.$lastname. '<br>';
     $isExist = getUserIfExist($firstname, $lastname);
 
     if ($isExist == null && $firstname != null && $lastname != null) {
@@ -306,7 +313,7 @@ function addUser($firstname, $lastname)
             'name' => 'Guitarra',
         ],
     ];
-    if($_SESSION['date'] >= $_SESSION['date_now']) {
+    if ($_SESSION['date'] >= $_SESSION['date_now']) {
         foreach ($datas as $key => $b) {
             if (!in_array($b['name'], array_column($datas, 'name'))) {
                 $datas[sizeof($datas)]['name'] = $b['name'];
@@ -318,7 +325,9 @@ function addUser($firstname, $lastname)
 }
 
 function addService($service)
-{$_SESSION["date_now"]  = date("Y-m-d");
+{
+   $service = ucwords(strtolower($service));
+    $_SESSION["date_now"] = date("Y-m-d");
     $isExist = getServiceIfExist($service);
 
     if ($isExist == null && $service != null) {
@@ -377,7 +386,7 @@ function addService($service)
             'name' => 'Guitarra',
         ],
     ];
-    if($_SESSION['date'] >= $_SESSION['date_now']) {
+    if ($_SESSION['date'] >= $_SESSION['date_now']) {
         foreach ($base as $key => $b) {
             if (!in_array($b['name'], array_column($datas, 'name'))) {
                 $datas[sizeof($datas)]['name'] = $b['name'];
