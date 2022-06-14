@@ -84,19 +84,14 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
     foreach ($name as $key => $item) {
         $services[$key] = getServicesByName($item);
     }
-    var_dump($culto_id);
-    echo "\n\n\n\n";
-    var_dump($ninos);
-         echo "\n\n\n\n";
-    var_dump($adultos);
-    var_dump($firstname[0]);
-    if (!($culto_id == "" && $ninos == "" && $adultos == ""  && $firstname[0] == "")) {
+
+    if (!($culto_id == "" && $ninos == "" && $adultos == "" && $firstname[0] == "")) {
 
 
         $cultos = getCulteByDate($_SESSION["date"]);
-        // var_dump("culto " . $cultos);
 
-        if ($adultos != "" || $ninos != "") {
+        if ($adultos != "" || $ninos != "" || $firstname[0] != "") {
+
             if (isset($cultos['id']) == false) {
                 $oneCulto = [
                     'date2' => $_SESSION["date"],
@@ -113,9 +108,9 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
                 }
 
 
-                $id = createCulto($oneCulto);
+                $id2 = createCulto($oneCulto);
 
-                $oneCulto['id'] = $id;
+                $oneCulto['id'] = $id2;
 
             } else {
                 $oneCulto = [
@@ -134,6 +129,8 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
                 }
                 updateCulto($oneCulto);
             }
+        } else {
+
         }
 
 
@@ -143,12 +140,12 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
                 $isExist = getisExist($users[$key]['id'], $services[$key]['id'], $oneCulto['id']);
 
                 if ($id[$key] == null && $isExist == null) {
-                    //  echo 'user: ' . $users[$key]['id'] . '  service: ' . $services[$key]['id'] . '  culte: ' . $oneCulto['id'] . '  id: ' . $id[$key] . '<br>';
                     $oneUser = [
                         'users_id' => $users[$key]['id'],
                         'services_id' => $services[$key]['id'],
                         'culte_id' => $oneCulto['id']
                     ];
+
                     createData($oneUser);
                 } else {
                     if ($isExist == null) {
@@ -157,7 +154,6 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
                         } else {
                             updateDataById($users[$key]['id'], $services[$key]['id'], $id[$key]);
                         }
-
                     }
                 }
 
@@ -166,7 +162,6 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
         if ($first != null && $last != null) {
             $first = ucwords(strtolower($first));
             $last = ucwords(strtolower($last));
-            echo $first . ' ' . $last . '<br>';
             $isExist = getUserIfExist($first, $last);
 
             if ($isExist == null && $first != null && $last != null) {
@@ -176,7 +171,6 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
 
         if ($service != null) {
             $service = ucwords(strtolower($service));
-            echo $service . '<br>';
             $isExist = getServiceIfExist($service);
 
             if ($isExist == null && $service != null) {
@@ -268,7 +262,6 @@ function addUser($firstname, $lastname)
     $_SESSION["date_now"] = date("Y-m-d");
     $firstname = ucwords(strtolower($firstname));
     $lastname = ucwords(strtolower($lastname));
-    echo $firstname . ' ' . $lastname . '<br>';
     $isExist = getUserIfExist($firstname, $lastname);
 
     if ($isExist == null && $firstname != null && $lastname != null) {
