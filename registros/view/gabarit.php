@@ -29,10 +29,10 @@
 
 </head>
 
-<body style="background-color: #D1D3D4">
-<div style="  border-style: solid;background-color: #ffffff ;border-color: #00549b;border-width: 10px;position: absolute; left: 30%;right: 30%; min-height: 100%">
+<body style="background-color: #D1D3D4; align-content: center">
+<div style="  border-style: solid;background-color: #ffffff ;border-color: #00549b;border-width: 10px;position: absolute; left: 1%;right: 1%; min-height: 100%">
     <div style="width: 100%; background-color: rgb(101,0,222);height: 100px;  "
-         class="shadow p-3 mb-5 bg-white rounded">
+         class="shadow p-3 mb-5 bg-white rounded ">
         <p style="text-align: center; width:400px;font-family: 'Arial' ;color: #00549b;position: absolute; top: 5px;left: 20px; font-size: 30px">
             ASSISTENCE EEANJESUS</p>
         <div style="position: absolute; top: 50px">
