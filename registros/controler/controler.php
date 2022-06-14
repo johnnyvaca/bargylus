@@ -84,93 +84,104 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
     foreach ($name as $key => $item) {
         $services[$key] = getServicesByName($item);
     }
-    $cultos = getCulteByDate($_SESSION["date"]);
-
-    if ($adultos != "" || $ninos != "") {
-        if (isset($cultos['id']) == false) {
-            $oneCulto = [
-                'date2' => $_SESSION["date"],
-                'adultos' => $adultos,
-                'ninos' => $ninos
-            ];
+    var_dump($culto_id);
+    echo "\n\n\n\n";
+    var_dump($ninos);
+         echo "\n\n\n\n";
+    var_dump($adultos);
+    var_dump($firstname[0]);
+    if (!($culto_id == "" && $ninos == "" && $adultos == ""  && $firstname[0] == "")) {
 
 
-            if ($adultos == "") {
-                $oneCulto['adultos'] = 0;
-            }
-            if ($ninos == "") {
-                $oneCulto['ninos'] = 0;
-            }
+        $cultos = getCulteByDate($_SESSION["date"]);
+        // var_dump("culto " . $cultos);
 
-
-            $id = createCulto($oneCulto);
-
-            $oneCulto['id'] = $id;
-
-        } else {
-            $oneCulto = [
-                'date2' => $_SESSION["date"],
-                'adultos' => $adultos,
-                'ninos' => $ninos,
-                'id' => $cultos['id']
-            ];
-
-
-            if ($adultos == "") {
-                $oneCulto['adultos'] = 0;
-            }
-            if ($ninos == "") {
-                $oneCulto['ninos'] = 0;
-            }
-            updateCulto($oneCulto);
-        }
-    }
-
-
-    if ($name != "") {
-        $length = count($name);
-        for ($key = 0; $key < $length; $key++) {
-            $isExist = getisExist($users[$key]['id'], $services[$key]['id'], $oneCulto['id']);
-
-            if ($id[$key] == null && $isExist == null) {
-                //  echo 'user: ' . $users[$key]['id'] . '  service: ' . $services[$key]['id'] . '  culte: ' . $oneCulto['id'] . '  id: ' . $id[$key] . '<br>';
-                $oneUser = [
-                    'users_id' => $users[$key]['id'],
-                    'services_id' => $services[$key]['id'],
-                    'culte_id' => $oneCulto['id']
+        if ($adultos != "" || $ninos != "") {
+            if (isset($cultos['id']) == false) {
+                $oneCulto = [
+                    'date2' => $_SESSION["date"],
+                    'adultos' => $adultos,
+                    'ninos' => $ninos
                 ];
-                createData($oneUser);
-            } else {
-                if ($isExist == null) {
-                    if ($users[$key]['id'] == false && $services[$key]['id'] == false) {
-                        deleteData3($id[$key]);
-                    } else {
-                        updateDataById($users[$key]['id'], $services[$key]['id'], $id[$key]);
-                    }
 
+
+                if ($adultos == "") {
+                    $oneCulto['adultos'] = 0;
                 }
+                if ($ninos == "") {
+                    $oneCulto['ninos'] = 0;
+                }
+
+
+                $id = createCulto($oneCulto);
+
+                $oneCulto['id'] = $id;
+
+            } else {
+                $oneCulto = [
+                    'date2' => $_SESSION["date"],
+                    'adultos' => $adultos,
+                    'ninos' => $ninos,
+                    'id' => $cultos['id']
+                ];
+
+
+                if ($adultos == "") {
+                    $oneCulto['adultos'] = 0;
+                }
+                if ($ninos == "") {
+                    $oneCulto['ninos'] = 0;
+                }
+                updateCulto($oneCulto);
             }
-
         }
-    }
-    if ($first != null && $last != null) {
-        $first =  ucwords(strtolower($first));
-        $last = ucwords(strtolower($last));
-        echo  $first.' '.$last. '<br>';
-        $isExist = getUserIfExist($first, $last);
 
-        if ($isExist == null && $first != null && $last != null) {
-            $id = addUserModel($first, $last);
+
+        if ($name != "") {
+            $length = count($name);
+            for ($key = 0; $key < $length; $key++) {
+                $isExist = getisExist($users[$key]['id'], $services[$key]['id'], $oneCulto['id']);
+
+                if ($id[$key] == null && $isExist == null) {
+                    //  echo 'user: ' . $users[$key]['id'] . '  service: ' . $services[$key]['id'] . '  culte: ' . $oneCulto['id'] . '  id: ' . $id[$key] . '<br>';
+                    $oneUser = [
+                        'users_id' => $users[$key]['id'],
+                        'services_id' => $services[$key]['id'],
+                        'culte_id' => $oneCulto['id']
+                    ];
+                    createData($oneUser);
+                } else {
+                    if ($isExist == null) {
+                        if ($users[$key]['id'] == false && $services[$key]['id'] == false) {
+                            deleteData3($id[$key]);
+                        } else {
+                            updateDataById($users[$key]['id'], $services[$key]['id'], $id[$key]);
+                        }
+
+                    }
+                }
+
+            }
         }
-    }
+        if ($first != null && $last != null) {
+            $first = ucwords(strtolower($first));
+            $last = ucwords(strtolower($last));
+            echo $first . ' ' . $last . '<br>';
+            $isExist = getUserIfExist($first, $last);
 
-    if ($service != null) {
-        $service = ucwords(strtolower($service));
-        echo  $service. '<br>';
-        $isExist = getServiceIfExist($service);
+            if ($isExist == null && $first != null && $last != null) {
+                $id = addUserModel($first, $last);
+            }
+        }
 
-        if ($isExist == null && $service != null) {
-            $id = addServiceModel($service);
+        if ($service != null) {
+            $service = ucwords(strtolower($service));
+            echo $service . '<br>';
+            $isExist = getServiceIfExist($service);
+
+            if ($isExist == null && $service != null) {
+                $id = addServiceModel($service);
+            }
         }
     }
 
@@ -178,6 +189,7 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
     if ($_SESSION["date"] == null) {
         $_SESSION["date"] = date("Y-m-d");
     }
+
     $users = getUsers();
     $services = getServices();
 
@@ -187,6 +199,7 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
             'date' => $_SESSION["date"]
         ];
     }
+
     $datas = getDataByDate($_SESSION["date"]);
 
 
@@ -253,9 +266,9 @@ function deleteData2($id)
 function addUser($firstname, $lastname)
 {
     $_SESSION["date_now"] = date("Y-m-d");
-    $firstname =  ucwords(strtolower($firstname));
+    $firstname = ucwords(strtolower($firstname));
     $lastname = ucwords(strtolower($lastname));
-    echo  $firstname.' '.$lastname. '<br>';
+    echo $firstname . ' ' . $lastname . '<br>';
     $isExist = getUserIfExist($firstname, $lastname);
 
     if ($isExist == null && $firstname != null && $lastname != null) {
@@ -326,7 +339,7 @@ function addUser($firstname, $lastname)
 
 function addService($service)
 {
-   $service = ucwords(strtolower($service));
+    $service = ucwords(strtolower($service));
     $_SESSION["date_now"] = date("Y-m-d");
     $isExist = getServiceIfExist($service);
 
