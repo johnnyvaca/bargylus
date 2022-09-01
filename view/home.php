@@ -60,7 +60,9 @@ $title = "Bargylus- Home";
                     <span><?= $currantday ?> </span>
 
                 </div>
+
             </div>
+            <hr style="height:2px;border-width:0;color:gray;background-color:red">
 
      <!--       <div class="row">
 

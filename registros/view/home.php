@@ -116,7 +116,7 @@ ob_start();
                 <!--         <input type="text" name="firstname[]" id="dd" title="coucou"
                    value="<?= $data["firstname"] ?> <?= $data["lastname"] ?>" list="listUserFirst"> -->
 
-                <select class="selectpicker" name="firstname[]" data-live-search="true">
+                <select class="selectpicker" name="firstname[]" data-live-search="true" id="select_id" onchange="fnEditProfilFirstname()">
                     <option value="" data-tokens="nada">nada</option>
                     <?php
                     foreach ($users as $user) {
@@ -208,11 +208,18 @@ ob_start();
         }
 
         function init() {
+            let sel = document.getElementById('select_id');
+            sel.onchange = function (){
+                console.log("test")
+            }
+            sel.addEventListener("click",fnEditProfilFirstname);
+            console.log("2")
             save.addEventListener("click", fnEditProfilFirstname)
             save2.addEventListener("click", fnEditProfilFirstname)
             calendar.addEventListener("input", fnEditProfilFirstname)
             confirmer.addEventListener("click", fnEditProfilFirstname)
             addService.addEventListener("click", fnAddInputs)
+
         }
 
         //lit tout l'html avant de lancer la fonction init

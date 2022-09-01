@@ -42,12 +42,12 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/main.css">
 
-<style>
-    .scrollit {
-        overflow: scroll;
-        height: 10%;
-    }
-</style>
+    <style>
+        .scrollit {
+            overflow: scroll;
+            height: 10%;
+        }
+    </style>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="200">
@@ -70,7 +70,7 @@
             <div class="row align-items-center">
                 <div class="col-12 text-center">
                     <a href="index.php?action=home" class="site-logo">
-                     <!--   <img src="/images/logo.png" alt="Image" class="img-fluid" id="logo"> -->
+                        <!--   <img src="/images/logo.png" alt="Image" class="img-fluid" id="logo"> -->
                     </a>
                 </div>
                 <a href="#" class="mx-auto d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
@@ -88,33 +88,64 @@
                     <div class="mx-auto">
                         <nav class="site-navigation position-relative text-left" role="navigation">
                             <ul class="site-menu main-menu js-clone-nav mx-auto d-none pl-0 d-lg-block border-none">
-                                <li class="active"><a href="index.php?action=home" class="nav-link text-left text-danger">Quienes somos</a>
+                                <li class="active"><a href="index.php?action=home"
+                                                      class="nav-link text-left text-danger">Quienes somos</a>
                                 </li>
-                                <li class="active"><a href="index.php?action=displaywines" class="nav-link text-left text-danger">Administracion</a>
+                                <li class="active"><a href="index.php?action=displaywines"
+                                                      class="nav-link text-left text-danger">Administracion</a>
                                 </li>
-                                <li class="active"><a href="index.php?action=about" class="nav-link text-left text-danger">Congregaciones</a>
+                                <li class="active"><a href="index.php?action=about"
+                                                      class="nav-link text-left text-danger">Cultos</a>
                                 </li>
-                                <li class="active "><a href="index.php?action=contact" class="nav-link text-left text-danger">Eventos</a>
+                                <li class="active"><a href="index.php?action=about"
+                                                      class="nav-link text-left text-danger"><img
+                                                src="../images/logo.jpg" height="120px" width="160px"></a>
+                                </li>
+                                <li class="active "><a href="index.php?action=contact"
+                                                       class="nav-link text-left text-danger">Eventos</a>
                                 </li>
                                 <?php if (isset($_SESSION["user"])) { ?>
                                     <li class="btn btn-danger"><?= '<a href="index.php?action=logout"
                                                                class="nav-link text-center white">Déconnexion</a>' ?></li>
-                                    <li class="btn btn-danger"><a href="index.php?action=profil&id=<?=$_SESSION['user']['id']?>"
-                                                               class="nav-link text-center white">Profil</a></li>
+                                    <li class="btn btn-danger"><a
+                                                href="index.php?action=profil&id=<?= $_SESSION['user']['id'] ?>"
+                                                class="nav-link text-center white">Profil</a></li>
 
                                     <?php if ($_SESSION["user"]["droits"] == 1) { ?>
                                         <li class="btn btn-danger"><?= '<a href="index.php?action=adminPage"
                                                                class="nav-link text-center white">Commandes</a>' ?></li>
                                         <li class="btn btn-danger"><a href="index.php?action=listOfAccounts"
-                                                               class="nav-link text-center white">Comptes</a></li>
+                                                                      class="nav-link text-center white">Comptes</a>
+                                        </li>
                                     <?php } ?>
                                 <?php } else { ?>
 
-                                    <li class="btn btn-danger"><?= '<a href="index.php?action=login"
-                                                               class="nav-link text-center white">Donaciones</a>' ?></li>
+                                    <!--  <li class="btn btn-danger"><?= '<a href="index.php?action=login"
+                                                               class="nav-link text-center white">Donaciones</a>' ?></li> -->
+
+                                    <li class="active "><a href="index.php?action=donations"
+                                                           class="nav-link text-left text-danger">Donaciones</a>
+                                    </li>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-danger dropdown-toggle"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                            Idioma
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Francais</a></li>
+                                            <li><a class="dropdown-item" href="#">Deutsch</a></li>
+                                            <li><a class="dropdown-item" href="#">Español</a></li>
+                                            <li><a class="dropdown-item" href="#">Italiano</a></li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                        </ul>
+                                    </div>
+
                                 <?php } ?>
 
-<!--
+                                <!--
                                 <li class="btn btn-primary"><a href="index.php?action=basket"
                                                                class="nav-link text-center white"><span
                                                 class="icon-shopping-bag mr-3"></span>panier <?= $_SESSION['totalQuantity'] ?>
@@ -124,11 +155,15 @@
                         </nav>
                     </div>
                 </div>
+                <hr style="height:2px;border-width:0;color:gray;background-color:red">
             </div>
+
 
         </div>
 
+
     </div>
+
 </div>
 
 <?= $content; ?>

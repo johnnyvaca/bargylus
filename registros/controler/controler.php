@@ -75,7 +75,15 @@ function home2()
 
 function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firstname, $users_id, $id, $service, $first, $last)
 {
-    $_SESSION["date_now"] = date("Y-m-d");
+    var_dump($_SESSION["date"]);
+    var_dump($_SESSION["date_now"]);
+    if(isset($_SESSION["date"])){
+        $_SESSION["date_now"] = date("Y-m-d");
+    }else{
+
+        $_SESSION["date_now"] = $_SESSION["date"];
+    }
+
     foreach ($firstname as $key => $item) {
         $userOld = explode(" ", ucwords(strtolower($item)));
         $users[$key] = getUserByFirstAndLastname($userOld[0], $userOld[1]);
