@@ -1,8 +1,8 @@
 const splash = document.querySelector('.splash');
 function test(){
-    setTimeout(() =>{
-        splash.style.width = 0;
-    },3000)
+   setTimeout(() =>{
+       splash.style.width = 0;
+   },3000)
 
 }
 
@@ -59,7 +59,7 @@ function fnEditProfilBirthdate(){
 
 
 function init() {
-    test()
+  test()
     editFirstname.addEventListener("click", fnEditProfilFirstname)
     editLastname.addEventListener("click", fnEditProfilLastname)
     editNumber.addEventListener("click", fnEditProfilNumber)

@@ -18,3 +18,22 @@ body,li{
 #preview img {
     max-height: 100px; 
 }
+#boxes {
+    position: relative;
+}
+
+#boxes2 {
+    position: relative;
+   content: "";
+   display: table;
+   clear: both;
+}
+#div {
+    position: relative;
+}
+#div2 {
+    float: left;
+    height: 470px;
+    width: 100%;
+    padding: 0 10px;
+}
