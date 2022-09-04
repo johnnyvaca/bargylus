@@ -106,15 +106,15 @@ $title = "Bargylus- Home";
             } ?>
         </div> -->
             <div id="div">
-                <div style="background: #0d95e8;">
+                <div style="background: #0d95e8; position: relative     ">
                     <div style="width: 50%; top: 0; left: 0; background: #4c003e" class="mb-5 ">
                         <div id='calendar'/>
                     </div>
-                    <div style=" width: 50% right: 0; background: red">
-                    <!--    <iframe width=555 height="315" src="https://www.youtube.com/embed/6UFV6rFV_TM"
+                    <div  style=" width=555;top: 0; right: 0; background: red; position: absolute">
+                        <iframe width="555" height="315" src="https://www.youtube.com/embed/6UFV6rFV_TM"
                                 title="YouTube video player" frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe> -->
+                                allowfullscreen></iframe>
                     </div>
 
                 </div>

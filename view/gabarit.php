@@ -185,30 +185,24 @@
 
 <?= $content; ?>
 
-<!--
+
 <div class="footer">
     <div class="container">
 
         <div class="row">
-            <div class="col-12 text-center">
-                <div class="social-icons">
+            <div class="col-12 text-center" style="background-color: red; height: 200px; position: relative; vertical-align: center">
+                <div style=" position: absolute; left: 0; vertical-align: center" class="social-icons" >
                     <a href="#"><span class="icon-facebook"></span></a>
                     <a href="#"><span class="icon-twitter"></span></a>
                     <a href="#"><span class="icon-youtube"></span></a>
                     <a href="#"><span class="icon-instagram"></span></a>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="copyright">
+                <div >
                     <p>
 
                         Copyright ©
                         <script>document.write(new Date().getFullYear());</script>
-                        All rights reserved | This template is made with <i class="icon-heart text-danger"
-                                                                            aria-hidden="true"></i> by <a href="#"
-                                                                                                          target="_blank">Marwanophe</a>
+                        All rights reserved | This page is make by Eean Jesus Lausanne
 
                     </p>
 
@@ -217,7 +211,7 @@
         </div>
     </div>
 </div>
--->
+
 
 </div>
 <!-- .site-wrap -->
