@@ -107,16 +107,41 @@ $title = "Bargylus- Home";
         </div> -->
             <div id="div">
                 <div style="background: #0d95e8; position: relative     ">
-                    <div style="width: 50%; top: 0; left: 0; background: #4c003e" class="mb-5 ">
-                        <div id='calendar'/>
+                    <div style="width: 50%; top: 0; left: 0; background: #4c003e; position: static " class="mb-5 ">
+                        <!-- <div id='calendar'/> -->
+                        <table>
+                            <tr>
+                                <th>lu</th>
+                                <th>ma</th>
+                                <th>me</th>
+                                <th>je</th>
+                                <th>ve</th>
+                                <th>sa</th>
+                                <th>di</th>
+                            </tr>
+                            <?php $iii = 0;
+                            for ($i = 0; $i < 6; $i++) { ?>
+                                <tr>
+                                    <?php
+                                    for ($ii = 0; $ii < 7; $ii++) {
+                                        $iii++;
+                                        ?>
+                                        <td style="width: 100px;height: 90px; background: #0d95e8; border: #6a9a33; border-style: dashed"><?= $iii ?></td>
+                                        <?php
+                                    }
+                                    ?>
+                                </tr>
+                            <?php } ?>
+                        </table>
+
                     </div>
-                    <div  style=" width=555;top: 0; right: 0; background: red; position: absolute">
+
+                    <div style=" width=555;top: 0; right: 0; background: red; position: absolute">
                         <iframe width="555" height="315" src="https://www.youtube.com/embed/6UFV6rFV_TM"
                                 title="YouTube video player" frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen></iframe>
                     </div>
-
                 </div>
             </div>
 
