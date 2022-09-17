@@ -49,19 +49,18 @@ $title = "Bargylus- Home";
     -->
     <!-- here we have to apply the sold -->
 
-    <div class="site-section mt-5">
+    <div class="site-section mt-5" style="">
         <div class="container">
 
-            <div class="row mb-5">
-                <div class="col-12 section-title text-center mb-5">
-                    <h2 class="d-block">Bienvenues à la EEANJESUS </h2>
+            <div class="col-12 section-title text-center " style="margin-bottom: 0; background: whitesmoke">
+                <h2 class="d-block">Bienvenues à la EEANJESUS </h2>
 
-                    <p>il y a un seul Seigneur, une seule foi, un seul baptême... Éphésiens 4:5</p>
-                    <span><?= $currantday ?> </span>
+                <p>il y a un seul Seigneur, une seule foi, un seul baptême... Éphésiens 4:5</p>
 
-                </div>
 
             </div>
+
+
             <hr style="height:2px;border-width:0;color:gray;background-color:red">
 
             <!--       <div class="row">
@@ -105,10 +104,10 @@ $title = "Bargylus- Home";
                 <?php }
             } ?>
         </div> -->
-            <div id="div">
-                <div style="background: #0d95e8; position: relative     ">
-                    <div style="width: 50%; top: 0; left: 0; background: #4c003e; position: static " class="mb-5 ">
-                        <!-- <div id='calendar'/> -->
+            <!--    <div id="div"> -->
+            <div style="background:  linear-gradient(#e8c9cf, white); position: relative" class="site-section">
+                <!--   <div style="width: 50%; top: 0; left: 0; background: #4c003e; position: static " >
+                        <div id='calendar'/>
                         <table>
                             <tr>
                                 <th>lu</th>
@@ -120,31 +119,28 @@ $title = "Bargylus- Home";
                                 <th>di</th>
                             </tr>
                             <?php $iii = 0;
-                            for ($i = 0; $i < 6; $i++) { ?>
+                for ($i = 0; $i < 6; $i++) { ?>
                                 <tr>
                                     <?php
-                                    for ($ii = 0; $ii < 7; $ii++) {
-                                        $iii++;
-                                        ?>
+                    for ($ii = 0; $ii < 7; $ii++) {
+                        $iii++;
+                        ?>
                                         <td style="width: 100px;height: 90px; background: #0d95e8; border: #6a9a33; border-style: dashed"><?= $iii ?></td>
                                         <?php
-                                    }
-                                    ?>
+                    }
+                    ?>
                                 </tr>
                             <?php } ?>
                         </table>
-
-                    </div>
-
-                    <div style=" width=555;top: 0; right: 0; background: red; position: absolute">
-                        <iframe width="555" height="315" src="https://www.youtube.com/embed/6UFV6rFV_TM"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                    </div>
+                    </div> -->
+                <div style=" width=555;top: 0; right: 0; background: red; position: absolute">
+                    <iframe width="555" height="315" src="https://www.youtube.com/embed/6UFV6rFV_TM"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                 </div>
             </div>
-
+            <!-- </div> -->
         </div>
     </div>
 <?php

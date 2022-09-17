@@ -21,8 +21,8 @@
 
     <link rel="stylesheet" href="fonts/icomoon/style.css">
 
-    <link href='fullcalendar/packages/core/main.css' rel='stylesheet' />
-    <link href='fullcalendar/packages/daygrid/main.css' rel='stylesheet' />
+    <link href='fullcalendar/packages/core/main.css' rel='stylesheet'/>
+    <link href='fullcalendar/packages/daygrid/main.css' rel='stylesheet'/>
 
 
     <!-- Bootstrap CSS -->
@@ -186,31 +186,31 @@
 <?= $content; ?>
 
 
-<div class="footer">
-    <div class="container">
+<div  style="background: yellow; height:90px">
+    <div class="container" style="background: #c527b8">
 
-        <div class="row">
-            <div class="col-12 text-center" style="background-color: red; height: 200px; position: relative; vertical-align: center">
-                <div style=" position: absolute; left: 0; vertical-align: center" class="social-icons" >
+        <div class="row align-items-center" style="background: forestgreen">
+            <div class=" col-md-12" style="background-color: red; height: 100px; position: relative;">
+                <div style="background: blue" class="social-icons ">
                     <a href="#"><span class="icon-facebook"></span></a>
                     <a href="#"><span class="icon-twitter"></span></a>
                     <a href="#"><span class="icon-youtube"></span></a>
                     <a href="#"><span class="icon-instagram"></span></a>
                 </div>
-                <div >
-                    <p>
+                <!-- <div style="background: #c527b8">
+                     <p>
 
-                        Copyright ©
-                        <script>document.write(new Date().getFullYear());</script>
-                        All rights reserved | This page is make by Eean Jesus Lausanne
+                         Copyright ©
+                         <script>document.write(new Date().getFullYear());</script>
+                         All rights reserved | This page is make by Eean Jesus Lausanne
 
-                    </p>
+                     </p>
 
-                </div>
+                 </div> -->
             </div>
+
         </div>
     </div>
-</div>
 
 
 </div>
@@ -246,8 +246,6 @@
 <script src="/js/gabarit.js"></script>
 
 
-
-
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -257,11 +255,11 @@
 <script src='fullcalendar/packages/daygrid/main.js'></script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         var calendarEl = document.getElementById('calendar');
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
-            plugins: [ 'interaction', 'dayGrid' ],
+            plugins: ['interaction', 'dayGrid'],
             defaultDate: '2020-02-12',
             editable: true,
             eventLimit: true, // allow "more" link when too many events
