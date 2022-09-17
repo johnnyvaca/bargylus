@@ -49,15 +49,13 @@ $title = "Bargylus- Home";
     -->
     <!-- here we have to apply the sold -->
 
-    <div class="site-section mt-5" style="">
-        <div class="container" style="">
+    <div class="site-section mt-5" style="background: transparent;height: 100%">
+        <div class="" style="background: transparent; height: 100%">
 
-            <div class="col-12 section-title text-center " style="margin-bottom: 0; background: whitesmoke">
+            <div class="col-12 section-title text-center " style="margin-bottom: 0; background: transparent">
                 <h2 class="d-block">Bienvenues à la EEANJESUS </h2>
 
                 <p>il y a un seul Seigneur, une seule foi, un seul baptême... Éphésiens 4:5</p>
-
-
             </div>
 
 
@@ -104,43 +102,16 @@ $title = "Bargylus- Home";
                 <?php }
             } ?>
         </div> -->
-            <!--    <div id="div"> -->
-            <div style=" position: relative" class="site-section">
-                <!--   <div style="width: 50%; top: 0; left: 0; background: #4c003e; position: static " >
-                        <div id='calendar'/>
-                        <table>
-                            <tr>
-                                <th>lu</th>
-                                <th>ma</th>
-                                <th>me</th>
-                                <th>je</th>
-                                <th>ve</th>
-                                <th>sa</th>
-                                <th>di</th>
-                            </tr>
-                            <?php $iii = 0;
-                for ($i = 0; $i < 6; $i++) { ?>
-                                <tr>
-                                    <?php
-                    for ($ii = 0; $ii < 7; $ii++) {
-                        $iii++;
-                        ?>
-                                        <td style="width: 100px;height: 90px; background: #0d95e8; border: #6a9a33; border-style: dashed"><?= $iii ?></td>
-                                        <?php
-                    }
-                    ?>
-                                </tr>
-                            <?php } ?>
-                        </table>
-                    </div> -->
-                <div style=" width=555;top: 0; right: 0; background: red; position: absolute">
+
+            <div style=" position: relative; background:transparent; height: 100%" class="site-section">
+                <div style=" width=555;height: 100%;top: 0; right: 0; background: #0d364b; position: absolute">
                     <iframe width="555" height="315" src="https://www.youtube.com/embed/6UFV6rFV_TM"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
                 </div>
             </div>
-            <!-- </div> -->
+
         </div>
     </div>
 <?php

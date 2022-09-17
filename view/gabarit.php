@@ -67,11 +67,11 @@
     </style>
 </head>
 
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="200">
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="200" style="background:  transparent)">
 <!--<div class="splash">
     <img src="../images/splash.gif" width="100%">
 </div> -->
-<div class="site-wrap">
+<div class="" >
 
     <div class="site-mobile-menu site-navbar-target">
         <div class="site-mobile-menu-header">
@@ -83,7 +83,7 @@
     </div>
 
     <div class="header-top">
-        <div class="container">
+        <div class="">
             <div class="row align-items-center">
                 <div class="col-12 text-center">
                     <a href="index.php?action=home" class="site-logo">
@@ -99,7 +99,7 @@
         <?= getFlashMessage() ?>
         <div class="site-navbar py-2 js-sticky-header site-navbar-target d-none pl-0 d-lg-block" role="banner">
 
-            <div class="container">
+            <div class="">
                 <div class="d-flex align-items-center">
 
                     <div class="mx-auto">
@@ -186,9 +186,9 @@
 <?= $content; ?>
 
 
-<div class="container" style="position: relative; background: transparent">
+<div class="pied" style="position: absolute; background: red; margin: 0;padding-top: 0;padding-bottom: 0; width: 100%; bottom: 0">
 
-    <div class="" style="background-color: red; height: 130px;display: flex;justify-content: space-between;margin: 1em">
+    <div class="" style="background-color: transparent; height: 130px;display: flex;justify-content: space-between;">
         <div style="background: transparent; width: 400px;padding-top: 40px;padding-right: 0;padding-left: 0" class="social-icons align-items-center">
             <a href="#"><span class="icon-facebook"></span></a>
             <a href="#"><span class="icon-twitter"></span></a>
