@@ -50,7 +50,7 @@ $title = "Bargylus- Home";
     <!-- here we have to apply the sold -->
 
     <div class="site-section mt-5" style="">
-        <div class="container">
+        <div class="container" style="">
 
             <div class="col-12 section-title text-center " style="margin-bottom: 0; background: whitesmoke">
                 <h2 class="d-block">Bienvenues à la EEANJESUS </h2>
@@ -105,7 +105,7 @@ $title = "Bargylus- Home";
             } ?>
         </div> -->
             <!--    <div id="div"> -->
-            <div style="background:  linear-gradient(#e8c9cf, white); position: relative" class="site-section">
+            <div style=" position: relative" class="site-section">
                 <!--   <div style="width: 50%; top: 0; left: 0; background: #4c003e; position: static " >
                         <div id='calendar'/>
                         <table>

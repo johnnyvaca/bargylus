@@ -186,34 +186,46 @@
 <?= $content; ?>
 
 
-<div  style="background: yellow; height:90px">
-    <div class="container" style="background: #c527b8">
+<div class="container" style="position: relative; background: transparent">
 
-        <div class="row align-items-center" style="background: forestgreen">
-            <div class=" col-md-12" style="background-color: red; height: 100px; position: relative;">
-                <div style="background: blue" class="social-icons ">
-                    <a href="#"><span class="icon-facebook"></span></a>
-                    <a href="#"><span class="icon-twitter"></span></a>
-                    <a href="#"><span class="icon-youtube"></span></a>
-                    <a href="#"><span class="icon-instagram"></span></a>
-                </div>
-                <!-- <div style="background: #c527b8">
-                     <p>
-
-                         Copyright ©
-                         <script>document.write(new Date().getFullYear());</script>
-                         All rights reserved | This page is make by Eean Jesus Lausanne
-
-                     </p>
-
-                 </div> -->
-            </div>
-
+    <div class="" style="background-color: red; height: 130px;display: flex;justify-content: space-between;margin: 1em">
+        <div style="background: transparent; width: 400px;padding-top: 40px;padding-right: 0;padding-left: 0" class="social-icons align-items-center">
+            <a href="#"><span class="icon-facebook"></span></a>
+            <a href="#"><span class="icon-twitter"></span></a>
+            <a href="#"><span class="icon-youtube"></span></a>
+            <a href="#"><span class="icon-instagram"></span></a>
         </div>
+
+       <div style=" color: whitesmoke;background:transparent; width: 400px;height: 300px right: 0;top: 0">
+            <ul style="list-style-type: none;margin: 0;padding: 0;position: absolute" class="numbers2">
+                <li><span style="font-weight: bold">Français</span> <span>- Jean Poul     </span><span>     079 232 40 06</span>
+                </li>
+                <li><span style="font-weight: bold">Deutsch</span>
+                    <span>- Carlos Schmidt</span><span>     079 232 40 06</span></li>
+                <li><span style="font-weight: bold">Español</span>
+                    <span>- Armando Valdez</span><span>     079 232 40 06</span></li>
+                <li><span style="font-weight: bold">Italiano</span> <span>- Fabio Ricardi </span><span>     079 232 40 06</span>
+                </li>
+            </ul>
+        </div>
+        <!--  <div style="background: green; height: 50px;width: 50px; align-items: center;justify-content: center"></div>-->
     </div>
+    <!-- <div style="background: #c527b8">
+         <p>
+
+             Copyright ©
+             <script>document.write(new Date().getFullYear());</script>
+             All rights reserved | This page is make by Eean Jesus Lausanne
+
+         </p>
+
+     </div> -->
+</div>
 
 
 </div>
+
+
 <!-- .site-wrap -->
 
 

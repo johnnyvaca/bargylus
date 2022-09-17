@@ -1466,8 +1466,8 @@ h1, h2, h3, h4, h5,
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #930077;
-    color: #fff;
+    background: #ffffff;
+    color: red;
     top: 0;
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
@@ -1594,3 +1594,12 @@ h1, h2, h3, h4, h5,
     font-size: 18px; }
   .site-blocks-1 .text p:last-child {
     margin-bottom: 0; }
+
+.numbers2 li span{
+  font-size: 20px;
+  background: transparent;
+  left: 200px;
+}.numbers2 li{
+   line-height:30px;
+   display: flex;
+}
