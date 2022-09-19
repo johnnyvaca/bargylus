@@ -49,7 +49,7 @@ $title = "Bargylus- Home";
     -->
     <!-- here we have to apply the sold -->
 
-    <div class="site-section mt-5" style="background: transparent;height: 100%">
+    <div class="site-section mt-5" style="height: 100%">
         <div class="" style="background: transparent; height: 100%">
 
             <div class="col-12 section-title text-center " style="margin-bottom: 0; background: transparent">
@@ -59,60 +59,91 @@ $title = "Bargylus- Home";
             </div>
 
 
-            <hr style="height:2px;border-width:0;color:gray;background-color:red">
+            <hr style="height:3px;border-width:0;color:gray;background-color:red;">
 
-            <!--       <div class="row">
+            <div style="position: absolute;display: flex; align-content: space-between; background: green; height: 603px">
 
-                <?php
+                <div class="scrol" style="margin-left: 30px; margin-top: 50px; height: 400px">
 
-            foreach ($solds as $i => $sold) {
-
-                if ($sold['discounts_id'] != 1) { ?>
-                <div class="col-lg-4 mb-5 col-md-6">
-
-                    <div class="wine_v_1 text-center pb-4">
-                        <a href="index.php?action=winedetail&id=<?= $sold['id'] ?>" class="thumbnail d-block mb-4"><img src="images/<?= $sold['photo'] ?>" alt="Image" class="img-fluid"></a>
-                        <div>
-                            <h3 class="heading mb-1"><a href="#"><?= $sold['winename'] ?></a></h3>
-                            <span class="price"><?= $soldprice[$i] ?> CHF</span>
+                    <div class="card text-white bg-primary mb-3" style=" width: 600px">
+                        <div class="card-header">Header</div>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title</p>
                         </div>
-                        <div class="wine-actions">
-
-                            <h3 class="heading-2"><a href="#"><?= $sold['winename'] ?></a></h3>
-                            <span class="price d-block">
-
-                                    <del> <?= $sold['basic_price'] ?> CHF </del><br>
-                                    <?= $soldprice[$i] ?>CHF</span>
-                            <div class="rating">
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star-o"></span>
-                            </div>
-                             si le vin est épuisé
-                            <?php if ($sold['stock'] > 0) { ?>
-                                <a href="index.php?action=winesBasket&id=<?= $sold['id'] ?>" class="btn add"><span class="icon-shopping-bag mr-3"></span> ajouter au panier </a>
-                            <?php } else { ?>
-                                <span>vin épuisé</span>
-                            <?php } ?>
+                    </div>
+                    <div class="card text-white bg-secondary mb-3" style="width: 600px">
+                        <div class="card-header">Header</div>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title</p>
+                        </div>
+                    </div>
+                    <div class="card text-white bg-primary mb-3" style=" width: 600px">
+                        <div class="card-header">Header</div>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title</p>
+                        </div>
+                    </div>
+                    <div class="card text-white bg-secondary mb-3" style="width: 600px">
+                        <div class="card-header">Header</div>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title</p>
+                        </div>
+                    </div> <div class="card text-white bg-primary mb-3" style=" width: 600px">
+                        <div class="card-header">Header</div>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title</p>
+                        </div>
+                    </div>
+                    <div class="card text-white bg-secondary mb-3" style="width: 600px">
+                        <div class="card-header">Header</div>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title</p>
+                        </div>
+                    </div> <div class="card text-white bg-primary mb-3" style=" width: 600px">
+                        <div class="card-header">Header</div>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title</p>
+                        </div>
+                    </div>
+                    <div class="card text-white bg-secondary mb-3" style="width: 600px">
+                        <div class="card-header">Header</div>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title</p>
+                        </div>
+                    </div> <div class="card text-white bg-primary mb-3" style=" width: 600px">
+                        <div class="card-header">Header</div>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title</p>
+                        </div>
+                    </div>
+                    <div class="card text-white bg-secondary mb-3" style="width: 600px">
+                        <div class="card-header">Header</div>
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title</p>
                         </div>
                     </div>
                 </div>
-                <?php }
-            } ?>
-        </div> -->
 
-            <div style=" position: relative; background:transparent; height: 100%" class="site-section">
-                <div style=" width=555;height: 100%;top: 0; right: 0; background: #0d364b; position: absolute">
-                    <iframe width="555" height="315" src="https://www.youtube.com/embed/6UFV6rFV_TM"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                </div>
             </div>
 
         </div>
+        <div style=" position: absolute;right: 30px ; background: #6d0058; height: 400px;width: 800px;margin-top: 50px;display: flow; justify-content: space-between "
+             class="site-section">
+            <div style="width: 700px; height: 50px;background: #ff0000; align-items: center; align-content: center">
+                <p style="color: whitesmoke; text-align: center">CONVENCION INTERNACIONAL 11,12,13 DE
+                    OCTUBRE</p></div>
+
+                <iframe  style="padding-top: 50px; width: 700px;height: 350px; background: #0d364b; position: absolute; display:  flex ; justify-content: space-around" width="600" height="300"
+                        src="https://www.youtube.com/embed/6UFV6rFV_TM"
+                        title="Videito" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+          <!--      <div style=" ">     </div> -->
+
+        </div>
+    </div>
+
+
     </div>
 <?php
 $content = ob_get_clean();

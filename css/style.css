@@ -1603,3 +1603,13 @@ h1, h2, h3, h4, h5,
    line-height:30px;
    display: flex;
 }
+.scrol{
+  margin:4px;
+  padding:4px;
+  background-color: red;
+  width: 700px;
+  height: 400px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align:justify;
+}

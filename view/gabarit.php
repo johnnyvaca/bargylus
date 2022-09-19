@@ -18,6 +18,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
 
+    <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="fonts/icomoon/style.css">
 
@@ -26,10 +28,10 @@
 
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 
     <!-- Style -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
@@ -68,135 +70,119 @@
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="200" style="background:  transparent)">
+<div class="container">
+    <div class="row justify-content-center">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><a href="index.php?action=home"
+                                                   class="nav-link text-left text-danger">Quienes somos</a>
+                    </li>
+                    <li class="nav-item"><a href="index.php?action=displaywines"
+                                            class="nav-link text-left text-danger">Administracion</a>
+                    </li>
+                    <li class="nav-item"><a href="index.php?action=about"
+                                            class="nav-link text-left text-danger">Cultos</a>
+                    </li>
+                    <li class="nav-item"><a href="index.php?action=about"
+                                            class="nav-link text-left text-danger"><img
+                                    src="../images/logo.jpg" height="120px" width="160px"></a>
+                    </li>
+
+
+                    <li class="nav-item"><a href="index.php?action=contact"
+                                            class="nav-link text-left text-danger">Eventos</a>
+                    </li>
+                    <?php if (isset($_SESSION["user"])) { ?>
+                        <li class="nav-item btn-danger"><?= '<a href="index.php?action=logout"
+                                                               class="nav-link text-center white">Déconnexion</a>' ?></li>
+                        <li class="nav-item btn btn-danger"><a
+                                    href="index.php?action=profil&id=<?= $_SESSION['user']['id'] ?>"
+                                    class="nav-link text-center white">Profil</a></li>
+
+                        <?php if ($_SESSION["user"]["droits"] == 1) { ?>
+                            <li class="nav-item btn btn-danger"><?= '<a href="index.php?action=adminPage"
+                                                               class="nav-link text-center white">Commandes</a>' ?></li>
+                            <li class="nav-item btn btn-danger"><a href="index.php?action=listOfAccounts"
+                                                                   class="nav-link text-center white">Comptes</a>
+                            </li>
+                        <?php } ?>
+                    <?php } else { ?>
+
+                    <!--  <li class="btn btn-danger"><?= '<a href="index.php?action=login"
+                                                               class="nav-link text-center white">Donaciones</a>' ?></li> -->
+
+                    <li class="nav-item"><a href="index.php?action=donations"
+                                            class="nav-link text-left text-danger">Donaciones</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown">
+                            Idioma
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Francais</a>
+                            <a class="dropdown-item" href="#">Deutsch</a>
+                            <a class="dropdown-item" href="#">Español</a>
+                            <a class="dropdown-item" href="#">Italiano</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+</div>
 <!--<div class="splash">
     <img src="../images/splash.gif" width="100%">
 </div> -->
-<div class="" >
 
-    <div class="site-mobile-menu site-navbar-target">
-        <div class="site-mobile-menu-header">
-            <div class="site-mobile-menu-close mt-3">
-                <span class="icon-close2 js-menu-toggle"></span>
-            </div>
-        </div>
-        <div class="site-mobile-menu-body"></div>
-    </div>
 
-    <div class="header-top">
-        <div class="">
-            <div class="row align-items-center">
-                <div class="col-12 text-center">
-                    <a href="index.php?action=home" class="site-logo">
-                        <!--   <img src="/images/logo.png" alt="Image" class="img-fluid" id="logo"> -->
-                    </a>
-                </div>
-                <a href="#" class="mx-auto d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
-                            class="icon-menu h3"></span></a>
-            </div>
-        </div>
+<!-- J'ajoute un flashmessage pour la connexion) -->
 
-        <!-- J'ajoute un flashmessage pour la connexion) -->
-        <?= getFlashMessage() ?>
-        <div class="site-navbar py-2 js-sticky-header site-navbar-target d-none pl-0 d-lg-block" role="banner">
 
-            <div class="">
-                <div class="d-flex align-items-center">
+<nav class="site-navigation position-relative text-left" role="navigation">
+    <ul class="navbar-nav mr-auto site-menu main-menu js-clone-nav mx-auto d-none pl-0 d-lg-block border-none">
 
-                    <div class="mx-auto">
-                        <nav class="site-navigation position-relative text-left" role="navigation">
-                            <ul class="site-menu main-menu js-clone-nav mx-auto d-none pl-0 d-lg-block border-none">
-                                <li class="active"><a href="index.php?action=home"
-                                                      class="nav-link text-left text-danger">Quienes somos</a>
-                                </li>
-                                <li class="active"><a href="index.php?action=displaywines"
-                                                      class="nav-link text-left text-danger">Administracion</a>
-                                </li>
-                                <li class="active"><a href="index.php?action=about"
-                                                      class="nav-link text-left text-danger">Cultos</a>
-                                </li>
-                                <li class="active"><a href="index.php?action=about"
-                                                      class="nav-link text-left text-danger"><img
-                                                src="../images/logo.jpg" height="120px" width="160px"></a>
-                                </li>
-                                <li class="active "><a href="index.php?action=contact"
-                                                       class="nav-link text-left text-danger">Eventos</a>
-                                </li>
-                                <?php if (isset($_SESSION["user"])) { ?>
-                                    <li class="btn btn-danger"><?= '<a href="index.php?action=logout"
-                                                               class="nav-link text-center white">Déconnexion</a>' ?></li>
-                                    <li class="btn btn-danger"><a
-                                                href="index.php?action=profil&id=<?= $_SESSION['user']['id'] ?>"
-                                                class="nav-link text-center white">Profil</a></li>
 
-                                    <?php if ($_SESSION["user"]["droits"] == 1) { ?>
-                                        <li class="btn btn-danger"><?= '<a href="index.php?action=adminPage"
-                                                               class="nav-link text-center white">Commandes</a>' ?></li>
-                                        <li class="btn btn-danger"><a href="index.php?action=listOfAccounts"
-                                                                      class="nav-link text-center white">Comptes</a>
-                                        </li>
-                                    <?php } ?>
-                                <?php } else { ?>
+        <?php } ?>
 
-                                    <!--  <li class="btn btn-danger"><?= '<a href="index.php?action=login"
-                                                               class="nav-link text-center white">Donaciones</a>' ?></li> -->
-
-                                    <li class="active "><a href="index.php?action=donations"
-                                                           class="nav-link text-left text-danger">Donaciones</a>
-                                    </li>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-danger dropdown-toggle"
-                                                data-bs-toggle="dropdown" aria-expanded="false">
-                                            Idioma
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Francais</a></li>
-                                            <li><a class="dropdown-item" href="#">Deutsch</a></li>
-                                            <li><a class="dropdown-item" href="#">Español</a></li>
-                                            <li><a class="dropdown-item" href="#">Italiano</a></li>
-                                            <li>
-                                                <hr class="dropdown-divider">
-                                            </li>
-                                            <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                        </ul>
-                                    </div>
-
-                                <?php } ?>
-
-                                <!--
+        <!--
                                 <li class="btn btn-primary"><a href="index.php?action=basket"
                                                                class="nav-link text-center white"><span
                                                 class="icon-shopping-bag mr-3"></span>panier <?= $_SESSION['totalQuantity'] ?>
                                     </a></li>
                                     -->
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <hr style="height:2px;border-width:0;color:gray;background-color:red">
-            </div>
 
+    </ul>
+</nav>
+<?= getFlashMessage() ?>
+<hr style="height:2px;border-width:0;color:gray;background-color:red">
 
-        </div>
-
-
-    </div>
-
-</div>
 
 <?= $content; ?>
 
 
-<div class="pied" style="position: absolute; background: red; margin: 0;padding-top: 0;padding-bottom: 0; width: 100%; bottom: 0">
+<div class="pied"
+     style="position: absolute; background: red; margin: 0;padding-top: 0;padding-bottom: 0; width: 100%; bottom: 0">
 
-    <div class="" style="background-color: transparent; height: 130px;display: flex;justify-content: space-between;">
-        <div style="background: transparent; width: 400px;padding-top: 40px;padding-right: 0;padding-left: 0" class="social-icons align-items-center">
+    <div class=""
+         style="background-color: transparent; height: 130px;display: flex;justify-content: space-between;">
+        <div style="background: transparent; width: 400px;padding-top: 40px;padding-right: 0;padding-left: 0"
+             class="social-icons align-items-center">
             <a href="#"><span class="icon-facebook"></span></a>
             <a href="#"><span class="icon-twitter"></span></a>
             <a href="#"><span class="icon-youtube"></span></a>
             <a href="#"><span class="icon-instagram"></span></a>
         </div>
 
-       <div style=" color: whitesmoke;background:transparent; width: 400px;height: 300px right: 0;top: 0">
+        <div style=" color: whitesmoke;background:transparent; width: 400px;height: 300px right: 0;top: 0">
             <ul style="list-style-type: none;margin: 0;padding: 0;position: absolute" class="numbers2">
                 <li><span style="font-weight: bold">Français</span> <span>- Jean Poul     </span><span>     079 232 40 06</span>
                 </li>
@@ -223,9 +209,6 @@
 </div>
 
 
-</div>
-
-
 <!-- .site-wrap -->
 
 
@@ -237,6 +220,7 @@
                 stroke="#ff5e15"/>
     </svg>
 </div>
+</body>
 
 <script src="/js/jquery-3.3.1.min.js"></script>
 <script src="/js/jquery-migrate-3.0.1.min.js"></script>
@@ -258,13 +242,13 @@
 <script src="/js/gabarit.js"></script>
 
 
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 
-<script src='fullcalendar/packages/core/main.js'></script>
-<script src='fullcalendar/packages/interaction/main.js'></script>
-<script src='fullcalendar/packages/daygrid/main.js'></script>
+<script src='../fullcalendar/packages/core/main.js'></script>
+<script src='../fullcalendar/packages/interaction/main.js'></script>
+<script src='../fullcalendar/packages/daygrid/main.js'></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
