@@ -70,7 +70,7 @@
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="200" style="background:  transparent)">
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <nav class="navbar navbar-expand-lg navbar-light bg-light ">
 
@@ -121,7 +121,7 @@
                     <li class="nav-item"><a href="index.php?action=donations"
                                             class="nav-link text-left text-danger">Donaciones</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown border border-danger">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-toggle="dropdown">
                             Idioma
