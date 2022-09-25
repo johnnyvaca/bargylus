@@ -9,42 +9,44 @@ ob_start();
 $title = "Bargylus- About";
 ?>
 
-<div class="container">
-    <div class="row justify-content-center text-center align-items-center">
-        <div class="col-md-8">
-            <span class="sub-title">Welcome</span>
-            <h2>About Us</h2>
-        </div>
-    </div>
-</div>
-
 
 <div class="site-section py-5 custom-border-bottom" data-aos="fade">
     <div class="container">
         <div class="row mb-5">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="block-16">
                     <figure>
-                        <img src="images/bargluslus.jpg" alt="Image placeholder" class="img-fluid">
+                        <img src="../images/mountain.jpg" alt="Image placeholder" class="img-fluid">
 
                     </figure>
                 </div>
             </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-5">
 
-
-                <div class="site-section-heading pt-3 mb-4">
-                    <h2 class="text-black font-heading-serif">Comment nous avons commencé</h2>
-                </div>
-                <p>Bargylus vient de l'initiative de l'entrepreneur M.Julien Ithurbide qui est directeur de cette entreprise<br>
-                étant un grand amateur de vins et y voyant un potentiel marketing, il a avec quelques amis monté Bargylus</p>
-
-            </div>
         </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+            <div class="site-section-heading pt-3 mb-4">
+                <h2 class="text-black font-heading-serif text text-danger">Quienes somos</h2>
+            </div>
+            <p>Bargylus vient de l'initiative de l'entrepreneur M.Julien Ithurbide qui est directeur de cette entreprise<br>
+                étant un grand amateur de vins et y voyant un potentiel marketing, il a avec quelques amis monté Bargylus</p>
     </div>
 </div>
 
+
+
+    <div class="container">
+        <div class="row justify-content-center text-center align-items-center">
+            <div class="col-md-8">
+                <span class="sub-title">Welcome</span>
+                <h2>About Us</h2>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
 
 <div class="site-section py-5 bg-light custom-border-bottom" data-aos="fade">
     <div class="container">
