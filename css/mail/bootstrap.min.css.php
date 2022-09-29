@@ -23,7 +23,7 @@
     --success: #8bc34a;
     --info: #17a2b8;
     --warning: #ffa139;
-    --danger: #f23a2e;
+    --danger: #fc0001;
     --light: #f8f9fa;
     --dark: #343a40;
     --breakpoint-xs: 0;

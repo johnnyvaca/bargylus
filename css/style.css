@@ -1889,14 +1889,14 @@ h1, h2, h3, h4, h5,
 }
 
 .wine_v_1 .wine-actions .btn, .wine_h_1 .wine-actions .btn {
-    background: #930077;
+    background: #ff0000;
     color: #fff;
     padding: 10px 20px;
     border-radius: 0;
 }
 
 .wine_v_1 .wine-actions .btn:hover, .wine_h_1 .wine-actions .btn:hover {
-    background: #60004e;
+    background: #ff0000;
     color: #fff;
 }
 
@@ -1978,7 +1978,7 @@ h1, h2, h3, h4, h5,
 .testimony img {
     max-width: auto !important;
     width: 80px !important;
-    border: 4px solid #930077;
+    border: 4px solid #ff0000;
     margin-bottom: 30px;
     border-radius: 50%;
     margin-left: auto !important;
@@ -2211,11 +2211,8 @@ h1, h2, h3, h4, h5,
 }
 
 .scrol {
-    margin: 4px;
-    padding: 4px;
-    background-color: red;
-    width: 700px;
-    height: 400px;
+    width: 100%;
+    height: 270px;
     overflow-x: hidden;
     overflow-y: auto;
     text-align: justify;

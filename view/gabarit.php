@@ -28,7 +28,7 @@
 
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
 
     <!-- Style -->
     <link rel="stylesheet" href="../css/style.css">
@@ -40,7 +40,6 @@
 
     <link rel="stylesheet" href="/fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/jquery-ui.css">
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
     <link rel="stylesheet" href="/css/owl.theme.default.min.css">
@@ -69,18 +68,18 @@
     </style>
 </head>
 
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="200" style="background:  transparent)">
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="200" style="background:  transparent">
+<div class="container-fluid  pt-0 pb-0 mb-0 pb-0 py-0 border border-1 border-danger">
+    <div class="row align-self-center  bg-danger mb-0 mt-0">
+        <nav class="navbar  navbar-expand-lg navbar-light bg-light  pt-0 mt-0 pb-0 mb-0 pb-0">
 
             <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+            <div class="collapse navbar-collapse pt-0 pb-0 mb-0" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto mb-0 pb-0">
                     <li class="nav-item active"><a href="index.php?action=home"
                                                    class="nav-link text-left text-danger">Quienes somos</a>
                     </li>
@@ -91,7 +90,7 @@
                                             class="nav-link text-left text-danger">Cultos</a>
                     </li>
                     <li class="nav-item"><a href="index.php?action=about"
-                                            class="nav-link text-left text-danger"><img
+                                            class="nav-link text-left text-danger pb-0 mb-0"><img
                                     src="../images/logo.jpg" height="120px" width="160px"></a>
                     </li>
 
@@ -115,24 +114,29 @@
                         <?php } ?>
                     <?php } else { ?>
 
-                    <!--  <li class="btn btn-danger"><?= '<a href="index.php?action=login"
+                        <!--  <li class="btn btn-danger"><?= '<a href="index.php?action=login"
                                                                class="nav-link text-center white">Donaciones</a>' ?></li> -->
 
-                    <li class="nav-item"><a href="index.php?action=donations"
-                                            class="nav-link text-left text-danger">Donaciones</a>
-                    </li>
-                    <li class="nav-item dropdown border border-danger">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-toggle="dropdown">
-                            Idioma
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Francais</a>
-                            <a class="dropdown-item" href="#">Deutsch</a>
-                            <a class="dropdown-item" href="#">Español</a>
-                            <a class="dropdown-item" href="#">Italiano</a>
-                        </div>
-                    </li>
+                        <li class="nav-item border border-danger pb-0 mb-0 py-0 h-100"><a href="index.php?action=donations"
+                                                class="nav-link text-left text-danger ">Donaciones</a>
+                        </li>
+                        <li class="nav-item dropdown border border-danger h-100">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-toggle="dropdown">
+                                Idioma
+                            </a>
+                            <div class="dropdown-menu mb-0 pb-0" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Francais</a>
+                                <a class="dropdown-item" href="#">Deutsch</a>
+                                <a class="dropdown-item" href="#">Español</a>
+                                <a class="dropdown-item" href="#">Italiano</a>
+                            </div>
+                        </li>
+
+
+                    <?php } ?>
+
+
                 </ul>
             </div>
         </nav>
@@ -147,66 +151,52 @@
 <!-- J'ajoute un flashmessage pour la connexion) -->
 
 
-<nav class="site-navigation position-relative text-left" role="navigation">
-    <ul class="navbar-nav mr-auto site-menu main-menu js-clone-nav mx-auto d-none pl-0 d-lg-block border-none">
-
-
-        <?php } ?>
-
-        <!--
-                                <li class="btn btn-primary"><a href="index.php?action=basket"
-                                                               class="nav-link text-center white"><span
-                                                class="icon-shopping-bag mr-3"></span>panier <?= $_SESSION['totalQuantity'] ?>
-                                    </a></li>
-                                    -->
-
-    </ul>
-</nav>
 <?= getFlashMessage() ?>
-<hr style="height:2px;border-width:0;color:gray;background-color:red">
+<hr class=" pt-0 pb-0 mb-0 pb-0" style="height:2px;border-width:0;color:gray;background-color:red">
 
 
 <?= $content; ?>
 
 
-<div class="pied"
-     style="position: absolute; background: red; margin: 0;padding-top: 0;padding-bottom: 0; width: 100%; bottom: 0">
-
-    <div class=""
-         style="background-color: transparent; height: 130px;display: flex;justify-content: space-between;">
-        <div style="background: transparent; width: 400px;padding-top: 40px;padding-right: 0;padding-left: 0"
-             class="social-icons align-items-center">
-            <a href="#"><span class="icon-facebook"></span></a>
-            <a href="#"><span class="icon-twitter"></span></a>
-            <a href="#"><span class="icon-youtube"></span></a>
-            <a href="#"><span class="icon-instagram"></span></a>
-        </div>
-
-        <div style=" color: whitesmoke;background:transparent; width: 400px;height: 300px right: 0;top: 0">
-            <ul style="list-style-type: none;margin: 0;padding: 0;position: absolute" class="numbers2">
-                <li><span style="font-weight: bold">Français</span> <span>- Jean Poul     </span><span>     079 232 40 06</span>
-                </li>
-                <li><span style="font-weight: bold">Deutsch</span>
-                    <span>- Carlos Schmidt</span><span>     079 232 40 06</span></li>
-                <li><span style="font-weight: bold">Español</span>
-                    <span>- Armando Valdez</span><span>     079 232 40 06</span></li>
-                <li><span style="font-weight: bold">Italiano</span> <span>- Fabio Ricardi </span><span>     079 232 40 06</span>
-                </li>
-            </ul>
-        </div>
-        <!--  <div style="background: green; height: 50px;width: 50px; align-items: center;justify-content: center"></div>-->
+<div class="bg-danger text-lg-start text-muted border-bottom h-100 pt-2  "
+     style="display: flex;justify-content: space-between;">
+    <div  style="width: 400px;padding-top: 40px;padding-right: 0;padding-left: 0"
+         class=" bg-danger social-icons align-items-center">
+        <a href="#"><span class="icon-facebook"></span></a>
+        <a href="#"><span class="icon-twitter"></span></a>
+        <a href="#"><span class="icon-youtube"></span></a>
+        <a href="#"><span class="icon-instagram"></span></a>
     </div>
-    <!-- <div style="background: #c527b8">
-         <p>
 
-             Copyright ©
-             <script>document.write(new Date().getFullYear());</script>
-             All rights reserved | This page is make by Eean Jesus Lausanne
-
-         </p>
-
-     </div> -->
+    <div class=" bg-danger text text-light" style="width: 400px;height: 300px right: 0;top: 0">
+        <ul style="list-style-type: none;margin: 0;padding: 0;position: absolute" class="numbers2">
+            <li><span style="font-weight: bold">Français</span>
+                <span>- Jean Poul     </span><span>     079 232 40 06</span>
+            </li>
+            <li><span style="font-weight: bold">Deutsch</span>
+                <span>- Carlos Schmidt</span><span>     079 232 40 06</span></li>
+            <li><span style="font-weight: bold">Español</span>
+                <span>- Armando Valdez</span><span>     079 232 40 06</span></li>
+            <li><span style="font-weight: bold">Italiano</span>
+                <span>- Fabio Ricardi </span><span>     079 232 40 06</span>
+            </li>
+        </ul>
+    </div>
+    <!--  <div style="background: green; height: 50px;width: 50px; align-items: center;justify-content: center"></div>-->
 </div>
+<!-- <div style="background: #c527b8">
+     <p>
+
+         Copyright ©
+         <script>document.write(new Date().getFullYear());</script>
+         All rights reserved | This page is make by Eean Jesus Lausanne
+
+     </p>
+
+ </div> -->
+
+
+<!-- Footer -->
 
 
 <!-- .site-wrap -->

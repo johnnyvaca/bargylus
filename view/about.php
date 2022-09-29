@@ -10,134 +10,97 @@ $title = "Bargylus- About";
 ?>
 
 
-<div class="site-section py-5 custom-border-bottom" data-aos="fade">
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col-md-12">
-                <div class="block-16">
-                    <figure>
-                        <img src="../images/mountain.jpg" alt="Image placeholder" class="img-fluid">
+<div class="site-section custom-border-bottom pt-0 pb-0 mb-0 mt-0 pr-0 mr-0 w-100" style="margin-right: 0"">
+    <div class="container-fluid pr-0 mr-0 pr-0 mr-0 w-100  bg-black" style="margin-right: 0; padding-right: 0">
+        <div class="row  pt-0 pb-0 mb-0 mt-0 w-100 pr-0 mr-0  " style="margin-right: 0; padding-right: 0">
+            <div class="pr-0 mr-0 pl-0 ml-0  pt-0 pb-0 mb-0 mt-0  w-100 h-10  " style="margin-right: 0; padding-right: 0">
+                <div class="pr-0 mr-0 pl-0 ml-0 pt-0 pb-0 mb-0 mt-0  w-100 h-10 " style="margin-right: 0; padding-right: 0">
+                    <div class="pr-0 mr-0 pl-0 ml-0 pt-0 pb-0 mb-0 mt-0 w-100" style="margin-right: 0; padding-right: 0">
+                        <img src="../images/mountain.jpg" alt="Image placeholder" class="pr-0 mr-0 w-100"
+                             style="margin-right: 0; padding-right: 0; width: 100%">
 
-                    </figure>
-                </div>
-            </div>
-
-        </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-5">
-            <div class="site-section-heading pt-3 mb-4">
-                <h2 class="text-black font-heading-serif text text-danger">Quienes somos</h2>
-            </div>
-            <p>Bargylus vient de l'initiative de l'entrepreneur M.Julien Ithurbide qui est directeur de cette entreprise<br>
-                étant un grand amateur de vins et y voyant un potentiel marketing, il a avec quelques amis monté Bargylus</p>
-    </div>
-</div>
-
-
-
-    <div class="container">
-        <div class="row justify-content-center text-center align-items-center">
-            <div class="col-md-8">
-                <span class="sub-title">Welcome</span>
-                <h2>About Us</h2>
-            </div>
-        </div>
-    </div>
-
-
-
-</div>
-
-<div class="site-section py-5 bg-light custom-border-bottom" data-aos="fade">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 order-md-2">
-                <div class="block-16">
-                    <figure>
-                        <img src="images/grape.png" alt="Image placeholder" class="img-fluid ">
-                        <a href="https://vimeo.com/channels/staffpicks/93951774" class="play-button popup-vimeo"
-                           data-fancybox><span
-                                    class="icon-play"></span></a>
-                    </figure>
-                </div>
-            </div>
-            <div class="col-md-5 mr-auto">
-
-                <div class="site-section-heading pt-3 mb-4">
-                    <h2 class="text-black font-heading-serif">Vins pour tous</h2>
-                </div>
-                <p>Du vin délicat et fin pour amateurs de vins en tous genre</p>
-
-
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="site-section site-section-sm site-blocks-1 border-0" data-aos="fade">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="">
-                <div class="icon mr-4 align-self-start">
-                    <span class="icon-truck text-primary"></span>
-                </div>
-                <div class="text">
-                    <h2 class="font-heading-serif">Livraison gratuite</h2>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="icon mr-4 align-self-start">
-                    <span class="icon-refresh2 text-primary"></span>
-                </div>
-                <div class="text">
-                    <h2 class="font-heading-serif">Satisfait ou remboursé</h2>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="icon mr-4 align-self-start">
-                    <span class="icon-help text-primary"></span>
-                </div>
-                <div class="text">
-                    <h2 class="font-heading-serif">Support client</h2>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="row col-md-12 pr-0 mr-0 " style="margin-top: -50px;">
+            <div class="col-md-1 pr-0 mr-0 " style="margin-top: -50px;"></div>
+
+
+            <div class="col-md-11 pr-0 mr-0 "><h2 class="font-heading-serif text-danger" ">Quienes
+                somos</h2></div>
+        </div>
+
+        <div class="row  col-md-12 pr-0 mr-0 " style="background: #94c4e0">
+            <div class="col-md-1 pr-0 mr-0 "></div>
+            <div class="col-md-11 pr-0 mr-0 ">
+
+
+                <p class="text-light pr-0 mr-0 " style="background: #94c4e0">
+                    La Iglesia Evangélica Apostólica del Nombre de Jesús es la organización religiosa no-católica más
+                    grande de Ecuador.<br>
+                    Su inicio es a partir del año 1958, y siendo una obra misionera extranjera de la Iglesia Pentecostal
+                    Unida de Colombia, <br>
+                    ahora cuenta con más de 1029 congregaciones y una gran membresía. También está predicando el
+                    evangelio en 18 países, <br>
+                    bajo la coordinación de la administración actual de la IEANJESUS Ecuador.<br>
+                    <br>
+                    Los países a los cuales la misión ecuatoriana ha llegado son: Bolivia, Brasil, Chile, Costa Rica, El
+                    Salvador, Estados Unidos,<br>
+                    Honduras, República Dominicana, Uruguay, Venezuela, Israel, Alemania, España, Francia, Italia, Reino
+                    Unido, Rumania y Suiza.<br>
+                    <br>
+                    La actividad Evangelista y Misionera de la Iglesia tiene su sustento y apoyo en las Sagradas
+                    Escrituras inspiradas por el mismo Dios.<br>
+                    La misma que se ha constituido en un instrumento orientador y de referencia para todo el quehacer de
+                    amor al prójimo.<br>
+                    <br>
+                    En esta línea, la Iglesia Evangélica Apostólica del nombre de Jesús, se ha enmarcado en los
+                    siguientes principios rectores para elaborar <br>
+                    sus planes de acción:
+            </div>
+        </div>
+
     </div>
+
 </div>
+<div class="site-section custom-border-bottom pt-0 pb-0 mb-5 mt-0" data-aos="fade">
+    <div class="container-fluid">
+        <div class="row col-md-11">
+            <div class="col-md-1"></div>
 
-<div class="site-section bg-light">
-    <div class="container">
-        <div class="owl-carousel owl-slide-3 owl-slide">
 
-            <blockquote class="testimony">
-                <img src="images/person_1.jpg" alt="Image">
-                <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi
-                    quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae
-                    placeat in cumque?&rdquo;</p>
-                <p class="small text-primary">&mdash; Collin Miller</p>
-            </blockquote>
-            <blockquote class="testimony">
-                <img src="images/person_2.jpg" alt="Image">
-                <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi
-                    quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae
-                    placeat in cumque?&rdquo;</p>
-                <p class="small text-primary">&mdash; Harley Perkins</p>
-            </blockquote>
-            <blockquote class="testimony">
-                <img src="images/person_3.jpg" alt="Image">
-                <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi
-                    quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae
-                    placeat in cumque?&rdquo;</p>
-                <p class="small text-primary">&mdash; Levi Morris</p>
-            </blockquote>
-            <blockquote class="testimony">
-                <img src="images/person_1.jpg" alt="Image">
-                <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi
-                    quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae
-                    placeat in cumque?&rdquo;</p>
-                <p class="small text-primary">&mdash; Allie Smith</p>
-            </blockquote>
+            <div class="col-md-11 "><h2 class="font-heading-serif text-danger" style="align-items: center;">
+                    Historia</h2></div>
+        </div>
+        <div class="row" style="background: #7fb1cc">
+            <div class="col-md-1"></div>
+            <div class="col-md-11 ">
 
+
+                <p class="text-light " style="background: #7fb1cc">
+                    La Iglesia Evangélica Apostólica del Nombre de Jesús es la organización religiosa no-católica más
+                    grande de Ecuador.<br>
+                    Su inicio es a partir del año 1958, y siendo una obra misionera extranjera de la Iglesia Pentecostal
+                    Unida de Colombia, <br>
+                    ahora cuenta con más de 1029 congregaciones y una gran membresía. También está predicando el
+                    evangelio en 18 países, <br>
+                    bajo la coordinación de la administración actual de la IEANJESUS Ecuador.<br>
+                    <br>
+                    Los países a los cuales la misión ecuatoriana ha llegado son: Bolivia, Brasil, Chile, Costa Rica, El
+                    Salvador, Estados Unidos,<br>
+                    Honduras, República Dominicana, Uruguay, Venezuela, Israel, Alemania, España, Francia, Italia, Reino
+                    Unido, Rumania y Suiza.<br>
+                    <br>
+                    La actividad Evangelista y Misionera de la Iglesia tiene su sustento y apoyo en las Sagradas
+                    Escrituras inspiradas por el mismo Dios.<br>
+                    La misma que se ha constituido en un instrumento orientador y de referencia para todo el quehacer de
+                    amor al prójimo.<br>
+                    <br>
+                    En esta línea, la Iglesia Evangélica Apostólica del nombre de Jesús, se ha enmarcado en los
+                    siguientes principios rectores para elaborar <br>
+                    sus planes de acción:</p>
+            </div>
         </div>
     </div>
 </div>
