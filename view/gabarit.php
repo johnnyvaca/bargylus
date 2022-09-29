@@ -42,113 +42,92 @@
 
 </head>
 
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="200" style="background:  yellow">
-<div class="site-wrap">
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="200" style="background:  transparent">
+<div class="container  align-self-center">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-success justify-content-center align-items-center">
+
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse  navbar-collapse  justify-content-center align-items-center" id="navbarSupportedContent">
+                <ul class="navbar-nav ">
+                    <li class="nav-item active"><a href="index.php?action=home"
+                                                   class="nav-link text-left text-danger">Quienes somos</a>
+                    </li>
+                    <li class="nav-item"><a href="index.php?action=displaywines"
+                                            class="nav-link text-left text-danger">Administracion</a>
+                    </li>
+                    <li class="nav-item"><a href="index.php?action=about"
+                                            class="nav-link text-left text-danger">Cultos</a>
+                    </li>
+                    <li class="nav-item"><a href="index.php?action=about"
+                                            class="nav-link text-left text-danger pb-0 mb-0"><img
+                                    src="../images/logo.jpg" height="120px" width="160px"></a>
+                    </li>
 
 
-    <div class="site-mobile-menu site-navbar-target">
-        <div class="site-mobile-menu-header">
-            <div class="site-mobile-menu-close mt-3">
-                <span class="icon-close2 js-menu-toggle"></span>
-            </div>
-        </div>
-        <div class="site-mobile-menu-body"></div>
-    </div>
-
-
-    <div class="header-top">
-        <!--   <div class="container">
-
-                  <div class="row align-items-start">  <div class="col-12 text-center">
-                        <a href="index.php?action=home" class="site-logo">
-                             <img src="/images/logo.png" alt="Image" class="img-fluid " id="logo">
-                       </a>
-
-                       </div>
-                   </div>
-
-
-          </div>-->
-        <?= getFlashMessage() ?>
-
-        <div class="site-navbar py-2 js-sticky-header site-navbar-target d-none pl-0 d-lg-block" role="banner">
-            <div class="container ">
-                <div class="d-flex align-items-center">
-
-                    <div class="mx-auto">
-                        <a href="#" class="mx-auto d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
-                                    class="icon-menu h3"></span></a>
-                        <nav class="site-navigation position-relative text-left" role="navigation">
-                            <ul class="site-menu main-menu js-clone-nav mx-auto d-none pl-0 d-lg-block border-none">
-                                <li class="active"><a href="index.php?action=home"
-                                                      class="nav-link text-left text-danger">Quienes somos</a>
-                                </li>
-                                <li class="active"><a href="index.php?action=displaywines"
-                                                class="nav-link text-left text-danger">Administracion</a>
-                                </li>
-                                <li class="active"><a href="index.php?action=about"
-                                                        class="nav-link text-left text-danger">Cultos</a>
-                                </li>
-                                <li class="active"><a href="index.php?action=about"
-                                                        class="nav-link text-left text-danger pb-0 mb-0 pt-0 mt-0"><img
-                                                src="../images/logo.jpg" height="100px" width="230px"></a>
-                                </li>
-
-
-                                <li class="nav-item"><a href="index.php?action=contact"
-                                                        class="nav-link text-left text-danger">Eventos</a>
-                                </li>
-                                <?php if (isset($_SESSION["user"])) { ?>
-                                    <li class="nav-item btn-danger"><?= '<a href="index.php?action=logout"
+                    <li class="nav-item"><a href="index.php?action=contact"
+                                            class="nav-link text-left text-danger">Eventos</a>
+                    </li>
+                    <?php if (isset($_SESSION["user"])) { ?>
+                        <li class="nav-item btn-danger"><?= '<a href="index.php?action=logout"
                                                                class="nav-link text-center white">Déconnexion</a>' ?></li>
-                                    <li class="nav-item btn btn-danger"><a
-                                                href="index.php?action=profil&id=<?= $_SESSION['user']['id'] ?>"
-                                                class="nav-link text-center white">Profil</a></li>
+                        <li class="nav-item btn btn-danger"><a
+                                    href="index.php?action=profil&id=<?= $_SESSION['user']['id'] ?>"
+                                    class="nav-link text-center white">Profil</a></li>
 
-                                    <?php if ($_SESSION["user"]["droits"] == 1) { ?>
-                                        <li class="nav-item btn btn-danger"><?= '<a href="index.php?action=adminPage"
+                        <?php if ($_SESSION["user"]["droits"] == 1) { ?>
+                            <li class="nav-item btn btn-danger"><?= '<a href="index.php?action=adminPage"
                                                                class="nav-link text-center white">Commandes</a>' ?></li>
-                                        <li class="nav-item btn btn-danger"><a href="index.php?action=listOfAccounts"
-                                                                               class="nav-link text-center white">Comptes</a>
-                                        </li>
-                                    <?php } ?>
-                                <?php } else { ?>
+                            <li class="nav-item btn btn-danger"><a href="index.php?action=listOfAccounts"
+                                                                   class="nav-link text-center white">Comptes</a>
+                            </li>
+                        <?php } ?>
+                    <?php } else { ?>
 
-                                    <!--  <li class="btn btn-danger"><?= '<a href="index.php?action=login"
+                        <!--  <li class="btn btn-danger"><?= '<a href="index.php?action=login"
                                                                class="nav-link text-center white">Donaciones</a>' ?></li> -->
 
-                                    <li class="nav-item border border-danger pb-0 mb-0 py-0 h-100"><a
-                                                href="index.php?action=donations"
-                                                class="nav-link text-left text-danger ">Donaciones</a>
-                                    </li>
-                                    <li class="nav-item dropdown border border-danger h-100">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                           data-toggle="dropdown">
-                                            Idioma
-                                        </a>
-                                        <div class="dropdown-menu mb-0 pb-0" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="#">Francais</a>
-                                            <a class="dropdown-item" href="#">Deutsch</a>
-                                            <a class="dropdown-item" href="#">Español</a>
-                                            <a class="dropdown-item" href="#">Italiano</a>
-                                        </div>
-                                    </li>
+                        <li class="nav-item border border-danger pb-0 mb-0 py-0 h-100"><a href="index.php?action=donations"
+                                                                                          class="nav-link text-left text-danger ">Donaciones</a>
+                        </li>
+                        <li class="nav-item dropdown border border-danger h-100">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-toggle="dropdown">
+                                Idioma
+                            </a>
+                            <div class="dropdown-menu mb-0 pb-0" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Francais</a>
+                                <a class="dropdown-item" href="#">Deutsch</a>
+                                <a class="dropdown-item" href="#">Español</a>
+                                <a class="dropdown-item" href="#">Italiano</a>
+                            </div>
+                        </li>
 
 
-                                <?php } ?>
+                    <?php } ?>
 
 
-                            </ul>
-                        </nav>
-
-                    </div>
-                </div>
-
+                </ul>
             </div>
-        </div>
-    </div><hr class=" pt-0 pb-0 mb-0 pb-0"
-              style="height:2px;border-width:0;color:#ff0000;background-color:#ff0000; margin-top: 0;">
+        </nav>
+    
+
 </div>
+<!--<div class="splash">
+    <img src="../images/splash.gif" width="100%">
+</div> -->
+
+
+<!-- J'ajoute un flashmessage pour la connexion) -->
+
+
+<?= getFlashMessage() ?>
+<hr class=" pt-0 pb-0 mb-0 pb-0" style="height:2px;border-width:0;color:#ff0000;background-color:#ff0000; margin-top: 0;">
 
 <!--
 <div class="splash">

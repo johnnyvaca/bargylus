@@ -51,10 +51,10 @@ $title = "Bargylus- Home";
 
 
     <div
-            class="col-12 section-title text-center border border-left-0 border-right-0 border-5 border-danger pt-5 pb-5 mb-0">
+            class="col-12 section-title border border-left-0 border-right-0 border-5 border-danger pt-5 pb-5 mb-0">
         <div class="container">
-            <div class="row text-center">
-                <h1 class=" col-12 d-block text-danger font-weight-bold" style="font-family: Roboto,sans-serif">
+            <div class="row justify-content-center text-center">
+                <h1 class=" col-12 d-block justify-content-center text-danger font-weight-bold" style="font-family: Roboto,sans-serif">
                     BIENVENIDOS</h1>
             </div>
         </div>
