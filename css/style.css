@@ -2199,16 +2199,6 @@ h1, h2, h3, h4, h5,
     margin-bottom: 0;
 }
 
-.numbers2 li span {
-    font-size: 20px;
-    background: transparent;
-    left: 200px;
-}
-
-.numbers2 li {
-    line-height: 30px;
-    display: flex;
-}
 
 .scrol {
     width: 100%;

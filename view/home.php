@@ -51,21 +51,24 @@ $title = "Bargylus- Home";
 
 
     <div
-            class="col-12 section-title text-center border border-left-0 border-right-0 border-5 border-danger pt-5 pb-5"
-            style="margin-bottom: 0">
+            class="col-12 section-title text-center border border-left-0 border-right-0 border-5 border-danger pt-5 pb-5 mb-0">
         <div class="container">
-
-            <h1 class="d-block text-danger font-weight-bold" style="font-family: Roboto,sans-serif">BIENVENIDOS</h1>
+            <div class="row text-center">
+                <h1 class=" col-12 d-block text-danger font-weight-bold" style="font-family: Roboto,sans-serif">
+                    BIENVENIDOS</h1>
+            </div>
         </div>
     </div>
-    <hr class=" pt-0 pb-0 mb-0 pb-0" style="height:2px;border-width:0;color:#ff0000;background-color:#ff0000; margin-top: 0;">
+    <hr class=" pt-0 pb-0 mb-0 pb-0"
+        style="height:2px;border-width:0;color:#ff0000;background-color:#ff0000; margin-top: 0;">
 
-    <div class="site-section mb-0" style="background: linear-gradient(#f8e5e5,white)">
-        <div class="container-fluid">
+    <div class="site-section  mt-0 pt-3 align-items-start align-self-start"
+         style="background: linear-gradient(#f8e5e5,white)">
+        <div class="container bg-success col-12  pl-2">
             <div
-                 class="row  justify-content-between">
+                    class="row mt-0 justify-content-between ">
                 <div
-                        class="site-section bg-info mt-0 pt-0 pb-0 mb-0" style="width: 40%; height: 300px">
+                        class="site-section bg-info mt-0 pt-0 pb-0 mb-0 col-5" style="width: 40%; height: 300px">
                     <div class="w-100 h-10 bg-danger align-middle pt-0 mt-0  pb-0 mb-0"
                          style="width: 100%; height: 10%">
                         <p class="pt-0 mt-0 pb-0 mb-0" style="color: whitesmoke">CONVENCION INTERNACIONAL 11,12,13 DE
@@ -138,7 +141,7 @@ $title = "Bargylus- Home";
                     </div>
                 </div>
                 <div
-                        class="site-section bg-info mt-0 pt-0 pb-0 mb-0" style="width: 40%; height: 300px">
+                        class="site-section bg-info mt-0 pt-0 pb-0 mb-0 col-5" style="width: 40%; height: 300px">
                     <div class="w-100 h-10 bg-danger align-middle pt-0 mt-0  pb-0 mb-0"
                          style="width: 100%; height: 10%">
                         <p class="pt-0 mt-0 pb-0 mb-0" style="color: whitesmoke">CONVENCION INTERNACIONAL 11,12,13 DE

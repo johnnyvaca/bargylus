@@ -10,30 +10,30 @@ $title = "Bargylus- About";
 ?>
 
 
-<div class="site-section custom-border-bottom pt-0 pb-0 mb-0 mt-0 pr-0 mr-0 w-100" style="margin-right: 0"">
-    <div class="container-fluid pr-0 mr-0 pr-0 mr-0 w-100  bg-black" style="margin-right: 0; padding-right: 0">
-        <div class="row  pt-0 pb-0 mb-0 mt-0 w-100 pr-0 mr-0  " style="margin-right: 0; padding-right: 0">
-            <div class="pr-0 mr-0 pl-0 ml-0  pt-0 pb-0 mb-0 mt-0  w-100 h-10  " style="margin-right: 0; padding-right: 0">
-                <div class="pr-0 mr-0 pl-0 ml-0 pt-0 pb-0 mb-0 mt-0  w-100 h-10 " style="margin-right: 0; padding-right: 0">
-                    <div class="pr-0 mr-0 pl-0 ml-0 pt-0 pb-0 mb-0 mt-0 w-100" style="margin-right: 0; padding-right: 0">
-                        <img src="../images/mountain.jpg" alt="Image placeholder" class="pr-0 mr-0 w-100"
+<div class="site-section custom-border-bottom pt-0 pb-0 mb-0 mt-0 pr-0 mr-0 w-100 no-gutters" style="margin-right: 0"">
+    <div class="container-fluid pr-0 mr-0 pr-0 mr-0 w-100  bg-black  no-gutters"  style="margin-right: 0; padding-right: 0">
+        <div class="row  pt-0 pb-0 mb-0 mt-0 w-100 pr-0 mr-0  no-gutters " style="margin-right: 0; padding-right: 0">
+            <div class="pr-0 mr-0 pl-0 ml-0  pt-0 pb-0 mb-0 mt-0  w-100 h-10  no-gutters " style="margin-right: 0; padding-right: 0">
+                <div class="pr-0 mr-0 pl-0 ml-0 pt-0 pb-0 mb-0 mt-0  w-100 h-10 no-gutters " style="margin-right: 0; padding-right: 0">
+                    <div class="pr-0 mr-0 pl-0 ml-0 pt-0 pb-0 mb-0 mt-0 w-100 no-gutters" style="margin-right: 0; padding-right: 0">
+                        <img src="../images/mountain.jpg" alt="Image placeholder" class="pr-0 mr-0 w-100  no-gutters"
                              style="margin-right: 0; padding-right: 0; width: 100%">
 
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row col-md-12 pr-0 mr-0 " style="margin-top: -50px;">
-            <div class="col-md-1 pr-0 mr-0 " style="margin-top: -50px;"></div>
+        <div class="row col-md-12 pr-0 mr-0 no-gutters " style="margin-top: -50px;">
+            <div class="col-md-1 pr-0 mr-0 no-gutters" style="margin-top: -50px;"></div>
 
 
-            <div class="col-md-11 pr-0 mr-0 "><h2 class="font-heading-serif text-danger" ">Quienes
+            <div class="col-md-11 pr-0 mr-0 no-gutters"><h2 class="font-heading-serif text-danger" ">Quienes
                 somos</h2></div>
         </div>
 
-        <div class="row  col-md-12 pr-0 mr-0 " style="background: #94c4e0">
-            <div class="col-md-1 pr-0 mr-0 "></div>
-            <div class="col-md-11 pr-0 mr-0 ">
+        <div class="row  col-md-12 pr-0 mr-0 no-gutters " style="background: #94c4e0">
+            <div class="col-md-1 pr-0 mr-0 no-gutters"></div>
+            <div class="col-md-11 pr-0 mr-0 no-gutters">
 
 
                 <p class="text-light pr-0 mr-0 " style="background: #94c4e0">
