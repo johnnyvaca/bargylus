@@ -69,8 +69,8 @@
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="200" style="background:  transparent">
-<div class="container-fluid  pt-0 pb-0 mb-0 pb-0 py-0 border border-1 border-danger">
-    <div class="row align-self-center  bg-danger mb-0 mt-0">
+<div class="container-fluid pt-0 pb-0 mb-0 pb-0 py-0">
+    <div class="row   bg-info mb-0 mt-0">
         <nav class="navbar  navbar-expand-lg navbar-light bg-light  pt-0 mt-0 pb-0 mb-0 pb-0">
 
             <a class="navbar-brand" href="#"></a>
@@ -78,8 +78,8 @@
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse pt-0 pb-0 mb-0" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto mb-0 pb-0">
+            <div class="collapse  navbar-collapse pt-0 pb-0 mb-0" id="navbarSupportedContent">
+                <ul class="navbar-nav  align-self-center align-items-center  mr-auto mb-0 pb-0">
                     <li class="nav-item active"><a href="index.php?action=home"
                                                    class="nav-link text-left text-danger">Quienes somos</a>
                     </li>
@@ -152,7 +152,7 @@
 
 
 <?= getFlashMessage() ?>
-<hr class=" pt-0 pb-0 mb-0 pb-0" style="height:2px;border-width:0;color:gray;background-color:red">
+<hr class=" pt-0 pb-0 mb-0 pb-0" style="height:2px;border-width:0;color:#ff0000;background-color:#ff0000; margin-top: 0;">
 
 
 <?= $content; ?>

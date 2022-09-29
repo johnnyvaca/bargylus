@@ -55,10 +55,10 @@ $title = "Bargylus- Home";
             style="margin-bottom: 0">
         <div class="container">
 
-            <h1 class="d-block text-danger font-weight-bold" style="font-family: Roboto,sans-serif">Bienvenues à la
-                EEANJESUS </h1>
+            <h1 class="d-block text-danger font-weight-bold" style="font-family: Roboto,sans-serif">BIENVENIDOS</h1>
         </div>
     </div>
+    <hr class=" pt-0 pb-0 mb-0 pb-0" style="height:2px;border-width:0;color:#ff0000;background-color:#ff0000; margin-top: 0;">
 
     <div class="site-section mb-0" style="background: linear-gradient(#f8e5e5,white)">
         <div class="container-fluid">
