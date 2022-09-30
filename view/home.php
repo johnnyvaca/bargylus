@@ -9,70 +9,40 @@
 ob_start();
 $title = "Bargylus- Home";
 ?>
+
     <!--
-    <div class="owl-carousel hero-slide owl-style " >
+    <div class="intro-section container bg-success container" >
+<div class="row">
 
-            <div class="intro-section container" style="background-image: url('images/hero_1.png');">
-                <div class="row justify-content-center text-center align-items-center">
-                    <div class="col-s-8">
-                        <span class="sub-title">Vin Royal</span>
-                        <h1>Vin de raisin BIO %100</h1>
-                    </div>
-                </div>
-            </div>
+</div>
+</div> -->
 
-            <div class="intro-section container" style="background-image: url('images/hero_2.png');" id="img2">
-                <div class="row justify-content-center text-center align-items-center">
-                    <div class="col-md-8">
-                        <span class="sub-title">Bienvenue</span>
-                        <h1>Le vin pour tout le monde </h1>
-                    </div>
-                </div>
-            </div>
-        <div class="intro-section container" style="background-image: url('images/img_3.png');" id="img3">
-            <div class="row justify-content-center text-center align-items-center">
-                <div class="col-md-8">
-                    <span class="sub-title">Welcome</span>
-                    <h1>Le vin est le lait des vieillards. Vinum lac senutn</h1>
-                </div>
-            </div>
-        </div>
-        <div class="intro-section container" style="background-image: url('images/img_1.png');" id="img4">
-            <div class="row justify-content-center text-center align-items-center">
-                <div class="col-md-8">
-                    <span class="sub-title">Bienvenu</span>
-                    <h1>VIN DU Bargylus, C'EsT OR </h1>
-                </div>
-            </div>
-        </div>
-    </div>
-    -->
+
     <!-- here we have to apply the sold -->
 
 
-    <div
-            class="col-12 section-title border border-left-0 border-right-0 border-5 border-danger pt-5 pb-5 mb-0">
-        <div class="container">
-            <div class="row justify-content-center text-center">
-                <h1 class=" col-12 d-block justify-content-center text-danger font-weight-bold" style="font-family: Roboto,sans-serif">
+        <div class="containerbg-success">
+            <div class="row pb-5 pt-5 justify-content-center">
+                <h1 class="text-danger font-weight-bold" style="font-family: Roboto,sans-serif">
                     BIENVENIDOS</h1>
             </div>
         </div>
-    </div>
+
     <hr class=" pt-0 pb-0 mb-0 pb-0"
         style="height:2px;border-width:0;color:#ff0000;background-color:#ff0000; margin-top: 0;">
 
-    <div class="site-section  mt-0 pt-3 align-items-start align-self-start"
+
+
+
+
+
+    <div class="site-section w-100 mt-0 pt-3 align-items-start align-self-start"
          style="background: linear-gradient(#f8e5e5,white)">
-        <div class="container bg-success col-12  pl-2">
-            <div
-                    class="row mt-0 justify-content-between ">
-                <div
-                        class="site-section bg-info mt-0 pt-0 pb-0 mb-0 col-5" style="width: 40%; height: 300px">
-                    <div class="w-100 h-10 bg-danger align-middle pt-0 mt-0  pb-0 mb-0"
-                         style="width: 100%; height: 10%">
-                        <p class="pt-0 mt-0 pb-0 mb-0" style="color: whitesmoke">CONVENCION INTERNACIONAL 11,12,13 DE
-                            OCTUBRE</p>
+        <div class="container col-12  pl-2">
+            <div  class="row justify-content-between ">
+                <div class="site-section col-md-11 col-sm-11 col-lg-4 align-content-center align-items-center bg-info mt-0 pt-0 pb-0 mb-0 col-5" > <!-- style="width: 40%; height: 300px"-->
+                    <div class="h-20 bg-danger  pt-0 mt-0  pb-0 mb-0"
+                        <p class="pt-0 mt-0 pb-0 mb-0 text-center">Calendario Nacional</p>
                     </div>
 
                     <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" tabindex="0"
@@ -141,9 +111,9 @@ $title = "Bargylus- Home";
                     </div>
                 </div>
                 <div
-                        class="site-section bg-info mt-0 pt-0 pb-0 mb-0 col-5" style="width: 40%; height: 300px">
+                        class="site-section col-sm-11  col-md-11 col-lg-4  bg-info mt-0 pt-0 pb-0 mb-0 col-5" > <!-- style="width: 40%; height: 300px" -->
                     <div class="w-100 h-10 bg-danger align-middle pt-0 mt-0  pb-0 mb-0"
-                         style="width: 100%; height: 10%">
+                         > <!-- style="width: 100%; height: 10%" -->
                         <p class="pt-0 mt-0 pb-0 mb-0" style="color: whitesmoke">CONVENCION INTERNACIONAL 11,12,13 DE
                             OCTUBRE</p>
                     </div>
@@ -160,7 +130,8 @@ $title = "Bargylus- Home";
             </div>
         </div>
     </div>
-
+    <!--
+  -->
 <?php
 $content = ob_get_clean();
 require "gabarit.php";

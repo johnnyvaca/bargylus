@@ -43,18 +43,22 @@
 </head>
 
 
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="200" style="background:  transparent">
-<div class="container  align-self-center">
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="200" class=" mb-0 pb-0  pb-0 mb-0 pt-0 mt-0  ">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-success justify-content-center align-items-center">
+
+<div class="site-wrap pb-0 mb-0 pt-0 mt-0 fixed-top ">
+    <div class="container  mb-0 pt-0 mt-0 justify-content-center  align-self-center ">
+
+        <nav class=" navbar navbar-expand-lg mb-0 pt-0 mt-0  navbar-light  justify-content-center align-items-center">
 
             <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse  navbar-collapse  justify-content-center align-items-center" id="navbarSupportedContent">
-                <ul class="navbar-nav ">
+            <div class=" collapse  navbar-collapse mb-0 pt-0 mt-0   justify-content-center align-items-center align-self-center"
+                 id="navbarSupportedContent ">
+                <ul class="navbar-nav align-items-center ">
                     <li class="nav-item active"><a href="index.php?action=home"
                                                    class="nav-link text-left text-danger">Quienes somos</a>
                     </li>
@@ -65,7 +69,7 @@
                                             class="nav-link text-left text-danger">Cultos</a>
                     </li>
                     <li class="nav-item"><a href="index.php?action=about"
-                                            class="nav-link text-left text-danger pb-0 mb-0"><img
+                                            class="nav-link text-left text-danger  mb-0 pt-0 mt-0 "><img
                                     src="../images/logo.jpg" height="120px" width="160px"></a>
                     </li>
 
@@ -92,8 +96,9 @@
                         <!--  <li class="btn btn-danger"><?= '<a href="index.php?action=login"
                                                                class="nav-link text-center white">Donaciones</a>' ?></li> -->
 
-                        <li class="nav-item border border-danger pb-0 mb-0 py-0 h-100"><a href="index.php?action=donations"
-                                                                                          class="nav-link text-left text-danger ">Donaciones</a>
+                        <li class="nav-item border border-danger pb-0 mb-0 py-0 h-100"><a
+                                    href="index.php?action=donations"
+                                    class="nav-link text-left text-danger ">Donaciones</a>
                         </li>
                         <li class="nav-item dropdown border border-danger h-100">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -115,8 +120,9 @@
                 </ul>
             </div>
         </nav>
-    
 
+
+    </div>
 </div>
 <!--<div class="splash">
     <img src="../images/splash.gif" width="100%">
@@ -127,7 +133,8 @@
 
 
 <?= getFlashMessage() ?>
-<hr class=" pt-0 pb-0 mb-0 pb-0" style="height:2px;border-width:0;color:#ff0000;background-color:#ff0000; margin-top: 0;">
+<hr class=" pt-0 pb-0 mb-0 pb-0"
+    style="height:2px;border-width:0;color:#ff0000;background-color:#ff0000; margin-top: 0;">
 
 <!--
 <div class="splash">
@@ -138,14 +145,10 @@
 <!-- J'ajoute un flashmessage pour la connexion) -->
 
 
-
-
-
 <?= $content; ?>
-
-<div class="footer">
-    <div class="container">
-        <div class="row bg-danger">
+<div class="container-fluid mb-0 pb-0 d-none d-md-block">
+    <div class="footer mb-0 pb-0">
+        <div class="row bg-danger justify-content-around  col-sm-0">
             <div class="col-3 social-icons  ">
                 <a href="#"><span class="icon-facebook"></span></a>
                 <a href="#"><span class="icon-twitter"></span></a>
