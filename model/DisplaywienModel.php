@@ -11,7 +11,7 @@
  * @return array|null
  */
 // montrer les articles de vin
-function getWines()
+function  getWines()
 {
     require "model/.constant.php";
     $dbh = getPDO();
