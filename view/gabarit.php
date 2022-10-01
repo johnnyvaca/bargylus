@@ -47,9 +47,9 @@
 
 
 <div class="site-wrap pb-0 mb-0 pt-0 mt-0 ">
-    <div class="container  mb-0 pt-0 mt-0 justify-content-center  align-self-center">
+    <div class="container  mb-0 pt-0 mt-0 justify-content-center">
 
-        <nav class=" navbar navbar-expand-lg mb-0 pt-0 mt-0  navbar-light  justify-content-center align-items-center">
+        <nav class=" navbar navbar-expand-lg mb-0 pt-0 mt-0 navbar-light  align-items-center align-content-center ">
 
             <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -57,9 +57,12 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class=" collapse  navbar-collapse mb-0 pt-0 mt-0   justify-content-center align-items-center align-self-center"
-                 id="navbarSupportedContent ">
-                <ul class="navbar-nav align-items-center ">
-                    <li class="nav-item active"><a href="index.php?action=home"
+                 id="navbarSupportedContent">
+                <ul class="navbar-nav align-items-end align-items-lg-center ">
+                    <li class="nav-item d-lg-none d-md-block"><a href="index.php?action=home"
+                                                   class="nav-link text-left text-danger">Principal</a>
+                    </li>
+                    <li class="nav-item active"><a href="index.php?action=about"
                                                    class="nav-link text-left text-danger">Quienes somos</a>
                     </li>
                     <li class="nav-item"><a href="index.php?action=displaywines"
@@ -68,7 +71,7 @@
                     <li class="nav-item"><a href="index.php?action=about"
                                             class="nav-link text-left text-danger">Cultos</a>
                     </li>
-                    <li class="nav-item"><a href="index.php?action=about"
+                    <li class="nav-item d-none d-lg-block "><a href="index.php?action=home"
                                             class="nav-link text-left text-danger  mb-0 pt-0 mt-0 "><img
                                     src="../images/logo.jpg" height="120px" width="160px"></a>
                     </li>
@@ -134,7 +137,7 @@
 
 <?= getFlashMessage() ?>
 <hr class=" pt-0 pb-0 mb-0 pb-0"
-    style="height:2px;border-width:0;color:#ff0000;background-color:#ff0000; margin-top: 0;">
+    style="height:3px;border-width:0;color:#ff0000;background-color:#ff0000; margin-top: 0;">
 
 <!--
 <div class="splash">

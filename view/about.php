@@ -10,9 +10,9 @@ $title = "Bargylus- About";
 ?>
 
 
-<div class="site-section custom-border-bottom pt-0 pb-0 mb-0 mt-0 pr-0 mr-0 w-100 no-gutters" style="margin-right: 0"">
-    <div class="container-fluid pr-0 mr-0 pr-0 mr-0 w-100  bg-black  no-gutters"  style="margin-right: 0; padding-right: 0">
-        <div class="row  pt-0 pb-0 mb-0 mt-0 w-100 pr-0 mr-0  no-gutters " style="margin-right: 0; padding-right: 0">
+<div class="site-section custom-border-bottom  p-0 m-0   w-100 no-gutters" style="margin-right: 0"">
+    <div class="container-fluid  p-0 m-0   w-100  bg-black  no-gutters"  style="margin-right: 0; padding-right: 0">
+        <div class="row  p-0 m-0  no-gutters " style="margin-right: 0; padding-right: 0">
             <div class="pr-0 mr-0 pl-0 ml-0  pt-0 pb-0 mb-0 mt-0  w-100 h-10  no-gutters " style="margin-right: 0; padding-right: 0">
                 <div class="pr-0 mr-0 pl-0 ml-0 pt-0 pb-0 mb-0 mt-0  w-100 h-10 no-gutters " style="margin-right: 0; padding-right: 0">
                     <div class="pr-0 mr-0 pl-0 ml-0 pt-0 pb-0 mb-0 mt-0 w-100 no-gutters" style="margin-right: 0; padding-right: 0">
