@@ -60,7 +60,7 @@
                  id="navbarSupportedContent">
                 <ul class="navbar-nav align-items-end align-items-lg-center ">
                     <li class="nav-item d-lg-none d-md-block"><a href="index.php?action=home"
-                                                   class="nav-link text-left text-danger">Principal</a>
+                                                                 class="nav-link text-left text-danger">Principal</a>
                     </li>
                     <li class="nav-item active"><a href="index.php?action=about"
                                                    class="nav-link text-left text-danger">Quienes somos</a>
@@ -72,7 +72,7 @@
                                             class="nav-link text-left text-danger">Cultos</a>
                     </li>
                     <li class="nav-item d-none d-lg-block "><a href="index.php?action=home"
-                                            class="nav-link text-left text-danger  mb-0 pt-0 mt-0 "><img
+                                                               class="nav-link text-left text-danger  mb-0 pt-0 mt-0 "><img
                                     src="../images/logo.jpg" height="120px" width="160px"></a>
                     </li>
 
@@ -149,29 +149,60 @@
 
 
 <?= $content; ?>
-<div class="container-fluid mb-0 pb-0 d-none d-md-block">
-    <div class="footer mb-0 pb-0">
-        <div class="row bg-danger justify-content-around  col-sm-0">
-            <div class="col-3 social-icons  ">
+<div class="container-fluid m-0 p-0">
+    <div class="footer m-0 p-0">
+        <div class="row bg-danger justify-content-between align-items-center align-self-center">
+            <div class="col-2 social-icons   ">
                 <a href="#"><span class="icon-facebook"></span></a>
                 <a href="#"><span class="icon-twitter"></span></a>
                 <a href="#"><span class="icon-youtube"></span></a>
                 <a href="#"><span class="icon-instagram"></span></a>
             </div>
 
-            <div class="col-3 text text-light">
-                <ul style="list-style-type: none;margin: 0;padding: 0;position: absolute" class="">
-                    <li><span style="font-weight: bold">Français</span>
-                        <span>- Jean Poul     </span><span>     079 232 40 06</span>
+            <div class="col-5 text text-light table-responsive">
+
+                <table class="table table-sm table-hover table-borderless">
+                    <tbody>
+                    <tr>
+                        <td>Français</td>
+                        <td>Jean Poul</td>
+                        <td>079 232 40 06</td>
+                    </tr>
+                    <tr>
+                        <td>Deutsch</td>
+                        <td>Carlos Schmidt</td>
+                        <td>079 232 40 06</td>
+                    </tr>
+                    <tr>
+                        <td>Español</td>
+                        <td>Armando Valdez</td>
+                        <td>079 232 40 06</td>
+                    </tr>
+
+                    <tr>
+                        <td>Italiano</td>
+                        <td>Fabio Ricardi</td>
+                        <td>079 232 40 06</td>
+                    </tr>
+                    </tbody>
+                </table>
+               <!-- <ul class="list-group align-items-start">
+                    <li class="list-group-item bg-danger border border-0 border border-0 py-0" ng-repeat="i in filters">
+                        <span style="font-weight: bold">Français</span>
+                        <span>- Jean Poul     </span><span>     079 232 40 06</span></li>
+                    <li class="list-group-item bg-danger border border-0 py-0" ng-repeat="i in filters"><span
+                                style="font-weight: bold">Deutsch</span>
+                        <span>- Carlos Schmidt</span><span>     079 232 40 06</span>
                     </li>
-                    <li><span style="font-weight: bold">Deutsch</span>
-                        <span>- Carlos Schmidt</span><span>     079 232 40 06</span></li>
-                    <li><span style="font-weight: bold">Español</span>
-                        <span>- Armando Valdez</span><span>     079 232 40 06</span></li>
-                    <li><span style="font-weight: bold">Italiano</span>
-                        <span>- Fabio Ricardi </span><span>     079 232 40 06</span>
+                    <li class="list-group-item bg-danger border border-0 py-0" ng-repeat="i in filters"><span
+                                style="font-weight: bold">Español</span>
+                        <span>- Armando Valdez</span><span>     079 232 40 06</span>
                     </li>
-                </ul>
+                    <li class="list-group-item bg-danger border border-0 py-0" ng-repeat="i in filters"><span
+                                style="font-weight: bold">Italiano  </span>
+                        <span>    - Fabio Ricardi </span><span>     079 232 40 06</span>
+                    </li>
+                </ul> -->
             </div>
             <!--  <div style="background: green; height: 50px;width: 50px; align-items: center;justify-content: center"></div>-->
         </div>

@@ -14,9 +14,8 @@ $title = "Bargylus- wines";
 
             <div class="row mb-5">
                 <div class="col-12 section-title text-center mb-5">
-                    <h2 class="d-block"> Bargylus élabore des vins de grande qualité, régulièrement distingués dans les
-                        principaux concours.</h2>
-                    <h1> Nos vins </h1>
+                    <h2  style="background-color: #6c757d">Comités nacionales 2022-2023</h2>
+                    <h1> Misiones </h1>
                 </div>
             </div>
             <?php if ($_SESSION["user"]["droits"] == 1) { ?>
