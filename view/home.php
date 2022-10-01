@@ -30,7 +30,7 @@ $title = "Bargylus- Home";
 
     <hr class=" pt-0 pb-0 mb-0 pb-0"
         style="height:3px;border-width:0;color:#ff0000;background-color:#ff0000; margin-top: 0;">
-    <div class="container">
+  <!--  <div class="container">
         <div class="m-4">
             <div class="row">
                 <div class="col">
@@ -45,20 +45,19 @@ $title = "Bargylus- Home";
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="site-section w-100 h-50 mt-0 pt-3 align-items-start align-self-start "
          style="background: linear-gradient(#f8e5e5,white)"> <!-- pl-2 pr-2 pl-xl-0 pr-xl-0 -->
         <div class="container col-12 ">
-            <div class="row justify-content-center   justify-content-xl-around  h-20 ">
-                <div class="col-11 col-xl-5 align-content-center align-items-center  mt-0 pt-0 pb-0 mb-0 col-5 ">
+            <div class="row justify-content-center   justify-content-lg-around  h-20 ">
+                <div class="col-11 col-lg-5 align-content-center align-items-center  mt-0 pt-0 pb-0 mb-0 col-5 ">
                     <!-- style="width: 40%; height: 300px"-->
                     <div class="  pt-0 mt-0  pb-0 mb-0">
                         <p class="pt-0 mt-0 pb-0 mb-0 text-center text-black">Calendario Nacional</p>
                     </div>
 
 
-                    <div
-                            class="overflow-visible   m-0 p-0">
+                    <div class=" scrol   m-0 p-0">
 
                         <div class="card text-white bg-primary mb-3 w-100">
                             <div class="card-header">Header</div>
@@ -122,7 +121,7 @@ $title = "Bargylus- Home";
                         </div>
                     </div>
                 </div>
-                <div class="site-section col-11 col-xl-5   mt-5 mt-5 mt-xl-0  pt-0 pb-0 mb-0">
+                <div class="site-section col-11 col-lg-5   mt-5 mt-5 mt-xl-0  pt-0 pb-0 mb-0">
                     <!-- style="width: 40%; height: 300px" -->
                     <div class="w-100 bg-danger align-middle pt-0 mt-0  pb-0 mb-0">
                         <!-- style="width: 100%; height: 10%" -->
