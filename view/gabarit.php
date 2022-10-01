@@ -46,8 +46,8 @@
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="200" class=" mb-0 pb-0  pb-0 mb-0 pt-0 mt-0  ">
 
 
-<div class="site-wrap pb-0 mb-0 pt-0 mt-0 fixed-top ">
-    <div class="container  mb-0 pt-0 mt-0 justify-content-center  align-self-center ">
+<div class="site-wrap pb-0 mb-0 pt-0 mt-0 ">
+    <div class="container  mb-0 pt-0 mt-0 justify-content-center  align-self-center">
 
         <nav class=" navbar navbar-expand-lg mb-0 pt-0 mt-0  navbar-light  justify-content-center align-items-center">
 
