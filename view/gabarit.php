@@ -46,10 +46,10 @@
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="200" class=" mb-0 pb-0  pb-0 mb-0 pt-0 mt-0  ">
 
 
-<div class="site-wrap pb-0 mb-0 pt-0 mt-0 ">
+<div class="site-wrap fixed-top  pb-0 mb-0 pt-0 mt-0 bg-white ">
     <div class="container  mb-0 pt-0 mt-0 justify-content-center">
 
-        <nav class=" navbar navbar-expand-lg mb-0 pt-0 mt-0 navbar-light  align-items-center align-content-center ">
+        <nav class="navbar navbar-expand-lg mb-0 pt-0 mt-0 navbar-light  align-items-center align-content-center ">
 
             <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -126,6 +126,8 @@
 
 
     </div>
+    <hr class=" pt-0 pb-0 mb-0 pb-0"
+        style="height:3px;border-width:0;color:#ff0000;background-color:#ff0000; margin-top: 0;">
 </div>
 <!--<div class="splash">
     <img src="../images/splash.gif" width="100%">
@@ -136,8 +138,7 @@
 
 
 <?= getFlashMessage() ?>
-<hr class=" pt-0 pb-0 mb-0 pb-0"
-    style="height:3px;border-width:0;color:#ff0000;background-color:#ff0000; margin-top: 0;">
+
 
 <!--
 <div class="splash">
