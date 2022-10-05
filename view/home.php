@@ -22,33 +22,34 @@ $title = "Bargylus- Home";
 
 
     <div class="container ">
-        <div class="row pb-5 pt-5 justify-content-center">
-            <h1 class="text-danger font-weight-bold" style="font-family: Roboto,sans-serif">
+        <div class="row pb-5 pt-5 justify-content-center" style="">
+            <h1 class="text-danger font-weight-bold" style="font-family: Roboto,sans-serif;">
                 BIENVENIDOS</h1>
         </div>
-    </div>
 
+    </div>
     <hr class=" pt-0 pb-0 mb-0 pb-0"
         style="height:3px;border-width:0;color:#ff0000;background-color:#ff0000; margin-top: 0;">
-  <!--  <div class="container">
-        <div class="m-4">
-            <div class="row">
-                <div class="col">
-                    <div class="overflow-auto bg-light" style="max-height: 200px;">
-                        This is an example of using2 <code>.overflow-auto</code> on an element with set width and height
-                        dimensions.This is an example of using2 <code>.overflow-auto</code> on an element with set width
-                        and
-                        height dimensions.This is an example of using2 <code>.overflow-auto</code> on an element with
-                        set
-                        width and height dimensions.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
+
+    <!--  <div class="container">
+          <div class="m-4">
+              <div class="row">
+                  <div class="col">
+                      <div class="overflow-auto bg-light" style="max-height: 200px;">
+                          This is an example of using2 <code>.overflow-auto</code> on an element with set width and height
+                          dimensions.This is an example of using2 <code>.overflow-auto</code> on an element with set width
+                          and
+                          height dimensions.This is an example of using2 <code>.overflow-auto</code> on an element with
+                          set
+                          width and height dimensions.
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div> -->
     <div class="site-section w-100 h-50 mt-0 pt-3 align-items-start align-self-start "
          style="background: linear-gradient(#f8e5e5,white)"> <!-- pl-2 pr-2 pl-xl-0 pr-xl-0 -->
-        <div class="container col-12 ">
+        <div class="container ">
             <div class="row justify-content-center   justify-content-lg-around  h-20 ">
                 <div class="col-11 col-lg-5 align-content-center align-items-center  mt-0 pt-0 pb-0 mb-0 col-5 ">
                     <!-- style="width: 40%; height: 300px"-->
