@@ -14,7 +14,7 @@ $title = "Bargylus- wines";
     <div class="container">
         <div class="row align-bottom  mb-5 mt-5 justify-content-around">
 
-            <div class="col-lg-3 mt-5 col-md-6 ">
+            <div class="col-lg-4 mt-5 col-md-6 col-12 ">
 
                 <div class="wine_v_1 text-center h-85  mx-auto">
                     <div class="  h-80 ">
@@ -40,26 +40,30 @@ $title = "Bargylus- wines";
 
 
             </div>
-            <div class="col-lg-3 mt-5 col-md-6 justify-content-center px-0"
+
+            <div class="col-lg-4 mt-5 col-md-6 col-12 justify-content-center px-0 w-auto bg-success "
                  style="background: #e0e0e0; margin-top: 500px;">
 
                 <div class="bg-danger position-relative "
                      style="height: 20px;margin-left: -10px; margin-right: -10px; z-index: -1; margin-top: -8px"></div>
-                <div class="position-absolute h-100 w-100" style="z-index: 0">
-                    <h4 class="text-center">Historia</h4>
-                    <p class="text-justify m-4" style="color: #000001">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae commodi, delectus
-                        dignissimos eaque enim error et explicabo fugit hic illum magni necessitatibus neque
-                        possimus, quas quasi rem repellendus sed vel!
+                <div class="position-absolute h-100 w-100 bg-warning m-0 p-0  " style="z-index: 0">
+                    <p class="position-relative text-center m-0 p-0 bg-info ">Historia</p>
+                    <p class="position-relative text-justify m-4"
+                       style="color: #000001; -webkit-hyphens: auto;hyphens: auto; background-color: red; font-size: medium">
+
+                        Recién llegado, el misionero Larsen compartió con los misioneros trinitarios Charles y Clara
+                        Berchtold, quienes al convencerse de la doctrina de la Unicidad de Dios, conversaron con sus
+                        seguidores que habían sido bautizados en la trinidad, y todos pidieron ser bautizados en el
+                        nombre de Jesús.
                     </p>
                 </div>
 
 
             </div>
         </div>
+        <div class="col-12 h-100 m-5 t-5"></div>
 
-
-     <!--   <div class="container ml-0 pl-0">
+        <!--   <div class="container ml-0 pl-0">
 
 
             <div class="row mb-5  ml-0 pl-0">
@@ -131,102 +135,102 @@ $title = "Bargylus- wines";
         </div> -->
 
 
-     <!--   <div class="owl-carousel hero-slide owl-style ">
+        <!--   <div class="owl-carousel hero-slide owl-style ">
 
-            <div class="intro-section container" style="background-image: url('images/hero_1.png');">
-                <div class="row justify-content-center text-center align-items-center">
-                    <div class="col-s-8">
-                        <span class="sub-title">Vin Royal</span>
-                        <h1>Vin de raisin BIO %100</h1>
-                    </div>
-                </div>
-            </div>
+               <div class="intro-section container" style="background-image: url('images/hero_1.png');">
+                   <div class="row justify-content-center text-center align-items-center">
+                       <div class="col-s-8">
+                           <span class="sub-title">Vin Royal</span>
+                           <h1>Vin de raisin BIO %100</h1>
+                       </div>
+                   </div>
+               </div>
 
-            <div class="intro-section container" style="background-image: url('images/hero_2.png');" id="img2">
-                <div class="row justify-content-center text-center align-items-center">
-                    <div class="col-md-8">
-                        <span class="sub-title">Bienvenue</span>
-                        <h1>Le vin pour tout le monde </h1>
-                    </div>
-                </div>
-            </div>
-            <div class="intro-section container" style="background-image: url('images/img_3.png');" id="img3">
-                <div class="row justify-content-center text-center align-items-center">
-                    <div class="col-md-8">
-                        <span class="sub-title">Welcome</span>
-                        <h1>Le vin est le lait des vieillards. Vinum lac senutn</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="intro-section container" style="background-image: url('images/img_1.png');" id="img4">
-                <div class="row justify-content-center text-center align-items-center">
-                    <div class="col-md-8">
-                        <span class="sub-title">Bienvenu</span>
-                        <h1>VIN DU Bargylus, C'EsT OR </h1>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-<!--
-        <div class="site-section py-5 bg-light custom-border-bottom" data-aos="fade">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 order-md-2">
-                        <div class="block-16">
-                            <figure>
-                                <img src="images/grape.png" alt="Image placeholder" class="img-fluid ">
-                                <a href="https://vimeo.com/channels/staffpicks/93951774" class="play-button popup-vimeo"
-                                   data-fancybox><span
-                                            class="icon-play"></span></a>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="col-md-5 mr-auto">
+               <div class="intro-section container" style="background-image: url('images/hero_2.png');" id="img2">
+                   <div class="row justify-content-center text-center align-items-center">
+                       <div class="col-md-8">
+                           <span class="sub-title">Bienvenue</span>
+                           <h1>Le vin pour tout le monde </h1>
+                       </div>
+                   </div>
+               </div>
+               <div class="intro-section container" style="background-image: url('images/img_3.png');" id="img3">
+                   <div class="row justify-content-center text-center align-items-center">
+                       <div class="col-md-8">
+                           <span class="sub-title">Welcome</span>
+                           <h1>Le vin est le lait des vieillards. Vinum lac senutn</h1>
+                       </div>
+                   </div>
+               </div>
+               <div class="intro-section container" style="background-image: url('images/img_1.png');" id="img4">
+                   <div class="row justify-content-center text-center align-items-center">
+                       <div class="col-md-8">
+                           <span class="sub-title">Bienvenu</span>
+                           <h1>VIN DU Bargylus, C'EsT OR </h1>
+                       </div>
+                   </div>
+               </div>
+           </div> -->
+        <!--
+                <div class="site-section py-5 bg-light custom-border-bottom" data-aos="fade">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 order-md-2">
+                                <div class="block-16">
+                                    <figure>
+                                        <img src="images/grape.png" alt="Image placeholder" class="img-fluid ">
+                                        <a href="https://vimeo.com/channels/staffpicks/93951774" class="play-button popup-vimeo"
+                                           data-fancybox><span
+                                                    class="icon-play"></span></a>
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="col-md-5 mr-auto">
 
-                        <div class="site-section-heading pt-3 mb-4">
-                            <h2 class="text-black font-heading-serif">Vins pour tous</h2>
-                        </div>
-                        <p>Du vin délicat et fin pour amateurs de vins en tous genre</p>
-
-
-                    </div>
-                </div>
-            </div>
-        </div> -->
-<!--
-        <div class="site-section site-section-sm site-blocks-1 border-0" data-aos="fade">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="">
-                        <div class="icon mr-4 align-self-start">
-                            <span class="icon-truck text-primary"></span>
-                        </div>
-                        <div class="text">
-                            <h2 class="font-heading-serif">Livraison gratuite</h2>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="icon mr-4 align-self-start">
-                            <span class="icon-refresh2 text-primary"></span>
-                        </div>
-                        <div class="text">
-                            <h2 class="font-heading-serif">Satisfait ou remboursé</h2>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="icon mr-4 align-self-start">
-                            <span class="icon-help text-primary"></span>
-                        </div>
-                        <div class="text">
-                            <h2 class="font-heading-serif">Support client</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
+                                <div class="site-section-heading pt-3 mb-4">
+                                    <h2 class="text-black font-heading-serif">Vins pour tous</h2>
+                                </div>
+                                <p>Du vin délicat et fin pour amateurs de vins en tous genre</p>
 
 
-        <div class="site-section bg-light">
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+        <!--
+                <div class="site-section site-section-sm site-blocks-1 border-0" data-aos="fade">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="">
+                                <div class="icon mr-4 align-self-start">
+                                    <span class="icon-truck text-primary"></span>
+                                </div>
+                                <div class="text">
+                                    <h2 class="font-heading-serif">Livraison gratuite</h2>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
+                                <div class="icon mr-4 align-self-start">
+                                    <span class="icon-refresh2 text-primary"></span>
+                                </div>
+                                <div class="text">
+                                    <h2 class="font-heading-serif">Satisfait ou remboursé</h2>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
+                                <div class="icon mr-4 align-self-start">
+                                    <span class="icon-help text-primary"></span>
+                                </div>
+                                <div class="text">
+                                    <h2 class="font-heading-serif">Support client</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+
+        <div class="site-section bg-light mt-5 pt-5">
             <div class="container">
                 <div class="owl-carousel owl-slide-3 owl-slide">
 
