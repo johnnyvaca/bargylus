@@ -189,22 +189,66 @@ ob_start();
         }
 
         function fnAddInputs() {
+            const userprofile = document.querySelector('#form');
             let p = document.createElement("input");
             let p2 = document.createElement("input");
             let p4 = document.createElement("br");
+            p.id = userprofile.elements.length+1
             p.name = "name[]"
             p.placeholder = "nom du service"
             p.setAttribute("list", 'listName')
+            p.setAttribute("onblur", "fnNewInput(this.id)")
+            p2.id = userprofile.elements.length+2
             p2.name = "firstname[]"
             p2.style = ";left:100px;"
             p2.placeholder = "nom et prénom"
             p2.setAttribute("list", 'listUserFirst')
+            p2.setAttribute("onblur", "fnNewInput2(this.id)")
 
-
-            const userprofile = document.querySelector('#form');
+            
             userprofile.appendChild(p)
             userprofile.appendChild(p2)
             userprofile.appendChild(p4)
+        }
+        function fnNewInput(x) {
+            let listName =  document.getElementById('listName').children;
+            let listName2 =  document.getElementById(x);
+            let listName3 =  document.getElementById(x).value;
+
+            console.log("length: "+listName.length);
+        
+            let y =false;
+            for (let i = 0; i < listName.length; i++) {
+            //  console.log("list: "+listName[i].value);
+            // console.log("input: "+listName3);
+               if(listName3 == listName[i].value){
+                console.log("============================================== id: "+i);
+                y = true;
+                break;
+               }
+            }
+            if(!y){
+                listName2.value = "";
+            }
+        }
+        function fnNewInput2(x) {
+            let firstnames =  document.getElementById('listUserFirst').children;
+            let lastnames =  document.getElementById('listUserLast').children;
+            console.log(firstnames);
+            let listName2 =  document.getElementById(x);
+            let listName3 =  document.getElementById(x).value;
+        
+            let y =false;
+            for (let i = 0; i < firstnames.length; i++) {
+               if(listName3 == firstnames[i].value){
+                console.log("============================================== id: "+i);
+                y = true;
+                break;
+               }
+            }
+            if(!y){
+                listName2.value = "";
+            }
         }
 
         function init() {
@@ -219,6 +263,7 @@ ob_start();
             calendar.addEventListener("input", fnEditProfilFirstname)
             confirmer.addEventListener("click", fnEditProfilFirstname)
             addService.addEventListener("click", fnAddInputs)
+            
 
         }
 

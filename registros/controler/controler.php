@@ -75,8 +75,7 @@ function home2()
 
 function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firstname, $users_id, $id, $service, $first, $last)
 {
-    var_dump($_SESSION["date"]);
-    var_dump($_SESSION["date_now"]);
+    
     if(isset($_SESSION["date"])){
         $_SESSION["date_now"] = date("Y-m-d");
     }else{
@@ -84,16 +83,21 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
         $_SESSION["date_now"] = $_SESSION["date"];
     }
 
+    if($firstname[0] == ""){
+
     foreach ($firstname as $key => $item) {
         $userOld = explode(" ", ucwords(strtolower($item)));
         $users[$key] = getUserByFirstAndLastname($userOld[0], $userOld[1]);
     }
-
+}else {
+   // $users = "";
+}
     foreach ($name as $key => $item) {
+
         $services[$key] = getServicesByName($item);
     }
 
-    if (!($culto_id == "" && $ninos == "" && $adultos == "" && $firstname[0] == "")) {
+    if (!($culto_id == "" &&( $ninos == "" || $ninos == 0) && ( $adultos == "" || $adultos == 0) && $firstname[0] == "")) {
 
 
         $cultos = getCulteByDate($_SESSION["date"]);
@@ -148,21 +152,22 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
                 $isExist = getisExist($users[$key]['id'], $services[$key]['id'], $oneCulto['id']);
 
                 if ($id[$key] == null && $isExist == null) {
-                    $oneUser = [
-                        'users_id' => $users[$key]['id'],
-                        'services_id' => $services[$key]['id'],
-                        'culte_id' => $oneCulto['id']
-                    ];
-
-                    createData($oneUser);
+                    if($users[$key]['id'] != '' && $users[$key]['id'] != null && $users[$key]['id'] != false){
+                        $oneUser = [
+                            'users_id' => $users[$key]['id'],
+                            'services_id' => $services[$key]['id'],
+                            'culte_id' => $oneCulto['id']
+                        ];
+                        createData($oneUser);
+                    }
                 } else {
-                    if ($isExist == null) {
                         if ($users[$key]['id'] == false && $services[$key]['id'] == false) {
                             deleteData3($id[$key]);
                         } else {
+                            
                             updateDataById($users[$key]['id'], $services[$key]['id'], $id[$key]);
+                            
                         }
-                    }
                 }
 
             }
@@ -246,14 +251,14 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
             'name' => 'Guitarra',
         ],
     ];
-    if ($_SESSION['date'] >= $_SESSION['date_now']) {
+   //if ($_SESSION['date'] >= $_SESSION['date_now']) {
         foreach ($base as $key => $b) {
             if (!in_array($b['name'], array_column($datas, 'name'))) {
                 $datas[sizeof($datas)]['name'] = $b['name'];
             }
 
         }
-    }
+  //  }
 
     require_once 'view/home.php';
 }
