@@ -219,10 +219,7 @@ ob_start();
         
             let y =false;
             for (let i = 0; i < listName.length; i++) {
-            //  console.log("list: "+listName[i].value);
-            // console.log("input: "+listName3);
                if(listName3 == listName[i].value){
-                console.log("============================================== id: "+i);
                 y = true;
                 break;
                }
@@ -234,14 +231,12 @@ ob_start();
         function fnNewInput2(x) {
             let firstnames =  document.getElementById('listUserFirst').children;
             let lastnames =  document.getElementById('listUserLast').children;
-            console.log(firstnames);
             let listName2 =  document.getElementById(x);
             let listName3 =  document.getElementById(x).value;
         
             let y =false;
             for (let i = 0; i < firstnames.length; i++) {
                if(listName3 == firstnames[i].value){
-                console.log("============================================== id: "+i);
                 y = true;
                 break;
                }
