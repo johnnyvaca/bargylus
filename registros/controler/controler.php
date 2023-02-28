@@ -4,8 +4,9 @@ require "model/model.php";
 
 function home2()
 {
-    $date = date("Y-m-d");
-    $_SESSION["date_now"] = date("Y-m-d");
+    // date("Y-m-d")
+    $date = "2023-02-22";
+    $_SESSION["date_now"] = "2023-02-22";
     $_SESSION["date"] = $date;
     $users = getUsers();
     $services = getServices();
@@ -73,8 +74,11 @@ function home2()
     require_once 'view/home.php';
 }
 
-function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firstname, $users_id, $id, $service, $first, $last)
+function home3($dateNew, $adultos, $ninos, $culto_id, $servicio_nombre, $services_id, $firstname, $users_id, $id, $service, $first, $last)
 {
+    
+
+   
     
     if(isset($_SESSION["date"])){
         $_SESSION["date_now"] = date("Y-m-d");
@@ -83,19 +87,31 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
         $_SESSION["date_now"] = $_SESSION["date"];
     }
 
-    if($firstname[0] == ""){
+   
+    
+
+    if($firstname[0] != ""){
 
     foreach ($firstname as $key => $item) {
         $userOld = explode(" ", ucwords(strtolower($item)));
-        $users[$key] = getUserByFirstAndLastname($userOld[0], $userOld[1]);
+      
+        if($userOld[0] != ""){
+            $users[$key] = getUserByFirstAndLastname($userOld[0], $userOld[1]);
+        }
+        
     }
 }else {
    // $users = "";
 }
-    foreach ($name as $key => $item) {
+
+
+
+    foreach ($servicio_nombre as $key => $item) {
 
         $services[$key] = getServicesByName($item);
     }
+    var_dump($services);
+    die();
 
     if (!($culto_id == "" &&( $ninos == "" || $ninos == 0) && ( $adultos == "" || $adultos == 0) && $firstname[0] == "")) {
 
@@ -146,8 +162,8 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $name, $services_id, $firs
         }
 
 
-        if ($name != "") {
-            $length = count($name);
+        if ($servicio_nombre != "") {
+            $length = count($servicio_nombre);
             for ($key = 0; $key < $length; $key++) {
                 $isExist = getisExist($users[$key]['id'], $services[$key]['id'], $oneCulto['id']);
 

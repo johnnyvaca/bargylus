@@ -8,12 +8,16 @@
 
 ob_start();
 ?>
-    <div style="position: relative;bottom:0px;top:0px justify-content: center;align-items: center; background-color: rgba(255,255,255,0.86)">
-        <form method="post" action="index.php?action=signup" id="form">
+<div style="position: relative;bottom:0px;top:0px justify-content: center;align-items: center; background-color: rgba(255,255,255,0.86)">
 
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+
+
+<form method="post" action="index.php?action=signup" id="form" class="bg-danger d-flex justify-content-center">
+<div class="col-2"></div>
+<div id="form2" class="col-8">
+            <!-- Modal --> 
+            <div class="modal fade bg-info" id="exampleModalCenter" tabindex="-1" role="dialog"
                  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -89,7 +93,7 @@ ob_start();
 
 
             <br><br>
-            <input type="text" placeholder="quantité adultes" name="adultos" id="dd" value="<?= $cultos["adultos"] ?>">
+            <input type="text" class="iptG" placeholder="quantité adultes" name="adultos" id="dd" size="" value="<?= $cultos["adultos"] ?>">
             <input type="text" placeholder="quantité enfants" name="ninos" id="ninos"
                    value="<?= $cultos["ninos"] ?>"><br>
             <input type="hidden" name="culto_id" id="ninos" value="<?= $cultos["id"] ?>">
@@ -138,8 +142,10 @@ ob_start();
                 <input type="hidden" name="id[]" id="dd" value="<?= $data["id"] ?>">
                 <br>
             <?php } ?>
-
+</div>
+<div class="col-2"></div>
         </form>
+        
         <br>
         <button id="confirmer" class="btn btn-primary"
                 style="background-color: #00549b; height: 40px; width: 90%;margin-left: 15px; margin-right: 100px; color: white;text-align: center">
@@ -189,22 +195,27 @@ ob_start();
         }
 
         function fnAddInputs() {
-            const userprofile = document.querySelector('#form');
+            const userprofile = document.getElementById('form2');
+            console.log(userprofile)
             let p = document.createElement("input");
             let p2 = document.createElement("input");
             let p4 = document.createElement("br");
-            p.id = userprofile.elements.length+1
+            console.log(userprofile.children.length)
+            p.id = userprofile.children.length+1
             p.name = "name[]"
             p.placeholder = "nom du service"
             p.setAttribute("list", 'listName')
             p.setAttribute("onblur", "fnNewInput(this.id)")
-            p2.id = userprofile.elements.length+2
+            p.setAttribute("class", 'dropdown bootstrap-select')
+        //  p.setAttribute("size", '1')
+            p2.id = userprofile.children.length+2
             p2.name = "firstname[]"
-            p2.style = ";left:100px;"
+            p2.style = ";left:5px;"
             p2.placeholder = "nom et prénom"
             p2.setAttribute("list", 'listUserFirst')
             p2.setAttribute("onblur", "fnNewInput2(this.id)")
-
+            p2.setAttribute("class", 'dropdown bootstrap-select')
+        //  p2.setAttribute("size", '1')
             
             userprofile.appendChild(p)
             userprofile.appendChild(p2)
@@ -265,6 +276,7 @@ ob_start();
         //lit tout l'html avant de lancer la fonction init
         document.addEventListener("DOMContentLoaded", init)
     </script>
+
 <?php
 $content2 = ob_get_clean();
 require "view/gabarit.php";
