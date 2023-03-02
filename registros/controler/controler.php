@@ -111,7 +111,7 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $servicio_nombre, $service
         $services[$key] = getServicesByName($item);
     }
     var_dump($services);
-    die();
+   // die();
 
     if (!($culto_id == "" &&( $ninos == "" || $ninos == 0) && ( $adultos == "" || $adultos == 0) && $firstname[0] == "")) {
 

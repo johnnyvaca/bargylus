@@ -120,7 +120,7 @@ ob_start();
                 <!--         <input type="text" name="firstname[]" id="dd" title="coucou"
                    value="<?= $data["firstname"] ?> <?= $data["lastname"] ?>" list="listUserFirst"> -->
 
-                <select class="selectpicker" name="firstname[]" data-live-search="true" id="select_id" onchange="fnEditProfilFirstname()">
+                <select class="selectpicker" name="firstname[]" data-live-search="true" id="select_id" >
                     <option value="" data-tokens="nada">nada</option>
                     <?php
                     foreach ($users as $user) {
@@ -262,7 +262,7 @@ ob_start();
             sel.onchange = function (){
                 console.log("test")
             }
-            sel.addEventListener("click",fnEditProfilFirstname);
+           sel.addEventListener("click",fnEditProfilFirstname);
             console.log("2")
             save.addEventListener("click", fnEditProfilFirstname)
             save2.addEventListener("click", fnEditProfilFirstname)
