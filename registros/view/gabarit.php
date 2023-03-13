@@ -29,13 +29,14 @@
     <!-- (Optional) Latest compiled and minified JavaScript translation files -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
 
+
 </head>
 
-<body style="background-color: #D1D3D4; align-content: center" class=" d-flex justify-content-center">
-<div style="  border-style: solid;background-color: #ffffff ;border-color: #00549b;border-width: 10px;position: absolute; left: 1%;right: 1%; min-height: 100%">
-    <div style="width: 100%; background-color: rgb(101,0,222);height: 100px;  "
-         class="shadow p-3 mb-5 bg-white rounded  d-flex justify-content-center">
-        <p style="text-align: center; width:400px;font-family: 'Arial' ;color: #00549b;top: 5px;left: 20px; font-size: 30px">
+<body style="background-color: #D1D3D4; align-content: center; height:100%; width:100%; " class=" d-flex justify-content-center bg-info ">
+<div id="sub-body" class="bg-warning h-100 w-100" style="  border-style: solid;background-color: #ffffff ;border-color: #00549b;border-width: 10px;position: absolute; bottom:0px">
+    <div style="width: 100%;"
+         class="shadow p-3 bg-white rounded  d-flex justify-content-center">
+        <p style="text-align: center; width:400px;font-family: 'Arial' ;color: #00549b;top: 5px;left: 20px; font-size: 30px; bottom:0px">
             ASSISTENCE EEANJESUS</p>
         <div style="position: absolute; top: 50px">
 
@@ -52,6 +53,7 @@
 
 
         </div>
+       
     </div>
     <?= $content2; ?>
 </div>

@@ -8,14 +8,14 @@
 
 ob_start();
 ?>
-<div style="position: relative;bottom:0px;top:0px justify-content: center;align-items: center; background-color: rgba(255,255,255,0.86)">
+<div class="w-100 bg-danger" style="position: relative;bottom:0px;justify-content: center;align-items: center; background-color: rgba(255,255,255,0.86); height: 90%">
 
 
 
 
-<form method="post" action="index.php?action=signup" id="form" class="bg-danger d-flex justify-content-center">
-<div class="col-2"></div>
-<div id="form2" class="col-8">
+    <form method="post" action="index.php?action=signup" id="form" class="d-flex justify-content-center w-100 bg-info">
+        <div class="col-2 bg-success"></div>
+        <div id="form2" class="col-8">
             <!-- Modal --> 
             <div class="modal fade bg-info" id="exampleModalCenter" tabindex="-1" role="dialog"
                  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -28,7 +28,7 @@ ob_start();
                             </button>
                         </div>
                         <div class="modal-body">
-
+    
                             <div class="form-row">
                                 <div class="col">
                                     <input type="text" name="first" required class="form-control"
@@ -39,10 +39,10 @@ ob_start();
                                            placeholder="Nom de famille">
                                 </div>
                             </div>
-
+    
                         </div>
                         <!-- Modal -->
-
+    
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
                             <button type="button" id="save" class="btn btn-primary">Sauvegarder</button>
@@ -61,16 +61,16 @@ ob_start();
                             </button>
                         </div>
                         <div class="modal-body">
-
+    
                             <div class="form-row">
                                 <div class="col">
                                     <input type="text" name="service" required class="form-control"
                                            placeholder="Nom du service">
                                 </div>
                             </div>
-
+    
                         </div>
-
+    
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler
                             </button>
@@ -90,17 +90,17 @@ ob_start();
                     </div>
                 </div>
             </div>
-
-
+    
+    
             <br><br>
-            <input type="text" class="iptG" placeholder="quantité adultes" name="adultos" id="dd" size="" value="<?= $cultos["adultos"] ?>">
+            <input type="text" class="iptG" placeholder="quantité adultes" name="adultos" id="dd" value="<?= $cultos["adultos"] ?>">
             <input type="text" placeholder="quantité enfants" name="ninos" id="ninos"
                    value="<?= $cultos["ninos"] ?>"><br>
             <input type="hidden" name="culto_id" id="ninos" value="<?= $cultos["id"] ?>">
-
+    
             <?php
             foreach ($datas as $data) { ?>
-
+    
                 <!--      <input type="text" name="name[]" id="dd" title="coucou" value="<?= $data["name"] ?>" list="listName"> -->
                 <select class="selectpicker" name="name[]" data-live-search="true">
                     <option value="" data-tokens="nada">nada</option>
@@ -110,8 +110,7 @@ ob_start();
                             ?>
                             <option value="<?= $service['name'] ?>" data-tokens="<?= $service['name'] ?>"
                                     selected><?= $service['name'] ?></option>
-                        <?php } else {
-                            ?>
+                        <?php } else {  ?>
                             <option value="<?= $service['name'] ?>"
                                     data-tokens="<?= $service['name'] ?>"><?= $service['name'] ?></option>
                         <?php } ?>
@@ -129,31 +128,30 @@ ob_start();
                             <option value="<?= $user['firstname'] ?> <?= $user['lastname'] ?>"
                                     data-tokens="<?= $user['firstname'] ?> <?= $user['lastname'] ?>"
                                     selected><?= $user['firstname'] ?> <?= $user['lastname'] ?></option>
-                        <?php } else {
-                            ?>
+                        <?php } else {  ?>
                             <option value="<?= $user['firstname'] ?> <?= $user['lastname'] ?>"
                                     data-tokens="<?= $user['lastname'] ?> <?= $user['lastname'] ?>"><?= $user['firstname'] ?> <?= $user['lastname'] ?></option>
                         <?php } ?>
                     <?php } ?>
                 </select>
+                
                 <!--     <a type="button" href="index.php?action=deleteData&id=<?= $data["id"] ?>" class="btn btn-danger">X</a> -->
                 <input type="hidden" name="services_id[]" id="dd" value="<?= $data["services_id"] ?>">
                 <input type="hidden" name="users_id[]" id="dd" value="<?= $data["users_id"] ?>">
                 <input type="hidden" name="id[]" id="dd" value="<?= $data["id"] ?>">
                 <br>
             <?php } ?>
-</div>
-<div class="col-2"></div>
-        </form>
+        </div>
+        <div class="col-2 bg-success"></div>
+    </form>
         
-        <br>
+   <br>
         <button id="confirmer" class="btn btn-primary"
                 style="background-color: #00549b; height: 40px; width: 90%;margin-left: 15px; margin-right: 100px; color: white;text-align: center">
             Confirmer
         </button>
-        <!-- Button trigger modal -->
 
-    </div>
+   
 
     <datalist id="listName">
         <?php
@@ -179,7 +177,7 @@ ob_start();
         <option value="<?= $user['lastname'] ?>">
             <?php } ?>
     </datalist>
-
+</div>
 
     <script>
         function fnEditProfilFirstname() {
@@ -263,7 +261,6 @@ ob_start();
                 console.log("test")
             }
            sel.addEventListener("click",fnEditProfilFirstname);
-            console.log("2")
             save.addEventListener("click", fnEditProfilFirstname)
             save2.addEventListener("click", fnEditProfilFirstname)
             calendar.addEventListener("input", fnEditProfilFirstname)

@@ -4,9 +4,9 @@ require "model/model.php";
 
 function home2()
 {
-    // date("Y-m-d")
-    $date = "2023-02-22";
-    $_SESSION["date_now"] = "2023-02-22";
+    // date("Y-m-d") "2023-02-22"
+    $date = date("Y-m-d");
+    $_SESSION["date_now"] = date("Y-m-d");
     $_SESSION["date"] = $date;
     $users = getUsers();
     $services = getServices();
@@ -59,6 +59,9 @@ function home2()
         12 => [
             'name' => 'Guitarra',
         ],
+        13 => [
+            'name' => 'Anuncios',
+        ],
     ];
 
     if ($_SESSION['date'] >= $_SESSION['date_now']) {
@@ -110,7 +113,7 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $servicio_nombre, $service
 
         $services[$key] = getServicesByName($item);
     }
-    var_dump($services);
+  //  var_dump($services);
    // die();
 
     if (!($culto_id == "" &&( $ninos == "" || $ninos == 0) && ( $adultos == "" || $adultos == 0) && $firstname[0] == "")) {
@@ -231,39 +234,42 @@ function home3($dateNew, $adultos, $ninos, $culto_id, $servicio_nombre, $service
             'name' => 'Recepción',
         ],
         1 => [
-            'name' => 'Dirección',
+            'name' => 'Anuncios',
         ],
         2 => [
-            'name' => 'Vocalización',
+            'name' => 'Dirección',
         ],
         3 => [
-            'name' => 'Bateria',
+            'name' => 'Vocalización',
         ],
         4 => [
-            'name' => 'Especial',
+            'name' => 'Bateria',
         ],
         5 => [
-            'name' => 'Piano',
+            'name' => 'Especial',
         ],
         6 => [
-            'name' => 'Traducción',
+            'name' => 'Piano',
         ],
         7 => [
-            'name' => 'Transmisión',
+            'name' => 'Traducción',
         ],
         8 => [
-            'name' => 'Proyección',
+            'name' => 'Transmisión',
         ],
         9 => [
-            'name' => 'Bajo',
+            'name' => 'Proyección',
         ],
         10 => [
-            'name' => 'Ofrenda',
+            'name' => 'Bajo',
         ],
         11 => [
-            'name' => 'Cocina',
+            'name' => 'Ofrenda',
         ],
         12 => [
+            'name' => 'Cocina',
+        ],
+        13 => [
             'name' => 'Guitarra',
         ],
     ];
@@ -346,6 +352,9 @@ function addUser($firstname, $lastname)
         ],
         12 => [
             'name' => 'Guitarra',
+        ],
+        13 => [
+            'name' => 'Anuncios',
         ],
     ];
     if ($_SESSION['date'] >= $_SESSION['date_now']) {
