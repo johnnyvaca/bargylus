@@ -20,3 +20,24 @@
         width: 70.83333333%;
     }
 }
+
+select, option {
+    width: 250px;
+    background-color: brown;
+}
+
+option {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.filter-option {
+    font-size: 25px;
+}
+button {
+    font-size: 25px !important;
+}
+input {
+    font-size: 25px !important;
+    
+}

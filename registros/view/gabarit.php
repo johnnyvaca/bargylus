@@ -32,22 +32,23 @@
 
 </head>
 
-<body class="d-flex #808080 justify-content-center">
-<div id="sub-body" class="h-100 col-12" style="position: absolute;">
-    <div style="width: 100%;"
-         class="shadow p-3 bg-white rounded  d-flex justify-content-center">
-        <p style="text-align: center; width:400px;font-family: 'Arial' ;color: #808080;top: 5px;left: 20px; font-size: 30px; bottom:0px">
+<body class="d-flex justify-content-center">
+<div id="sub-body" class="h-100 col-12 bg-primary" style="position: absolute;   height: 100%;
+   overflow: auto;">
+    <div style="width: 100%; margin-bottom: 10%; height: 150px"
+         class="shadow p-3 bg-danger rounded  d-flex justify-content-center">
+        <p style="text-align: center; width:400px;font-family: 'Arial' ;color: #808080;top: 5px;left: 20px; font-size: 30px; ">
             ASSISTENCE EEANJESUS</p>
-        <div style="position: absolute; top: 50px">
+        <div style="position: absolute; top: 75px;">
 
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            <button style="width: 300px" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                 Créer un utilisateur
             </button>
 
 
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">
+            <button style="width: 300px" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">
                 Créer un service
             </button>
 
@@ -55,9 +56,11 @@
         </div>
        
     </div>
-    <div class="row " style="background-color:  #808080">
-    
+    <div class="row">
+    <div class="col-lg-2"></div>
     <?= $content2; ?>
+    <div class="col-lg-2"></div>
+    
     </div>
 </div>
 

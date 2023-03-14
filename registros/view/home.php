@@ -8,7 +8,7 @@
 
 ob_start();
 ?>
-<div class=""  style="position: relative;bottom:0px;justify-content: center;align-items: center; height: 100%; ">
+<div class="col-12 col-lg-8"  style="position: relative;bottom:0px;justify-content: center;align-items: center; height: 100%; ">
 
 
 
@@ -89,27 +89,29 @@ ob_start();
                         <input id="addService" type="button" class="btn btn-warning" value="ajouter un service">
                     </div>
                 </div>
-            </div>
     
     
-            <br><br>
-            <input type="text" class="iptG" placeholder="quantité adultes" name="adultos" id="dd" value="<?= $cultos["adultos"] ?>">
-            <input type="text" placeholder="quantité enfants" name="ninos" id="ninos"
+            <br>
+            <div class="row">
+            <input type="text" class="iptG form-control-lg col-5 mr-3" placeholder="quantité adultes" name="adultos" id="dd" value="<?= $cultos["adultos"] ?>">
+            <input type="text" placeholder="quantité enfants" name="ninos" id="ninos" class=" form-control-lg col-5"
                    value="<?= $cultos["ninos"] ?>"><br>
             <input type="hidden" name="culto_id" id="ninos" value="<?= $cultos["id"] ?>">
+            </div>
+            </div>
     
             <?php
             foreach ($datas as $data) { ?>
     
                 <!--      <input type="text" name="name[]" id="dd" title="coucou" value="<?= $data["name"] ?>" list="listName"> -->
-                <select class="selectpicker form-control-lg show-tick col-sm-3half"   name="name[]" data-live-search="true">
-                    <option value="" data-tokens="nada">nada</option>
+                <select class="selectpicker form-control-lg show-tick col-sm-3half form-select-lg"   name="name[]" data-live-search="true">
+                    <option class=""  value="" data-tokens="nada">nada</option>
                     <?php
                     foreach ($services as $service) {
                         if ($service['name'] == $data['name']) {
                             ?>
                             <option value="<?= $service['name'] ?>" data-tokens="<?= $service['name'] ?>"
-                                    selected><?= $service['name'] ?></option>
+                                    selected ><?= $service['name'] ?></option>
                         <?php } else {  ?>
                             <option value="<?= $service['name'] ?>"
                                     data-tokens="<?= $service['name'] ?>"><?= $service['name'] ?></option>
@@ -120,16 +122,21 @@ ob_start();
                    value="<?= $data["firstname"] ?> <?= $data["lastname"] ?>" list="listUserFirst"> -->
 
                 <select class="selectpicker form-control-lg col-sm-3half" name="firstname[]" data-live-search="true" id="select_id" >
-                    <option value="" data-tokens="nada">nada</option>
+                    <option class=" form-select-lg" value="" data-tokens="nada" class="h1">nada</option>
                     <?php
                     foreach ($users as $user) {
                         if ($user['id'] == $data['users_id']) {
                             ?>
-                            <option value="<?= $user['firstname'] ?> <?= $user['lastname'] ?>"
+                            <option
+                            
+                            value="<?= $user['firstname'] ?> <?= $user['lastname'] ?>"
                                     data-tokens="<?= $user['firstname'] ?> <?= $user['lastname'] ?>"
-                                    selected><?= $user['firstname'] ?> <?= $user['lastname'] ?></option>
+                                    selected
+                                    ><?= $user['firstname'] ?> <?= $user['lastname'] ?></option>
                         <?php } else {  ?>
-                            <option value="<?= $user['firstname'] ?> <?= $user['lastname'] ?>"
+                            <option 
+                            
+                            value="<?= $user['firstname'] ?> <?= $user['lastname'] ?>"
                                     data-tokens="<?= $user['lastname'] ?> <?= $user['lastname'] ?>"><?= $user['firstname'] ?> <?= $user['lastname'] ?></option>
                         <?php } ?>
                     <?php } ?>
