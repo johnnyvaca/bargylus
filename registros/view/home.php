@@ -8,14 +8,14 @@
 
 ob_start();
 ?>
-<div class="w-100 bg-danger" style="position: relative;bottom:0px;justify-content: center;align-items: center; background-color: rgba(255,255,255,0.86); height: 90%">
+<div class=""  style="position: relative;bottom:0px;justify-content: center;align-items: center; height: 100%; ">
 
 
 
 
-    <form method="post" action="index.php?action=signup" id="form" class="d-flex justify-content-center w-100 bg-info">
-        <div class="col-2 bg-success"></div>
-        <div id="form2" class="col-8">
+    <form method="post" action="index.php?action=signup" id="form" class="d-flex justify-content-center w-100 h-100">
+        
+        <div id="form2" class="col-12">
             <!-- Modal --> 
             <div class="modal fade bg-info" id="exampleModalCenter" tabindex="-1" role="dialog"
                  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -102,7 +102,7 @@ ob_start();
             foreach ($datas as $data) { ?>
     
                 <!--      <input type="text" name="name[]" id="dd" title="coucou" value="<?= $data["name"] ?>" list="listName"> -->
-                <select class="selectpicker" name="name[]" data-live-search="true">
+                <select class="selectpicker form-control-lg show-tick col-sm-3half"   name="name[]" data-live-search="true">
                     <option value="" data-tokens="nada">nada</option>
                     <?php
                     foreach ($services as $service) {
@@ -119,7 +119,7 @@ ob_start();
                 <!--         <input type="text" name="firstname[]" id="dd" title="coucou"
                    value="<?= $data["firstname"] ?> <?= $data["lastname"] ?>" list="listUserFirst"> -->
 
-                <select class="selectpicker" name="firstname[]" data-live-search="true" id="select_id" >
+                <select class="selectpicker form-control-lg col-sm-3half" name="firstname[]" data-live-search="true" id="select_id" >
                     <option value="" data-tokens="nada">nada</option>
                     <?php
                     foreach ($users as $user) {
@@ -142,15 +142,13 @@ ob_start();
                 <br>
             <?php } ?>
         </div>
-        <div class="col-2 bg-success"></div>
+     
     </form>
-        
-   <br>
-        <button id="confirmer" class="btn btn-primary"
-                style="background-color: #00549b; height: 40px; width: 90%;margin-left: 15px; margin-right: 100px; color: white;text-align: center">
+    <button id="confirmer" class="btn btn-primary btn-lg"
+                style="background-color: #00549b; height: 50px; width: 90%;margin-left: 15px; margin-right: 100px; color: white;text-align: center">
             Confirmer
-        </button>
-
+    </button>
+    
    
 
     <datalist id="listName">

@@ -1,3 +1,22 @@
 .iptG{
     border-radius: 5px;
 }
+
+.col-sm-3half, .col-sm-8half {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+@media (min-width: 576px) {
+    .col-sm-3half, .col-sm-8half {
+        float: left;
+    }
+    .col-sm-3half {
+        width: 49.75%;
+    }
+    .col-sm-8half {
+        width: 70.83333333%;
+    }
+}

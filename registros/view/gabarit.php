@@ -32,11 +32,11 @@
 
 </head>
 
-<body style="background-color: #D1D3D4; align-content: center; height:100%; width:100%; " class=" d-flex justify-content-center bg-info ">
-<div id="sub-body" class="bg-warning h-100 w-100" style="  border-style: solid;background-color: #ffffff ;border-color: #00549b;border-width: 10px;position: absolute; bottom:0px">
+<body class="d-flex #808080 justify-content-center">
+<div id="sub-body" class="h-100 col-12" style="position: absolute;">
     <div style="width: 100%;"
          class="shadow p-3 bg-white rounded  d-flex justify-content-center">
-        <p style="text-align: center; width:400px;font-family: 'Arial' ;color: #00549b;top: 5px;left: 20px; font-size: 30px; bottom:0px">
+        <p style="text-align: center; width:400px;font-family: 'Arial' ;color: #808080;top: 5px;left: 20px; font-size: 30px; bottom:0px">
             ASSISTENCE EEANJESUS</p>
         <div style="position: absolute; top: 50px">
 
@@ -55,7 +55,10 @@
         </div>
        
     </div>
+    <div class="row " style="background-color:  #808080">
+    
     <?= $content2; ?>
+    </div>
 </div>
 
 </body>
